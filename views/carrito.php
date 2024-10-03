@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carrito de Compras</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
-  <style>
+<style>
     body {
       background-color: black;
       color: white;
@@ -56,14 +49,7 @@
       border-radius: 4px;
       transition: all 0.3s ease;
     }
-    .footer {
-      background-color: #000000;
-      color: #fff;
-      padding: 20px 0;
-    }
-    .footer a {
-      color: #fff;
-    }
+
     /* Estilo para los botones activos */
     .navbar-nav .nav-item .nav-link.active {
       color: rgb(255, 0, 0) !important; 
@@ -71,54 +57,7 @@
       background-color: rgb(0, 0, 0) !important;
     }
   </style>
-</head>
-<body>
-  <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" href="../index.html">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Dragon_Ball_Z_Logo_A.png" alt="Logo Dragon Ball Z">
-  CERRAR SESION</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="paginaprincipal.html" style="margin-right:5px;margin-top:15px;">TIENDA</a>
-      </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" href="novedades.html" style="margin-right:5px;margin-top:15px;">NOVEDADES</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="nosotros.html" style="margin-right:5px;margin-top:15px;">NOSOTROS</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="cantidad.html" style="margin-right:5px;margin-top:15px;">CANTIDAD</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="contactanos.html" style="margin-right:5px;margin-top:15px;">CONTACTENOS</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="perfil.html" style="margin-right:5px;margin-top:15px;">PERFIL</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="ubicacion.html" style="margin-right:5px;margin-top:15px;">UBICACIÓN</a>
-      </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" href="rutadeenvio.html" style="margin-right:5px;margin-top:15px;">RUTA DE ENVIO</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="libroreclamaciones.html" style="margin-right:5px;margin-top:15px;">LIBRO DE RECLAMACIONES</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="comentarios.html" style="margin-top:15px;">COMENTARIOS</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
+  
   <div class="container my-5">
     <h1>Carrito de Compras</h1>
 
@@ -169,8 +108,8 @@
               </div>
           </div>
           
-            <a href="pagofactura.html" class="btn btn-primary">PROCEDER EL PAGO</a> <br> <br>
-            <a href="paginaprincipal.html" class="btn btn-secondary">VOLVER A ELEGIR PRODUCTO</a>
+            <a href="<?php echo BASE_URL ?>pagofactura" class="btn btn-primary">PROCEDER EL PAGO</a> <br> <br>
+            <a href="<?php echo BASE_URL ?>producto" class="btn btn-secondary">VOLVER A ELEGIR PRODUCTO</a>
           </div>
         </div>
       </div>
@@ -245,5 +184,3 @@
 
     updateCart();
   </script>
-</body>
-</html>
