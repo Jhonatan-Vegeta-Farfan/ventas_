@@ -107,3 +107,19 @@
       </div>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const successModal = document.getElementById('successModal');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      // Aquí puedes agregar la lógica para enviar el formulario
+      // y mostrar el modal de éxito
+      $('#successModal').modal('show');
+      form.reset();
+    });
+  </script>
