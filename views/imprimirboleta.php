@@ -106,7 +106,7 @@
   </table>
   
   
-  <a href="<?php echo BASE_URL ?>respuestadeimprecion" class="btn btn-warning return-btn">imprimir</a>
+  <a href="<?php echo BASE_URL ?>pagofactura" class="btn btn-warning return-btn">imprimir</a>
   
   <div id="message">La boleta se ha impreso correctamente.</div>
   
