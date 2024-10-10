@@ -1,5 +1,3 @@
-
-
 <button onclick="printReceipt()">Descargar Boleta</button>
 
 <div id="myModal" class="modal">
