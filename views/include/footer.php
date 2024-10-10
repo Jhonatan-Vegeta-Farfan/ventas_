@@ -1,3 +1,20 @@
+<style>
+    .footer {
+      background-color: #000000;
+      color: #fff;
+      padding: 20px 0;
+    }
+    .footer a {
+      color: #fff;
+    }
+    /* Estilo para los botones activos */
+    .navbar-nav .nav-item .nav-link.active {
+      color: rgb(255, 0, 0) !important; 
+      font-weight: bold;
+      background-color: rgb(0, 0, 0) !important;
+    }
+  </style>
+
 <!-- Footer -->
 <footer class="footer">
   <div class="container">
@@ -9,7 +26,7 @@
           <div class="form-group">
             <input type="email" class="form-control" placeholder="Ingresa tu correo...">
           </div>
-          <a href="" class="btn btn-primary">ENVIAR</a>
+          <a href="contactanos.html" class="btn btn-primary">ENVIAR</a>
         </form>
       </div>
       <div class="col-md-6">
@@ -38,7 +55,6 @@
         </a>
       </div>
     </div>
-    
   </div>
 </footer>
 
@@ -58,3 +74,6 @@
     });
   });
 </script>
+
+</body>
+</html>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Polo Lewis Z Negro</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+  <title>Tienda Dragon Ball Z</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body {
       background-color: #000;
@@ -56,7 +56,7 @@
    
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" href="../index.html">
+  <a class="navbar-brand" href="<?php echo BASE_URL ?> login">
     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Dragon_Ball_Z_Logo_A.png" alt="Logo Dragon Ball Z">
   CERRAR SESION</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +67,6 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo BASE_URL ?>producto" style="margin-right:5px;margin-top:15px;">TIENDA</a>
       </li>
-      
       <li class="nav-item">
         <a class="nav-link" href="<?php echo BASE_URL ?>novedades" style="margin-right:5px;margin-top:15px;">NOVEDADES</a>
       </li>

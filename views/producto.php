@@ -8,7 +8,7 @@
       <p>Un polo diseñado únicamente pensando en ti</p>
       <p>S/130.00</p>
       <p>TALLAS DISPONIBLES: S, M, L, XL, XXL</p>
-      <a href="<?php echo BASE_URL ?> detalleproducto" class="btn btn-primary">Agregar al carrito</a>
+      <a href="<?php echo BASE_URL ?> carrito" class="btn btn-primary">Agregar al carrito</a>
     </div>
     <div class="col-md-3 product mb-4">
       <a href="<?php echo BASE_URL ?> detalleproducto">
@@ -17,7 +17,7 @@
       <p>Poleras que los personajes de Dragon Ball Z son uno de los grandes buscados</p>
       <p>S/130.00</p>
       <p>TALLAS DISPONIBLES: S, M, L, XL, XXL</p>
-      <a href="<?php echo BASE_URL ?> detalleproducto" class="btn btn-primary">Agregar al carrito</a>
+      <a href="<?php echo BASE_URL ?> carrito" class="btn btn-primary">Agregar al carrito</a>
     </div>
     <div class="col-md-3 product mb-2">
       <a href="">
@@ -26,7 +26,7 @@
       <p>Casaca diseñado con los personajes de Dragon Ball Z son uno de los grandes buscados</p>
       <p>S/130.00</p>
       <p>TALLAS DISPONIBLES: S, M, L, XL, XXL</p>
-      <a href="<?php echo BASE_URL ?> detalleproducto" class="btn btn-primary">Agregar al carrito</a>
+      <a href="<?php echo BASE_URL ?> carrito" class="btn btn-primary">Agregar al carrito</a>
     </div>
     <div class="col-md-3 product mb-2">
       <a href="<?php echo BASE_URL ?> detalleproducto">
@@ -35,7 +35,7 @@
       <p>Un polo diseñado para los que suelen utilizar las mangas largas</p>
       <p>S/130.00</p>
       <p>TALLAS DISPONIBLES: S, M, L, XL, XXL</p>
-      <a href="<?php echo BASE_URL ?> detalleproducto" class="btn btn-primary">Agregar al carrito</a>
+      <a href="<?php echo BASE_URL ?> carrito" class="btn btn-primary">Agregar al carrito</a>
     </div>
     <div class="col-md-3 product mb-2">
       <a href="<?php echo BASE_URL ?> detalleproducto">
@@ -44,7 +44,7 @@
       <p>Un polo diseñado únicamente pensando en ti</p>
       <p>S/130.00</p>
       <p>TALLAS DISPONIBLES: S, M, L, XL, XXL</p>
-      <a href="<?php echo BASE_URL ?> detalleproducto" class="btn btn-primary">Agregar al carrito</a>
+      <a href="<?php echo BASE_URL ?> carrito" class="btn btn-primary">Agregar al carrito</a>
     </div>
     <div class="col-md-3 product mb-2">
       <a href="<?php echo BASE_URL ?> detalleproducto">
@@ -53,7 +53,7 @@
       <p>Poleras que los personajes de Dragon Ball Z son uno de los grandes buscados</p>
       <p>S/130.00</p>
       <p>TALLAS DISPONIBLES: S, M, L, XL, XXL</p>
-      <a href="<?php echo BASE_URL ?> detalleproducto" class="btn btn-primary">Agregar al carrito</a>
+      <a href="<?php echo BASE_URL ?> carrito" class="btn btn-primary">Agregar al carrito</a>
     </div>
     <div class="col-md-3 product mb-2">
       <a href="<?php echo BASE_URL ?> detalleproducto">
@@ -62,7 +62,7 @@
       <p>Polos que los personajes de Dragon Ball Z son uno de los grandes buscados</p>
       <p>S/130.00</p>
       <p>TALLAS DISPONIBLES: S, M, L, XL, XXL</p>
-      <a href="<?php echo BASE_URL ?> detalleproducto" class="btn btn-primary">Agregar al carrito</a>
+      <a href="<?php echo BASE_URL ?> carrito" class="btn btn-primary">Agregar al carrito</a>
     </div>
     <div class="col-md-3 product mb-4">
       <a href="<?php echo BASE_URL ?> detalleproducto">
@@ -71,7 +71,7 @@
       <p>Un polo diseñado para los que suelen utilizar las mangas largas</p>
       <p>S/130.00</p>
       <p>TALLAS DISPONIBLES: S, M, L, XL, XXL</p>
-      <a href="<?php echo BASE_URL ?> detalleproducto" class="btn btn-primary">Agregar al carrito</a>
+      <a href="<?php echo BASE_URL ?> carrito" class="btn btn-primary">Agregar al carrito</a>
     </div>
   </div>
 </div>
