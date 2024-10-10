@@ -56,8 +56,6 @@
       text-decoration: none;
       animation: blink 2s infinite;
     }
-
-
   </style>
 
 <h1>Boleta de Pago</h1>
