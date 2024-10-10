@@ -56,7 +56,7 @@
    
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" href="<?php echo BASE_URL ?> login">
+  <a class="navbar-brand" href="<?php echo BASE_URL ?>inicio">
     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Dragon_Ball_Z_Logo_A.png" alt="Logo Dragon Ball Z">
   CERRAR SESION</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
