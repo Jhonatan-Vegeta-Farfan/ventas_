@@ -27,15 +27,8 @@
       background-color: #ff0000;
       color: #ffffff;
     }
-    .modal-content {
-      background-color: #000000;
-      color: #ffffff;
-      border-color: #ffffff;
-    }
+
     .modal-title {
-      color: #ffffff;
-    }
-    .modal-body, .modal-footer {
       color: #ffffff;
     }
     .img-logo {
