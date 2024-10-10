@@ -87,7 +87,7 @@
                     <input type="number" id="cantidad" class="form-control mx-2" value="1" min="1" style="width: 80px;" onchange="actualizarPrecio()">
                     <button class="btn btn-outline-secondary btn-sm" onclick="sumarCantidad()">+</button>
                 </div>
-                <a href="carrito.html" class="btn btn-danger mt-3">AÑADIR AL CARRITO</a>
+                <a href="<?php echo BASE_URL ?>carrito" class="btn btn-danger mt-3">AÑADIR AL CARRITO</a>
                 <p class="text-success mt-3">DELIVERY GRATIS en Huanta por compras mayores de S/299.00</p>
             </div>
         </div>
