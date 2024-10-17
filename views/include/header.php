@@ -52,6 +52,8 @@
     
   </style>
 </head>
+<Script> const base_url = '<?php echo BASE_URL; ?>'; 
+</Script>
 <body>
    
 <!-- Navbar -->
