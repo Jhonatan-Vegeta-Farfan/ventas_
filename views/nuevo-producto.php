@@ -1,7 +1,7 @@
-FORMULARIO DE REGISTRO PRODUCTO
-<form action="">
+<div>
+<form action="" class="from-control" id="frmRegistrar">
         <label for="">Codigo: </label>
-        <input type="text" id="codigo" name="codigo" class="form-control" id="frmRegistrar" required>
+        <input type="text" id="codigo" name="codigo" class="form-control" required>
     </div>
     <div>
         <label for="">Nombre: </label>
@@ -33,4 +33,5 @@ FORMULARIO DE REGISTRO PRODUCTO
     </div>
     <button type="button" class="btn btn-success" onclick="registrar_producto();">Registrar</button>
 </form>
+
 <script src="<?php echo BASE_URL ?>views/js/functions_producto.js"></script>
