@@ -22,8 +22,7 @@ if ($tipo=="registrar") {
             $arr_Respuesta = array('status'=>false,
             'mensaje'=>'Error, campos vacios');
         }else {
-            $arrProducto = $objProducto->registrarProducto($codigo, $nombre, $detalle, 
-            $precio, $stock, $categoria, $imagen, $proveedor);
+            $arrProducto = $objProducto->registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $imagen, $proveedor);
 
             if ($arrProducto->id) {
                 $arr_Respuesta = array('status'=>true,
