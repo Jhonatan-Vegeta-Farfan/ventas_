@@ -1,48 +1,39 @@
 <?php
-require_once('./model/productoModel.php');
+require_once('../model/productoModel.php');
 $tipo = $_REQUEST['tipo'];
 
-//instancio la clase modeloProducto
+//instancio la clase modelproducto
 $objProducto = new ProductoModel();
 
-
-if($tipo=="registrar"){
-    //print_r($POST);
-    if ($_POST);{
+if ($tipo=="registrar") {
+    //print_r($_POST);
+    if ($_POST) {
         $codigo = $_POST['codigo'];
         $nombre = $_POST['nombre'];
         $detalle = $_POST['detalle'];
         $precio = $_POST['precio'];
         $stock = $_POST['stock'];
-        $categoria = $_POST['categoria'];
+        $categoria = $_POST['idCategoria'];
         $imagen = $_POST['imagen'];
-        $proveedor = $_POST['proveedor'];
-        if ($codigo=="" || $nombre=="" || $detalle=="" || $precio=="" || $stock=="" || $categoria=="" || $fecha_v || $imagen=="" || $proveedor==""){
+        $proveedor = $_POST['idProveedor'];
+        if ($codigo=="" || $nombre=="" ||
+        $detalle=="" || $precio=="" || $stock=="" || $categoria=="" || $imagen=="" || $proveedor=="") {
             //respuesta
-            $arr_Respuesta = array
-            ('status'=>false,
+            $arr_Respuesta = array('status'=>false,
             'mensaje'=>'Error, campos vacios');
-        }else{
-            $arrProducto = 
-            $objProducto->resgistrarProducto
-            ($codigo, $nombre, $detalle, $precio, $stock, $categoria, $imagen, $proveedor); 
+        }else {
+            $arrProducto = $objProducto->registrarProducto($codigo, $nombre, $detalle, 
+            $precio, $stock, $categoria, $imagen, $proveedor);
+
+            if ($arrProducto->id) {
+                $arr_Respuesta = array('status'=>true,
+                'mensaje'=>'Registro Exitoso');
+            }else{
+                $arr_Respuesta = array('status'=>false,
+                'mensaje'=>'Error al registrar producto');
+            }
+            echo json_encode($arr_Respuesta);
         }
     }
 }
-if($tipo=="listar"){
-
-}
-
-if($tipo=="ver"){
-    
-}
-
-if($tipo=="actualizar"){
-    
-}
-
-if($tipo=="eliminar"){
-    
-}
-
 ?>
