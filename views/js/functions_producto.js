@@ -39,7 +39,16 @@ async function listar_categorias(){
     try{
         let respuesta =await fetch(base_url+'controller/Categoria.php?tipo=listar');
 
-        console.log(respuesta);
+        json = await respuesta.json();
+        if (json.status){
+            let datos = json.contenido;
+            datos.FormEach(Element =>{
+                $('#categoria').append($('<option />'),{
+                    Text: `${element.nombre}`,
+                    value: `${element.id}`
+                });
+            });
+        }
 
     } catch (e){
         console.log("Error al cargar categoria"+e);
