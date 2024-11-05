@@ -48,7 +48,7 @@
           <p class="card-text">Un polo diseñado únicamente pensando en ti.</p>
           <p class="card-text font-weight-bold">S/130.00</p>
           <p class="card-text">TALLAS DISPONIBLES: S, M, L, XL, XXL</p>
-          <a href="carrito.html" class="btn btn-primary">Añadir al Carrito</a>
+          <a href="<?php echo BASE_URL ?>carrito" class="btn btn-primary">Agregar al carrito</a>
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
           <p class="card-text">Poleras que los personajes de Dragon Ball Z son uno de los grandes buscados.</p>
           <p class="card-text font-weight-bold">S/130.00</p>
           <p class="card-text">TALLAS DISPONIBLES: S, M, L, XL, XXL</p>
-          <a href="carrito.html" class="btn btn-primary">Añadir al Carrito</a>
+          <a href="<?php echo BASE_URL ?>carrito" class="btn btn-primary">Agregar al carrito</a>
         </div>
       </div>
     </div>
@@ -74,7 +74,7 @@
           <p class="card-text">Polos que los personajes de Dragon Ball Z son uno de los grandes buscados.</p>
           <p class="card-text font-weight-bold">S/130.00</p>
           <p class="card-text">TALLAS DISPONIBLES: S, M, L, XL, XXL</p>
-          <a href="carrito.html" class="btn btn-primary">Añadir al Carrito</a>
+          <a href="<?php echo BASE_URL ?>carrito" class="btn btn-primary">Agregar al carrito</a>
         </div>
       </div>
     </div>
@@ -87,7 +87,7 @@
           <p class="card-text">Un polo diseñado para los que suelen utilizar las mangas largas.</p>
           <p class="card-text font-weight-bold">S/130.00</p>
           <p class="card-text">TALLAS DISPONIBLES: S, M, L, XL, XXL</p>
-          <a href="carrito.html" class="btn btn-primary">Añadir al Carrito</a>
+          <a href="<?php echo BASE_URL ?>carrito" class="btn btn-primary">Agregar al carrito</a>
         </div>
       </div>
     </div>

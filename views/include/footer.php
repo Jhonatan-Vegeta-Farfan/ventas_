@@ -1,23 +1,40 @@
 <style>
-    .footer {
-      background-color: #000000;
-      color: #fff;
-      padding: 20px 0;
-    }
-    .footer a {
-      color: #fff;
-    }
-    /* Estilo para los botones activos */
-    .navbar-nav .nav-item .nav-link.active {
-      color: rgb(255, 0, 0) !important; 
-      font-weight: bold;
-      background-color: rgb(0, 0, 0) !important;
-    }
-  </style>
+.footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px 0;
+    width: 100%; /* Asegura que el ancho sea del 100% */
+    position: relative; /* Asegura que esté en la posición correcta */
+    left: 0; /* Alinea al borde izquierdo */
+    right: 0; /* Alinea al borde derecho */
+    margin-left: calc(-50vw + 50%); /* Extiende el footer a borde a borde */
+    margin-right: calc(-50vw + 50%); /* Extiende el footer a borde a borde */
+}
+
+.footer a {
+    color: #fff;
+}
+
+.footer .form-group input {
+    width: 70%; /* Cambiado a un ancho más pequeño */
+    max-width: 300px; /* Limitar el ancho máximo */
+}
+
+.footer .social-icons img {
+    max-width: 50px;
+    margin: 0 10px; /* Añadir espacio entre iconos */
+}
+
+.footer .copyright {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+}
+</style>
 
 <!-- Footer -->
 <footer class="footer">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-6">
         <h5>Boletín</h5>
@@ -37,22 +54,27 @@
       </div>
     </div>
     <div class="row">
-      <div class="col text-center">
+      <div class="col text-center social-icons">
         <a href="https://web.facebook.com/factor.anime?locale=es_LA" target="_blank">
-          <img src="https://static.vecteezy.com/system/resources/previews/016/716/447/non_2x/facebook-icon-free-png.png" alt="Facebook" class="img-fluid" style="max-width: 50px;">
+          <img src="https://static.vecteezy.com/system/resources/previews/016/716/447/non_2x/facebook-icon-free-png.png" alt="Facebook">
         </a>
         <a href="https://www.instagram.com/viltug.cl/reel/C8sFYKQuVoL/" target="_blank">
-          <img src="https://static.vecteezy.com/system/resources/previews/018/930/691/original/instagram-logo-instagram-icon-transparent-free-png.png" alt="Instagram" class="img-fluid" style="max-width: 50px;">
+          <img src="https://static.vecteezy.com/system/resources/previews/018/930/691/original/instagram-logo-instagram-icon-transparent-free-png.png" alt="Instagram">
         </a>
         <a href="https://x.com/dragonballz" target="_blank">
-          <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-twitter-logo-icon-png-image_3570310.png" alt="Twitter" class="img-fluid" style="max-width: 50px;">
+          <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-twitter-logo-icon-png-image_3570310.png" alt="Twitter">
         </a>
         <a href="https://www.youtube.com/@anzu361" target="_blank">
-          <img src="https://pngfre.com/wp-content/uploads/You-Tube-14.png" alt="YouTube" class="img-fluid" style="max-width: 50px;">
+          <img src="https://pngfre.com/wp-content/uploads/You-Tube-14.png" alt="YouTube">
         </a>
         <a href="#" target="_blank">
-          <img src="https://www.keyweo.com/wp-content/uploads/2022/03/el-logo-g-de-google.png" alt="Google" class="img-fluid" style="max-width: 50px;">
+          <img src="https://www.keyweo.com/wp-content/uploads/2022/03/el-logo-g-de-google.png" alt="Google">
         </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center copyright">
+        <p>&copy; 2024 Dragon Ball Z Confecciones S.A.C. Todos los derechos reservados.</p>
       </div>
     </div>
   </div>
@@ -62,25 +84,20 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
 <!-- Script personalizado para activar el cambio de estilo al hacer clic -->
 <script>
-  // JavaScript para activar el cambio de estilo al hacer clic
-  const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-  
-  navLinks.forEach(link => {
+const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+navLinks.forEach(link => {
     link.addEventListener('click', function() {
-      navLinks.forEach(link => link.classList.remove('active'));
-      this.classList.add('active');
+        navLinks.forEach(link => link.classList.remove('active'));
+        this.classList.add('active');
     });
-  });
+});
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script
      src="https://code.jquery.com/jquery-3.7.1.js"
      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-     crossorigin="anonymous"></script> 
-     
-</body>
-</html>
+     crossorigin="anonymous"></script>
