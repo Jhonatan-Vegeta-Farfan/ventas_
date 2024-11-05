@@ -67,6 +67,11 @@
       background-color: darkgray; /* Color al pasar el ratón */
       border-color: darkgray; /* Borde al pasar el ratón */
     }
+
+    /* Estilo para el input de cantidad */
+    .form-control {
+      color: black; /* Color del texto del input */
+    }
 </style>
 
 <div class="container my-5">

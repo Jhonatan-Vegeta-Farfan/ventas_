@@ -80,10 +80,6 @@
         </a>
       </div>
     </div>
-    <div class="row">
-      <div class="col text-center copyright">
-        <p>&copy; 2024 Dragon Ball Z Confecciones S.A.C. Todos los derechos reservados.</p>
-      </div>
     </div>
   </div>
 </footer>
