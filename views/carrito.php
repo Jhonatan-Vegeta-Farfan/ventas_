@@ -15,15 +15,15 @@
       background-color: rgb(0, 0, 0);
       border-color: rgb(0, 0, 0);
     }
+    .btn-danger {
+      background-color: rgb(0, 0, 0);
+      border-color: rgb(0, 0, 0);
+    }
     .card-body {
       background-color: rgb(255, 0, 0);
     }
     .input-group-text, .form-control {
       background-color: red;
-    }
-    .btn-danger {
-      background-color: rgb(0, 0, 0);
-      border-color: rgb(0, 0, 0);
     }
     #bank-info {
       background-color: red;
@@ -56,11 +56,21 @@
       font-weight: bold;
       background-color: rgb(0, 0, 0) !important;
     }
-  </style>
-  
-  <div class="container my-5">
-    <h1>Carrito de Compras</h1>
 
+    /* Nuevos estilos para los botones de cantidad */
+    .btn-outline-secondary {
+      color: white; /* Color del texto */
+      background-color: black; /* Fondo negro */
+      border-color: black; /* Borde negro */
+    }
+    .btn-outline-secondary:hover {
+      background-color: darkgray; /* Color al pasar el ratón */
+      border-color: darkgray; /* Borde al pasar el ratón */
+    }
+</style>
+
+<div class="container my-5">
+    <h1>Carrito de Compras</h1>
     <div class="row">
       <div class="col-md-8">
         <table class="table">
@@ -75,7 +85,6 @@
             </tr>
           </thead>
           <tbody id="cart-items">
-
           </tbody>
         </table>
       </div>
@@ -106,19 +115,18 @@
                   <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Banco C" class="img-thumbnail" style="cursor: pointer; width: 80px; height: 80px;" onclick="selectBank('VISA', 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Visa_Logo.png/640px-Visa_Logo.png')">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1200px-Mastercard-logo.svg.png" alt="Banco D" class="img-thumbnail" style="cursor: pointer; width: 80px; height: 80px;" onclick="selectBank('MASTERCARD', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/2560px-MasterCard_Logo.svg.png')">
               </div>
-          </div>
-          
+            </div>
+            
             <a href="<?php echo BASE_URL ?>pagofactura" class="btn btn-primary">PROCEDER EL PAGO</a> <br> <br>
             <a href="<?php echo BASE_URL ?>producto" class="btn btn-secondary">VOLVER A ELEGIR PRODUCTO</a>
           </div>
         </div>
       </div>
     </div>
-  </div>
+</div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-  <script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+<script>
     const cartItems = [
       { name: 'Polo Lewis Z Negro', price: 150.00, quantity: 1, image: 'https://richstore.com.pe/wp-content/uploads/2022/06/Dragon-Boll-3.jpg' },
       { name: 'Camisa Blanca', price: 170.00, quantity: 2, image: 'https://tiendanebula.net/cdn/shop/products/947d03e9b59dc9beaf0bacaf27b020c1_grande.jpg?v=1614530255' },
@@ -183,4 +191,4 @@
     }
 
     updateCart();
-  </script>
+</script>

@@ -30,10 +30,18 @@
     text-align: center;
     font-size: 14px; /* Tamaño de fuente más pequeño */
 }
+
+/* Estilo para la línea de separación */
+.footer-separator {
+    height: 4px; /* Altura de la línea */
+    background-color: #ff0000; /* Color rojo */
+    margin-bottom: 20px; /* Espacio debajo de la línea */
+}
 </style>
 
 <!-- Footer -->
 <footer class="footer">
+  <div class="footer-separator"></div> <!-- Línea de separación -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6">
@@ -48,7 +56,7 @@
       </div>
       <div class="col-md-6">
         <h5>Configuración de la tienda</h5>
-        <p>Dragon ball Z confecciones S.A.C., 854 Av, San Martin, Huanta, PERU</p>
+        <p>Dragon Ball Z confecciones S.A.C., 854 Av, San Martin, Huanta, PERU</p>
         <p>Llámamos ahora: +51 956 654 357</p>
         <p>dragonballZ@gmail.com</p>
       </div>
