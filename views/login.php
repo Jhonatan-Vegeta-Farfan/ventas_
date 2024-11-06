@@ -44,7 +44,7 @@
                         <input type="password" class="form-control" id="contrasena" placeholder="Ingresa tu Contraseña" required>
                     </div>
                     <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    <a href="<?php echo BASE_URL ?>producto" class="btn btn-success">Iniciar Sesion</a>
                         <a href="<?php echo BASE_URL ?>olvidastetucontraseña" class="btn btn-secondary">¿Olvidaste tu contraseña?</a>
                         <a href="<?php echo BASE_URL ?>registrarse" class="btn btn-success">Registrarse</a>
                     </div>
