@@ -35,6 +35,7 @@ async function registrarProducto(){
 
 }
 
+//se trata con jquery
 async function listar_categorias(){
     try{
         let respuesta =await fetch(base_url+'controller/Categoria.php?tipo=listar');
@@ -42,15 +43,64 @@ async function listar_categorias(){
         json = await respuesta.json();
         if (json.status){
             let datos = json.contenido;
-            datos.FormEach(Element =>{
-                $('#categoria').append($('<option />'),{
-                    Text: `${element.nombre}`,
+            datos.forEach(element => {
+                $('#idCategoria').append($('<option />',{
+                    text: `${element.nombre}`,
                     value: `${element.id}`
-                });
+                }));
             });
+            
         }
 
     } catch (e){
         console.log("Error al cargar categoria"+e);
     }
+    }
+
+    
+    /* //de otra manera si sale error
+   
+    async function listar_categorias(){
+    try{
+        let respuesta =await fetch(base_url+'controller/Categoria.php?tipo=listar');
+        json = await respuesta.json();
+        if (json.status){
+            let datos = json.contenido;
+            let contenido_select += '<option value=""' + element.id +'">' + element.nombre + '</option>';
+            datos.forEach(element => {
+                $('#idCategoria').append($('<option />',{
+                    text: `${element.nombre}`,
+                    value: `${element.id}`
+                }));
+            });
+            document.getElementById('Categoria').innerHTML = contenido_select;
+            
+        }
+
+    } catch (e){
+        console.log("Error al cargar categoria"+e);
+    }
+    } */
+   
+    async function listar_personas() {
+        try {
+            let respuesta = await fetch(base_url+'controller/Proveedor.php?tipo=listar');
+            json = await respuesta.json();
+            if (json.status) {
+                let datos = json.contenido;
+                let contenido_select = '<option value="">Seleccionar</option>';
+                datos.forEach(element => {
+                    contenido_select += '<option value="'+ element.id +'">'+element.razon_social+'</option>';
+                 /* $('#idCategoria').append($('<option/>',{
+                      text: ${element.Nombre},
+                      value: ${element.Id},
+                    }));    */
+                });
+                document.getElementById('idProveedor').innerHTML = contenido_select;
+            }
+    
+            console.log(respuesta);
+        } catch (e) {
+            console.log("Error al cargar personas" + e);
+        }
     }
