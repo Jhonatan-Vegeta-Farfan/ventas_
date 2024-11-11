@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tienda Dragon Ball Z</title>
+  <title>Tienda VEGETA STOR</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body {
@@ -57,51 +57,63 @@
       margin-top: 10px; /* Espacio superior */
       margin-bottom: 20px; /* Espacio inferior */
     }
+
+    /* Estilo para el contenido */
+    .content {
+      padding-top: 80px; /* Espacio para que el contenido no quede oculto detrás del navbar */
+    }
+
+    /* Asegura que los botones no se distorsionen */
+    .navbar-nav .nav-item {
+      margin: 0 5px; /* Espaciado horizontal */
+    }
   </style>
 </head>
 <script> const base_url = '<?php echo BASE_URL; ?>'; </script>
 <body>
    
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" href="<?php echo BASE_URL ?>login">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Dragon_Ball_Z_Logo_A.png" alt="Logo Dragon Ball Z">
-    CERRAR SESION
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <a class="navbar-brand" href="<?php echo BASE_URL ?>producto">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Dragon_Ball_Z_Logo_A.png" alt="Logo Dragon Ball Z" class="logo">
   </a>
+  <div class="ml-auto">
+    <a class="btn btn-danger" href="<?php echo BASE_URL ?>login">CERRAR SESION</a>
+  </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo BASE_URL ?>producto" style="margin-right:5px;margin-top:15px;">TIENDA</a>
+        <a class="nav-link" href="<?php echo BASE_URL ?>producto">TIENDA</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo BASE_URL ?>novedades" style="margin-right:5px;margin-top:15px;">NOVEDADES</a>
+        <a class="nav-link" href="<?php echo BASE_URL ?>novedades">NOVEDADES</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo BASE_URL ?>nosotros" style="margin-right:5px;margin-top:15px;">NOSOTROS</a>
+        <a class="nav-link" href="<?php echo BASE_URL ?>nosotros">NOSOTROS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo BASE_URL ?>cantidad" style="margin-right:5px;margin-top:15px;">CANTIDAD</a>
+        <a class="nav-link" href="<?php echo BASE_URL ?>cantidad">CANTIDAD</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo BASE_URL ?>contactanos" style="margin-right:5px;margin-top:15px;">CONTACTENOS</a>
+        <a class="nav-link" href="<?php echo BASE_URL ?>contactanos">CONTACTENOS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo BASE_URL ?>perfil" style="margin-right:5px;margin-top:15px;">PERFIL</a>
+        <a class="nav-link" href="<?php echo BASE_URL ?>perfil">PERFIL</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo BASE_URL ?>ubicacion" style="margin-right:5px;margin-top:15px;">UBICACIÓN</a>
+        <a class="nav-link" href="<?php echo BASE_URL ?>ubicacion">UBICACIÓN</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo BASE_URL ?>rutadeenvio" style="margin-right:5px;margin-top:15px;">RUTA DE ENVIO</a>
+        <a class="nav-link" href="<?php echo BASE_URL ?>rutadeenvio">RUTA DE ENVIO</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo BASE_URL ?>libroreclamaciones" style="margin-right:5px;margin-top:15px;">LIBRO DE RECLAMACIONES</a>
+        <a class="nav-link" href="<?php echo BASE_URL ?>libroreclamaciones">LIBRO DE RECLAMACIONES</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo BASE_URL ?>comentarios" style="margin-top:15px;">COMENTARIOS</a>
+        <a class="nav-link" href="<?php echo BASE_URL ?>comentarios">COMENTARIOS</a>
       </li>
     </ul>
   </div>
@@ -110,7 +122,10 @@
 <!-- Línea de separación -->
 <div class="separator"></div>
 
-<!-- Aquí comienza el contenido principal de la página -->
+<!-- Contenido principal de la página -->
+<div class="content">
+  <!-- Aquí comienza el contenido principal de la página -->
+</div>
 
 <!-- Scripts de Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
