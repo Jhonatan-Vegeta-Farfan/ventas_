@@ -1,7 +1,7 @@
 <?php
-require_once "../libreria/conexcion.php";
+require_once "../library/conexion.php";
 
-class ComprasModel {
+class CompraModel {
     private $conexion;
 
     function __construct() {
@@ -9,23 +9,9 @@ class ComprasModel {
         $this->conexion = $this->conexion->connect();
     }
 
-    public function registrarCompra($id_producto, $cantidad, $precio, $id_trabajador) {
-        $sql = $this->conexion->prepare("INSERT INTO compras (id_producto, cantidad, precio, id_trabajador) VALUES (?, ?, ?, ?)");
-        $sql->bind_param("iids", $id_producto, $cantidad, $precio, $id_trabajador);
-        
-        if ($sql->execute()) {
-            return (object) [
-                'id' => $this->conexion->insert_id,
-                'status' => true
-            ];
-        } else {
-            return (object) [
-                'id' => null,
-                'status' => false
-            ];
-        }
+    public function registrarCompra($producto, $cantidad, $precio, $trabajador) {
+        $sql = $this->conexion->query("CALL insertar_compra('{$producto}', '{$cantidad}', '{$precio}', '{$trabajador}')");
+        return $sql->fetch_object(); // No es necesario asignar a $sql de nuevo
     }
-
-    // You can add more methods related to purchases here
 }
 ?>
