@@ -1,96 +1,80 @@
-async function registrarUsuario() {
-    let nro_identidad = document.getElementById('nro_identidad').value;
-    let razon_social = document.querySelector('#razon_social').value;
-    let telefono = document.querySelector('#telefono').value;
-    let correo = document.querySelector('#correo').value;
-    let departamento = document.querySelector('#departamento').value;
-    let provincia = document.querySelector('#provincia').value;
-    let distrito = document.querySelector('#distrito').value;
-    let cos_postal = document.querySelector('#cos_postal').value;
-    let direccion = document.querySelector('#direccion').value;
-    let rol = document.querySelector('#rol').value;
-    let password = document.querySelector('#password').value;
-    let estado = document.querySelector('#estado').value;
-    let fecha_reg = document.querySelector('#fecha_reg').value;
-
-    if (nro_identidad == "" || razon_social == "" || telefono == "" || correo == "" || 
-        departamento == "" || provincia == "" || distrito == "" || cos_postal == "" || 
-        direccion == "" || rol == "" || password == "" || estado == "" || fecha_reg == "") {
-        alert("Error, campos vacíos");
+async function registrarProducto(){
+    let codigo = document.getElementById('codigo').values;
+    let nombre = document.querySelector('#nombre').value;
+    let detalle = document.querySelector('#detalle').value;
+    let precio = document.querySelector('#precio').value;
+    let stock = document.querySelector('#stock').value;
+    let categoria = document.querySelector('#idCategoria').value;
+    let imagen = document.querySelector('#imagen').value;
+    let proveedor = document.querySelector('#idProveedor').value;
+    if (codigo=="" || nombre=="" || detalle=="" || precio=="" || stock=="" || categoria=="" || imagen=="" || proveedor=="") {
+        alert("Error, campos vacios");
         return; 
     }
-
     try {
-        // Capturamos datos del formulario HTML
+        //capturamos datos del formulario html
         const datos = new FormData(frmRegistrar);
-        // Enviar datos hacia el controlador
-        let respuesta = await fetch(base_url + 'controller/Usuario.php?tipo=registrar', {
+        //enviar datos hacia el controlador
+        let respuesta = await fetch(base_url+'controller/Producto.php?tipo=registrar', {
             method: 'POST',
             mode: 'cors',
-            cache: 'no-cache',
+            cahe: 'no-cache',
             body: datos
         });
-        let json = await respuesta.json();
-        if (json.status) {
+        json = await respuesta.json();
+        if (json.status){
             swal("Registro", json.mensaje, "success");
-        } else {
+        }else{
             swal("Registro", json.mensaje, "error");
         }
 
         console.log(json);
     } catch (e) {
-        console.log("Oops, ocurrió un error: " + e);
+        console.log("Oops ocurrio un error"+e);
     }
+
 }
 
-async function listarDepartamentos() {
-    try {
-        let respuesta = await fetch(base_url + 'controller/Departamento.php?tipo=listar');
-        let json = await respuesta.json();
-        if (json.status) {
+async function listar_categorias(){
+    try{
+        let respuesta =await fetch(base_url+'controller/Categoria.php?tipo=listar');
+        json = await respuesta.json();
+        if (json.status){
             let datos = json.contenido;
             datos.forEach(element => {
-                $('#departamento').append($('<option />', {
+                $('#idCategoria').append($('<option />',{
                     text: `${element.nombre}`,
                     value: `${element.id}`
                 }));
             });
+            document.getElementById('Categoria').innerHTML = contenido_select;
+            
         }
-    } catch (e) {
-        console.log("Error al cargar departamentos: " + e);
-    }
-}
 
-async function listarProvincias() {
-    try {
-        let respuesta = await fetch(base_url + 'controller/Provincia.php?tipo=listar');
-        let json = await respuesta.json();
-        if (json.status) {
-            let datos = json.contenido;
-            let contenido_select = '<option value="">Seleccionar</option>';
-            datos.forEach(element => {
-                contenido_select += '<option value="' + element.id + '">' + element.nombre + '</option>';
-            });
-            document.getElementById('provincia').innerHTML = contenido_select;
-        }
-    } catch (e) {
-        console.log("Error al cargar provincias: " + e);
+    } catch (e){
+        console.log("Error al cargar categoria"+e);
     }
-}
-
-async function listarDistritos() {
-    try {
-        let respuesta = await fetch(base_url + 'controller/Distrito.php?tipo=listar');
-        let json = await respuesta.json();
-        if (json.status) {
-            let datos = json.contenido;
-            let contenido_select = '<option value="">Seleccionar</option>';
-            datos.forEach(element => {
-                contenido_select += '<option value="' + element.id + '">' + element.nombre + '</option>';
-            });
-            document.getElementById('distrito').innerHTML = contenido_select;
-        }
-    } catch (e) {
-        console.log("Error al cargar distritos: " + e);
     }
-}
+   
+    async function listar_personas() {
+        try {
+            let respuesta = await fetch(base_url+'controller/Proveedor.php?tipo=listar');
+            json = await respuesta.json();
+            if (json.status) {
+                let datos = json.contenido;
+                let contenido_select = '<option value="">Seleccionar</option>';
+                datos.forEach(element => {
+                    contenido_select += '<option value="'+ element.id +'">'+element.razon_social+'</option>';
+                 /* $('#idCategoria').append($('<option/>',{
+                      text: ${element.Nombre},
+                      value: ${element.Id},
+                    }));    */
+                });
+                document.getElementById('idProveedor').innerHTML = contenido_select;
+            }
+    
+            console.log(respuesta);
+        } catch (e) {
+            console.log("Error al cargar personas" + e);
+        }
+    }

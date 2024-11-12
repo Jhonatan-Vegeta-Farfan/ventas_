@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 
 require_once "../libreria/conexcion.php"; 
 

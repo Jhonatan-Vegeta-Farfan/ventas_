@@ -69,5 +69,6 @@
 
 <script src="<?php BASE_URL; ?>views/js/functions_persona.js"></script>
 <script>
-    listar_personas();
+        // Llama a listarPersonas si deseas mostrar la lista al cargar
+        listarPersonas();
 </script>

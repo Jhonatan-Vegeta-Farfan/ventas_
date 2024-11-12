@@ -4,9 +4,9 @@ class PersonaModel {
 
     public function __construct() {
         try {
-            $this->db = new PDO('mysql:host=localhost;dbname=sistema_ventas;charset=utf8', 'root', ''); // Cambia los datos de conexión
-            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
+            $this->db = new PDO('mysql:host=localhost;dbname=sistema_ventas;charset=utf8', 'root', '');
+            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // Cambiado a WARNING para menos severidad
+        } catch (Exception $e) {
             die('Error de conexión: ' . $e->getMessage());
         }
     }
@@ -27,16 +27,23 @@ class PersonaModel {
                 ':cos_postal' => $cos_postal,
                 ':direccion' => $direccion,
                 ':rol' => $rol,
-                ':password' => password_hash($password, PASSWORD_DEFAULT), // Asegurar la contraseña
+                ':password' => password_hash($password, PASSWORD_DEFAULT),
                 ':estado' => $estado,
                 ':fecha_reg' => $fecha_reg
             ]);
             return ['status' => true, 'mensaje' => 'Registro exitoso'];
-        } catch (PDOException $e) {
-            return ['status' => false, 'mensaje' => 'Error: ' . $e->getMessage()];
+        } catch (Exception $e) {
+            return ['status' => false, 'mensaje' => 'Error al registrar: ' . $e->getMessage()];
         }
     }
 
-    // Puedes agregar más métodos para listar, editar, etc.
+    public function listarPersonas() {
+        try {
+            $stmt = $this->db->query("SELECT * FROM persona");
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            return ['status' => false, 'mensaje' => 'Error al listar personas: ' . $e->getMessage()];
+        }
+    }
 }
 ?>

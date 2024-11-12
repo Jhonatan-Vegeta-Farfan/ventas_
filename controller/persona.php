@@ -25,6 +25,12 @@ switch ($tipo) {
         echo json_encode($resultado);
         break;
 
-    // Otros casos como listar, editar, etc. pueden ir aquí
+    case 'listar':
+        $personaModel = new PersonaModel();
+        $personas = $personaModel->listarPersonas();
+        echo json_encode($personas);
+        break;
+
+    // Otros casos como editar, etc. pueden ir aquí
 }
 ?>
