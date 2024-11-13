@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 async function registrar_categoria(){
     let nombre = document.getElementById('nombre').values;
     let detalle = document.querySelector('#detalle').value;
@@ -28,7 +27,7 @@ async function registrar_categoria(){
         console.log("Oops, ocurrio un error categoria"+e);
        }
     }
-=======
+
 document.addEventListener('DOMContentLoaded', function() {
     const listarCategorias = async () => {
         const response = await fetch('categoria.php?tipo=listar'); // Ajusta la ruta según sea necesario
@@ -76,4 +75,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     listarCategorias();
 });
->>>>>>> d8e2374adf36cf4948dd0986829692195d92bc03
+

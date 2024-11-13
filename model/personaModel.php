@@ -1,4 +1,5 @@
 <?php
+require_once "../libreria/conexcion.php";
 class PersonaModel {
     private $db;
 
