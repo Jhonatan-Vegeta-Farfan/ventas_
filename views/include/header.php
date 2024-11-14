@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -77,9 +79,6 @@
   <a class="navbar-brand" href="<?php echo BASE_URL ?>producto">
     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Dragon_Ball_Z_Logo_A.png" alt="Logo Dragon Ball Z" class="logo">
   </a>
-  <div class="ml-auto">
-    <a class="btn btn-danger" href="<?php echo BASE_URL ?>login">CERRAR SESION</a>
-  </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -111,6 +110,12 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo BASE_URL ?>libroreclamaciones">LIBRO DE RECLAMACIONES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo BASE_URL ?>comentarios">COMENTARIOS</a>
+      </li>
+      </li>
+      <li class="nav-item"><a onclick="cerrar_sesion();">CERRAR SESION</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo BASE_URL ?>comentarios">COMENTARIOS</a>

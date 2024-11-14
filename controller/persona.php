@@ -1,36 +1,44 @@
 <?php
-require_once(__DIR__ . '/../model/personaModel.php');
+require_once('../model/personaModel.php');
+$tipo = $_REQUEST['tipo'];
 
-$tipo = $_GET['tipo'] ?? '';
+//instancio la clase modeloPersona
+$objPersona = new PersonaModel();
 
-switch ($tipo) {
-    case 'registrar':
-        $nro_identidad = $_POST['nro_identidad'];
-        $razon_social = $_POST['razon_social'];
-        $telefono = $_POST['telefono'];
-        $correo = $_POST['correo'];
-        $departamento = $_POST['departamento'];
-        $provincia = $_POST['provincia'];
-        $distrito = $_POST['distrito'];
-        $cos_postal = $_POST['cos_postal'];
-        $direccion = $_POST['direccion'];
-        $rol = $_POST['rol'];
-        $password = $_POST['password'];
-        $estado = $_POST['estado'];
-        $fecha_reg = $_POST['fecha_reg'];
+if ($tipo=="registrar"){
+//print_r($_POST);
+if ($_POST) {
+    $nro_identidad = $_POST['nro_identidad'];
+    $razon_social = $_POST['razon_social'];
+    $telefono = $_POST['telefono'];
+    $correo = $_POST['correo'];
+    $departamento = $_POST['departamento'];
+    $provincia = $_POST['provincia'];
+    $distrito = $_POST['distrito'];
+    $cos_postal = $_POST['cos_postal'];
+    $direccion = $_POST['direccion'];
+    $rol = $_POST['rol'];
+// Asegúrate de usar la variable correcta para la contraseña
+$password = $_POST['password']; // Cambiado de $dni a $password
+$secure_password = password_hash($password, PASSWORD_DEFAULT); // Hasheando la contraseña
+    
+    $estado = $_POST['estado'];
+    $fecha_reg = $_POST['fecha_reg'];
+    if($nro_identidad=="" || $razon_social=="" || $telefono=="" || $correo=="" || $departamento=="" || $provincia=="" ||  $distrito=="" || $cos_postal=="" || $direccion=="" || $rol=="" || $secure_password=="" || $estado=="" || $fecha_reg==""){
+        $arr_Respuesta = array('status'=>false,'mensaje'=>'Error, campos vacios'); //respuesta
+    }else {
+        $arrPersona = $objPersona->registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cos_postal, $direccion, $rol, $password, $estado, $fecha_reg);
+    //
+        if ($arrpersona->id_n>0) {
+            $arr_Respuesta = array('status'=>true, 'mensaje'=>'Registro exitoso');
 
-        $personaModel = new PersonaModel();
-        $resultado = $personaModel->registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cos_postal, $direccion, $rol, $password, $estado, $fecha_reg);
+        }else{
+            $arr_Respuesta = array('status'=>false, 'mensaje'=>'Error al registrar persona');
+        }
+    }
+            echo json_encode($arr_Respuesta);
 
-        echo json_encode($resultado);
-        break;
-
-    case 'listar':
-        $personaModel = new PersonaModel();
-        $personas = $personaModel->listarPersonas();
-        echo json_encode($personas);
-        break;
-
-    // Otros casos como editar, etc. pueden ir aquí
 }
+}
+
 ?>

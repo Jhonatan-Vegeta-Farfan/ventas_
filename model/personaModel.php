@@ -1,22 +1,20 @@
 <?php
 require_once "../libreria/conexcion.php";
 class PersonaModel {
-    private $db;
+    private $conexion;
 
     public function __construct() {
-        try {
-            $this->db = new PDO('mysql:host=localhost;dbname=sistema_ventas;charset=utf8', 'root', '');
-            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // Cambiado a WARNING para menos severidad
-        } catch (Exception $e) {
-            die('Error de conexión: ' . $e->getMessage());
-        }
+
+            $this->conexion = new Conexion;
+            $this->conexion =  $this->conexion->connect();
+
     }
 
     public function registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cos_postal, $direccion, $rol, $password, $estado, $fecha_reg) {
         try {
             $sql = "INSERT INTO persona (nro_identidad, razon_social, telefono, correo, departamento, provincia, distrito, cod_postal, direccion, rol, password, estado, fecha_reg)
                     VALUES (:nro_identidad, :razon_social, :telefono, :correo, :departamento, :provincia, :distrito, :cos_postal, :direccion, :rol, :password, :estado, :fecha_reg)";
-            $stmt = $this->db->prepare($sql);
+            $stmt = $this->conexion->prepare($sql);
             $stmt->execute([
                 ':nro_identidad' => $nro_identidad,
                 ':razon_social' => $razon_social,
@@ -28,7 +26,7 @@ class PersonaModel {
                 ':cos_postal' => $cos_postal,
                 ':direccion' => $direccion,
                 ':rol' => $rol,
-                ':password' => password_hash($password, PASSWORD_DEFAULT),
+                ':password' => $password,
                 ':estado' => $estado,
                 ':fecha_reg' => $fecha_reg
             ]);
@@ -39,12 +37,15 @@ class PersonaModel {
     }
 
     public function listarPersonas() {
-        try {
-            $stmt = $this->db->query("SELECT * FROM persona");
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (Exception $e) {
-            return ['status' => false, 'mensaje' => 'Error al listar personas: ' . $e->getMessage()];
-        }
+
+            $sql = $this->conexion->query("SELECT * FROM persona");
+            $sql = $sql->fetch_object();
+           return $sql;
+    }
+    public function buscarPersonaPorDNI($dni){
+        $sql = $this->conexion->query("SELECT * FROM persona WHERE nro_identidad = '{$dni}'");
+        $sql = $sql->fetch_object();
+        return $sql;
     }
 }
 ?>
