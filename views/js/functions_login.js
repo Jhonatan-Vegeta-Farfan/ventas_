@@ -1,8 +1,10 @@
 async function iniciar_sesion(params) {
+    console.log('iniciar_sesion');
     let usuario = document.querySelector('#usuario');
     let password = document.querySelector('#password');
     if (usuario=="" || password ==""){
         alert('campos vacios');
+        return;
     }
     try {
         //capturamos datos del formulario html
@@ -17,9 +19,9 @@ async function iniciar_sesion(params) {
         json = await respuesta.json();
         if (json.status){
             //swal("Iniciar Sesion", json.mensaje, "success");
-            location.replace(base_url+"producto.php");
+            location.replace(base_url+"producto");
         }else{
-            swal("Iniciar Sesion", json.mensaje, "error");
+            swal("iniciar_sesion", json.mensaje, "error");
         }
 
         console.log(json);
@@ -40,7 +42,7 @@ if (document.querySelector('#loginForm')){
 
 async function cerrar_sesion() {
     try {
-        let respuesta = await fetch(base_url+'controller/login.php? tipo=cerrar_sesion',{
+        let respuesta = await fetch(base_url + 'controller/login.php? tipo=cerrar_sesion',{
             method: 'POST',
             mode: 'cors',
             cahe: 'no-cache'
@@ -50,7 +52,7 @@ async function cerrar_sesion() {
             location.replace(base_url+'login');
         }
     } catch (error) {
-        console.log('Ocurrio un error'+error);
+        
     }
     
 }

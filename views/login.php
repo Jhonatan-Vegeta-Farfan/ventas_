@@ -90,13 +90,13 @@
                 <img src="https://imgmedia.larepublica.pe/640x371/larepublica/migration/images/LJE4TYPS6VA6JOOTO4MRKWHDAM.webp" alt="Goku" class="img-fluid" style="max-height: 200px;">
             </div>
             <div class="card-body">
-                <form id="loginForm" method="POST" action="<?php echo BASE_URL ?>login">
+                <form id="loginForm" method="POST" action="<?php echo BASE_URL ?>inicio">
                     <div class="mb-3">
                         <label for="usuario" class="form-label">USUARIO</label> 
                         <input type="tex" class="form-control" id="usuario" name="usuario" placeholder="Ingresa tu Usuario" required>
                     </div>
                     <div class="mb-3">
-                        <label for="contrasena" class="form-label">Contraseña</label>
+                        <label for="password" class="form-label">Contraseña</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu Contraseña" required>
                     </div>
                     <div class="d-grid gap-2">

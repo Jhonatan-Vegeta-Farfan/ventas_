@@ -115,10 +115,11 @@
         <a class="nav-link" href="<?php echo BASE_URL ?>comentarios">COMENTARIOS</a>
       </li>
       </li>
-      <li class="nav-item"><a onclick="cerrar_sesion();">CERRAR SESION</a>
-      </li>
+
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo BASE_URL ?>comentarios">COMENTARIOS</a>
+        <a class="nav-link" href="<?php echo BASE_URL ?>cerrar_sesion">CERRAR SESION</a>
+        <li class="nav-item"></li>
+        <a class="nav-link">cerrar sesion</a>
       </li>
     </ul>
   </div>

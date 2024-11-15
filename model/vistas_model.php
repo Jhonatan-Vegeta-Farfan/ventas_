@@ -24,9 +24,12 @@ class vistaModelo
             }
         } elseif ($vista == "login" || $vista == "index") {
             $contenido = "login";
+            } elseif ($vista == "perfil"){
+                $contenido = "perfil";
         } else {
             $contenido = "404";
         }
         return $contenido;
     }
 }
+ ?>

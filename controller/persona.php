@@ -24,16 +24,16 @@ $secure_password = password_hash($password, PASSWORD_DEFAULT); // Hasheando la c
     
     $estado = $_POST['estado'];
     $fecha_reg = $_POST['fecha_reg'];
-    if($nro_identidad=="" || $razon_social=="" || $telefono=="" || $correo=="" || $departamento=="" || $provincia=="" ||  $distrito=="" || $cos_postal=="" || $direccion=="" || $rol=="" || $secure_password=="" || $estado=="" || $fecha_reg==""){
+    if($nro_identidad=="" || $razon_social=="" || $telefono=="" || $correo=="" || $departamento=="" || $provincia=="" ||  $distrito=="" || $cos_postal=="" || $direccion=="" || $rol=="" || $password=="" || $estado=="" || $fecha_reg==""){
         $arr_Respuesta = array('status'=>false,'mensaje'=>'Error, campos vacios'); //respuesta
     }else {
-        $arrPersona = $objPersona->registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cos_postal, $direccion, $rol, $password, $estado, $fecha_reg);
+        $arrPersona = $objPersona->registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cos_postal, $direccion, $rol, $secure_password, $estado, $fecha_reg);
     //
         if ($arrpersona->id_n>0) {
-            $arr_Respuesta = array('status'=>true, 'mensaje'=>'Registro exitoso');
+            $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro exitoso');
 
         }else{
-            $arr_Respuesta = array('status'=>false, 'mensaje'=>'Error al registrar persona');
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al registrar persona');
         }
     }
             echo json_encode($arr_Respuesta);
