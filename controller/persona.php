@@ -8,6 +8,9 @@ $objPersona = new PersonaModel();
 if ($tipo=="registrar"){
 //print_r($_POST);
 if ($_POST) {
+    // Verifica si todos los campos están presentes en $_POST
+
+
     $nro_identidad = $_POST['nro_identidad'];
     $razon_social = $_POST['razon_social'];
     $telefono = $_POST['telefono'];
@@ -18,6 +21,10 @@ if ($_POST) {
     $cos_postal = $_POST['cos_postal'];
     $direccion = $_POST['direccion'];
     $rol = $_POST['rol'];
+    $password = $_POST['password']; // Cambiado de $dni a $password
+    $secure_password = password_hash($password, PASSWORD_DEFAULT); // Hasheando la contraseña
+    $estado = $_POST['estado'];
+    $fecha_reg = $_POST['fecha_reg'];
 // Asegúrate de usar la variable correcta para la contraseña
 $password = $_POST['password']; // Cambiado de $dni a $password
 $secure_password = password_hash($password, PASSWORD_DEFAULT); // Hasheando la contraseña
@@ -27,9 +34,9 @@ $secure_password = password_hash($password, PASSWORD_DEFAULT); // Hasheando la c
     if($nro_identidad=="" || $razon_social=="" || $telefono=="" || $correo=="" || $departamento=="" || $provincia=="" ||  $distrito=="" || $cos_postal=="" || $direccion=="" || $rol=="" || $password=="" || $estado=="" || $fecha_reg==""){
         $arr_Respuesta = array('status'=>false,'mensaje'=>'Error, campos vacios'); //respuesta
     }else {
-        $arrPersona = $objPersona->registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cos_postal, $direccion, $rol, $secure_password, $estado, $fecha_reg);
+        $arrPersona = $objPersona->registrarpersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cos_postal, $direccion, $rol, $secure_password, $estado, $fecha_reg);
     //
-        if ($arrpersona->id_n>0) {
+        if ($arrPersona->id_n>0) {
             $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro exitoso');
 
         }else{

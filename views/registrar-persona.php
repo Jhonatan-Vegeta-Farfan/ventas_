@@ -39,13 +39,7 @@
         </div>
         <div class="mb-3">
             <label for="rol" class="form-label">Rol</label>
-            <select id="rol" name="rol" class="form-control" required>
-                <option value="">Seleccione</option>
-                <option value="administrador">Administrador</option>
-                <option value="usuario">Usuario</option>
-                <option value="empleado">Empleado</option>
-                <option value="empleado">proveedor</option>
-            </select>
+            <input type="text" class="form-control" id="rol" name="direccion" maxlength="15" required>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Contraseña</label>
