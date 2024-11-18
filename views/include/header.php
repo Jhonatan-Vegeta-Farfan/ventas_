@@ -115,11 +115,8 @@
         <a class="nav-link" href="<?php echo BASE_URL ?>comentarios">COMENTARIOS</a>
       </li>
       </li>
-
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo BASE_URL ?>cerrar_sesion">CERRAR SESION</a>
-        <li class="nav-item"></li>
-        <a class="nav-link">cerrar sesion</a>
+        <a class="nav-link" href="<?php echo BASE_URL ?>login">CERRAR SESION</a>
       </li>
     </ul>
   </div>
@@ -149,5 +146,6 @@ navLinks.forEach(link => {
     });
 });
 </script>
+
 </body>
 </html>
