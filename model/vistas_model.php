@@ -9,7 +9,7 @@ class vistaModelo
         'comentarios','contactanos','detalleproducto','libroreclamaciones','nosotros','novedades','pagofactura','perfil',
         'rutadeenvio','suscribirte','ubicacion','descargarboleta','respuestadedescarga','respuestadeimprecion',
         'imprimirboleta','inicio','nuevo-producto', 'olvidastetucontraseña', 'registrarse', 'registrar-persona', 'nueva-compra', 'nueva-categoria',
-        'rutadeenvio','suscribirte','ubicacion','descargarboleta','respuestadedescarga','respuestadeimprecion','imprimirboleta', 'inicio','nuevo-producto', 'olvidastetucontraseña', 'registrarse', 'registrar-persona', 'categoria', 'nueva-compras'];
+        'rutadeenvio','suscribirte','ubicacion','descargarboleta','respuestadedescarga','respuestadeimprecion','imprimirboleta', 'inicio','nuevo-producto', 'olvidastetucontraseña', 'registrarse', 'nueva-persona', 'categoria', 'nueva-compras'];
 
         if(!isset($_SESSION['sesion_ventas_id'])){
             return"login";
