@@ -1,78 +1,76 @@
-async function registrar_compra() {
-    const id_producto = document.getElementById('producto').value;
-    const cantidad = document.getElementById('cantidad').value;
-    const precio = document.getElementById('precio').value;
-    const id_trabajador = document.getElementById('trabajador').value;
-
-    if (id_producto === "" || cantidad === "" || precio === "" || id_trabajador === "") {
-        Swal.fire('Por favor, complete todos los campos.');
+async function RegistrarCompra(){
+    let producto = document.querySelector('#producto').value;
+    let cantidad = document.querySelector('#cantidad').value;
+    let precio = document.querySelector('#precio').value;
+    let trabajador = document.querySelector('#trabajador').value;
+    
+    if (producto == "" || cantidad == "" ||  precio == "" || trabajador == ""){
+        alert("Error!!, Campos vacíos");
         return;
     }
-
     try {
-        const datos = new FormData();
-        datos.append('id_producto', id_producto);
-        datos.append('cantidad', cantidad);
-        datos.append('precio', precio);
-        datos.append('id_trabajador', id_trabajador);
-
-        let respuesta = await fetch(BASE_URL + '/controllers/Compras.php?tipo=registrar', {
+        //capturamos datos del formulario html nuevo-producto
+        const datos = new FormData(frmRegCompras);
+        //enviamos datos hacia el controlador
+        let respuesta = await fetch(base_url +'controller/compras.php?tipo=registrar',{
             method: 'POST',
             mode: 'cors',
             cache: 'no-cache',
             body: datos
         });
-
-        let json = await respuesta.json();
-
+        json = await respuesta.json();
         if (json.status) {
-            Swal.fire("Registro exitoso", json.mensaje, "success");
+            swal("registro", json.mensaje, "success");
         } else {
-            Swal.fire("Registro fallido", json.mensaje, "error");
+            swal("Registro", json.mensaje, "error");
         }
-    } catch (error) {
-        console.error("Oops, ocurrió un error: " + error);
+    
+        console.log(json);
+    } catch (e) {
+        console.log("Oops, ocurrio un error" + e);
     }
-}
-
-async function listar_productos() {
+    }
+    
+    
+    //FUNCION PARA LLAMAR AL CONTROLADOR DE CATEGORIA(FUNCION DIRECTA)
+    //  listar_categorias registrados en la base de datos
+    
+    async function listar_productos(){
     try {
-        let respuesta = await fetch(BASE_URL + '/controllers/Compras.php?tipo=listarProductos');
-        let json = await respuesta.json();
-
+        // envia datos hacia el controlador
+        let respuesta = await fetch(base_url +'controller/Producto.php?tipo=listar');
+        json = await respuesta.json();
         if (json.status) {
             let datos = json.contenido;
+            let contenido_select1= '<option value="">Seleccione</option>'
+            
             datos.forEach(element => {
-                $('#producto').append($('<option />', {
-                    text: element.nombre,
-                    value: element.id
-                }));
+                contenido_select1 += '<option value="'+element.id+'">'+element.nombre+'</option>';
+               
             });
+            document.getElementById('producto').innerHTML = contenido_select1;
         }
-    } catch (error) {
-        console.error("Oops, ocurrió un error al listar productos: " + error);
+        console.log(respuesta);
+    } catch (e) {
+        console.e("Error al cargar categorias" + e)
     }
-}
-
-async function listar_personas() {
+    }
+    
+    
+    async function listar_trabajadores(){
     try {
-        let respuesta = await fetch(BASE_URL + '/controllers/Compras.php?tipo=listarTrabajadores');
+        let respuesta = await fetch(base_url + 'controller/persona.php?tipo=listarTrabajadores');
         let json = await respuesta.json();
-
         if (json.status) {
             let datos = json.contenido;
+            let contenido_select2 = '<option value="">Seleccione trabajador</option>';
             datos.forEach(element => {
-                $('#trabajador').append($('<option />', {
-                    text: element.razon_social,
-                    value: element.id
-                }));
+                contenido_select2 += '<option value="'+element.id+'">'+element.razon_social+'</option>';
             });
+            document.getElementById('trabajador').innerHTML = contenido_select2;
         }
-    } catch (error) {
-        console.error("Oops, ocurrió un error al listar trabajadores: " + error);
+        console.log(respuesta);
+    } catch (e) {
+        console.error("Error al cargar trabajador: " + e);
     }
-}
-
-// Llamar a las funciones para listar productos y trabajadores al cargar la página
-listar_productos();
-listar_personas();
+    }

@@ -1,28 +1,19 @@
 <?php
-require_once "../libreria/conexion.php";
 
-class comprasModel {
+require_once "../librerias/conexion.php";
 
+class ComprasModel
+{
     private $conexion;
-
-    function __construct() {
+    function __construct()
+    {
         $this->conexion = new Conexion();
         $this->conexion = $this->conexion->connect();
     }
-
-    public function registrarCompra($id_producto, $cantidad, $precio, $id_trabajador) {
-        $sql = $this->conexion->query("CALL insertar_compra('{$id_producto}', '{$cantidad}', '{$precio}', '{$id_trabajador}')");
-        return $sql->fetch_object();
+    public function registrarCompras($producto, $cantidad,$precio,$trabajador) {
+        $sql = $this->conexion->query("CALL insertarCompras('{$producto}','{$cantidad}','{$precio}','{$trabajador}')");
+        $sql = $sql->fetch_object();
+        return $sql;
     }
-
-    public function listarProductos() {
-        $sql = $this->conexion->query("SELECT * FROM productos");
-        return $sql->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function listarTrabajadores() {
-        $sql = $this->conexion->query("SELECT * FROM trabajadores");
-        return $sql->fetch_all(MYSQLI_ASSOC);
-    }
+    
 }
-?>

@@ -21,6 +21,17 @@ class ProductoModel{
         return $sql;
 
     }
+public function obtener_productos(){
+    $arrRespuesta = array();
+        $respuesta = $this->conexion->query("SELECT * FROM producto");
+        while ($objeto = $respuesta->fetch_object()) {
+            array_push($arrRespuesta, $objeto);
+        }
+        return $arrRespuesta;
+}
+    
+
+
     public function actualizar_imagen($id, $imagen){
         $sql = $this->conexion->query("UPDATE producto SETimagen='{$imagen}' WHERE id='{$id}'");
     }

@@ -45,4 +45,8 @@ if ($tipo=="registrar"){
         }
     }
 }
+
+
+
+
 ?>
