@@ -1,9 +1,8 @@
 <?php
 
-require_once "../librerias/conexion.php";
+require_once "../libreria/conexcion.php";
 
-class ComprasModel
-{
+class ComprasModel{
     private $conexion;
     function __construct()
     {
@@ -17,3 +16,5 @@ class ComprasModel
     }
     
 }
+
+?>

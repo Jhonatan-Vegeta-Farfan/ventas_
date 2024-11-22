@@ -8,8 +8,8 @@ class vistaModelo
         $palabras_permitidas = ['usuarios', 'nuevo-usuario','usuario','producto','nuevo-producto','producto','cantidad','carrito',
         'comentarios','contactanos','detalleproducto','libroreclamaciones','nosotros','novedades','pagofactura','perfil',
         'rutadeenvio','suscribirte','ubicacion','descargarboleta','respuestadedescarga','respuestadeimprecion',
-        'imprimirboleta','inicio','nuevo-producto', 'olvidastetucontraseña', 'registrarse', 'registrar-persona', 'nueva-compra', 'nueva-categoria',
-        'rutadeenvio','suscribirte','ubicacion','descargarboleta','respuestadedescarga','respuestadeimprecion','imprimirboleta', 'inicio','nuevo-producto', 'productos', 'olvidastetucontraseña', 'registrarse', 'nueva-persona', 'categoria', 'nueva-compras'];
+        'imprimirboleta','inicio', 'olvidastetucontraseña', 'registrarse',
+        'rutadeenvio','suscribirte','ubicacion','descargarboleta','respuestadedescarga','respuestadeimprecion','imprimirboleta', 'inicio','nuevo-productos', 'productos', 'olvidastetucontraseña', 'registrarse', 'nueva-persona', 'nuevo-categoria', 'nuevo-compras'];
 
         /*
         if(!isset($_SESSION['sesion_ventas_id'])){
