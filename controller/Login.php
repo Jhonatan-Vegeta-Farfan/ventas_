@@ -9,8 +9,7 @@ if($tipo=="iniciar_sesion"){
     $usuario = trim($_POST['usuario']);
     $password = trim($_POST['password']);
     $arrResponse = array('status'=> false, 'msg'=>'');
-
-    $arrPersona = $objpersona->buscarPersonaPorDNI($usuario);
+    $arrPersona = $objPersona->buscarPersonaPorDNI($usuario);
     //print_r($arrPersona);
     if(empty($arrPersona)){
         $arrResponse = array('status'=> false, 'msg'=>'Error, Usuario no esta registrado en el sistema');
@@ -21,12 +20,11 @@ if($tipo=="iniciar_sesion"){
             $_SESSION['sesion_ventas_dni'] = $arrPersona->nro_identidad;
             $_SESSION['sesion_ventas_nombres'] = $arrPersona->razon_social;
             $arrResponse = array('status'=> true, 'msg'=>'Ingresar al sistema'); 
-        }else{
+        } else{
             $arrResponse = array('status'=> false, 'msg'=>'Error, Contraseña incorrecta');
         }
-
     }
-    echo json_encode($arrResponse);
+    echo json_encode($arrResponse); 
 }
 
 if ($tipo =="cerrar_sesion"){
@@ -36,6 +34,6 @@ if ($tipo =="cerrar_sesion"){
     $arrResponse = array('status' => true);
     echo json_encode($arrResponse);
 }
-
 die;
+
 ?>

@@ -1,5 +1,5 @@
-async function registrarPersona() {
-    let nro_identidad = document.querySelector('#nro_identidad').value;
+async function registrarPersona(){
+    let nro_identidad = document.getElementById('nro_identidad').value;
     let razon_social = document.querySelector('#razon_social').value;
     let telefono = document.querySelector('#telefono').value;
     let correo = document.querySelector('#correo').value;
@@ -9,28 +9,37 @@ async function registrarPersona() {
     let cod_postal = document.querySelector('#cod_postal').value;
     let direccion = document.querySelector('#direccion').value;
     let rol = document.querySelector('#rol').value;
+<<<<<<< HEAD
     let password = document.querySelector('#password').value;
     let estado = document.querySelector('#estado').value;
     let fecha_reg = document.querySelector('#fecha_reg').value;
 
     if (!nro_identidad || !razon_social || !telefono || !correo || !departamento || !provincia || !distrito || !cod_postal || !direccion || !rol || !password || !estado || !fecha_reg) {
+=======
+   
+    if (nro_identidad == "" || razon_social == "" || telefono == "" || correo == "" || departamento == "" || provincia == "" || distrito == "" || cod_postal == "" || direccion == "" || rol == "") {
+>>>>>>> a6d149b5d612e78169f1d6c983037a54bff4812c
         alert("Error, campos vacíos");
-        return; 
+        return;
     }
 
     try {
-        const datos = new FormData(document.querySelector('#frmRegistrar'));
-        let respuesta = await fetch('controller/persona.php?tipo=registrar', {
+        const datos = new FormData(frmRegistrar);
+        let respuesta = await fetch(base_url + '/controller/persona.php?tipo=registrar', {
             method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
             body: datos
         });
-        let json = await respuesta.json();
+        json = await respuesta.json();
         if (json.status) {
             swal("Registro", json.mensaje, "success");
         } else {
             swal("Registro", json.mensaje, "error");
         }
+
+        console.log(json);
     } catch (e) {
-        console.log("Oops, ocurrió un error: " + e);
+        console.log("Oops, ocurrió un error " + e);
     }
 }

@@ -115,9 +115,8 @@
         <a class="nav-link" href="<?php echo BASE_URL ?>comentarios">COMENTARIOS</a>
       </li>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo BASE_URL ?>login">CERRAR SESION</a>
-      </li>
+      <button type="button" class="me-2 btn "> <i class="bi bi-person-fill"></i> <?php echo $_SESSION['login'];?></button>
+        <button type="button" class="me-2 btn" onclick="cerrar_sesion();"><i class="bi bi-box-arrow-right"></i> Cerrar sesion</button>
     </ul>
   </div>
 </nav>

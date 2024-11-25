@@ -1,12 +1,10 @@
 <?php
-require_once('../model/comprasmodel.php');
+require_once('../model/comprasModel.php');
 
 $tipo  = $_REQUEST['tipo'];
 //instancio la clase  productoModel
 
 $objCompras = new ComprasModel();
-
-
 
 if ($tipo == "registrar") {
 
@@ -19,8 +17,7 @@ if ($tipo == "registrar") {
         if ( $producto == "" || $cantidad == "" || $precio == "" || $trabajador == "") {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios');
         } else {
-            $arrCompras = $objCompras->registrarCompras($producto,$cantidad,$precio,$trabajador);
-
+            $arrCompras = $objCompras->registrarCompras($producto, $cantidad, $precio, $trabajador);
             if ($arrCompras->id > 0) {
                 $arr_Respuesta = array('status' => true, 'mensaje' => 'Compra registrado con exito');
             } else {

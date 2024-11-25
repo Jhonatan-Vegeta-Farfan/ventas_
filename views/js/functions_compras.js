@@ -55,8 +55,7 @@ async function RegistrarCompra(){
         console.e("Error al cargar categorias" + e)
     }
     }
-    
-    
+        
     async function listar_trabajadores(){
     try {
         let respuesta = await fetch(base_url + 'controller/persona.php?tipo=listarTrabajadores');

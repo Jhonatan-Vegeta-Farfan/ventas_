@@ -1,5 +1,4 @@
-async function iniciar_sesion(params) {
-    console.log('iniciar_sesion');
+async function iniciar_sesion() {
     let usuario = document.querySelector('#usuario');
     let password = document.querySelector('#password');
     if (usuario=="" || password ==""){
@@ -21,7 +20,7 @@ async function iniciar_sesion(params) {
             //swal("Iniciar Sesion", json.mensaje, "success");
             location.replace(base_url+"producto");
         }else{
-            swal("iniciar_sesion", json.mensaje, "error");
+            swal("Iniciar Sesion", json.mensaje, "error");
         }
 
         console.log(json);
@@ -32,8 +31,7 @@ async function iniciar_sesion(params) {
 
 if (document.querySelector('#loginForm')){
     //evita que se envie el forulario
-    let frm_iniciar_sesion = document.querySelector
-    ('#loginForm');
+    let frm_iniciar_sesion = document.querySelector('#loginForm');
     frm_iniciar_sesion.onsubmit = function (e){
         e.preventDefault();
         iniciar_sesion();
@@ -52,7 +50,7 @@ async function cerrar_sesion() {
             location.replace(base_url+'login');
         }
     } catch (error) {
-        
+        console.log('Ocurrio un error '+error);
     }
     
 }
