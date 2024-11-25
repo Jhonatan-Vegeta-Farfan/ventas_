@@ -18,7 +18,7 @@ if ($_POST) {
     $departamento = $_POST['departamento'];
     $provincia = $_POST['provincia'];
     $distrito = $_POST['distrito'];
-    $cos_postal = $_POST['cos_postal'];
+    $cod_postal = $_POST['cod_postal'];
     $direccion = $_POST['direccion'];
     $rol = $_POST['rol'];
     $password = $_POST['password']; // Cambiado de $dni a $password
@@ -31,10 +31,10 @@ $secure_password = password_hash($password, PASSWORD_DEFAULT); // Hasheando la c
     
     $estado = $_POST['estado'];
     $fecha_reg = $_POST['fecha_reg'];
-    if($nro_identidad=="" || $razon_social=="" || $telefono=="" || $correo=="" || $departamento=="" || $provincia=="" ||  $distrito=="" || $cos_postal=="" || $direccion=="" || $rol=="" || $password=="" || $estado=="" || $fecha_reg==""){
+    if($nro_identidad=="" || $razon_social=="" || $telefono=="" || $correo=="" || $departamento=="" || $provincia=="" ||  $distrito=="" || $cod_postal=="" || $direccion=="" || $rol=="" || $password=="" || $estado=="" || $fecha_reg==""){
         $arr_Respuesta = array('status'=>false,'mensaje'=>'Error, campos vacios'); //respuesta
     }else {
-        $arrPersona = $objPersona->registrarpersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cos_postal, $direccion, $rol, $secure_password, $estado, $fecha_reg);
+        $arrPersona = $objPersona->registrarpersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $secure_password, $estado, $fecha_reg);
     //
         if ($arrPersona->id_n>0) {
             $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro exitoso');

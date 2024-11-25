@@ -30,8 +30,8 @@
             <input type="text" class="form-control" id="distrito" name="distrito" required>
         </div>
         <div class="mb-3">
-            <label for="cos_postal" class="form-label">Código Postal</label>
-            <input type="text" class="form-control" id="cos_postal" name="cos_postal" maxlength="10" required>
+            <label for="cod_postal" class="form-label">Código Postal</label>
+            <input type="text" class="form-control" id="cod_postal" name="cod_postal" maxlength="10" required>
         </div>
         <div class="mb-3">
             <label for="direccion" class="form-label">Dirección</label>
@@ -39,7 +39,10 @@
         </div>
         <div class="mb-3">
             <label for="rol" class="form-label">Rol</label>
-            <input type="text" class="form-control" id="rol" name="direccion" maxlength="15" required>
+            <select id="rol" name="rol" class="form-control">
+                <option value="1">administrador</option>
+                <option value="0">usuario</option>
+            </select>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Contraseña</label>
