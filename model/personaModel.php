@@ -8,10 +8,10 @@ class PersonaModel{
         $this->conexion = new Conexion();
         $this->conexion = $this->conexion->connect();
     }
-    
+
     public function registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $password){
 
-        $sql = $this->conexion->query("CALL insertPersona('{$nro_identidad}', '{$razon_social}', '{$telefono}', '{$correo}', '{$departamento}', '{$provincia}', '{$distrito}', '{$cod_postal}', '{$direccion}', '{$rol}', '{$password}')");
+        $sql = $this->conexion->query("CALL insertarPersona('{$nro_identidad}', '{$razon_social}', '{$telefono}', '{$correo}', '{$departamento}', '{$provincia}', '{$distrito}', '{$cod_postal}', '{$direccion}', '{$rol}', '{$password}')");
         $sql = $sql->fetch_object();
         return $sql;
     }
@@ -22,7 +22,7 @@ class PersonaModel{
 
     }
 
-    public function obtener_proveedor(){
+    public function obtenerProveedor(){
         $arrRespuesta = array();
         $respuesta = $this->conexion->query( "SELECT * FROM persona WHERE rol='proveedor'");
         while ($objeto = $respuesta->fetch_object()) {

@@ -5,6 +5,8 @@ $tipo = $_REQUEST['tipo'];
 //instanciar la clase categoria model
 $objCategoria = new categoriaModel();
 
+
+
 if ($tipo=="listar") {
     //respuesta
 
@@ -32,6 +34,7 @@ if ($tipo=="registrar"){
         $detalle = $_POST['detalle'];
         if($nombre=="" || $detalle==""){
             $arr_Respuesta = array('status'=>false,'mensaje'=>'Error, campos vacios'); //respuesta
+
         }else {
             $arrCategoria = $objCategoria->registrarCategoria($nombre, $detalle);
 

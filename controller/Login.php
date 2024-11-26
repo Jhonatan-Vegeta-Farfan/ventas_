@@ -1,5 +1,6 @@
 <?php
 require_once("../model/personaModel.php");
+
 $objPersona = new PersonaModel();
 $tipo = $_GET['tipo'];
 
@@ -8,6 +9,7 @@ if ($tipo=="iniciar_sesion") {
     $usuario = trim($_POST['usuario']);
     $password = trim($_POST['password']);
     $arrResponse = array('status'=>false, 'msg'=>'');
+
     $arrPersona = $objPersona->buscarPersonaDNI($usuario);
    // print_r($arrPersona);
    if (empty($arrPersona)) {
@@ -26,6 +28,7 @@ if ($tipo=="iniciar_sesion") {
     }
     echo json_encode($arrResponse);
 }
+
 if ($tipo=="cerrar_sesion") {
     session_start();
     session_unset();

@@ -29,9 +29,12 @@ async function listar_categorias() {
     }
 
 }
+
 if (document.querySelector('#tbl_categoria')) {
     listar_categorias();
 }
+
+
 
 async function registrar_categoria(){
     let nombre = document.getElementById('nombre').values;

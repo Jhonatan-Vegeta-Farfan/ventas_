@@ -1,22 +1,28 @@
 <?php
-
+$tipo  = $_REQUEST['tipo'];
 require_once('../model/comprasModel.php');
+require_once('../model/productoModel.php');
+require_once('../model/personaModel.php');
+
 $objCompras = new ComprasModel();
 $objProducto = new ProductoModel();
 $objPersona = new PersonaModel(); 
-$tipo  = $_REQUEST['tipo'];
+
 
 if ($tipo == "listar") {
     $arr_Respuesta = array('status' => false, 'contenido' => '');
-    $arrCompras = $objCompras->obtener_Productos();
+    $arrCompras = $objCompras->obtenerCompras();
+
     if (!empty($arrCompras)) {
         for ($i = 0; $i < count($arrCompras); $i++) {
             $id_producto = $arrCompras[$i]->id;
             $r_compras = $objProducto->obtener_producto_id($id_producto);
             $arrCompras[$i]->compras=$r_compras;
+
             $id_trabajador = $arrCompras[$i]->id_trabajador;
             $r_trabajador = $objPersona->obtener_trabajador_id($id_trabajador);
             $arrCompras[$i]->trabajador=$r_trabajador;
+
             $id_compras =  $arrCompras[$i]->id;
             $nombre =  $arrCompras[$i]->nombre;
             $opciones = '';
@@ -27,6 +33,7 @@ if ($tipo == "listar") {
     }
     echo json_encode($arr_Respuesta); //convertir en formato -- 
 }
+
 if ($tipo == "registrar") {
     if ($_POST) {
         $id_producto = $_POST['id_producto'];
@@ -45,6 +52,7 @@ if ($tipo == "registrar") {
         }
     }
             echo json_encode($arr_Respuesta);
+
 }
 }
 

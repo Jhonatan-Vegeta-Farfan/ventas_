@@ -51,33 +51,36 @@ session_start(); // Inicia la sesión
       border-radius: 4px;
       transition: all 0.3s ease;
     }
-    /* Estilo para la línea de separación */
     .separator {
       height: 4px;
       background-color: #ff0000;
       margin-top: 10px;
       margin-bottom: 20px;
     }
-    /* Estilo para el contenido */
     .content {
       padding-top: 80px;
     }
-    /* Asegura que los botones no se distorsionen */
     .navbar-nav .nav-item {
       margin: 0 5px;
     }
 
-    /* Clase personalizada para los botones con fondo blanco y texto negro */
     .btn-custom {
-      background-color: red; /* Fondo blanco */
-      color: black; /* Texto negro */
-      border: 1px solid #000; /* Borde negro */
+      background-color: red;
+      color: black;
+      border: 1px solid #000;
     }
 
     .btn-custom:hover {
-      background-color: #f8f8f8; /* Color de fondo al pasar el mouse */
-      color: #000; /* Mantener el texto en negro */
+      background-color: #f8f8f8;
+      color: #000;
     }
+
+    /* Para asegurar que los botones se alineen correctamente en pantallas pequeñas */
+    .navbar-nav .nav-item {
+      display: flex;
+      align-items: center;
+    }
+
   </style>
 </head>
 <script>
@@ -93,7 +96,7 @@ session_start(); // Inicia la sesión
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav mr-auto"> <!-- ml-auto -> mr-auto para alinearlos a la izquierda -->
         <li class="nav-item">
           <a class="nav-link" href="<?php echo BASE_URL ?>producto">TIENDA</a>
         </li>
@@ -125,20 +128,28 @@ session_start(); // Inicia la sesión
           <a class="nav-link" href="<?php echo BASE_URL ?>comentarios">COMENTARIOS</a>
         </li>
       </ul>
+
+      <!-- Botones Invitado y Cerrar sesión -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button type="button" class="btn btn-custom">
+            <i class="bi bi-person-fill"></i> 
+            <?php 
+              if (isset($_SESSION['sesion_ventas_nombres'])) {
+                  echo $_SESSION['sesion_ventas_nombres']; 
+              } else {
+                  echo 'invitado'; // O cualquier otro mensaje de fallback
+              }
+            ?>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-custom" onclick="cerrar_sesion();">
+            <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+          </button>
+        </li>
+      </ul>
     </div>
-    <button type="button" class="me-2 btn btn-custom">
-      <i class="bi bi-person-fill"></i> 
-      <?php 
-        if (isset($_SESSION['sesion_ventas_nombres'])) {
-            echo $_SESSION['sesion_ventas_nombres']; 
-        } else {
-            echo 'invitado'; // O cualquier otro mensaje de fallback
-        }
-      ?>
-    </button>
-    <button type="button" class="me-2 btn btn-custom" onclick="cerrar_sesion();">
-      <i class="bi bi-box-arrow-right"></i> Cerrar sesión
-    </button>
   </nav>
 
   <!-- Línea de separación -->

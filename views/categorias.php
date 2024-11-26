@@ -11,13 +11,10 @@
         <tbody id="tbl_categoria" class="text-center">
             <!--<tr>
                <th>Nro</th>
-                <th>tacones abiertos</th>
-                <th>Zandalias</th>
+                <th></th>
+                <th></th>
             </tr> -->
         </tbody>
     </table>
 </div>
 <script src="<?php echo BASE_URL ?>views/js/functions_categoria.js"></script>
-<script>
-    listar_categorias();
-</script>

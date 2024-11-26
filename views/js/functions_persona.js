@@ -40,6 +40,9 @@ if (document.querySelector('#tbl_persona')) {
     listar_personas();
 }
 
+
+
+
 async function registrarPersona() {
     let nro_identidad = document.getElementById('nro_identidad').value;
     let razon_social = document.querySelector('#razon_social').value;

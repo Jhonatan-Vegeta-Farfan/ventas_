@@ -54,4 +54,5 @@ async function cerrar_sesion() {
         console.log('Ocurrio un error '+error);
         
     }
+    
 }
