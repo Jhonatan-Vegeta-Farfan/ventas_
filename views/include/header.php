@@ -69,8 +69,8 @@ session_start(); // Inicia la sesión
 
     /* Clase personalizada para los botones con fondo blanco y texto negro */
     .btn-custom {
-      background-color: #fff; /* Fondo blanco */
-      color: #000; /* Texto negro */
+      background-color: red; /* Fondo blanco */
+      color: black; /* Texto negro */
       border: 1px solid #000; /* Borde negro */
     }
 
@@ -132,7 +132,7 @@ session_start(); // Inicia la sesión
         if (isset($_SESSION['sesion_ventas_nombres'])) {
             echo $_SESSION['sesion_ventas_nombres']; 
         } else {
-            echo '45'; // O cualquier otro mensaje de fallback
+            echo 'invitado'; // O cualquier otro mensaje de fallback
         }
       ?>
     </button>
