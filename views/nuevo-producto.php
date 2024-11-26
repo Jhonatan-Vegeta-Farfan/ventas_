@@ -30,7 +30,7 @@
     </div>
     <div class="mb-3">
         <label for="">Imagen: </label>
-        <input type="file" id="imagen" name="imagen" class="form-control" required>
+        <input type="file" class="form-control" required id="imagen" name="imagen">
     </div>
     <div class="mb-3">
         <label for="">Proveedor: </label>

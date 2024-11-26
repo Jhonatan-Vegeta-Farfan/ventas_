@@ -56,15 +56,22 @@ if ($tipo == "registrar") {
             $arrProducto = $objProducto->registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $imagen, $proveedor);
             if ($arrProducto->id > 0) {
                 $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro exitoso');
-                //CARGAR ARCHIVO
-                $archivo = $_FILES['imagen']['tmp_name'];
-                $destino = './assets/img_productos/';
-                $tipoArchivo = strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
+                //cargar archivos
+            $archivo = $_FILES['imagen']['tmp_name'];
+            $destino = '../assets/img_productos/';
+            $tipoArchivo = strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
+                
+                $arrProducto = $objProducto->registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $imagen, $proveedor, $tipoArchivo);
                 $nombre = $arrProducto->id . "." . $tipoArchivo;
-                if (move_uploaded_file($archivo, $destino . $nombre)) {
-                    $arr_imagen = $objProducto->actualizar_imagen($id, $nombre);
+
+                if ($arrProducto->id_n >0){
+                    $newid = $arrProducto->id_n;
+                    $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro exitoso');
+                    $nombre = $arrProducto->id_n . "." . $tipoArchivo;
+                }
+                if (move_uploaded_file($archivo, $destino . '' . $nombre)) {
                 } else {
-                    $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro exitoso, error al subir imagen');
+                    $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro Exitoso, error al subir imagen');
                 }
             } else {
                 $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al registrar producto');

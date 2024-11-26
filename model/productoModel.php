@@ -1,5 +1,5 @@
 <?php
-require_once "../librerias/conexion.php";
+require_once "../libreria/conexcion.php";
 class ProductoModel{
 
     private $conexion;
@@ -26,9 +26,9 @@ class ProductoModel{
         return $objeto;
     }
     
-    public function registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $imagen, $proveedor){
+    public function registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $tipo_archivo, $proveedor){
 
-        $sql = $this->conexion->query("CALL insertarProducto('{$codigo}', '{$nombre}', '{$detalle}', '{$precio}', '{$stock}', '{$categoria}', '{$imagen}', '{$proveedor}')");
+        $sql = $this->conexion->query("CALL insertproducto('{$codigo}', '{$nombre}', '{$detalle}', '{$precio}', '{$stock}', '{$categoria}', '{$tipo_archivo}', '{$proveedor}')");
         $sql = $sql->fetch_object();
         return $sql;
     }
