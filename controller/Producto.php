@@ -50,10 +50,11 @@ if ($tipo == "registrar") {
         $categoria = $_POST['categoria'];
         $imagen = 'imagen';
         $proveedor = $_POST['proveedor'];
+        $tipo_archivo = $_POST['tipo_archivo'];
         if ($codigo == "" || $nombre == "" || $detalle == "" || $precio == "" || $stock == "" || $categoria == "" ||  $imagen == "" || $proveedor == "") {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios'); //respuesta
         } else {
-            $arrProducto = $objProducto->registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $imagen, $proveedor);
+            $arrProducto = $objProducto->registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $imagen, $proveedor, $tipo_archivo);
             if ($arrProducto->id > 0) {
                 $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro exitoso');
                 //cargar archivos
