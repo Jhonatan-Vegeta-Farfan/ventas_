@@ -13,14 +13,15 @@
         </thead>
         <tbody id="tbl_producto" class="text-center">
             <!-- <tr>
-                <td>1</td>
-                <td>111</td>
-                <td>Tacon</td>
-                <td>1</td>
-                <td>tacon</td>
-                <td>Pamela</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td></td>
             </tr> -->
+            
         </tbody>
     </table>
 </div>
