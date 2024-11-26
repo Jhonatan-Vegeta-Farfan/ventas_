@@ -16,8 +16,10 @@ async function listar_productos() {
                 <td>${item.stock}</td>
                 <td>${item.categoria.nombre}</td>
                 <td>${item.proveedor.razon_social}</td>
-                <td><button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editarModal">Editar</button>
-                    <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminarModal">Eliminar</button></td>
+                <td>
+                    <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                </td>
         `;
         document.querySelector('#tbl_producto').appendChild(nueva_fila);
             });
@@ -30,88 +32,85 @@ async function listar_productos() {
 if (document.querySelector('#tbl_producto')) {
     listar_productos();
 }
-
-async function registrarProducto(){
+async function registrar_producto() {
     let codigo = document.getElementById('codigo').values;
     let nombre = document.querySelector('#nombre').value;
     let detalle = document.querySelector('#detalle').value;
     let precio = document.querySelector('#precio').value;
     let stock = document.querySelector('#stock').value;
-    let categoria = document.querySelector('#idCategoria').value;
+    let categoria = document.querySelector('#categoria').value;
     let imagen = document.querySelector('#imagen').value;
-    let proveedor = document.querySelector('#Proveedor').value;
-    if (codigo=="" || nombre=="" || detalle=="" || precio=="" || stock=="" || categoria=="" || imagen=="" || proveedor=="") {
-        alert("Error, campos vacios");
-        return; 
-    }
-    try {
-        //capturamos datos del formulario html
-        const datos = new FormData(frmRegistrar);
-        //enviar datos hacia el controlador
-        let respuesta = await fetch(base_url+'controller/Producto.php?tipo=registrar', {
-            method: 'POST',
-            mode: 'cors',
-            cahe: 'no-cache',
-            body: datos
-        });
-        json = await respuesta.json();
-        if (json.status){
-            swal("Registro", json.mensaje, "success");
-        }else{
-            swal("Registro", json.mensaje, "error");
+    let proveedor = document.querySelector('#proveedor').value;
+        if (codigo == "" || nombre == "" || detalle == "" || precio == "" || stock == "" || categoria == "" || imagen == "" || proveedor == "") {
+         alert("Error, campos vacios");
+         return;
+        }
+        try {
+            //capturamos datos del formulario html
+            const datos = new FormData(frmRegistrar);
+            //enviar datos hacia el controlador
+            let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=registrar', { //await es una promesa que si o si espera una respuesta
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                body: datos
+                });
+                json = await respuesta.json();
+                if (json.status) {
+                    swal("Registro", json.mensaje, "success");
+                } else {
+                    swal("Registro", json.mensaje, "error");
+                }
+
+                console.log(json);
+            } catch (e) {
+                    console.log("Oops, ocurrio un error" + e);
+            }
         }
 
-        console.log(json);
-    } catch (e) {
-        console.log("Oops ocurrio un error"+e);
-    }
-
-}
-
-async function listar_categorias(){
-    try{
-        let respuesta =await fetch(base_url+'controller/Categoria.php?tipo=listar');
+async function listar_categorias() {
+    try {
+        let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=listar');
         json = await respuesta.json();
-        if (json.status){
+        if (json.status) {
             let datos = json.contenido;
             let contenido_select = '<option value="">Seleccione</option>';
             datos.forEach(element => {
-                contenido_select += '<option value="'+element.id +'">' + element.nombre + '</option>';
-                /*$('#idCategoria').append($('<option />',{
-                    text: `${element.nombre}`,
-                    value: `${element.id}`
+             contenido_select += '<option value="' + element.id + '">' + element.nombre + '</option>';
+             /* $('#categoria').append($('<option />',{
+                text: ${element.nombre},
+                value: ${element.id}
                 }));*/
             });
             document.getElementById('categoria').innerHTML = contenido_select;
-            
+        }
+
+        console.log(respuesta);
+    } catch (e) {
+        console.log("Error al cargar categorias" + e);
+        }
+    }
+
+async function listar_proveedor() {
+    try {
+        let respuesta = await fetch(base_url + 'controller/Persona.php?tipo=listar');
+        json = await respuesta.json();
+        if (json.status) {
+        let datos = json.contenido;
+        let contenido_select = '<option value="">Seleccione</option>';
+        datos.forEach(element => {
+        contenido_select += '<option value="' + element.id + '">' + element.razon_social + '</option>';
+        /*$('#categoria').append($('<option />',{
+            text:${element.nombre},
+            value:${element.id}
+            }));*/
+        });
+         document.getElementById('proveedor').innerHTML =
+            contenido_select;
         }
         console.log(respuesta);
-
-    } catch (e){
-        console.log("Error al cargar categorias"+e);
+    } catch (e) {
+        console.log("Error  al cargar proveedor " + e);
     }
-    }
-   
-
-    async function listar_proveedor() {
-        try {
-            let respuesta = await fetch(base_url+'controller/persona.php?tipo=listar');
-            json = await respuesta.json();
-            if (json.status) {
-                let datos = json.contenido;
-                let contenido_select = '<option value="">Seleccione</option>';
-                datos.forEach(element => {
-                    contenido_select += '<option value="'+ element.id +'">'+element.razon_social+'</option>';
-                 /* $('#categoria').append($('<option/>',{
-                      text: ${element.nombre},
-                      value: ${element.id},
-                    }));    */
-                });
-                document.getElementById('proveedor').innerHTML = contenido_select;
-            }
+}
     
-            console.log(respuesta);
-        } catch (e) {
-            console.log("Error al cargar categorias" + e);
-        }
-    }

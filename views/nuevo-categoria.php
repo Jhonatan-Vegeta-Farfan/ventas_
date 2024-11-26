@@ -1,13 +1,16 @@
-<form action="" id="frmRegistrar" style="margin: 10px 50px;">
-    <div>
+<div class="container mt-5">
+<h1 class="text-center mb-4 ">Registrar categorias</h1>
+
+<form action="" class="from-control" id="frmRegistrar">
+<div class="mb-3">
         <label for="">Nombre: </label>
-        <input type="text" class="form-control" required id="nombre" name="nombre">
-       
+        <input type="text" id="nombre" name="nombre" class="form-control" required>
     </div>
-    <div>
-        <label for="">Detalle:</label>
-        <input type="text" class="form-control" required id= "detalle" name="detalle">
-    </div><br>
-    <button type="button" class="btn btn-info " onclick="registrarCategoria();">Registrar</button>
+    <div class="mb-3">
+        <label for="">Detalle: </label>
+        <input type="text" id="detalle" name="detalle" class="form-control" required>
+    </div>
+    <button type="button" class="mb-3 btn btn-outline-info" onclick="registrar_categoria();"><i class="bi bi-check-circle"></i>Registrar</button>
 </form>
-<script src="<?php echo BASE_URL;?>views/js/functions-categoria.js"></script>
+</div>
+<script src="<?php echo BASE_URL ?>views/js/functions_categoria.js"></script>

@@ -9,13 +9,12 @@ class vistaModelo
         'comentarios','contactanos','detalleproducto','libroreclamaciones','nosotros','novedades','pagofactura','perfil',
         'rutadeenvio','suscribirte','ubicacion','descargarboleta','respuestadedescarga','respuestadeimprecion',
         'imprimirboleta','inicio', 'olvidastetucontraseña', 'registrarse',
-        'rutadeenvio','suscribirte','ubicacion','descargarboleta','respuestadedescarga','respuestadeimprecion','imprimirboleta', 'inicio','nuevo-productos', 'productos', 'olvidastetucontraseña', 'registrarse', 'nueva-persona', 'nuevo-categoria', 'nuevo-compras'];
+        'rutadeenvio','suscribirte','ubicacion','descargarboleta','respuestadedescarga','respuestadeimprecion','imprimirboleta', 'inicio',   'olvidastetucontraseña', 'registrarse','categorias', 'compras', 'nuevo-categoria','nuevo-compra','nueva-persona', 'nuevo-producto','productos', 'usuarios'];
 
         /*
         if(!isset($_SESSION['sesion_ventas_id'])){
             return"login";
         }*/
-
 
         if (in_array($vista, $palabras_permitidas)) {
             if (is_file("./views/" . $vista . ".php")) {

@@ -2,32 +2,17 @@
 require_once('../model/categoriaModel.php');
 $tipo = $_REQUEST['tipo'];
 
+//instanciar la clase categoria model
 $objCategoria = new categoriaModel();
 
-if ($tipo=="registrar") {
-    if ($_POST) {
-        $nombre = $_POST['nombre'];
-        $detalle = $_POST['detalle'];
+if ($tipo=="listar") {
+    //respuesta
 
-    if($nombre == ""){
-        $arr_Respuesta = array('status'=>false,'mensaje'=>'Error, campos vacios');
-    }else{
-        $arr_Categorias = $objCategoria->registrarCategoria($nombre, $detalle);
-        if ($arr_Categorias->id>0) {
-            $arr_Respuesta = array('status'=>true, 'mensaje'=>'Registro exitoso');
-        }else{
-            $arr_Respuesta = array('status'=>false, 'mensaje'=>'Error al registrar categoria');
-        }
-        echo json_encode($arr_Respuesta);
-    }
- }
- }
-
- if ($tipo =="listar"){
     $arr_Respuesta = array('status'=>false, 'contenido'=>'');
     $arr_Categorias = $objCategoria->obtener_categorias();
     if (!empty($arr_Categorias)) {
-        for ($i=0; $i < count($arr_Categorias); $i++) {
+        //recorremos el array para agregar las opciones de las categorias
+        for ($i=0; $i < count($arr_Categorias); $i++) { //declara una variable siendo 0 el valor inicial -- define hasta donde sera el bucle -- aumenta +1
             $id_categoria = $arr_Categorias[$i]->id;
             $categoria =  $arr_Categorias[$i]->nombre;
             $opciones = '';
@@ -36,7 +21,27 @@ if ($tipo=="registrar") {
         $arr_Respuesta['status'] = true;
         $arr_Respuesta['contenido'] =  $arr_Categorias;
     }
-    echo json_encode($arr_Respuesta);
- }
+    echo json_encode($arr_Respuesta); //convertir en formeato -- 
+}
 
+if ($tipo=="registrar"){
+    //print_r($_POST);
+
+   if ($_POST) {
+        $nombre = $_POST['nombre'];
+        $detalle = $_POST['detalle'];
+        if($nombre=="" || $detalle==""){
+            $arr_Respuesta = array('status'=>false,'mensaje'=>'Error, campos vacios'); //respuesta
+        }else {
+            $arrCategoria = $objCategoria->registrarCategoria($nombre, $detalle);
+
+            if ($arrCategoria->id>0) {
+                $arr_Respuesta = array('status'=>true, 'mensaje'=>'Registro exitoso');
+            }else{
+                $arr_Respuesta = array('status'=>false, 'mensaje'=>'Error al registrar producto');
+            }
+            echo json_encode($arr_Respuesta);
+        }
+    }
+}
 ?>
