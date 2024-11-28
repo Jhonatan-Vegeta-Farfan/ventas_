@@ -46,7 +46,7 @@ if ($tipo == "registrar") {
         $rol = $_POST['rol'];
         $secure_password = password_hash($nro_identidad, PASSWORD_DEFAULT);
 
-        if ($nro_identidad == "" || $razon_social == "" || $telefono == "" || $correo == "" || $departamento == "" || $provincia == "" ||  $distrito == "" || $cod_postal == "" || $direccion == "" || $rol == "") {
+        if ($nro_identidad == "" || $razon_social == "" || $telefono == "" || $correo == "" || $departamento == "" || $provincia == "" ||  $distrito == "" || $cod_postal == "" || $direccion == "" || $rol == "" || $secure_password == "") {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios'); //respuesta
         } else {
             $arrPersona = $objPersona->registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $secure_password);
