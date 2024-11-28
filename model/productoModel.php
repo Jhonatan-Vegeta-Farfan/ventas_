@@ -28,7 +28,7 @@ class ProductoModel{
     
     public function registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $imagen, $proveedor, $tipoArchivo){
 
-        $sql = $this->conexion->query("CALL insertarproducto('{$codigo}', '{$nombre}', '{$detalle}', '{$precio}', '{$stock}', '{$categoria}', '{$imagen}', '{$proveedor}', '{$tipoArchivo}')");
+        $sql = $this->conexion->query("CALL insertproducto('{$codigo}', '{$nombre}', '{$detalle}', '{$precio}', '{$stock}', '{$categoria}', '{$imagen}', '{$proveedor}', '{$tipoArchivo}')");
         $sql = $sql->fetch_object();
         return $sql;
     }
@@ -37,5 +37,10 @@ class ProductoModel{
         return 1;
      }
     
+     public function verProducto($id){
+        $sql = $this->conexion->query("SELECT * FROM producto WHERE id='{$id}' ");
+        $sql= $sql->fetch_object();
+        return $sql;
+     }
 }
 ?>

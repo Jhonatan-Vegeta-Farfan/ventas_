@@ -16,6 +16,7 @@ async function listar_productos() {
                 <td>${item.stock}</td>
                 <td>${item.categoria.nombre}</td>
                 <td>${item.proveedor.razon_social}</td>
+                <td>${item.opciones}</dt>
                 <td>
                     <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
                     <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
@@ -114,3 +115,33 @@ if (document.querySelector('#tbl_producto')) {
             }
         }
     
+async function ver_producto(id) {
+    const formData = new FormData();
+    formData.append('id_producto', id);
+    try {
+        let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=ver', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: formData
+
+        });
+        json = await respuesta.json();
+        if (json.status) {
+            document.querySelector('$codigo').value = json.contenido.codigo;
+            document.querySelector('$nombre').value = json.contenido.nombre ;
+            document.querySelector('$descripcion').value = json.contenido.descripcion ;
+            document.querySelector('$precio').value = json.contenido.precio ;
+            document.querySelector('$stock').value = json.contenido.stock ;
+            document.querySelector('$categoria').value = json.contenido.id_categoria ;
+            document.querySelector('$proveedor').value = json.contenido.id_proveedor ;
+            
+        }else{
+            window.location = base_url+"productos";
+        }
+        console.log(json);
+
+    } catch (error) {
+        console.log("oop ocurrio un error"+error);
+    }    
+}

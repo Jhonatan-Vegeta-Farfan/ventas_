@@ -18,7 +18,7 @@ if ($tipo == "listar") {
             $id_categoria = $arrProducto[$i]->id_categoria;
             $r_categoria = $objCategoria->obtener_categoria_id($id_categoria);
             $arrProducto[$i]->categoria=$r_categoria;
-
+            
             $id_proveedor = $arrProducto[$i]->id_proveedor;
             $r_proveedor = $objPersona->obtener_proveedor_id($id_proveedor);
             $arrProducto[$i]->proveedor=$r_proveedor;
@@ -74,4 +74,27 @@ if ($tipo == "registrar") {
             echo json_encode($arr_Respuesta);
         }
     }
+}
+
+if($tipo == "ver"){
+    //print_r($_POST);
+    $id_producto = $_POST['id_producto'];
+    $arr_Respuesta = $objProducto->verProducto($id_producto);
+    //print_r($arr_Respuesta);
+    if(empty($arr_Respuesta)){
+        $response = array('status' => false, 'mensaje' => "Error , mo hay informacion");
+    }else{
+        $response = array('status' => true, 'mensaje' => "Datos encontrados", 'datos' => $arr_Respuesta);
+    }
+    echo json_encode($response);
+}
+
+if($tipo == "actualizar"){
+    //print_r($_POST);
+    
+}
+
+if($tipo == "eliminar"){
+    //print_r($_POST);
+    
 }
