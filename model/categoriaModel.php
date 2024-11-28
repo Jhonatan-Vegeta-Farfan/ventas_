@@ -23,7 +23,7 @@ class categoriaModel
 
     public function registrarCategoria($nombre, $detalle){
 
-        $sql = $this->conexion->query("CALL insertCategoria('{$nombre}', '{$detalle}')");
+        $sql = $this->conexion->query("CALL insertarCategoria('{$nombre}', '{$detalle}')");
         $sql = $sql->fetch_object();
         return $sql;
     }

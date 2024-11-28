@@ -1,92 +1,87 @@
-async function listar_personas(){
+async function listar_personas() {
     try {
-        let respuesta = await fetch(base_url + '/controller/persona.php?tipo=listar');
+        let respuesta = await fetch(base_url+'controller/Persona.php?tipo=listar_p');
         let json = await respuesta.json();
-        
         if (json.status) {
             let datos = json.contenido;
             let cont = 0;
-            
-            datos.forEach(element => {
-                let fila = document.createElement("tr");
-                cont += 1;
-                fila.innerHTML = `
-                            <th scope="row" class="text-center">${cont}</th>
-                            <td class="text-center">${element.nro_identidad}</td>
-                            <td class="text-center">${element.razon_social}</td>
-                            <td class="text-center">${element.telefono}</td>
-                            <td class="text-center">${element.correo}</td>
-                            <td class="text-center">${element.departamento}</td> 
-                            <td class="text-center">${element.provincia}</td>
-                            <td class="text-center">${element.distrito}</td>
-                            <td class="text-center">${element.codigo_postal}</td>
-                            <td class="text-center">${element.direccion}</td>
-                            <td class="text-center">${element.rol}</td>
-                            <td class="text-center">${element.estado}</td>
-                            <td class="text-center">${element.fecha_reg}</td>
-                            <td class="text-center">${element.options}</td>
-                            `;
-                document.getElementById("tabla_personas").appendChild(fila);
+            datos.forEach(item=>{
+                let nueva_fila = document.createElement("tr");
+                nueva_fila.id = "fila"+item.id; // id anuevo asignado-------------id de la BD
+                cont+=1;
+                nueva_fila.innerHTML = `
+                <th>${cont}</th> 
+                <td>${item.nro_identidad}</td>
+                <td>${item.razon_social}</td>
+                <td>${item.telefono}</td>
+                <td>${item.correo}</td>
+                <td>${item.departamento}</td>
+                <td>${item.cod_postal}</td>
+                <td>${item.direccion}</td>
+                <td>${item.rol}</td>
+                <td>
+                    <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                </td>
+        `;
+        document.querySelector('#tbl_persona').appendChild(nueva_fila);
             });
-        } else{
-            Swal.fire('No se encontraron personas.');
+        }else{
+            Swal.fire("No se encontraron productos.");
         }
         console.log(json);
-
-        if (document.getElementById("tabla_personas")) {
-        }
     } catch (error) {
-        console.error("Oops, ocurrió un error: " + error);
-        Swal.fire('Oops, ocurrió un error al listar personas.');
-}
-}
-async function registrar_persona() {
-    let codigo = document.getElementById('codigo').value;
-    let nombre = document.getElementById('nombre').value;
-    let detalle = document.getElementById('telefono').value;
-    let precio = document.getElementById('correo').value;
-    let departamento = document.getElementById('departamento').value;
-    let provincia = document.getElementById('provincia').value;
-    let distrito = document.getElementById('distrito').value;
-    let codigo_postal = document.getElementById('codigo_postal').value
-    let direccion = document.getElementById('direccion').value;
-    let rol = document.getElementById('rol').value;
-    let password = document.getElementById('codigo').value;
+        console.log("Oops salio un error "+error);
+    }
 
-    // Verificar que todos los campos estén completos
-    if (
-        codigo === "" || nombre === "" || telefono === "" || correo === "" ||
-        departamento === "" || provincia === "" || distrito === "" || codigo_postal == "" ||
-        direccion === "" || rol === "" || password === ""
-    ) {
-        Swal.fire('Por favor, complete todos los campos.');
-        return;
+}
+
+if (document.querySelector('#tbl_persona')) {
+    listar_personas();
+}
+
+
+
+
+async function registrarPersona() {
+    let nro_identidad = document.getElementById('nro_identidad').value;
+    let razon_social = document.querySelector('#razon_social').value;
+    let telefono = document.querySelector('#telefono').value;
+    let correo = document.querySelector('#correo').value;
+    let departamento = document.querySelector('#departamento').value;
+    let provincia = document.querySelector('#provincia').value;
+    let distrito = document.querySelector('#distrito').value;
+    let cod_postal = document.querySelector('#cod_postal').value;
+    let direccion = document.querySelector('#direccion').value;
+    let rol = document.querySelector('#rol').value;
+   
+
+    if (nro_identidad=="" || razon_social=="" || telefono=="" || correo=="" || departamento=="" || provincia=="" || distrito=="" || cod_postal=="" || direccion=="" 
+        || rol=="") {
+        alert("Error, campos vacios");
+        return; 
     }
 
     try {
-        // Crear el FormData a partir del formulario formPersona
-        const datos = new FormData(document.getElementById('formPersona'));
+        const datos = new FormData(frmRegistrar);
 
-        // Enviar la solicitud al backend
-        let respuesta = await fetch(base_url + '/controller/persona.php?tipo=registrar', {
+        //enviar datos hacia el controlador
+        let respuesta = await fetch(base_url + 'controller/Persona.php?tipo=registrar', { //await es una promesa que si o si espera una respuesta
             method: 'POST',
             mode: 'cors',
             cache: 'no-cache',
             body: datos
         });
 
-        // Convertir la respuesta a JSON
-        let json = await respuesta.json();
-
-        // Mostrar alerta de éxito o error
-        if (json.status) {
-            Swal.fire("Registro exitoso", json.mensaje, "success");
-        } else {
-            Swal.fire("Registro fallido", json.mensaje, "error");
+        json = await respuesta.json();
+        if(json.status){
+            swal("Registro", json.mensaje, "success");
+        }else{
+            swal("Registro", json.mensaje, "error");
         }
-
-    } catch (error) {
-        console.error("Oops, ocurrió un error: " + error);
-        Swal.fire("Error", "Ocurrió un error al registrar la persona.", "error");
-    }
+    
+        console.log(json);
+       } catch (e){
+        console.log("Oops, ocurrio un error persona" + e );
+       }
 }

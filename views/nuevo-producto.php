@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5>
 <h1 class="text-center mb-4">Formulario de Registro de Productos</h1>
 
 <form action="" class="from-control" id="frmRegistrar">
@@ -30,7 +30,7 @@
     </div>
     <div class="mb-3">
         <label for="">Imagen: </label>
-        <input type="file" class="form-control" required id="imagen" name="imagen">
+        <input type="file" id="imagen" name="imagen" class="form-control" required>
     </div>
     <div class="mb-3">
         <label for="">Proveedor: </label>
@@ -45,4 +45,4 @@
 <script src="<?php echo BASE_URL ?>views/js/functions_producto.js"></script>
 
 <script>listar_categorias();</script>
-<script>listar_proveedores();</script>
+<script>listarProveedor();</script>
