@@ -1,62 +1,64 @@
 <?php
 require_once "../libreria/conexcion.php";
 
-class PersonaModel{
+class PersonaModel
+{
     private $conexion;
+
     function __construct()
     {
         $this->conexion = new Conexion();
         $this->conexion = $this->conexion->connect();
     }
 
-    public function registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $password){
+    public function registrarPersona($codigo, $nombre, $telefono, $correo, $departamento, $provincia, $distrito, $direccion, $rol, $codigo_postal, $password)
+    {
+        // Ejecutar el procedimiento almacenado insertPersona
+        $sql = $this->conexion->query("CALL insertpersona('{$codigo}', '{$nombre}', '{$telefono}', '{$correo}', '{$departamento}', '{$provincia}', '{$distrito}','{$codigo_postal}', '{$direccion}','{$rol}', '{$password}')");
 
-        $sql = $this->conexion->query("CALL insertarPersona('{$nro_identidad}', '{$razon_social}', '{$telefono}', '{$correo}', '{$departamento}', '{$provincia}', '{$distrito}', '{$cod_postal}', '{$direccion}', '{$rol}', '{$password}')");
+        // Obtener el resultado como un objeto (suponiendo que el procedimiento devuelve un id o un status)
         $sql = $sql->fetch_object();
         return $sql;
     }
-    public function buscarPersonaDNI($nro_identidad){
-        $sql = $this->conexion->query("SELECT * FROM persona WHERE nro_identidad='{$nro_identidad}'");
+
+    public function obtenerPersonas(){
+        $arrRespuesta = [];
+        $sql = $this->conexion->query("SELECT * FROM persona");
+        while ($fila = $sql->fetch_object()) {
+            array_push($arrRespuesta, $fila);
+        }
+        return $arrRespuesta;
+    }
+
+    public function obtenerPersonaPorId($id){
+        $id = $this->conexion->real_escape_string($id);
+        $sql = $this->conexion->query("SELECT * FROM persona WHERE id = '{$id}'");
         $sql = $sql->fetch_object();
         return $sql;
-
     }
 
-    public function obtenerProveedor(){
-        $arrRespuesta = array();
-        $respuesta = $this->conexion->query( "SELECT * FROM persona WHERE rol='proveedor'");
-        while ($objeto = $respuesta->fetch_object()) {
-            array_push($arrRespuesta, $objeto);
+    public function BuscarPersonaDNI($usuario){
+        $sql = $this->conexion->query("SELECT * FROM persona WHERE nro_identidad = '{$usuario}'");
+        $sql = $sql->fetch_object();
+        return $sql;
+    }        
+
+    public function obtenerProveedores()
+    {
+        $arrRespuesta = [];
+        $sql = $this->conexion->query("SELECT * FROM persona WHERE rol = 'proveedor'");
+        while ($fila = $sql->fetch_object()) {
+            array_push($arrRespuesta, $fila);
         }
-        return  $arrRespuesta;
+        return $arrRespuesta;
     }
 
-    public function obtener_proveedor_id($id){
-        $respuesta = $this->conexion->query("SELECT *FROM persona WHERE id='{$id}'");
-        $objeto = $respuesta->fetch_object();
-        return $objeto;
-    }
-    public function obtener_trabajador(){
-        $arrRespuesta = array();
-        $respuesta = $this->conexion->query( "SELECT * FROM persona WHERE rol='trabajador'");
-        while ($objeto = $respuesta->fetch_object()) {
-            array_push($arrRespuesta, $objeto);
-        }
-        return  $arrRespuesta;
-    }
-   
-    public function obtener_trabajador_id($id){
-        $respuesta = $this->conexion->query("SELECT *FROM persona WHERE id='{$id}'");
-        $objeto = $respuesta->fetch_object();
-        return $objeto;
-    }
-    
-    public function obtenerPersona(){
-        $arrRespuesta = array();
-        $respuesta = $this->conexion->query("SELECT * FROM persona");
-        while ($objeto = $respuesta->fetch_object()) {
-            array_push($arrRespuesta,$objeto);
-            
+    public function obtenerTrabajadores()
+    {
+        $arrRespuesta = [];
+        $sql = $this->conexion->query("SELECT * FROM persona WHERE rol = 'trabajador'");
+        while ($fila = $sql->fetch_object()) {
+            array_push($arrRespuesta, $fila);
         }
         return $arrRespuesta;
     }

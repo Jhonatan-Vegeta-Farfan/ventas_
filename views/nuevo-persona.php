@@ -1,49 +1,73 @@
-<div class="container mt-5"> 
-<h1 class="text-center mb-4">Registrar Usuario</h1>
-<form action="" class="from-control" id="frmRegistrar">
-<div class="mb-3">
-        <label for="">Numero de Identidad: </label>
-        <input type="text" id="nro_identidad" name="nroIdentidad" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="">Razon social: </label>
-        <input type="text" id="razon_social" name="razonSocial" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="">Telefono: </label>
-        <input type="text" id="telefono" name="telefono" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="">Correo electronico: </label>
-        <input type="text" id="correo" name="correo" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="">Departamento: </label>
-        <input type="text" id="departamento" name="departamento" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="">Provincia: </label>
-        <input type="text" id="provincia" name="provincia" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="">Distrito: </label>
-        <input type="text" id="distrito" name="distrito" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="">Codigo postal: </label>
-        <input type="number" id="cod_postal" name="cod_postal" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="">Direccion: </label>
-        <input type="text" id="direccion" name="direccion" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="">Rol: </label>
-        <input type="text" id="rol" name="rol" class="form-control" required>
-    </div>
-   
-    <button type="button" class="mb-3 btn btn-outline-info" onclick="registrarPersona();"><i class="bi bi-check-circle"></i>Registrar</button>
-</form>
+<main class="main-content col-lg-8 col-md-12">
+<div class="d-flex justify-content-between align-items-center my-4">
+    <a href="<?php echo BASE_URL ?>?persona" class="btn btn-warning">
+        <i class="bi bi-arrow-left-circle"></i> Regresar
+    </a>
+    <h2 class="text-center m-0">Agregar Usuario</h2>
 </div>
+<form id="formPersona" action="">
+    <h2>Agregar Usuario</h2>
+    <div class="form-group">
+        <label for="codigo">Número de identidad:</label>
+        <input type="text" class="form-control" id="codigo" name="codigo" maxlength="20" required>
+    </div>
 
-<script src="<?php echo BASE_URL?>views/js/functions_persona.js"></script>
+    <div class="form-group">
+        <label for="nombre">Nombre o Razón Social de la persona:</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" maxlength="30" required>
+    </div>
+
+    <div class="form-group">
+        <label for="telefono">Teléfono:</label>
+        <input type="text" class="form-control" id="telefono" name="telefono" maxlength="100" required>
+    </div>
+
+    <div class="form-group">
+        <label for="correo">Correo:</label>
+        <input type="email" class="form-control" id="correo" name="correo" maxlength="100" required>
+    </div>
+
+    <div class="form-group">
+        <label for="departamento">Departamento:</label>
+        <input type="text" class="form-control" id="departamento" name="departamento" maxlength="50" required>
+    </div>
+
+    <div class="form-group">
+        <label for="provincia">Provincia:</label>
+        <input type="text" class="form-control" id="provincia" name="provincia" maxlength="50" required>
+    </div>
+
+    <div class="form-group">
+        <label for="distrito">Distrito:</label>
+        <input type="text" class="form-control" id="distrito" name="distrito" maxlength="50" required>
+    </div>
+    <div class="form-group">
+        <label for="codigo_postal">Codigo Postal:</label>
+        <input type="text" class="form-control" id="codigo_postal" name="codigo_postal" maxlength="50" required>
+    </div>
+    <div class="form-group">
+        <label for="direccion">Dirección:</label>
+        <input type="text" class="form-control" id="direccion" name="direccion" maxlength="20" required>
+    </div>
+
+    <div class="form-group">
+        <label for="rol">Rol:</label>
+        <select name="rol" id="rol" class="form-control">
+            <option value="no definido">Selecciona un rol</option>
+            <option value="administrador">administrador</option>
+            <option value="trabajador">trabajador</option>
+            <option value="proveedor">proveedor</option>
+            <option value="cliente">cliente</option>
+
+        </select>
+    </div>
+    <!-- <div class="form-group">
+        <label for="password">Contraseña:</label>
+        <input type="password" class="form-control" id="password" name="password" maxlength="200" required>
+    </div> -->
+    <br>
+    <button type="button" class="btn btn-success" onclick="registrar_persona()">Agregar Persona</button>
+</form>
+</main>
+
+<script src="<?php echo BASE_URL ?>views/js/functions_persona.js"></script>

@@ -12,7 +12,7 @@ class ComprasModel
         $cantidad,
         $precio,
         $trabajador) {
-        $sql = $this->conexion->query("CALL insertarCompras('{$id_producto}','{$cantidad}','{$precio}','{$trabajador}')");
+        $sql = $this->conexion->query("CALL insertCompras('{$id_producto}','{$cantidad}','{$precio}','{$trabajador}')");
         $sql = $sql->fetch_object();
         return $sql;
     }
