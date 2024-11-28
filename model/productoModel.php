@@ -28,7 +28,7 @@ class ProductoModel{
     
     public function registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $imagen, $proveedor, $tipoArchivo){
 
-        $sql = $this->conexion->query("CALL insertProducto('{$codigo}', '{$nombre}', '{$detalle}', '{$precio}', '{$stock}', '{$categoria}', '{$imagen}', '{$proveedor}', '{$tipoArchivo}')");
+        $sql = $this->conexion->query("CALL insertproducto('{$codigo}', '{$nombre}', '{$detalle}', '{$precio}', '{$stock}', '{$categoria}', '{$imagen}', '{$proveedor}', '{$tipoArchivo}')");
         $sql = $sql->fetch_object();
         return $sql;
     }
