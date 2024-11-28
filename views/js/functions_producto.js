@@ -32,8 +32,6 @@ async function listar_productos() {
 if (document.querySelector('#tbl_producto')) {
     listar_productos();
 }
-
-
             async function registrar_producto() {
                 let codigo = document.getElementById('codigo').values;
                 let nombre = document.querySelector('#nombre').value;

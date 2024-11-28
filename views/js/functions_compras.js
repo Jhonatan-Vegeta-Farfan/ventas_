@@ -36,8 +36,6 @@ if (document.querySelector('#tbl_compras')) {
     listar_compras();
 }
 
-
-
 async function registrar_compra(){
     let producto = document.querySelector('#id_producto').value;
     let cantidad = document.querySelector('#cantidad').value;

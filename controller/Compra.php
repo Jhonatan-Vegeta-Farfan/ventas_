@@ -20,18 +20,14 @@ if ($tipo == "listar") {
             $cantidad = $arrCompras[$i]->cantidad;
             $precio = $arrCompras[$i]->precio;
             $id_trabajador = $arrCompras[$i]->id_trabajador;
-
             $id_producto = $arrCompras[$i]->id;
             $r_producto = $objProducto->obtener_producto_id($id_producto);
             $arrCompras[$i]->producto=$r_producto;
-
             $id_trabajador = $arrCompras[$i]->id_trabajador;
             $r_trabajador = $objPersona->obtener_trabajador_id($id_trabajador);
             $arrCompras[$i]->trabajador=$r_trabajador;
-
             $opciones = '';
             $arrCompras[$i]->options = $opciones;
-            
         }
             $arr_Respuesta['status'] = true;
             $arr_Respuesta['contenido'] =  $arrCompras;

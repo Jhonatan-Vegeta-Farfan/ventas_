@@ -22,7 +22,6 @@ if ($tipo == "listar_p") {
             $cod_postal =  $arrPersona[$i]->cod_postal;
             $direccion =  $arrPersona[$i]->direccion;
             $rol =  $arrPersona[$i]->rol;
-
             $opciones = '';
             $arrPersona[$i]->options = $opciones;
         }
@@ -31,7 +30,6 @@ if ($tipo == "listar_p") {
     }
     echo json_encode($arr_Respuesta); //convertir en formato -- 
 }
-
 
 if ($tipo == "registrar"){
 //print_r($_POST);
@@ -46,7 +44,6 @@ if ($_POST) {
     $cod_postal = $_POST['cod_postal'];
     $direccion = $_POST['direccion'];
     $rol = $_POST['rol'];
-
     $secure_password = password_hash($nro_identidad, PASSWORD_DEFAULT);
 
     if($nro_identidad=="" || $razon_social=="" || $telefono=="" || $correo=="" || $departamento=="" || $provincia=="" ||  $distrito=="" || $cod_postal=="" || $direccion=="" || $rol==""){
@@ -62,7 +59,6 @@ if ($_POST) {
         }
     }
             echo json_encode($arr_Respuesta);
-
 }
 }
 if ($tipo == "listar_proveedores") {

@@ -6,7 +6,7 @@ $tipo = $_REQUEST['tipo'];
 
 //instancio la clase modeloProducto
 $objProducto = new ProductoModel();
-$objCategoria = new categoriaModel();
+$objCategoria = new CategoriaModel();
 $objPersona = new PersonaModel(); 
 
 if ($tipo == "listar") {
@@ -52,7 +52,6 @@ if ($tipo == "registrar") {
         $proveedor = $_POST['proveedor'];
         if ($codigo == "" || $nombre == "" || $detalle == "" || $precio == "" || $stock == "" || $categoria == "" ||  $imagen == "" || $proveedor == "") {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios'); //respuesta
-
         } else {
             //CARGAR ARCHIVO
                 $archivo = $_FILES['imagen']['tmp_name'];

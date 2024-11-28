@@ -40,9 +40,6 @@ if (document.querySelector('#tbl_persona')) {
     listar_personas();
 }
 
-
-
-
 async function registrarPersona() {
     let nro_identidad = document.getElementById('nro_identidad').value;
     let razon_social = document.querySelector('#razon_social').value;
@@ -55,7 +52,6 @@ async function registrarPersona() {
     let direccion = document.querySelector('#direccion').value;
     let rol = document.querySelector('#rol').value;
    
-
     if (nro_identidad=="" || razon_social=="" || telefono=="" || correo=="" || departamento=="" || provincia=="" || distrito=="" || cod_postal=="" || direccion=="" 
         || rol=="") {
         alert("Error, campos vacios");
