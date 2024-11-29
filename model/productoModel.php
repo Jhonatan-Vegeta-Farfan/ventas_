@@ -1,5 +1,5 @@
 <?php
-require_once "../librerias/conexion.php";
+require_once "../libreria/conexion.php";
 class ProductoModel{
 
     private $conexion;
@@ -26,9 +26,15 @@ class ProductoModel{
         return $objeto;
     }
     
-    public function registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $imagen, $proveedor, $tipoArchivo){
+    public function registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $imagen, $proveedor, $tipo_archivo){
 
-        $sql = $this->conexion->query("CALL insertarProducto('{$codigo}', '{$nombre}', '{$detalle}', '{$precio}', '{$stock}', '{$categoria}', '{$imagen}', '{$proveedor}', '{$tipoArchivo}')");
+        $sql = $this->conexion->query("CALL insertarProducto('{$codigo}', '{$nombre}', '{$detalle}', '{$precio}', '{$stock}', '{$categoria}', '{$imagen}', '{$proveedor}', '{$tipo_archivo}')");
+        // Verifica si la consulta fue exitosa
+        if ($sql === false) {
+            // Manejo de error, puedes usar mysqli_error para obtener el mensaje de error
+            die("Error en la consulta: " . $this->conexion->error);
+        }
+    
         $sql = $sql->fetch_object();
         return $sql;
     }

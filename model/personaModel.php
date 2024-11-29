@@ -1,5 +1,5 @@
 <?php
-require_once "../librerias/conexion.php";
+require_once "../libreria/conexion.php";
 
 class PersonaModel{
     private $conexion;
@@ -10,16 +10,16 @@ class PersonaModel{
     }
 
     public function registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $password){
-
         $sql = $this->conexion->query("CALL insertarPersona('{$nro_identidad}', '{$razon_social}', '{$telefono}', '{$correo}', '{$departamento}', '{$provincia}', '{$distrito}', '{$cod_postal}', '{$direccion}', '{$rol}', '{$password}')");
+    
+        // Verifica si la consulta fue exitosa
+        if ($sql === false) {
+            // Manejo de error, puedes usar mysqli_error para obtener el mensaje de error
+            die("Error en la consulta: " . $this->conexion->error);
+        }
+    
         $sql = $sql->fetch_object();
         return $sql;
-    }
-    public function buscarPersonaDNI($nro_identidad){
-        $sql = $this->conexion->query("SELECT * FROM persona WHERE nro_identidad='{$nro_identidad}'");
-        $sql = $sql->fetch_object();
-        return $sql;
-
     }
 
     public function obtenerProveedor(){
