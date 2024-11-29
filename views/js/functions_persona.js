@@ -19,10 +19,7 @@ async function listar_personas() {
                 <td>${item.cod_postal}</td>
                 <td>${item.direccion}</td>
                 <td>${item.rol}</td>
-                <td>
-                    <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
-                </td>
+                <td> </td>
         `;
         document.querySelector('#tbl_persona').appendChild(nueva_fila);
             });
@@ -40,6 +37,9 @@ if (document.querySelector('#tbl_persona')) {
     listar_personas();
 }
 
+
+
+
 async function registrarPersona() {
     let nro_identidad = document.getElementById('nro_identidad').value;
     let razon_social = document.querySelector('#razon_social').value;
@@ -51,10 +51,10 @@ async function registrarPersona() {
     let cod_postal = document.querySelector('#cod_postal').value;
     let direccion = document.querySelector('#direccion').value;
     let rol = document.querySelector('#rol').value;
-    /*let password = document.querySelector('#password').value;*/
    
+
     if (nro_identidad=="" || razon_social=="" || telefono=="" || correo=="" || departamento=="" || provincia=="" || distrito=="" || cod_postal=="" || direccion=="" 
-        || rol=="" ) {
+        || rol=="") {
         alert("Error, campos vacios");
         return; 
     }

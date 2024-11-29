@@ -1,5 +1,5 @@
 <?php
-require_once "../libreria/conexcion.php";
+require_once "../librerias/conexion.php";
 class ComprasModel
 {
     private $conexion;
@@ -12,7 +12,7 @@ class ComprasModel
         $cantidad,
         $precio,
         $trabajador) {
-        $sql = $this->conexion->query("CALL insertcompras('{$id_producto}','{$cantidad}','{$precio}','{$trabajador}')");
+        $sql = $this->conexion->query("CALL insertarCompras('{$id_producto}','{$cantidad}','{$precio}','{$trabajador}')");
         $sql = $sql->fetch_object();
         return $sql;
     }

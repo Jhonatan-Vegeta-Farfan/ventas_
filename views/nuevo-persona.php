@@ -38,9 +38,13 @@
         <input type="text" id="direccion" name="direccion" class="form-control" required>
     </div>
     <div class="mb-3">
-        <label for="">Rol: </label>
-        <input type="text" id="rol" name="rol" class="form-control" required>
-    </div>
+    <label for="rol">Rol:</label>
+    <select id="rol" name="rol" class="form-control" required>
+        <option value="" disabled selected>Seleccione un rol</option>
+        <option value="proveedor">Proveedor</option>
+        <option value="trabajador">Trabajador</option>
+    </select>
+</div>
    
     <button type="button" class="mb-3 btn btn-outline-info" onclick="registrarPersona();"><i class="bi bi-check-circle"></i>Registrar</button>
 </form>

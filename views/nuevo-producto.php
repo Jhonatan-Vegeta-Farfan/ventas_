@@ -1,6 +1,5 @@
-<div class="container mt-5>
-<h1 class="text-center mb-4">Formulario de Registro de Productos</h1>
-
+<div class="container mt-5">
+<h1 class="text-center mb-4">Registrar Productos</h1>
 <form action="" class="from-control" id="frmRegistrar">
     <div class="mb-3">
         <label for="">Codigo: </label>

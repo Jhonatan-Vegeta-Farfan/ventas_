@@ -6,7 +6,7 @@ $tipo = $_REQUEST['tipo'];
 
 //instancio la clase modeloProducto
 $objProducto = new ProductoModel();
-$objCategoria = new CategoriaModel();
+$objCategoria = new categoriaModel();
 $objPersona = new PersonaModel(); 
 
 if ($tipo == "listar") {
@@ -18,14 +18,17 @@ if ($tipo == "listar") {
             $id_categoria = $arrProducto[$i]->id_categoria;
             $r_categoria = $objCategoria->obtener_categoria_id($id_categoria);
             $arrProducto[$i]->categoria=$r_categoria;
-            
+
             $id_proveedor = $arrProducto[$i]->id_proveedor;
             $r_proveedor = $objPersona->obtener_proveedor_id($id_proveedor);
             $arrProducto[$i]->proveedor=$r_proveedor;
 
             $id_producto =  $arrProducto[$i]->id;
             $nombre =  $arrProducto[$i]->nombre;
-            $opciones = '';
+            $opciones = '
+                 <a href="'.BASE_URL.'editar-producto/'.$id_producto.'"><i class="fas fa-edit"></i></a>
+                 <button onclick="eliminar_producto('.$id_producto.');"><i class="fas fa-trash-alt"></i></button>
+            ';
             $arrProducto[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
@@ -52,6 +55,7 @@ if ($tipo == "registrar") {
         $proveedor = $_POST['proveedor'];
         if ($codigo == "" || $nombre == "" || $detalle == "" || $precio == "" || $stock == "" || $categoria == "" ||  $imagen == "" || $proveedor == "") {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios'); //respuesta
+
         } else {
             //CARGAR ARCHIVO
                 $archivo = $_FILES['imagen']['tmp_name'];
@@ -76,25 +80,15 @@ if ($tipo == "registrar") {
     }
 }
 
-if($tipo == "ver"){
+if($tipo == "ver") {
     //print_r($_POST);
     $id_producto = $_POST['id_producto'];
     $arr_Respuesta = $objProducto->verProducto($id_producto);
-    //print_r($arr_Respuesta);
-    if(empty($arr_Respuesta)){
-        $response = array('status' => false, 'mensaje' => "Error , mo hay informacion");
-    }else{
-        $response = array('status' => true, 'mensaje' => "Datos encontrados", 'datos' => $arr_Respuesta);
-    }
-    echo json_encode($response);
-}
-
-if($tipo == "actualizar"){
-    //print_r($_POST);
-    
-}
-
-if($tipo == "eliminar"){
-    //print_r($_POST);
-    
+   // print_r($arr_Respuesta);
+   if (empty($arr_Respuesta)) {
+       $response = array('status' => false, 'mensaje' => "Error ps no hay informacion");
+   }else{
+    $response = array('status' => true, 'mensaje'=>"datos encontrados", 'contenido' => $arr_Respuesta);
+   }
+   echo json_encode($response);
 }

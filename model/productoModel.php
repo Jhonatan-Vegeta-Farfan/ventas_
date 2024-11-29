@@ -1,5 +1,5 @@
 <?php
-require_once "../libreria/conexcion.php";
+require_once "../librerias/conexion.php";
 class ProductoModel{
 
     private $conexion;
@@ -21,14 +21,14 @@ class ProductoModel{
 
 
     public function obtener_producto_id($id){
-        $respuesta = $this->conexion->query("SELECT *FROM producto WHERE id='{$id}'");
+        $respuesta = $this->conexion->query("SELECT * FROM producto WHERE id='{$id}'");
         $objeto = $respuesta->fetch_object();
         return $objeto;
     }
     
     public function registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $imagen, $proveedor, $tipoArchivo){
 
-        $sql = $this->conexion->query("CALL insertproducto('{$codigo}', '{$nombre}', '{$detalle}', '{$precio}', '{$stock}', '{$categoria}', '{$imagen}', '{$proveedor}', '{$tipoArchivo}')");
+        $sql = $this->conexion->query("CALL insertarProducto('{$codigo}', '{$nombre}', '{$detalle}', '{$precio}', '{$stock}', '{$categoria}', '{$imagen}', '{$proveedor}', '{$tipoArchivo}')");
         $sql = $sql->fetch_object();
         return $sql;
     }
@@ -36,11 +36,12 @@ class ProductoModel{
         $sql = $this->conexion->query("UPDATE producto SET imagen='{$imagen}'WHERE id='{$id}'");
         return 1;
      }
-    
+
      public function verProducto($id){
-        $sql = $this->conexion->query("SELECT * FROM producto WHERE id='{$id}' ");
-        $sql= $sql->fetch_object();
+        $sql = $this->conexion->query("SELECT * FROM producto WHERE id='{$id}'");
+        $sql = $sql->fetch_object();
         return $sql;
      }
+    
 }
 ?>

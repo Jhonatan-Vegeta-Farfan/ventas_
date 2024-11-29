@@ -1,5 +1,5 @@
 <?php
-require_once "../libreria/conexcion.php";
+require_once "../librerias/conexion.php";
 
 class categoriaModel
 {
@@ -23,7 +23,7 @@ class categoriaModel
 
     public function registrarCategoria($nombre, $detalle){
 
-        $sql = $this->conexion->query("CALL insertcategoria('{$nombre}', '{$detalle}')");
+        $sql = $this->conexion->query("CALL insertarCategoria('{$nombre}', '{$detalle}')");
         $sql = $sql->fetch_object();
         return $sql;
     }

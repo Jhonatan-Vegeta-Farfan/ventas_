@@ -1,5 +1,5 @@
 <?php
-require_once "../libreria/conexcion.php";
+require_once "../librerias/conexion.php";
 
 class PersonaModel{
     private $conexion;
@@ -9,15 +9,11 @@ class PersonaModel{
         $this->conexion = $this->conexion->connect();
     }
 
-    public function registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, 
-    $provincia, $distrito, $cod_postal, $direccion, $rol, $password){
+    public function registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $password){
 
-        $sql = $this->conexion->query("CALL insertpersona('{$nro_identidad}', '{$razon_social}', 
-        '{$telefono}', '{$correo}', '{$departamento}', '{$provincia}', '{$distrito}', 
-        '{$cod_postal}', '{$direccion}', '{$rol}', '{$password}')");
+        $sql = $this->conexion->query("CALL insertarPersona('{$nro_identidad}', '{$razon_social}', '{$telefono}', '{$correo}', '{$departamento}', '{$provincia}', '{$distrito}', '{$cod_postal}', '{$direccion}', '{$rol}', '{$password}')");
         $sql = $sql->fetch_object();
         return $sql;
-        
     }
     public function buscarPersonaDNI($nro_identidad){
         $sql = $this->conexion->query("SELECT * FROM persona WHERE nro_identidad='{$nro_identidad}'");
