@@ -35,7 +35,6 @@ if (document.querySelector('#tbl_categoria')) {
 }
 
 
-
 async function registrar_categoria(){
     let nombre = document.getElementById('nombre').values;
     let detalle = document.querySelector('#detalle').value;
