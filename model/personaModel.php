@@ -60,6 +60,18 @@ class PersonaModel{
         }
         return $arrRespuesta;
     }
+    public function obtenerPersonaPorId($id){
+        $id = $this->conexion->real_escape_string($id);
+        $sql = $this->conexion->query("SELECT * FROM persona WHERE id = '{$id}'");
+        $sql = $sql->fetch_object();
+        return $sql;
+    }
+    public function BuscarPersonaDNI($usuario){
+        $sql = $this->conexion->query("SELECT * FROM persona WHERE nro_identidad = '{$usuario}'");
+        $sql = $sql->fetch_object();
+        return $sql;
+    }
+
 }
 
 ?>

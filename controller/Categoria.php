@@ -17,7 +17,13 @@ if ($tipo=="listar") {
         for ($i=0; $i < count($arr_Categorias); $i++) { //declara una variable siendo 0 el valor inicial -- define hasta donde sera el bucle -- aumenta +1
             $id_categoria = $arr_Categorias[$i]->id;
             $categoria =  $arr_Categorias[$i]->nombre;
-            $opciones = '';
+            $opciones = '<button class="btn btn-warning btn-sm m-2" onclick="editar-categoria(${element.id})">
+                        <i class="fas fa-edit"></i> Editar
+                        </button>
+                        <button class="btn btn-danger btn-sm m-2" onclick="eliminar_categoria(${element.id})">
+                        <i class="fas fa-trash-alt"></i> Eliminar
+                        </button>';
+            
             $arr_Categorias[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;

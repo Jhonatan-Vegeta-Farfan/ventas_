@@ -23,7 +23,12 @@ if ($tipo == "listar_p") {
             $direccion =  $arrPersona[$i]->direccion;
             $rol =  $arrPersona[$i]->rol;
 
-            $opciones = '';
+            $opciones = '<button class="btn btn-warning btn-sm m-2" onclick="editar-persona(${element.id})">
+                                        <i class="fas fa-edit"></i> Editar
+                                        </button>
+                                        <button class="btn btn-danger btn-sm m-2" onclick="eliminar-persona(${element.id})">
+                                        <i class="fas fa-trash-alt"></i> Eliminar
+                                        </button>';
             $arrPersona[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;

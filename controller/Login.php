@@ -1,41 +1,40 @@
 <?php
-require_once("../model/personaModel.php");
+require_once('../model/personaModel.php');
 
 $objPersona = new PersonaModel();
 $tipo = $_GET['tipo'];
 
-if ($tipo=="iniciar_sesion") {
-   // print_r($_POST);
+if ($tipo == 'iniciar_sesion') {
+    // print_r($_POST);
     $usuario = trim($_POST['usuario']);
     $password = trim($_POST['password']);
-    $arrResponse = array('status'=>false, 'msg'=>'');
+    $arr_Respuesta = array('status' => false, 'mensaje' => '');
 
-    $arrPersona = $objPersona->buscarPersonaDNI($usuario);
-   // print_r($arrPersona);
-   if (empty($arrPersona)) {
-    $arrResponse = array('status'=>false, 'msg'=>'Error, Usuario no esta registrado en el sistema');
-    }else{
-        if (password_verify($password, $arrPersona->password)) {
+    $arr_Persona = $objPersona->BuscarPersonaDNI($usuario);
+    if (empty($arr_Persona)) {
+        $arr_Respuesta['mensaje'] = 'Error: Usuario no encontrado';
+    } else {
+        // Verificar la contraseña que esta con el metodo hash
+        if (password_verify($password, $arr_Persona->password)) {
             session_start();
-            $_SESSION['sesion_ventas_id'] = $arrPersona->id ;
-            $_SESSION['sesion_ventas_dni'] = $arrPersona->nro_identidad;
-            $_SESSION['sesion_ventas_nombres'] = $arrPersona->razon_social;
-            $arrResponse = array('status'=>true, 'msg'=>'Ingresar al sistema');
-            
-        }else{
-            $arrResponse = array('status'=>false, 'msg'=>'Error, Contraseña incorrecta');
+            $_SESSION['sesion_ventas2024_id'] = $arr_Persona->id;
+            $_SESSION['sesion_ventas2024_dni'] = $arr_Persona->nro_identidad;
+            $_SESSION['sesion_ventas2024_nombres'] = $arr_Persona->razon_social;
+
+            $arr_Respuesta = array('status' => true, 'mensaje' => 'Ingresar al sistema');
+        } else {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error: Contraseña incorrecta');
         }
     }
-    echo json_encode($arrResponse);
+    echo json_encode($arr_Respuesta);  
+}elseif($tipo == 'cerrar_sesion') {
+        session_start();
+        session_unset();
+        session_destroy();
+        $arr_Respuesta = array('status' => true, 'mensaje' => 'Cerrar sesión correctamente');
+        echo json_encode($arr_Respuesta);
 }
 
-if ($tipo=="cerrar_sesion") {
-    session_start();
-    session_unset();
-    session_destroy();
-    $arrResponse = array('status' => true);
-
-    echo json_encode($arrResponse);
-}
 die;
+
 ?>
