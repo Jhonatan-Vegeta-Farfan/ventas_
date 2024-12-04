@@ -20,7 +20,7 @@ if ($tipo=="listar") {
             $opciones = '<button class="btn btn-warning btn-sm m-2" onclick="editar-categoria(${element.id})">
                         <i class="fas fa-edit"></i> Editar
                         </button>
-                        <button class="btn btn-danger btn-sm m-2" onclick="eliminar_categoria(${element.id})">
+                        <button class="btn btn-danger btn-sm m-2" onclick="eliminar-categoria(${element.id})">
                         <i class="fas fa-trash-alt"></i> Eliminar
                         </button>';
             
