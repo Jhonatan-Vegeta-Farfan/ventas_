@@ -1,69 +1,82 @@
 <?php
-$tipo  = $_REQUEST['tipo'];
 require_once('../model/comprasModel.php');
-require_once('../model/productoModel.php');
+require_once('../model/productosModel.php');
 require_once('../model/personaModel.php');
 
-$objCompras = new ComprasModel();
+$tipo  = $_REQUEST['tipo'];
+
+$objCompra = new CompraModel();
 $objProducto = new ProductoModel();
-$objPersona = new PersonaModel(); 
+$objPersona = new PersonaModel();
 
-
-if ($tipo == "listar") {
-    $arr_Respuesta = array('status' => false, 'contenido' => '');
-    $arrCompras = $objCompras->obtenerCompras();
-
-    if (!empty($arrCompras)) {
-        for ($i = 0; $i < count($arrCompras); $i++) {
-            $id_compra = $arrCompras[$i]->id;
-            $id_producto = $arrCompras[$i]->id_producto;
-            $cantidad = $arrCompras[$i]->cantidad;
-            $precio = $arrCompras[$i]->precio;
-            $id_trabajador = $arrCompras[$i]->id_trabajador;
-
-            $id_producto = $arrCompras[$i]->id;
-            $r_producto = $objProducto->obtener_producto_id($id_producto);
-            $arrCompras[$i]->producto=$r_producto;
-
-            $id_trabajador = $arrCompras[$i]->id_trabajador;
-            $r_trabajador = $objPersona->obtener_trabajador_id($id_trabajador);
-            $arrCompras[$i]->trabajador=$r_trabajador;
-
-            $opciones = '<button class="btn btn-warning btn-sm m-2" onclick="editar-compra(${element.id})">
-                                        <i class="fas fa-edit"></i> Editar
-                                        </button>
-                                        <button class="btn btn-danger btn-sm m-2" onclick="eliminar-compra(${element.id})">
-                                        <i class="fas fa-trash-alt"></i> Eliminar
-                                        </button>';
-            $arrCompras[$i]->options = $opciones;
-            
+if ($tipo == "obtener_precio") {
+    $productoId = $_GET['producto_id'] ?? null;
+    if ($productoId) {
+        $arrPrecio = $objCompra->ObtenerPrecioProducto($productoId);
+        if ($arrPrecio !== null) {
+            $arr_Respuesta = array('status' => true, 'precio' => $arrPrecio);
+        } else {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error: Producto no encontrado');
         }
-            $arr_Respuesta['status'] = true;
-            $arr_Respuesta['contenido'] =  $arrCompras;
+    } else {
+        $arr_Respuesta = array('status' => false, 'mensaje' => 'Error: Falta el producto_id');
     }
-    echo json_encode($arr_Respuesta); //convertir en formato -- 
+    echo json_encode($arr_Respuesta);
 }
 
 if ($tipo == "registrar") {
     if ($_POST) {
-        $id_producto = $_POST['id_producto'];
+        $producto = $_POST['producto'];
         $cantidad = $_POST['cantidad'];
-        $precio = $_POST['precio']; 
+        $precio = $_POST['precio'];
         $trabajador = $_POST['trabajador'];
-        if (
-            $id_producto == "" || $cantidad == "" || $precio == "" || $trabajador == "") {
-            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios');
+
+        if ($producto == "" || $cantidad == "" || $precio == "" || $trabajador == "") {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error: Campos vacíos');
         } else {
-            $arrProducto = $objCompras->registrarCompras($id_producto,$cantidad,$precio,$trabajador);
-            if ($arrProducto->id>0) {
-            $arr_Respuesta = array('status'=>true, 'mensaje'=>'Registro exitoso');
-        }else{
-            $arr_Respuesta = array('status'=>false, 'mensaje'=>'Error al registrar persona');
+            $arrCompra = $objCompra->registrarCompra($producto, $cantidad, $precio, $trabajador);
+
+            if ($arrCompra->status) {
+                $arr_Respuesta = array('status' => true, 'mensaje' => $arrCompra->mensaje);
+            } else {
+                $arr_Respuesta = array('status' => false, 'mensaje' => $arrCompra->mensaje);
+            }
         }
+        echo json_encode($arr_Respuesta);
     }
-            echo json_encode($arr_Respuesta);
-
 }
-}
+if($tipo == "listar"){
+    $arr_Respuesta = array('status' => false, 'contenido' => '');
+    $arrCompras = $objCompra->obtenerCompras();
+    if(!empty($arrCompras)){
+        for($i=0; $i<count($arrCompras); $i++){
+            $id_compra = $arrCompras[$i]->id;
+            $id_producto = $arrCompras[$i]->id_producto;
+            $cantidad = $arrCompras[$i]->cantidad;
+            $precio = $arrCompras[$i]->precio;
+            $fecha_compra = $arrCompras[$i]->fecha_compra;
+            $id_trabajador = $arrCompras[$i]->id_trabajador;
 
-?>
+            //llamar a el metodo ObtenerProductoPorId para identificar mejor el nombre del producto
+            $id_producto = $arrCompras[$i]->id_producto;
+            $r_producto = $objProducto->obtener_producto_id($id_producto);
+            $arrCompras[$i]->producto = $r_producto;
+
+            //llamar a el metodo ObtenerTrabajadorPorId para identificar mejor el nombre del trabajador
+            $id_trabajador = $arrCompras[$i]->id_trabajador;
+            $r_trabajador = $objPersona->ObtenerPersonaPorId($id_trabajador);
+            $arrCompras[$i]->trabajador = $r_trabajador;
+
+            $opciones = '<button class="btn btn-warning btn-sm m-2" onclick="editar-producto(${element.id})">
+                        <i class="fas fa-edit"></i> Editar
+                        </button>
+                        <button class="btn btn-danger btn-sm m-2" onclick="eliminar-producto(${element.id})">
+                        <i class="fas fa-trash-alt"></i> Eliminar
+                        </button>';
+            $arrCompras [$i] -> options = $opciones;
+}
+        $arr_Respuesta['status'] = true;
+        $arr_Respuesta['contenido'] = $arrCompras;
+    }
+    echo json_encode($arr_Respuesta);
+}

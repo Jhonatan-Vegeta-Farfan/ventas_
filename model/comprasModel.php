@@ -1,47 +1,51 @@
 <?php
 require_once "../libreria/conexion.php";
-class ComprasModel
+
+class CompraModel
 {
     private $conexion;
-    function __construct(){
+
+    function __construct()
+    {
         $this->conexion = new Conexion();
         $this->conexion = $this->conexion->connect();
     }
-    public function registrarCompras(
-        $id_producto,
-        $cantidad,
-        $precio,
-        $trabajador) {
-        $sql = $this->conexion->query("CALL insertarCompras('{$id_producto}','{$cantidad}','{$precio}','{$trabajador}')");
-    
-        if ($sql === false) {
-            // Manejo del error
-            $error = $this->conexion->error; // Captura el error de la conexión
-            echo "Error en la consulta: " . $error; // O lanza una excepción
-            return false; // O maneja el error de otra manera
-        }
-    
-        return $sql->fetch_object();
-    }
-    public function obtener_productos()
-    {
-        $arrRespuesta = array();
-        $respuesta = $this->conexion->query(" SELECT * FROM producto");
-        while ($objeto = $respuesta->fetch_object()) {
-            array_push($arrRespuesta, $objeto);
+    public function obtenerCompras(){
+        $arrRespuesta = [];
+        $sql = $this->conexion->query("SELECT * FROM compras");
+        while ($fila = $sql->fetch_object()) {
+            array_push($arrRespuesta, $fila);
         }
         return $arrRespuesta;
     }
 
-    public function obtenerCompras(){
-        $arrRespuesta = array();
-        $respuesta = $this->conexion->query("SELECT * FROM compras");
-        while ($objeto = $respuesta->fetch_object()) {
-            array_push($arrRespuesta,$objeto);
-            
+    public function registrarCompra($producto, $cantidad, $precio, $trabajador)
+    {
+
+        $this->conexion->begin_transaction();
+
+        $sqlCompra = "INSERT INTO compras (id_producto, cantidad, precio, id_trabajador) VALUES ('{$producto}', '{$cantidad}', '{$precio}', '{$trabajador}')";
+        if (!$this->conexion->query($sqlCompra)) {
+            throw new Exception("Error al registrar la compra: " . $this->conexion->error);
         }
-        return $arrRespuesta;
+
+        $sqlUpdateStock = "UPDATE producto SET stock = stock - {$cantidad} WHERE id = '{$producto}'";
+        if (!$this->conexion->query($sqlUpdateStock)) {
+            throw new Exception("Error al actualizar el stock: " . $this->conexion->error);
+        }
+
+        $this->conexion->commit();
+
+        return (object) ['status' => true, 'id' => $this->conexion->insert_id, 'mensaje' => 'Compra registrada exitosamente y stock actualizado'];
+    }
+    public function ObtenerPrecioProducto($ProductoId)
+    {
+        $sql = "SELECT precio FROM producto WHERE id='{$ProductoId}'";
+        $result = $this->conexion->query($sql);
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row['precio'];
+        }
+        return null;
     }
 }
-
-?>
