@@ -1,10 +1,8 @@
 <?php
 require_once('../model/personaModel.php');
 $tipo = $_REQUEST['tipo'];
-
 //instancio la clase modeloPersona
 $objPersona = new PersonaModel();
-
 
 if ($tipo == "listar_p") {
     $arr_Respuesta = array('status' => false, 'contenido' => '');
@@ -36,7 +34,6 @@ if ($tipo == "listar_p") {
     }
     echo json_encode($arr_Respuesta); //convertir en formato -- 
 }
-
 
 if ($tipo == "registrar"){
 //print_r($_POST);
