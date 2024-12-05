@@ -139,3 +139,41 @@ async function ver_producto(id) {
         console.log("oops ocurrio un error al editar"+error)
     }
 }
+
+async function eliminar_producto(id) {
+    const formData = new FormData();
+    formData.append('id_producto', id);
+    try {
+        let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=eliminar', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: formData
+        });
+        let json = await respuesta.json();
+        if (json.status) {
+            swal("Eliminación", json.mensaje, "success");
+            listar_productos(); // Actualiza la lista de productos
+        } else {
+            swal("Eliminación", json.mensaje, "error");
+        }
+    } catch (error) {
+        console.log("Error al eliminar producto: " + error);
+    }
+}
+
+async function actualizar_producto() {
+    const datos = new FormData(frmActualizar);
+    try {
+        let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=actualizar', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: datos
+        });
+        json = await respuesta.json();
+        console.log(json);
+    } catch (e) {
+
+    }
+}

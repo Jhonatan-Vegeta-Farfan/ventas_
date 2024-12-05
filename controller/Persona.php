@@ -104,4 +104,5 @@ if ($tipo == "listar_trabajador") {
 
 }
 
+
 ?>
