@@ -23,7 +23,7 @@ class categoriaModel
 
 public function registrarCategoria($nombre, $detalle){
         $sql = $this->conexion->query("CALL insertarCategoria('{$nombre}', '{$detalle}')");
-        
+                
         // Verificar si la consulta fue exitosa
         if ($sql === false) {
             // Puedes manejar el error aquí
@@ -41,6 +41,24 @@ public function registrarCategoria($nombre, $detalle){
         $objeto = $respuesta->fetch_object();
         return $objeto;
     }
+
+    public function verCategoria($id){
+        $sql = $this->conexion->query("SELECT * FROM categoria WHERE id='{$id}'");
+        $sql = $sql->fetch_object();
+        return $sql;
+     }
+
+     public function actualizarcategoria($id, $nombre, $detalle){
+        $sql = $this->conexion->query("CALL actualizarCategoria('{$id}','{$nombre}','{$detalle}')");
+        $sql = $sql->fetch_object();
+        return $sql;
+     }
+
+     public function eliminarCategoria($id){
+        $sql = $this->conexion->query("CALL eliminarCategoria('{$id}')");
+        $sql = $sql->fetch_object();
+        return $sql;
+     }
    
 }
 

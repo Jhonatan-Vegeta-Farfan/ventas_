@@ -19,7 +19,7 @@ async function listar_personas() {
                 <td>${item.cod_postal}</td>
                 <td>${item.direccion}</td>
                 <td>${item.rol}</td>
-                <td> </td>
+                <td>${item.options}</td>
         `;
         document.querySelector('#tbl_persona').appendChild(nueva_fila);
             });
@@ -28,7 +28,7 @@ async function listar_personas() {
         }
         console.log(json);
     } catch (error) {
-        console.log("Oops salio un error "+error);
+        console.log("Oops, salio un error "+error);
     }
 
 }
@@ -79,4 +79,114 @@ async function registrarPersona() {
        } catch (e){
         console.log("Oops, ocurrio un error persona" + e );
        }
-}
+
+       }
+
+       async function ver_persona(id) {
+        const formData = new FormData();
+        formData.append('id_persona', id); 
+        try {
+            let respuesta = await fetch(base_url+'controller/Persona.php?tipo=ver', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                body: formData
+            });
+            json = await respuesta.json();
+            if (json.status) {
+                document.querySelector('#nro_identidad').value = json.contenido.nro_identidad;
+                document.querySelector('#razon_social').value = json.contenido.razon_social;
+                document.querySelector('#telefono').value = json.contenido.telefono;
+                document.querySelector('#correo').value = json.contenido.correo;
+                document.querySelector('#departamento').value = json.contenido.departamento;
+                document.querySelector('#provincia').value = json.contenido.provincia;
+                document.querySelector('#distrito').value = json.contenido.distrito;
+                document.querySelector('#cod_postal').value = json.contenido.cod_postal;
+                document.querySelector('#direccion').value = json.contenido.direccion;
+                document.querySelector('#rol').value = json.contenido.rol;
+            }else{
+                window.location = base_url+"persona";
+            }
+            console.log(json);
+        } catch (error) {
+            console.log("oops ocurrio un error al editar persona"+error)
+        }
+    }
+
+    async function actualizar_persona() {
+        let id_persona = document.getElementById('id_persona').value; // Asegúrate de tener un campo oculto o similar para el ID
+        let nro_identidad = document.getElementById('nro_identidad').value;
+        let razon_social = document.querySelector('#razon_social').value;
+        let telefono = document.querySelector('#telefono').value;
+        let correo = document.querySelector('#correo').value;
+        let departamento = document.querySelector('#departamento').value;
+        let provincia = document.querySelector('#provincia').value;
+        let distrito = document.querySelector('#distrito').value;
+        let cod_postal = document.querySelector('#cod_postal').value;
+        let direccion = document.querySelector('#direccion').value;
+        let rol = document.querySelector('#rol').value;
+    
+        if (nro_identidad == "" || razon_social == "" || telefono == "" || correo == "" || departamento == "" || provincia == "" || distrito == "" || cod_postal == "" || direccion == "" || rol == "") {
+            alert("Error, campos vacíos");
+            return;
+        }
+    
+        const formData = new FormData();
+        formData.append('id_persona', id_persona);
+        formData.append('nroIdentidad', nro_identidad);
+        formData.append('razonSocial', razon_social);
+        formData.append('telefono', telefono);
+        formData.append('correo', correo);
+        formData.append('departamento', departamento);
+        formData.append('provincia', provincia);
+        formData.append('distrito', distrito);
+        formData.append('cod_postal', cod_postal);
+        formData.append('direccion', direccion);
+        formData.append('rol', rol);
+    
+        try {
+            let respuesta = await fetch(base_url + 'controller/Persona.php?tipo=actualizar', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                body: formData
+            });
+    
+            json = await respuesta.json();
+            if (json.status) {
+                swal("Actualización", json.mensaje, "success");
+                listar_personas(); // Actualizar la lista después de actualizar
+            } else {
+                swal("Actualización", json.mensaje, "error");
+            }
+    
+            console.log(json);
+        } catch (e) {
+            console.log("Oops, ocurrió un error al actualizar persona" + e);
+        }
+    }
+    
+    async function eliminar_persona(id) {
+        const formData = new FormData();
+        formData.append('id_persona', id);
+        try {
+            let respuesta = await fetch(base_url + 'controller/Persona.php?tipo=eliminar', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                body: formData
+            });
+    
+            json = await respuesta.json();
+            if (json.status) {
+                swal("Eliminación", json.mensaje, "success");
+                document.querySelector('#tbl_persona').removeChild(document.getElementById('fila' + id)); // Eliminar la fila de la tabla
+            } else {
+                swal("Eliminación", json.mensaje, "error");
+            }
+    
+            console.log(json);
+        } catch (e) {
+            console.log("Oops, ocurrió un error al eliminar persona" + e);
+        }
+    }

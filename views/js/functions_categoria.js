@@ -64,3 +64,67 @@ async function registrar_categoria(){
         console.log("Oops, ocurrio un error categoria"+e);
        }
     }
+
+    async function actualizar_categoria(id_categoria) {
+        let nombre = document.getElementById('nombre').value; // Asegúrate de que el ID sea correcto
+        let detalle = document.getElementById('detalle').value; // Asegúrate de que el ID sea correcto
+    
+        if (nombre == "" || detalle == "") {
+            alert("Error, campos vacíos");
+            return;
+        }
+    
+        try {
+            const datos = new FormData();
+            datos.append('id_categoria', id_categoria);
+            datos.append('nombre', nombre);
+            datos.append('detalle', detalle);
+    
+            let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=actualizar', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                body: datos
+            });
+    
+            let json = await respuesta.json();
+            if (json.status) {
+                swal("Actualización", json.mensaje, "success");
+                listar_categorias(); // Actualiza la lista de categorías
+            } else {
+                swal("Actualización", json.mensaje, "error");
+            }
+    
+            console.log(json);
+        } catch (e) {
+            console.log("Oops, ocurrió un error al actualizar la categoría: " + e);
+        }
+    }
+    
+    async function eliminar_categoria(id_categoria) {
+        if (confirm("¿Estás seguro de que deseas eliminar esta categoría?")) {
+            try {
+                const datos = new FormData();
+                datos.append('id_categoria', id_categoria);
+    
+                let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=eliminar', {
+                    method: 'POST',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    body: datos
+                });
+    
+                let json = await respuesta.json();
+                if (json.status) {
+                    swal("Eliminación", json.mensaje, "success");
+                    document.querySelector('#fila' + id_categoria).remove(); // Elimina la fila de la tabla
+                } else {
+                    swal("Eliminación", json.mensaje, "error");
+                }
+    
+                console.log(json);
+            } catch (e) {
+                console.log("Oops, ocurrió un error al eliminar la categoría: " + e);
+            }
+        }
+    }

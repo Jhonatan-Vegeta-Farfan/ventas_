@@ -23,7 +23,7 @@ async function listar_productos() {
         }
         console.log(json);
     } catch (error) {
-        console.log("Oops salio un error " + error);
+        console.log("Oops, salio un error " + error);
     }
 }
 if (document.querySelector('#tbl_producto')) {
@@ -86,7 +86,7 @@ async function listar_categorias() {
 
         console.log(respuesta);
     } catch (e) {
-        console.log("Error al cargar categorias" + e);
+        console.log("Error, al cargar categorias" + e);
     }
 }
 
@@ -124,19 +124,37 @@ async function ver_producto(id) {
         });
         json = await respuesta.json();
         if (json.status) {
+            document.querySelector('#id_producto').value = json.contenido.id_producto;
             document.querySelector('#codigo').value = json.contenido.codigo;
             document.querySelector('#nombre').value = json.contenido.nombre;
             document.querySelector('#detalle').value = json.contenido.detalle;
             document.querySelector('#precio').value = json.contenido.precio;
-            document.querySelector('#categoria').value = json.contenido.categoria;
+            document.querySelector('#categoria').value = json.contenido.id_categoria ;
             document.querySelector('#imagen').value = json.contenido.imagen;
-            document.querySelector('#proveedor').value = json.contenido.proveedor;
+            document.querySelector('#proveedor').value = json.contenido.id_proveedor;
+            document.querySelector('#img').value = json.contenido.imagen;
         }else{
             window.location = base_url+"productos";
         }
         console.log(json);
     } catch (error) {
-        console.log("oops ocurrio un error al editar"+error)
+        console.log("Oops, ocurrio un error al editar"+error)
+    }
+}
+
+async function actualizar_producto() {
+    const datos = new FormData(frmActualizar);
+    try {
+        let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=actualizar', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: datos
+        });
+        json = await respuesta.json();
+        console.log(json);
+    } catch (e) {
+
     }
 }
 
@@ -162,18 +180,4 @@ async function eliminar_producto(id) {
     }
 }
 
-async function actualizar_producto() {
-    const datos = new FormData(frmActualizar);
-    try {
-        let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=actualizar', {
-            method: 'POST',
-            mode: 'cors',
-            cache: 'no-cache',
-            body: datos
-        });
-        json = await respuesta.json();
-        console.log(json);
-    } catch (e) {
 
-    }
-}

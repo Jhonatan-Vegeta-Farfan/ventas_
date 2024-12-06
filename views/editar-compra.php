@@ -1,5 +1,5 @@
 <div class="container mt-5">
-<h1 class="text-center mb-4 ">Registrar compras</h1>
+<h1 class="text-center mb-4 ">Editar compras</h1>
 
     <form action="" class="from-control" id="formRegistrarCompras"  >
         <div class="mb-3">
@@ -21,10 +21,15 @@
             <option  class="trabajador" >Seleccione</option></select>
         </div>
         <br>
-        <button type="button" class="mb-3 btn btn-outline-info" onclick="registrar_compra();"><i class="bi bi-check-circle"></i>Registrar</button>
+        <button type="button" class="mb-3 btn btn-outline-info" onclick="registrar_compra();"><i class="bi bi-check-circle"></i>Actualizar</button>
     </form>
 </div>
 
 <script src="<?php echo BASE_URL;?>views/js/functions_compras.js"></script>
 <script>listar_productos();</script>
 <script>listar_trabajadores();</script>
+<script>
+    //captura lo que viene en el link     se captura la posicion de ese valor
+    const id_com=<?php $pagina=explode("/", $_GET['views']); echo $pagina['1']; ?>;
+    ver_compra(id_com);
+</script>

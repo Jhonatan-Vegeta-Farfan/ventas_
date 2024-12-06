@@ -95,40 +95,38 @@ if($tipo == "ver") {
    echo json_encode($response);
 }
 
-if ($tipo == "actualizar") {
+if($tipo == "actualizar") {
     //print_r($_POST);
     //print_r($_FILES['imagen']['tmp_name']);
-
     $id_producto = $_POST['id_producto'];
-    $img = $_POST['img'];
     $nombre = $_POST['nombre'];
     $detalle = $_POST['detalle'];
     $precio = $_POST['precio'];
     $categoria = $_POST['categoria'];
     $proveedor = $_POST['proveedor'];
     if ($nombre == "" || $detalle == "" || $precio == "" || $categoria == "" || $proveedor == "") {
-        //repuesta
-        $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacíos');
+        $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios'); //respuesta
+
     } else {
         $arrProducto = $objProducto->actualizarProducto($id_producto, $nombre, $detalle, $precio, $categoria, $proveedor);
         if ($arrProducto->p_id > 0) {
-            $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualizado Correctamente');
+            $arr_Respuesta = array('status' => true, 'mensaje' => 'actualizado exitoso');
 
-            if ($_FILES['imagen']['tmp_name'] != "") {
-                unlink('../assets/img_productos/' . $img);
+            if ($_FILES['image']['tmp_name']!="") {
+                unlink('../assets/img_productos/'.$img);
+                //CARGAR ARCHIVO
+                 $archivo = $_FILES['imagen']['tmp_name'];
+                 $destino = '../assets/img_productos/';
+                 $tipoArchivo = strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
 
-                //cargar archivos
-                $archivo = $_FILES['imagen']['tmp_name'];
-                $destino = '../assets/img_productos/';
-                $tipoArchivo = strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
                 if (move_uploaded_file($archivo, $destino . '' . $id_producto.'.'.$tipoArchivo)) {
                 }
             }
         } else {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al actualizar producto');
         }
-    }
-    echo json_encode($arr_Respuesta);
+}
+echo json_encode($arr_Respuesta);
 }
 
 
@@ -143,4 +141,4 @@ if ($tipo == "eliminar") {
     echo json_encode($arr_Respuesta);
 }
 
-// Nuevo bloque para editar producto
+

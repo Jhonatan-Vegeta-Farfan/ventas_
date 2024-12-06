@@ -22,6 +22,12 @@ class PersonaModel{
         return $sql;
     }
 
+    public function BuscarPersonaDNI($nro_identidad){
+        $sql = $this->conexion->query("SELECT * FROM persona WHERE nro_identidad = '{$nro_identidad}'");
+        $sql = $sql->fetch_object();
+        return $sql;
+    }
+
     public function obtenerProveedor(){
         $arrRespuesta = array();
         $respuesta = $this->conexion->query( "SELECT * FROM persona WHERE rol='proveedor'");
@@ -66,18 +72,26 @@ class PersonaModel{
         $sql = $sql->fetch_object();
         return $sql;
     }
-    public function BuscarPersonaDNI($usuario){
-        $sql = $this->conexion->query("SELECT * FROM persona WHERE nro_identidad = '{$usuario}'");
+    
+    public function verPersona($id){
+        $sql = $this->conexion->query("SELECT * FROM persona WHERE id='{$id}'");
         $sql = $sql->fetch_object();
         return $sql;
-    }
+     }
 
-    
+     public function actualizarPersona($id, $nro_identidad, $razon_social, $telefono, $correo, $direccion, $departamento, $provincia, $distrito, $cod_postal){
+        $sql = $this->conexion->query("UPDATE persona SET nro_identidad='{$nro_identidad}', razon_social='{$razon_social}', telefono='{$telefono}', correo='{$correo}', direccion='{$direccion}', departamento='{$departamento}', provincia='{$provincia}', distrito='{$distrito}', cod_postal='{$cod_postal}' WHERE id='{$id}'");
+        return 1;
+     }
+
+     public function eliminarPersona($id){
+        $sql = $this->conexion->query("DELETE FROM persona WHERE id='{$id}'");
+        return 1;
+     }
+
 
 
 
 }
-
-
 
 ?>

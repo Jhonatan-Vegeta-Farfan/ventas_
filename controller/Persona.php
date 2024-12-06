@@ -21,12 +21,10 @@ if ($tipo == "listar_p") {
             $direccion =  $arrPersona[$i]->direccion;
             $rol =  $arrPersona[$i]->rol;
 
-            $opciones = '<button class="btn btn-warning btn-sm m-2" onclick="editar-persona(${element.id})">
-                                        <i class="fas fa-edit"></i> Editar
-                                        </button>
-                                        <button class="btn btn-danger btn-sm m-2" onclick="eliminar-persona(${element.id})">
-                                        <i class="fas fa-trash-alt"></i> Eliminar
-                                        </button>';
+            $opciones = '
+            <a href="'.BASE_URL.'editar-persona/'.$id_persona.'"><i class="fas fa-edit btn btn-info btn-sm"></i></a>
+                 <button onclick="eliminar_persona('.$id_persona.');"class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+            ';
             $arrPersona[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
@@ -51,7 +49,7 @@ if ($_POST) {
 
     $secure_password = password_hash($nro_identidad, PASSWORD_DEFAULT);
 
-    if($nro_identidad=="" || $razon_social=="" || $telefono=="" || $correo=="" || $departamento=="" || $provincia=="" ||  $distrito=="" || $cod_postal=="" || $direccion=="" || $rol=="" || $secure_password==""){
+    if($nro_identidad=="" || $razon_social=="" || $telefono=="" || $correo=="" || $departamento=="" || $provincia=="" ||  $distrito=="" || $cod_postal=="" || $direccion=="" || $rol==""){
         $arr_Respuesta = array('status'=>false,'mensaje'=>'Error, campos vacios'); //respuesta
     }else {
         $arrPersona = $objPersona->registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $secure_password);
@@ -104,5 +102,57 @@ if ($tipo == "listar_trabajador") {
 
 }
 
+if($tipo == "ver") {
+    //print_r($_POST);
+    $id_persona = $_POST['id_persona'];
+    $arr_Respuesta = $objPersona->verPersona($id_persona);
+   // print_r($arr_Respuesta);
+   if (empty($arr_Respuesta)) {
+       $response = array('status' => false, 'mensaje' => "ErroR¡¡ no hay informacion");
+   }else{
+    $response = array('status' => true, 'mensaje'=>"datos encontrados", 'contenido' => $arr_Respuesta);
+   }
+   echo json_encode($response);
+}
 
+if ($tipo == "actualizar") {
+    if ($_POST) {
+        $id_persona = $_POST['id_persona'];
+        $nro_identidad = $_POST['nroIdentidad'];
+        $razon_social = $_POST['razonSocial'];
+        $telefono = $_POST['telefono'];
+        $correo = $_POST['correo'];
+        $departamento = $_POST['departamento'];
+        $provincia = $_POST['provincia'];
+        $distrito = $_POST['distrito'];
+        $cod_postal = $_POST['cod_postal'];
+        $direccion = $_POST['direccion'];
+        $rol = $_POST['rol'];
+
+        if ($nro_identidad == "" || $razon_social == "" || $telefono == "" || $correo == "" || $departamento == "" || $provincia == "" || $distrito == "" || $cod_postal == "" || $direccion == "" || $rol == "") {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacíos');
+        } else {
+            $arrPersona = $objPersona->actualizarPersona($id_persona, $nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol);
+            if ($arrPersona) {
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualización exitosa');
+            } else {
+                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al actualizar persona');
+            }
+        }
+        echo json_encode($arr_Respuesta);
+    }
+}
+
+if ($tipo == "eliminar") {
+    if ($_POST) {
+        $id_persona = $_POST['id_persona'];
+        $resultado = $objPersona->eliminarPersona($id_persona);
+        if ($resultado) {
+            $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación exitosa');
+        } else {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al eliminar persona');
+        }
+        echo json_encode($arr_Respuesta);
+    }
+}
 ?>

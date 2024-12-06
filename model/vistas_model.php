@@ -11,7 +11,7 @@ class vistaModelo
         'imprimirboleta','inicio', 'olvidastetucontraseña', 'registrarse',
         'rutadeenvio','suscribirte','ubicacion','descargarboleta','respuestadedescarga','respuestadeimprecion','imprimirboleta', 'inicio',   
         'olvidastetucontraseña', 'registrarse','categorias', 'compras', 'nuevo-categoria','nuevo-compra','nuevo-persona', 
-        'nuevo-producto','productos', 'usuarios', 'editar-producto'];
+        'nuevo-producto','productos', 'usuarios', 'editar-producto', 'editar-categoria', 'editar-compra', 'editar-persona'];
 
         /*
         if(!isset($_SESSION['sesion_ventas_id'])){
