@@ -21,38 +21,28 @@ class categoriaModel
         return $arrRespuesta;
     }
 
-public function registrarCategoria($nombre, $detalle){
+    public function registrarCategoria($nombre, $detalle){
+
         $sql = $this->conexion->query("CALL insertarCategoria('{$nombre}', '{$detalle}')");
-                
-        // Verificar si la consulta fue exitosa
-        if ($sql === false) {
-            // Puedes manejar el error aquí
-            echo "Error en la consulta: " . $this->conexion->error;
-            return false; // O manejar el error de otra manera
-        }
-        
-        // Si la consulta fue exitosa, puedes continuar
-        $resultado = $sql->fetch_object();
-        return $resultado;
-    
+        $sql = $sql->fetch_object();
+        return $sql;
     }
     public function obtener_categoria_id($id){
         $respuesta = $this->conexion->query("SELECT *FROM categoria WHERE id='{$id}'");
         $objeto = $respuesta->fetch_object();
         return $objeto;
     }
-
     public function verCategoria($id){
         $sql = $this->conexion->query("SELECT * FROM categoria WHERE id='{$id}'");
         $sql = $sql->fetch_object();
         return $sql;
      }
-
-     public function actualizarcategoria($id, $nombre, $detalle){
+     public function actualizarCategoria($id, $nombre, $detalle){
         $sql = $this->conexion->query("CALL actualizarCategoria('{$id}','{$nombre}','{$detalle}')");
         $sql = $sql->fetch_object();
         return $sql;
-     }
+    }
+
 
      public function eliminarCategoria($id){
         $sql = $this->conexion->query("CALL eliminarCategoria('{$id}')");

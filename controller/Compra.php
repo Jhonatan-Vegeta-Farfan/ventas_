@@ -30,8 +30,8 @@ if ($tipo == "listar") {
             $arrCompras[$i]->trabajador=$r_trabajador;
 
             $opciones = '
-             <a href="'.BASE_URL.'editar-compra/'.$id_compra.'"><i class="fas fa-edit btn btn-info btn-sm"></i></a>
-                 <button onclick="eliminar_compra('.$id_compra.');"class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+             <a href="'.BASE_URL.'editar-compra/'.$id_compra.'"><i class="fas fa-edit btn btn-info btn-sm">EDITAR COMPRA</i></a>
+                 <button onclick="eliminar_compra('.$id_compra.');"class="btn btn-danger btn-sm">ELIMINAR COMPRA<i class="fas fa-trash-alt"></i></button>
             ';
             $arrCompras[$i]->options = $opciones;
             

@@ -18,10 +18,9 @@ if ($tipo=="listar") {
             $id_categoria = $arr_Categorias[$i]->id;
             $categoria =  $arr_Categorias[$i]->nombre;
             $opciones = '
-             <a href="'.BASE_URL.'editar-categoria/'.$id_categoria.'"><i class="fas fa-edit btn btn-info btn-sm"></i></a>
-                 <button onclick="eliminar_categoria('.$id_categoria.');"class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+             <a href="'.BASE_URL.'editar-categoria/'.$id_categoria.'"><i class="fas fa-edit btn btn-info btn-sm">EDITAR CATEGORIA</i></a>
+                 <button onclick="eliminar_categoria('.$id_categoria.');"class="btn btn-danger btn-sm">ELIMINAR CATEGORIA<i class="fas fa-trash-alt"></i></button>
             ';
-            
             $arr_Categorias[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
@@ -66,24 +65,24 @@ if($tipo == "ver") {
 }
 
 if ($tipo == "actualizar") {
-    if ($_POST) {
-        $id_categoria = $_POST['id_categoria'];
-        $nombre = $_POST['nombre'];
-        $detalle = $_POST['detalle'];
+    // Obtener los datos del formulario
+    $id_categoria = $_POST['id_categoria'];
+    $nombre = $_POST['nombre'];
+    $detalle = $_POST['detalle'];
 
-        if ($id_categoria == "" || $nombre == "" || $detalle == "") {
-            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacíos');
+    if ($id_categoria == "" || $nombre == "" || $detalle == "") {
+        $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios'); //respuesta
+
+    } else {
+        $arrCategoria = $objCategoria->actualizarCategoria($id_categoria, $nombre, $detalle);
+        if ($arrCategoria->p_id > 0) {
+            $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualizado Correctamente');
+
         } else {
-            $resultado = $objCategoria->actualizarCategoria($id_categoria, $nombre, $detalle);
-
-            if ($resultado) {
-                $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualización exitosa');
-            } else {
-                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al actualizar la categoría');
-            }
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al actualizar categoria');
         }
-        echo json_encode($arr_Respuesta);
     }
+    echo json_encode($arr_Respuesta);
 }
 
 if ($tipo == "eliminar") {

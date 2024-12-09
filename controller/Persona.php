@@ -22,8 +22,8 @@ if ($tipo == "listar_p") {
             $rol =  $arrPersona[$i]->rol;
 
             $opciones = '
-            <a href="'.BASE_URL.'editar-persona/'.$id_persona.'"><i class="fas fa-edit btn btn-info btn-sm"></i></a>
-                 <button onclick="eliminar_persona('.$id_persona.');"class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+            <a href="'.BASE_URL.'editar-persona/'.$id_persona.'"><i class="fas fa-edit btn btn-info btn-sm">EDITAR USUARIO</i></a>
+                 <button onclick="eliminar_persona('.$id_persona.');"class="btn btn-danger btn-sm">ELIMINAR USUARIO<i class="fas fa-trash-alt"></i></button>
             ';
             $arrPersona[$i]->options = $opciones;
         }

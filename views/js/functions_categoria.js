@@ -13,10 +13,7 @@ async function listar_categorias() {
                 <th>${cont}</th> 
                 <td>${item.nombre}</td>
                 <td>${item.detalle}</td>
-                <td>
-                    <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
-                </td>
+                <td>${item.options}</td>
         `;
         document.querySelector('#tbl_categoria').appendChild(nueva_fila);
             });
@@ -33,6 +30,7 @@ async function listar_categorias() {
 if (document.querySelector('#tbl_categoria')) {
     listar_categorias();
 }
+
 
 
 async function registrar_categoria(){
@@ -64,40 +62,43 @@ async function registrar_categoria(){
         console.log("Oops, ocurrio un error categoria"+e);
        }
     }
-
-    async function actualizar_categoria(id_categoria) {
-        let nombre = document.getElementById('nombre').value; // Asegúrate de que el ID sea correcto
-        let detalle = document.getElementById('detalle').value; // Asegúrate de que el ID sea correcto
-    
-        if (nombre == "" || detalle == "") {
-            alert("Error, campos vacíos");
-            return;
-        }
-    
+    async function ver_categoria(id) {
+        const formData = new FormData();
+        formData.append('id_categoria', id); 
         try {
-            const datos = new FormData();
-            datos.append('id_categoria', id_categoria);
-            datos.append('nombre', nombre);
-            datos.append('detalle', detalle);
-    
+            let respuesta = await fetch(base_url+'controller/Categoria.php?tipo=ver', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                body: formData
+            });
+            json = await respuesta.json();
+            if (json.status) {
+                document.querySelector('#id_categoria').value = json.contenido.id;
+                document.querySelector('#nombre').value = json.contenido.nombre;
+                document.querySelector('#detalle').value = json.contenido.detalle;
+            }else{
+                window.location = base_url+"categoria";
+            }
+            console.log(json);
+        } catch (error) {
+            console.log("oops ocurrio un error al editar categoria"+error)
+        }
+    }
+
+    async function actualizarCategoria() {
+        const datos = new FormData(formActualizarCat);
+        try {
             let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=actualizar', {
                 method: 'POST',
                 mode: 'cors',
                 cache: 'no-cache',
                 body: datos
             });
-    
-            let json = await respuesta.json();
-            if (json.status) {
-                swal("Actualización", json.mensaje, "success");
-                listar_categorias(); // Actualiza la lista de categorías
-            } else {
-                swal("Actualización", json.mensaje, "error");
-            }
-    
+            json = await respuesta.json();
             console.log(json);
         } catch (e) {
-            console.log("Oops, ocurrió un error al actualizar la categoría: " + e);
+    
         }
     }
     
