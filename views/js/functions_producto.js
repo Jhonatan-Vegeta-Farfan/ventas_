@@ -157,6 +157,50 @@ async function actualizar_producto() {
 
     }
 }
+/*
+async function eliminar_producto(id) {
+    swal({
+        title: "¿Realmente desea eliminar el producto?", 
+        Text: '',
+        icon: "warning",
+        buttons: true,
+        dangeMode: true
+    }).swal((willDelete)=>{
+        if(willDelete){
+            fnt_eliminar(id);
+        }
+    })  
+}
+
+
+
+async function fnt_eliminar(id) {
+    const formData = new FormData();
+    formData.append('id_producto', id);
+    
+    try {
+        let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=eliminar', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: formData
+        });
+        
+        let json = await respuesta.json();
+        
+        if (json.status) {
+            swal("Eliminar", "eliminado correctamente", "success");
+            document.querySelector('.fila' + id).remove();
+        } else {
+            swal('Eliminar', 'Error al eliminar producto', 'warning');
+        }
+    } catch (e) {
+        console.log("Ocurrió un error: " + e);
+    }
+}
+  */
+
+
 
 async function eliminar_producto(id) {
     const formData = new FormData();

@@ -127,7 +127,6 @@ if($tipo == "actualizar") {
 echo json_encode($arr_Respuesta);
 }
 
-
 if ($tipo == "eliminar") {
     $id_producto = $_POST['id_producto'];
     $resultado = $objProducto->eliminarProducto($id_producto);
