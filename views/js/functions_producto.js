@@ -157,22 +157,21 @@ async function actualizar_producto() {
 
     }
 }
-/*
+
 async function eliminar_producto(id) {
+    // Mostrar alerta de confirmación
     swal({
         title: "¿Realmente desea eliminar el producto?", 
-        Text: '',
+        text: '',
         icon: "warning",
         buttons: true,
-        dangeMode: true
-    }).swal((willDelete)=>{
-        if(willDelete){
+        dangerMode: true
+    }).then((willDelete) => {
+        if (willDelete) {
             fnt_eliminar(id);
         }
-    })  
+    });
 }
-
-
 
 async function fnt_eliminar(id) {
     const formData = new FormData();
@@ -198,30 +197,3 @@ async function fnt_eliminar(id) {
         console.log("Ocurrió un error: " + e);
     }
 }
-  */
-
-
-
-async function eliminar_producto(id) {
-    const formData = new FormData();
-    formData.append('id_producto', id);
-    try {
-        let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=eliminar', {
-            method: 'POST',
-            mode: 'cors',
-            cache: 'no-cache',
-            body: formData
-        });
-        let json = await respuesta.json();
-        if (json.status) {
-            swal("Eliminación", json.mensaje, "success");
-            listar_productos(); // Actualiza la lista de productos
-        } else {
-            swal("Eliminación", json.mensaje, "error");
-        }
-    } catch (error) {
-        console.log("Error al eliminar producto: " + error);
-    }
-}
-
-
