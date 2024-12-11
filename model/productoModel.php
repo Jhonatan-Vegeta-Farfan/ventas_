@@ -54,8 +54,9 @@ class ProductoModel{
         $sql = $sql->fetch_object();
         return $sql;
     }
-    public function eliminarProducto($id) {
-        $sql = $this->conexion->query("DELETE FROM producto WHERE id='{$id}'");
+    public function eliminarProducto($id){
+        $sql = $this->conexion->query("CALL eliminarProducto('{$id}')");
+        $sql = $sql->fetch_object();
         return $sql;
     }
     

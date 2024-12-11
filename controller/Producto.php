@@ -127,15 +127,17 @@ if($tipo == "actualizar") {
 echo json_encode($arr_Respuesta);
 }
 
+
+
 if ($tipo == "eliminar") {
+    //print_r($_POST);
     $id_producto = $_POST['id_producto'];
-    $resultado = $objProducto->eliminarProducto($id_producto);
-    if ($resultado) {
-        $arr_Respuesta = array('status' => true, 'mensaje' => 'Producto eliminado exitosamente');
+    $arr_Respuesta = $objProducto->eliminarProducto($id_producto);
+    //print_r($arr_Respuesta);
+    if (empty($arr_Respuesta)) {
+        $response = array('status' => false);
     } else {
-        $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al eliminar producto');
+        $response = array('status' => true);
     }
-    echo json_encode($arr_Respuesta);
+    echo json_encode($response);
 }
-
-
