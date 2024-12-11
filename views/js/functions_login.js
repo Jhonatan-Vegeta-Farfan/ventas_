@@ -1,4 +1,4 @@
-document.getElementById('togglePassword').addEventListener('click', function() {
+document.getElementById('loginForm').addEventListener('click', function() {
     const password = document.getElementById('password');
     const icon = this.querySelector('i');
     if (password.type === 'password') {

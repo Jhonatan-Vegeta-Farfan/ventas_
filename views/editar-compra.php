@@ -21,13 +21,14 @@
             <option  class="trabajador" >Seleccione</option></select>
         </div>
         <br>
-        <button type="button" class="mb-3 btn btn-outline-info" onclick="registrar_compra();"><i class="bi bi-check-circle"></i>Actualizar</button>
+        <button type="button" class="mb-3 btn btn-outline-info" onclick="actualizar_compra();"><i class="bi bi-check-circle"></i>Actualizar</button>
     </form>
 </div>
 
 <script src="<?php echo BASE_URL;?>views/js/functions_compras.js"></script>
 <script>listar_productos();</script>
 <script>listar_trabajadores();</script>
+<script>actualizar_producto()</script>
 <script>
     //captura lo que viene en el link     se captura la posicion de ese valor
     const id_com=<?php $pagina=explode("/", $_GET['views']); echo $pagina['1']; ?>;
