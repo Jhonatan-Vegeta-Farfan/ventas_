@@ -2,18 +2,21 @@
     .navbar {
         background-color: #000000;
     }
+
     .navbar-brand img {
         width: 150px;
     }
-    .navbar-nav .nav-link, .navbar-nav .nav-item {
+
+    .navbar-nav .nav-link,
+    .navbar-nav .nav-item {
         color: #fff;
     }
-    
+
     .product img {
         width: 100%;
         height: auto;
     }
-    
+
     .navbar-nav .nav-link {
         color: #fff !important;
         background-color: #ff0000 !important;
@@ -23,18 +26,23 @@
     }
 
     .card {
-        height: 100%; /* Asegura que todos los cuadros tengan la misma altura */
+        height: 100%;
+        /* Asegura que todos los cuadros tengan la misma altura */
         display: flex;
-        flex-direction: column; /* Hace que los elementos dentro del card se apilen verticalmente */
-        justify-content: space-between; /* Espacia uniformemente los elementos */
+        flex-direction: column;
+        /* Hace que los elementos dentro del card se apilen verticalmente */
+        justify-content: space-between;
+        /* Espacia uniformemente los elementos */
     }
 
     .card-body {
-        color: red; /* Cambia el color del texto de la descripción */
+        color: red;
+        /* Cambia el color del texto de la descripción */
     }
 
     .card-text {
-        color: black; /* Color de la descripción de los productos */
+        color: black;
+        /* Color de la descripción de los productos */
     }
 </style>
 

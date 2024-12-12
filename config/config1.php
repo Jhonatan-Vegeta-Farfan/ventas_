@@ -9,5 +9,3 @@ const BD_CHARSET = 'utf8';
 
 
 const BASE_URL = '';
-
-?>

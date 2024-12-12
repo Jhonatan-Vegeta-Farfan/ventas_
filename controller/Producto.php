@@ -1,13 +1,12 @@
 <?php
 require_once('../model/productoModel.php');
 require_once('../model/categoriaModel.php');
-require_once('../model/personaModel.php'); 
+require_once('../model/personaModel.php');
 $tipo = $_REQUEST['tipo'];
 
-//instancio la clase modeloProducto
 $objProducto = new ProductoModel();
 $objCategoria = new categoriaModel();
-$objPersona = new PersonaModel(); 
+$objPersona = new PersonaModel();
 
 if ($tipo == "listar") {
     $arr_Respuesta = array('status' => false, 'contenido' => '');
@@ -17,17 +16,17 @@ if ($tipo == "listar") {
         for ($i = 0; $i < count($arrProducto); $i++) {
             $id_categoria = $arrProducto[$i]->id_categoria;
             $r_categoria = $objCategoria->obtener_categoria_id($id_categoria);
-            $arrProducto[$i]->categoria=$r_categoria;
+            $arrProducto[$i]->categoria = $r_categoria;
 
             $id_proveedor = $arrProducto[$i]->id_proveedor;
             $r_proveedor = $objPersona->obtener_proveedor_id($id_proveedor);
-            $arrProducto[$i]->proveedor=$r_proveedor;
+            $arrProducto[$i]->proveedor = $r_proveedor;
 
             $id_producto =  $arrProducto[$i]->id;
             $nombre =  $arrProducto[$i]->nombre;
             $opciones = '
-            <a href="'.BASE_URL.'editar-producto/'.$id_producto.'"><i class="fas fa-edit btn btn-dark btn-sm">EDITAR</i></a>
-            <button onclick="eliminar_producto('.$id_producto.');" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt">ELIMINAR</i></button>
+            <a href="' . BASE_URL . 'editar-producto/' . $id_producto . '"><i class="fas fa-edit btn btn-dark btn-sm">EDITAR</i></a>
+            <button onclick="eliminar_producto(' . $id_producto . ');" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt">ELIMINAR</i></button>
         ';
             $arrProducto[$i]->options = $opciones;
         }
@@ -58,13 +57,13 @@ if ($tipo == "registrar") {
 
         } else {
             //CARGAR ARCHIVO
-                $archivo = $_FILES['imagen']['tmp_name'];
-                 $destino = '../assets/img_productos/';
-                 $tipoArchivo = strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
-            $arrProducto = $objProducto->registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $imagen, $proveedor,$tipoArchivo);
+            $archivo = $_FILES['imagen']['tmp_name'];
+            $destino = '../assets/img_productos/';
+            $tipoArchivo = strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
+            $arrProducto = $objProducto->registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $imagen, $proveedor, $tipoArchivo);
 
             if ($arrProducto->id_n > 0) {
-                $newid = $arrProducto -> id_n;
+                $newid = $arrProducto->id_n;
                 $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro exitoso');
                 $nombre = $arrProducto->id_n . "." . $tipoArchivo;
 
@@ -93,41 +92,41 @@ if ($tipo == "ver") {
     echo json_encode($response);
 }
 
-if($tipo == "actualizar") {
+if ($tipo == "actualizar") {
     //print_r($_POST);
     //print_r($_FILES['imagen']['tmp_name']);
     if ($_POST) {
-    $id_producto = $_POST['id_producto'];
-    $img = $_POST['img'];
-    $nombre = $_POST['nombre'];
-    $detalle = $_POST['detalle'];
-    $precio = $_POST['precio'];
-    $categoria = $_POST['categoria'];
-    $proveedor = $_POST['proveedor'];
-    if ($nombre == "" || $detalle == "" || $precio == "" || $categoria == "" || $proveedor == "") {
-        $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios'); //respuesta
+        $id_producto = $_POST['id_producto'];
+        $img = $_POST['img'];
+        $nombre = $_POST['nombre'];
+        $detalle = $_POST['detalle'];
+        $precio = $_POST['precio'];
+        $categoria = $_POST['categoria'];
+        $proveedor = $_POST['proveedor'];
+        if ($nombre == "" || $detalle == "" || $precio == "" || $categoria == "" || $proveedor == "") {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios'); //respuesta
 
-    } else {
-        $arrProducto = $objProducto->actualizarProducto($id_producto, $nombre, $detalle, $precio, $categoria, $proveedor);
-        if ($arrProducto->p_id > 0) {
-            $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualizado Correctamente');
-
-            if ($_FILES['imagen']['tmp_name'] != "") {
-                unlink('../assets/img_productos/' . $img);
-
-                //cargar archivos
-                $archivo = $_FILES['imagen']['tmp_name'];
-                $destino = '../assets/img_productos/';
-                $tipoArchivo = strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
-                if (move_uploaded_file($archivo, $destino . '' . $id_producto.'.'.$tipoArchivo)) {
-                }
-            }
         } else {
-            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al actualizar producto');
+            $arrProducto = $objProducto->actualizarProducto($id_producto, $nombre, $detalle, $precio, $categoria, $proveedor);
+            if ($arrProducto->p_id > 0) {
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualizado Correctamente');
+
+                if ($_FILES['imagen']['tmp_name'] != "") {
+                    unlink('../assets/img_productos/' . $img);
+
+                    //cargar archivos
+                    $archivo = $_FILES['imagen']['tmp_name'];
+                    $destino = '../assets/img_productos/';
+                    $tipoArchivo = strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
+                    if (move_uploaded_file($archivo, $destino . '' . $id_producto . '.' . $tipoArchivo)) {
+                    }
+                }
+            } else {
+                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al actualizar producto');
+            }
+            echo json_encode($arr_Respuesta);
         }
-        echo json_encode($arr_Respuesta);
     }
-}
 }
 
 if ($tipo == "eliminar") {
@@ -143,9 +142,9 @@ if ($tipo == "eliminar") {
             //print_r($arr_Respuesta);
             if ($arrProducto) {
 
-                $arr_Respuesta = array('status' => true , 'mensaje' => '');
+                $arr_Respuesta = array('status' => true, 'mensaje' => '');
             } else {
-                $arr_Respuesta = array('status' => false , 'mensaje' => 'No se puede eliminar la categoria');
+                $arr_Respuesta = array('status' => false, 'mensaje' => 'No se puede eliminar la categoria');
             }
         }
         echo json_encode($arr_Respuesta);

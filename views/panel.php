@@ -87,40 +87,62 @@
             transform: scale(1.05);
             transition: transform 0 .3s ease;
         }
+
         .card-productos {
-            background-color: #ffcc00; /* Color amarillo de Dragon Ball */
-            border: 2px solid #ff9900; /* Borde naranja */
+            background-color: #ffcc00;
+            /* Color amarillo de Dragon Ball */
+            border: 2px solid #ff9900;
+            /* Borde naranja */
         }
+
         .card-usuarios {
-            background-color: #00ccff; /* Color azul */
-            border: 2px solid #0099cc; /* Borde más oscuro */
+            background-color: #00ccff;
+            /* Color azul */
+            border: 2px solid #0099cc;
+            /* Borde más oscuro */
         }
+
         .card-categorias {
-            background-color: #ff6699; /* Color rosa */
-            border: 2px solid #ff3366; /* Borde más oscuro */
+            background-color: #ff6699;
+            /* Color rosa */
+            border: 2px solid #ff3366;
+            /* Borde más oscuro */
         }
+
         .card-compras {
-            background-color: #ff3333; /* Color rojo */
-            border: 2px solid #cc0000; /* Borde más oscuro */
+            background-color: #ff3333;
+            /* Color rojo */
+            border: 2px solid #cc0000;
+            /* Borde más oscuro */
         }
+
         .btn-producto {
-            background-color: #ff9900; /* Botón naranja */
+            background-color: #ff9900;
+            /* Botón naranja */
             color: white;
         }
+
         .btn-usuario {
-            background-color: #0099cc; /* Botón azul */
+            background-color: #0099cc;
+            /* Botón azul */
             color: white;
         }
+
         .btn-categoria {
-            background-color: #ff3366; /* Botón rosa */
+            background-color: #ff3366;
+            /* Botón rosa */
             color: white;
         }
+
         .btn-compra {
-            background-color: #cc0000; /* Botón rojo */
+            background-color: #cc0000;
+            /* Botón rojo */
             color: white;
         }
+
         .btn-ver {
-            background-color: #666; /* Botón gris para ver */
+            background-color: #666;
+            /* Botón gris para ver */
             color: white;
         }
     </style>

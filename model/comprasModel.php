@@ -1,8 +1,10 @@
 <?php
 require_once "../librerias/conexion.php";
-class ComprasModel{
+class ComprasModel
+{
     private $conexion;
-    function __construct(){
+    function __construct()
+    {
         $this->conexion = new Conexion();
         $this->conexion = $this->conexion->connect();
     }
@@ -10,7 +12,8 @@ class ComprasModel{
         $id_producto,
         $cantidad,
         $precio,
-        $trabajador) {
+        $trabajador
+    ) {
         $sql = $this->conexion->query("CALL insertarCompras('{$id_producto}','{$cantidad}','{$precio}','{$trabajador}')");
         $sql = $sql->fetch_object();
         return $sql;
@@ -25,29 +28,31 @@ class ComprasModel{
         return $arrRespuesta;
     }
 
-    public function obtenerCompras(){
+    public function obtenerCompras()
+    {
         $arrRespuesta = array();
         $respuesta = $this->conexion->query("SELECT * FROM compras");
         while ($objeto = $respuesta->fetch_object()) {
-            array_push($arrRespuesta,$objeto);
-            
+            array_push($arrRespuesta, $objeto);
         }
         return $arrRespuesta;
     }
-    public function verCompras($id){
+    public function verCompras($id)
+    {
         $sql = $this->conexion->query("SELECT * FROM compras WHERE id='{$id}'");
         $sql = $sql->fetch_object();
         return $sql;
-     }
-     public function actualizarCompra($id, $id_producto, $cantidad, $precio, $id_trabajador){
-        $sql = $this->conexion->query("CALL actualizarCompras('{$id}','{$id_producto }','{$cantidad}','{$precio}','{$id_trabajador}')");
+    }
+    public function actualizarCompra($id, $id_producto, $cantidad, $precio, $id_trabajador)
+    {
+        $sql = $this->conexion->query("CALL actualizarCompras('{$id}','{$id_producto}','{$cantidad}','{$precio}','{$id_trabajador}')");
         $sql = $sql->fetch_object();
         return $sql;
     }
-    public function eliminar_compra($id){
+    public function eliminar_compra($id)
+    {
         $sql = $this->conexion->query("CALL eliminarCompras('{$id}')");
         $sql = $sql->fetch_object();
         return $sql;
     }
 }
-?>

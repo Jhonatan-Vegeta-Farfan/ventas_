@@ -1,26 +1,33 @@
+<style>
+    body {
+        background-color: #000000;
+        color: #ffffff;
+    }
 
-    <style>
-        body {
-            background-color: #000000;
-            color: #ffffff;
-        }
-        .card {
-            background-color: #ff0000;
-            color: #ffffff;
-            border: none;
-        }
-        .btn-primary, .btn-secondary, .btn-success {
-            background-color: #000000;
-            color: #ffffff;
-            border-color: #000000;
-        }
-        .btn-primary:hover, .btn-secondary:hover, .btn-success:hover {
-            background-color: #ffffff;
-            color: #000000;
-            border-color: #ffffff;
-        }
-    </style>
+    .card {
+        background-color: #ff0000;
+        color: #ffffff;
+        border: none;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-success {
+        background-color: #000000;
+        color: #ffffff;
+        border-color: #000000;
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-success:hover {
+        background-color: #ffffff;
+        color: #000000;
+        border-color: #ffffff;
+    }
+</style>
 </head>
+
 <body>
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="card w-50">
@@ -30,7 +37,7 @@
             <div class="card-body">
                 <form id="resetPasswordForm" method="POST" action="<?php echo BASE_URL ?>resetear_contrasena">
                     <div class="mb-3">
-                        <label for="new-password" class="form-label">Nueva Contraseña</label> 
+                        <label for="new-password" class="form-label">Nueva Contraseña</label>
                         <input type="password" class="form-control" id="new-password" placeholder="Ingresa tu Nueva Contraseña" required>
                     </div>
                     <div class="mb-3">

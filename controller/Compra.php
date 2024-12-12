@@ -6,8 +6,7 @@ require_once('../model/personaModel.php');
 
 $objCompras = new ComprasModel();
 $objProducto = new ProductoModel();
-$objPersona = new PersonaModel(); 
-
+$objPersona = new PersonaModel();
 
 if ($tipo == "listar") {
     $arr_Respuesta = array('status' => false, 'contenido' => '');
@@ -23,21 +22,20 @@ if ($tipo == "listar") {
 
             $id_producto = $arrCompras[$i]->id_producto;
             $r_producto = $objProducto->obtener_producto_id($id_producto);
-            $arrCompras[$i]->producto=$r_producto;
+            $arrCompras[$i]->producto = $r_producto;
 
             $id_trabajador = $arrCompras[$i]->id_trabajador;
             $r_trabajador = $objPersona->obtener_trabajador_id($id_trabajador);
-            $arrCompras[$i]->trabajador=$r_trabajador;
+            $arrCompras[$i]->trabajador = $r_trabajador;
 
             $opciones = '
-            <a href="'.BASE_URL.'editar-compra/'.$id_compra.'"><i class="fas fa-edit btn btn-dark btn-sm">EDITAR</i></a>
-            <button onclick="eliminar_compra('.$id_compra.');" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt">ELIMINAR</i></button>
+            <a href="' . BASE_URL . 'editar-compra/' . $id_compra . '"><i class="fas fa-edit btn btn-dark btn-sm">EDITAR</i></a>
+            <button onclick="eliminar_compra(' . $id_compra . ');" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt">ELIMINAR</i></button>
         ';
             $arrCompras[$i]->options = $opciones;
-            
         }
-            $arr_Respuesta['status'] = true;
-            $arr_Respuesta['contenido'] =  $arrCompras;
+        $arr_Respuesta['status'] = true;
+        $arr_Respuesta['contenido'] =  $arrCompras;
     }
     echo json_encode($arr_Respuesta); //convertir en formato -- 
 }
@@ -46,34 +44,34 @@ if ($tipo == "registrar") {
     if ($_POST) {
         $id_producto = $_POST['id_producto'];
         $cantidad = $_POST['cantidad'];
-        $precio = $_POST['precio']; 
+        $precio = $_POST['precio'];
         $trabajador = $_POST['trabajador'];
         if (
-            $id_producto == "" || $cantidad == "" || $precio == "" || $trabajador == "") {
+            $id_producto == "" || $cantidad == "" || $precio == "" || $trabajador == ""
+        ) {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios');
         } else {
-            $arrProducto = $objCompras->registrarCompras($id_producto,$cantidad,$precio,$trabajador);
-            if ($arrProducto->id>0) {
-            $arr_Respuesta = array('status'=>true, 'mensaje'=>'Registro exitoso');
-        }else{
-            $arr_Respuesta = array('status'=>false, 'mensaje'=>'Error al registrar compra');
+            $arrProducto = $objCompras->registrarCompras($id_producto, $cantidad, $precio, $trabajador);
+            if ($arrProducto->id > 0) {
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro exitoso');
+            } else {
+                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al registrar compra');
+            }
         }
+        echo json_encode($arr_Respuesta);
     }
-            echo json_encode($arr_Respuesta);
-
 }
-}
-if($tipo == "ver") {
+if ($tipo == "ver") {
     //print_r($_POST);
     $id_compra = $_POST['id_compra'];
     $arr_Respuesta = $objCompras->verCompras($id_compra);
-   // print_r($arr_Respuesta);
-   if (empty($arr_Respuesta)) {
-       $response = array('status' => false, 'mensaje' => "ErroR¡¡ no hay informacion");
-   }else{
-    $response = array('status' => true, 'mensaje'=>"datos encontrados", 'contenido' => $arr_Respuesta);
-   }
-   echo json_encode($response);
+    // print_r($arr_Respuesta);
+    if (empty($arr_Respuesta)) {
+        $response = array('status' => false, 'mensaje' => "ErroR¡¡ no hay informacion");
+    } else {
+        $response = array('status' => true, 'mensaje' => "datos encontrados", 'contenido' => $arr_Respuesta);
+    }
+    echo json_encode($response);
 }
 
 if ($tipo == "actualizar") {
@@ -91,7 +89,6 @@ if ($tipo == "actualizar") {
         $arrCompras = $objCompras->actualizarCompra($id_compra, $id_producto, $cantidad, $precio, $id_trabajador);
         if ($arrCompras->p_id > 0) {
             $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualizado Correctamente');
-
         } else {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al actualizar compras');
         }
@@ -111,4 +108,3 @@ if ($tipo == "eliminar") {
     }
     echo json_encode($response);
 }
-?>

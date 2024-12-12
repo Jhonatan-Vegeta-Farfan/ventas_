@@ -5,13 +5,57 @@ class vistaModelo
 
     protected static function obtener_vista($vista)
     {
-        $palabras_permitidas = ['usuarios', 'nuevo-usuario','usuario','producto','nuevo-producto','producto','cantidad','carrito',
-        'comentarios','contactanos','detalleproducto','libroreclamaciones','nosotros','novedades','pagofactura','perfil',
-        'rutadeenvio','suscribirte','ubicacion','descargarboleta','respuestadedescarga','respuestadeimprecion',
-        'imprimirboleta','inicio', 'olvidastetucontraseña', 'registrarse',
-        'rutadeenvio','suscribirte','ubicacion','descargarboleta','respuestadedescarga','respuestadeimprecion','imprimirboleta', 'inicio',   
-        'olvidastetucontraseña', 'registrarse','categorias', 'compras', 'nuevo-categoria','nuevo-compra','nuevo-persona', 
-        'nuevo-producto','productos', 'usuarios', 'editar-producto', 'editar-categoria', 'editar-compra', 'editar-persona','panel'];
+        $palabras_permitidas = [
+            'usuarios',
+            'nuevo-usuario',
+            'usuario',
+            'producto',
+            'nuevo-producto',
+            'producto',
+            'cantidad',
+            'carrito',
+            'comentarios',
+            'contactanos',
+            'detalleproducto',
+            'libroreclamaciones',
+            'nosotros',
+            'novedades',
+            'pagofactura',
+            'perfil',
+            'rutadeenvio',
+            'suscribirte',
+            'ubicacion',
+            'descargarboleta',
+            'respuestadedescarga',
+            'respuestadeimprecion',
+            'imprimirboleta',
+            'inicio',
+            'olvidastetucontraseña',
+            'registrarse',
+            'rutadeenvio',
+            'suscribirte',
+            'ubicacion',
+            'descargarboleta',
+            'respuestadedescarga',
+            'respuestadeimprecion',
+            'imprimirboleta',
+            'inicio',
+            'olvidastetucontraseña',
+            'registrarse',
+            'categorias',
+            'compras',
+            'nuevo-categoria',
+            'nuevo-compra',
+            'nuevo-persona',
+            'nuevo-producto',
+            'productos',
+            'usuarios',
+            'editar-producto',
+            'editar-categoria',
+            'editar-compra',
+            'editar-persona',
+            'panel'
+        ];
 
         /* 
         if(!isset($_SESSION['sesion_ventas_id'])){
@@ -26,12 +70,11 @@ class vistaModelo
             }
         } elseif ($vista == "login" || $vista == "index") {
             $contenido = "login";
-            } elseif ($vista == "perfil"){
-                $contenido = "perfil";
+        } elseif ($vista == "perfil") {
+            $contenido = "perfil";
         } else {
             $contenido = "404";
         }
         return $contenido;
     }
 }
- ?>

@@ -1,74 +1,90 @@
 <style>
-        body {
-            background-color: #000000;
-            color: #ffffff;
-        }
-        .card {
-            background-color: #ff0000;
-            color: #ffffff;
-            border: none;
-            box-shadow: none;
-        }
-        .card-header {
-            background-color: transparent;
-            border-bottom: none;
-        }
-        .img-logo {
-            max-height: 100px;
-        }
-        .form-control {
-            background-color: #000000;
-            color: #ffffff;
-            border-color: #ffffff;
-        }
-        .btn-primary {
-            background-color: #ffffff;
-            color: #000000;
-            border-color: #ffffff;
-        }
-        .btn-primary:hover {
-            background-color: #000000;
-            color: #ffffff;
-        }
-        .btn-secondary {
-            background-color: #ffffff;
-            color: #000000;
-            border-color: #ffffff;
-        }
-        .btn-secondary:hover {
-            background-color: #000000;
-            color: #ffffff;
-        }
-        .navbar {
-            background-color: #000000;
-        }
-        .navbar-brand img {
-            width: 150px;
-        }
-        .navbar-nav .nav-link, .navbar-nav .nav-item {
-            color: #fff;
-        }
-        .navbar-nav .nav-link {
-            color: #fff !important;
-            background-color: #ff0000 !important;
-            padding: 8px 16px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        .navbar-nav .nav-item .nav-link.active {
-            color: rgb(255, 0, 0) !important; 
-            font-weight: bold;
-            background-color: rgb(0, 0, 0) !important;
-        }
-        .footer {
-            background-color: #000000;
-            color: #fff;
-            padding: 20px 0;
-        }
-        .footer a {
-            color: #fff;
-        }
-    </style>
+    body {
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+    .card {
+        background-color: #ff0000;
+        color: #ffffff;
+        border: none;
+        box-shadow: none;
+    }
+
+    .card-header {
+        background-color: transparent;
+        border-bottom: none;
+    }
+
+    .img-logo {
+        max-height: 100px;
+    }
+
+    .form-control {
+        background-color: #000000;
+        color: #ffffff;
+        border-color: #ffffff;
+    }
+
+    .btn-primary {
+        background-color: #ffffff;
+        color: #000000;
+        border-color: #ffffff;
+    }
+
+    .btn-primary:hover {
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+    .btn-secondary {
+        background-color: #ffffff;
+        color: #000000;
+        border-color: #ffffff;
+    }
+
+    .btn-secondary:hover {
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+    .navbar {
+        background-color: #000000;
+    }
+
+    .navbar-brand img {
+        width: 150px;
+    }
+
+    .navbar-nav .nav-link,
+    .navbar-nav .nav-item {
+        color: #fff;
+    }
+
+    .navbar-nav .nav-link {
+        color: #fff !important;
+        background-color: #ff0000 !important;
+        padding: 8px 16px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-item .nav-link.active {
+        color: rgb(255, 0, 0) !important;
+        font-weight: bold;
+        background-color: rgb(0, 0, 0) !important;
+    }
+
+    .footer {
+        background-color: #000000;
+        color: #fff;
+        padding: 20px 0;
+    }
+
+    .footer a {
+        color: #fff;
+    }
+</style>
 
 <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="card w-75">

@@ -2,9 +2,7 @@
 require_once('../model/personaModel.php');
 $tipo = $_REQUEST['tipo'];
 
-//instancio la clase modeloPersona
 $objPersona = new PersonaModel();
-
 
 if ($tipo == "listar_p") {
     $arr_Respuesta = array('status' => false, 'contenido' => '');
@@ -24,8 +22,8 @@ if ($tipo == "listar_p") {
             $rol =  $arrPersona[$i]->rol;
 
             $opciones = '
-            <a href="'.BASE_URL.'editar-persona/'.$id_persona.'"><i class="fas fa-edit btn btn-dark btn-sm">EDITAR</i></a>
-            <button onclick="eliminar_persona('.$id_persona.');" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt">ELIMINAR</i></button>
+            <a href="' . BASE_URL . 'editar-persona/' . $id_persona . '"><i class="fas fa-edit btn btn-dark btn-sm">EDITAR</i></a>
+            <button onclick="eliminar_persona(' . $id_persona . ');" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt">ELIMINAR</i></button>
         ';
             $arrPersona[$i]->options = $opciones;
         }
@@ -35,46 +33,43 @@ if ($tipo == "listar_p") {
     echo json_encode($arr_Respuesta); //convertir en formato -- 
 }
 
+if ($tipo == "registrar") {
+    //print_r($_POST);
+    if ($_POST) {
+        $nro_identidad = $_POST['nroIdentidad'];
+        $razon_social = $_POST['razonSocial'];
+        $telefono = $_POST['telefono'];
+        $correo = $_POST['correo'];
+        $departamento = $_POST['departamento'];
+        $provincia = $_POST['provincia'];
+        $distrito = $_POST['distrito'];
+        $cod_postal = $_POST['cod_postal'];
+        $direccion = $_POST['direccion'];
+        $rol = $_POST['rol'];
 
-if ($tipo == "registrar"){
-//print_r($_POST);
-if ($_POST) {
-    $nro_identidad = $_POST['nroIdentidad'];
-    $razon_social = $_POST['razonSocial'];
-    $telefono = $_POST['telefono'];
-    $correo = $_POST['correo'];
-    $departamento = $_POST['departamento'];
-    $provincia = $_POST['provincia'];
-    $distrito = $_POST['distrito'];
-    $cod_postal = $_POST['cod_postal'];
-    $direccion = $_POST['direccion'];
-    $rol = $_POST['rol'];
+        $secure_password = password_hash($nro_identidad, PASSWORD_DEFAULT);
 
-    $secure_password = password_hash($nro_identidad, PASSWORD_DEFAULT);
+        if ($nro_identidad == "" || $razon_social == "" || $telefono == "" || $correo == "" || $departamento == "" || $provincia == "" ||  $distrito == "" || $cod_postal == "" || $direccion == "" || $rol == "") {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios'); //respuesta
+        } else {
+            $arrPersona = $objPersona->registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $secure_password);
 
-    if($nro_identidad=="" || $razon_social=="" || $telefono=="" || $correo=="" || $departamento=="" || $provincia=="" ||  $distrito=="" || $cod_postal=="" || $direccion=="" || $rol==""){
-        $arr_Respuesta = array('status'=>false,'mensaje'=>'Error, campos vacios'); //respuesta
-    }else {
-        $arrPersona = $objPersona->registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $secure_password);
-    
-        if ($arrPersona->id>0) {
-            $arr_Respuesta = array('status'=>true, 'mensaje'=>'Registro exitoso');
-
-        }else{
-            $arr_Respuesta = array('status'=>false, 'mensaje'=>'Error al registrar persona');
+            if ($arrPersona->id > 0) {
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro exitoso');
+            } else {
+                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al registrar persona');
+            }
         }
+        echo json_encode($arr_Respuesta);
     }
-            echo json_encode($arr_Respuesta);
-
-}
 }
 if ($tipo == "listar_proveedores") {
-    $arr_respuesta = array('status'=>false,'contenido'=>'');
+    $arr_respuesta = array('status' => false, 'contenido' => '');
     $arr_proveedor =  $objPersona->obtenerProveedor();
 
     if (!empty($arr_proveedor)) {
-        
-        for ($i=0; $i < count($arr_proveedor); $i++) { 
+
+        for ($i = 0; $i < count($arr_proveedor); $i++) {
             $opciones = '';
             $arr_proveedor[$i]->options = $opciones;
         }
@@ -83,15 +78,14 @@ if ($tipo == "listar_proveedores") {
     }
     //$arr_respuesta['contenido']=$arr_proveedor;
     echo json_encode($arr_respuesta);
-
 }
 if ($tipo == "listar_trabajador") {
-    $arr_respuesta = array('status'=>false,'contenido'=>'');
+    $arr_respuesta = array('status' => false, 'contenido' => '');
     $arr_Trabajador =  $objPersona->obtener_trabajador();
 
     if (!empty($arr_Trabajador)) {
-        
-        for ($i=0; $i < count($arr_Trabajador); $i++) { 
+
+        for ($i = 0; $i < count($arr_Trabajador); $i++) {
             $rol_persona = $arr_Trabajador[$i]->rol;
             $persona = $arr_Trabajador[$i]->razon_social;
             $opciones = '';
@@ -102,19 +96,18 @@ if ($tipo == "listar_trabajador") {
     }
     //$arr_respuesta['contenido']=$arr_proveedor;
     echo json_encode($arr_respuesta);
-
 }
-if($tipo == "ver") {
+if ($tipo == "ver") {
     //print_r($_POST);
     $id_persona = $_POST['id_persona'];
     $arr_Respuesta = $objPersona->verPersona($id_persona);
-   // print_r($arr_Respuesta);
-   if (empty($arr_Respuesta)) {
-       $response = array('status' => false, 'mensaje' => "ErroR¡¡ no hay informacion");
-   }else{
-    $response = array('status' => true, 'mensaje'=>"datos encontrados", 'contenido' => $arr_Respuesta);
-   }
-   echo json_encode($response);
+    // print_r($arr_Respuesta);
+    if (empty($arr_Respuesta)) {
+        $response = array('status' => false, 'mensaje' => "ErroR¡¡ no hay informacion");
+    } else {
+        $response = array('status' => true, 'mensaje' => "datos encontrados", 'contenido' => $arr_Respuesta);
+    }
+    echo json_encode($response);
 }
 
 if ($tipo == "actualizar") {
@@ -131,16 +124,28 @@ if ($tipo == "actualizar") {
     $direccion = $_POST['direccion'];
     $rol = $_POST['rol'];
 
-    if ($id_persona == "" || $nro_identidad == "" || $razon_social == "" || $telefono == "" || $correo == "" || $departamento == "" || $provincia == "" 
-    || $distrito == "" || $cod_postal == "" || $direccion == "" || $rol == "") {
+    if (
+        $id_persona == "" || $nro_identidad == "" || $razon_social == "" || $telefono == "" || $correo == "" || $departamento == "" || $provincia == ""
+        || $distrito == "" || $cod_postal == "" || $direccion == "" || $rol == ""
+    ) {
         $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios'); //respuesta
 
     } else {
-        $arrPersona = $objPersona->actualizarPersona($id_persona, $nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia,
-    $distrito, $cod_postal, $direccion, $rol);
+        $arrPersona = $objPersona->actualizarPersona(
+            $id_persona,
+            $nro_identidad,
+            $razon_social,
+            $telefono,
+            $correo,
+            $departamento,
+            $provincia,
+            $distrito,
+            $cod_postal,
+            $direccion,
+            $rol
+        );
         if ($arrPersona->p_id > 0) {
             $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualizado Correctamente');
-
         } else {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al actualizar PERSONA');
         }
@@ -161,13 +166,11 @@ if ($tipo == "eliminar") {
             //print_r($arr_Respuesta);
             if ($arrPersona) {
 
-                $arr_Respuesta = array('status' => true , 'mensaje' => '');
+                $arr_Respuesta = array('status' => true, 'mensaje' => '');
             } else {
-                $arr_Respuesta = array('status' => false , 'mensaje' => 'No se puede eliminar la categoria');
+                $arr_Respuesta = array('status' => false, 'mensaje' => 'No se puede eliminar la categoria');
             }
         }
         echo json_encode($arr_Respuesta);
     }
 }
-
-?>

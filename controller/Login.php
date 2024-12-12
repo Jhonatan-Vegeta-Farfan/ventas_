@@ -4,32 +4,31 @@ require_once("../model/personaModel.php");
 $objPersona = new PersonaModel();
 $tipo = $_GET['tipo'];
 
-if ($tipo=="iniciar_sesion") {
-   // print_r($_POST);
+if ($tipo == "iniciar_sesion") {
+    // print_r($_POST);
     $usuario = trim($_POST['usuario']);
     $password = trim($_POST['password']);
-    $arrResponse = array('status'=>false, 'msg'=>'');
+    $arrResponse = array('status' => false, 'msg' => '');
 
     $arrPersona = $objPersona->buscarPersonaDNI($usuario);
-   // print_r($arrPersona);
-   if (empty($arrPersona)) {
-    $arrResponse = array('status'=>false, 'msg'=>'Error, Usuario no esta registrado en el sistema');
-    }else{
+    // print_r($arrPersona);
+    if (empty($arrPersona)) {
+        $arrResponse = array('status' => false, 'msg' => 'Error, Usuario no esta registrado en el sistema');
+    } else {
         if (password_verify($password, $arrPersona->password)) {
             session_start();
-            $_SESSION['sesion_ventas_id'] = $arrPersona->id ;
+            $_SESSION['sesion_ventas_id'] = $arrPersona->id;
             $_SESSION['sesion_ventas_dni'] = $arrPersona->nro_identidad;
             $_SESSION['sesion_ventas_nombres'] = $arrPersona->razon_social;
-            $arrResponse = array('status'=>true, 'msg'=>'Ingresar al sistema');
-            
-        }else{
-            $arrResponse = array('status'=>false, 'msg'=>'Error, Contraseña incorrecta');
+            $arrResponse = array('status' => true, 'msg' => 'Ingresar al sistema');
+        } else {
+            $arrResponse = array('status' => false, 'msg' => 'Error, Contraseña incorrecta');
         }
     }
     echo json_encode($arrResponse);
 }
 
-if ($tipo=="cerrar_sesion") {
+if ($tipo == "cerrar_sesion") {
     session_start();
     session_unset();
     session_destroy();
@@ -38,4 +37,3 @@ if ($tipo=="cerrar_sesion") {
     echo json_encode($arrResponse);
 }
 die;
-?>
