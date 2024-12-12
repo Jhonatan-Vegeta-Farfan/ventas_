@@ -18,9 +18,9 @@ if ($tipo=="listar") {
             $id_categoria = $arr_Categorias[$i]->id;
             $categoria =  $arr_Categorias[$i]->nombre;
             $opciones = '
-             <a href="'.BASE_URL.'editar-categoria/'.$id_categoria.'"><i class="fas fa-edit btn btn-info btn-sm">EDITAR CATEGORIA</i></a>
-                 <button onclick="eliminar_categoria('.$id_categoria.');"class="btn btn-danger btn-sm">ELIMINAR CATEGORIA<i class="fas fa-trash-alt"></i></button>
-            ';
+            <a href="'.BASE_URL.'editar-categoria/'.$id_categoria.'"><i class="fas fa-edit btn btn-dark btn-sm">EDITAR</i></a>
+            <button onclick="eliminar_categoria('.$id_categoria.');" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt">ELIMINAR</i></button>
+        ';
             $arr_Categorias[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
@@ -86,15 +86,24 @@ if ($tipo == "actualizar") {
 }
 
 if ($tipo == "eliminar") {
-    //print_r($_POST);
-    $id_categoria = $_POST['id_categoria'];
-    $arr_Respuesta = $objCategoria->eliminar_categoria($id_categoria);
-    //print_r($arr_Respuesta);
-    if (empty($arr_Respuesta)) {
-        $response = array('status' => false);
-    } else {
-        $response = array('status' => true);
+
+    if ($_POST) {
+        $id_categoria = $_POST['id_categoria'];
+
+        if ($objCategoria->productosAsociados($id_categoria)) {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'No se puede eliminar esta categoria, por que
+         tiene productos asociados.');
+        } else {
+            $arrCategoria = $objCategoria->eliminar_categoria($id_categoria);
+            //print_r($arr_Respuesta);
+            if ($arrCategoria) {
+
+                $arr_Respuesta = array('status' => true , 'mensaje' => '');
+            } else {
+                $arr_Respuesta = array('status' => false , 'mensaje' => 'No se puede eliminar la categoria');
+            }
+        }
+        echo json_encode($arr_Respuesta);
     }
-    echo json_encode($response);
 }
 ?>

@@ -1,7 +1,6 @@
 <?php
-require_once "../libreria/conexion.php";
-class ComprasModel
-{
+require_once "../librerias/conexion.php";
+class ComprasModel{
     private $conexion;
     function __construct(){
         $this->conexion = new Conexion();
@@ -51,5 +50,4 @@ class ComprasModel
         return $sql;
     }
 }
-
 ?>

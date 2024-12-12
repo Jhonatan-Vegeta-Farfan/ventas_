@@ -1,8 +1,3 @@
-<div class="container my-4">
-    <button class="btn btn-secondary" onclick="window.history.back();">
-        <i class="bi bi-arrow-left-circle me-1"></i> Volver Atrás
-    </button>
-</div>
 
 <div class="container mt-5">
 <h1 class="text-center mb-4 ">Editar categorias</h1>
@@ -20,9 +15,16 @@
     <button type="button" class="btn btn-success" onclick="actualizarCategoria();">Actualizar</button>
 </form>
 </div>
+
+<div class="container my-4">
+    <button class="btn btn-secondary" onclick="window.history.back();">
+        <i class="bi bi-arrow-left-circle me-1"></i> Volver Atrás
+</button></div>
+
+
 <script src="<?php echo BASE_URL ?>views/js/functions_categoria.js"></script>
 <script>
-    //http://localhost/venta_/editar-producto/1
+    //http://localhost/ventas_/editar-producto/1
     //captura lo que viene en el link     se captura la posicion de ese valor
     const id_p=<?php $pagina=explode("/", $_GET['views']); echo $pagina['1']; ?>;
     ver_categoria(id_p);

@@ -26,8 +26,9 @@ if ($tipo == "listar") {
             $id_producto =  $arrProducto[$i]->id;
             $nombre =  $arrProducto[$i]->nombre;
             $opciones = '
-                 <a href="'.BASE_URL.'editar-producto/'.$id_producto.'"><i class="fas fa-edit btn btn-info btn-sm">EDITAR PRODUCTO</i></a>
-                 <button onclick="eliminar_producto('.$id_producto.');"class="btn btn-danger btn-sm">ELIMINAR PRODUCTO<i class="fas fa-trash-alt"></i></button>';
+            <a href="'.BASE_URL.'editar-producto/'.$id_producto.'"><i class="fas fa-edit btn btn-dark btn-sm">EDITAR</i></a>
+            <button onclick="eliminar_producto('.$id_producto.');" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt">ELIMINAR</i></button>
+        ';
             $arrProducto[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
@@ -130,14 +131,23 @@ if($tipo == "actualizar") {
 }
 
 if ($tipo == "eliminar") {
-    //print_r($_POST);
-    $id_producto = $_POST['id_producto'];
-    $arr_Respuesta = $objProducto->eliminarProducto($id_producto);
-    //print_r($arr_Respuesta);
-    if (empty($arr_Respuesta)) {
-        $response = array('status' => false);
-    } else {
-        $response = array('status' => true);
+
+    if ($_POST) {
+        $id_producto = $_POST['id_producto'];
+
+        if ($objProducto->comprasAsociados($id_producto)) {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'No se puede eliminar el producto por que
+         tiene categorias asociadas');
+        } else {
+            $arrProducto = $objProducto->eliminar_producto($id_producto);
+            //print_r($arr_Respuesta);
+            if ($arrProducto) {
+
+                $arr_Respuesta = array('status' => true , 'mensaje' => '');
+            } else {
+                $arr_Respuesta = array('status' => false , 'mensaje' => 'No se puede eliminar la categoria');
+            }
+        }
+        echo json_encode($arr_Respuesta);
     }
-    echo json_encode($response);
 }

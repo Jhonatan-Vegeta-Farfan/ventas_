@@ -81,6 +81,22 @@ session_start(); // Inicia la sesión
       align-items: center;
     }
 
+        /* Media Queries para mejorar la responsividad */
+        @media (max-width: 768px) {
+      .navbar-brand img {
+        width: 120px; /* Ajusta el tamaño de la imagen en pantallas pequeñas */
+      }
+      .navbar-nav .nav-link {
+        padding: 6px 12px; /* Ajusta el padding en pantallas pequeñas */
+      }
+    }
+
+    @media (max-width: 576px) {
+      .navbar-nav .nav-link {
+        font-size: 14px; /* Ajusta el tamaño de fuente en pantallas muy pequeñas */
+      }
+    }
+
   </style>
 </head>
 <script>
@@ -143,8 +159,8 @@ session_start(); // Inicia la sesión
           </button>
         </li>
         <li>
-  <a class="btn btn-danger dropdown-item d-flex align-items-center" href="<?php echo BASE_URL ?>panel" style="background-color: red; color: #fff; transition: background-color 0.3s ease;">
-    <i class="bi bi-columns-gap me-2" style="color: #fff;"></i> Ver Panel de administrador
+  <a class="btn btn-danger dropdown-item d-flex align-items-center" href="<?php echo BASE_URL ?>panel" style="background-color: red; color: black; transition: background-color 0.3s ease;">
+    <i class="bi bi-columns-gap me-2" style="color: #fff;"></i> Panel del Administrador
   </a>
 </li>
       </ul>

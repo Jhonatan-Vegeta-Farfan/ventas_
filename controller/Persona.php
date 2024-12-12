@@ -24,9 +24,9 @@ if ($tipo == "listar_p") {
             $rol =  $arrPersona[$i]->rol;
 
             $opciones = '
-            <a href="'.BASE_URL.'editar-persona/'.$id_persona.'"><i class="fas fa-edit btn btn-info btn-sm">EDITAR USUARIO</i></a>
-                 <button onclick="eliminar_persona('.$id_persona.');"class="btn btn-danger btn-sm">ELEIMINAR USUARIO<i class="fas fa-trash-alt"></i></button>
-            ';
+            <a href="'.BASE_URL.'editar-persona/'.$id_persona.'"><i class="fas fa-edit btn btn-dark btn-sm">EDITAR</i></a>
+            <button onclick="eliminar_persona('.$id_persona.');" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt">ELIMINAR</i></button>
+        ';
             $arrPersona[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
@@ -149,16 +149,25 @@ if ($tipo == "actualizar") {
 }
 
 if ($tipo == "eliminar") {
-    //print_r($_POST);
-    $id_persona = $_POST['id_persona'];
-    $arr_Respuesta = $objPersona->eliminar_persona($id_persona);
-    //print_r($arr_Respuesta);
-    if (empty($arr_Respuesta)) {
-        $response = array('status' => false);
-    } else {
-        $response = array('status' => true);
+
+    if ($_POST) {
+        $id_persona = $_POST['id_persona'];
+
+        if ($objPersona->personasAsociados($id_persona)) {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'No se puede eliminar al usuario, por que
+         tiene compras o productos asociados');
+        } else {
+            $arrPersona = $objPersona->eliminar_persona($id_persona);
+            //print_r($arr_Respuesta);
+            if ($arrPersona) {
+
+                $arr_Respuesta = array('status' => true , 'mensaje' => '');
+            } else {
+                $arr_Respuesta = array('status' => false , 'mensaje' => 'No se puede eliminar la categoria');
+            }
+        }
+        echo json_encode($arr_Respuesta);
     }
-    echo json_encode($response);
 }
 
 ?>

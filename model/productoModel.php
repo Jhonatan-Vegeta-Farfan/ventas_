@@ -1,5 +1,5 @@
 <?php
-require_once "../libreria/conexion.php";
+require_once "../librerias/conexion.php";
 class ProductoModel{
 
     private $conexion;
@@ -46,10 +46,16 @@ class ProductoModel{
         $sql = $sql->fetch_object();
         return $sql;
     }
-    public function eliminarProducto($id){
+    public function eliminar_producto($id){
         $sql = $this->conexion->query("CALL eliminarProducto('{$id}')");
         $sql = $sql->fetch_object();
-        return $sql;
+        return$sql;
+
+    }
+    public function comprasAsociados($id){
+        $sql = $this->conexion->query("SELECT COUNT(*) as count FROM compras WHERE id_producto ='{$id}'");
+        $resultado = $sql->fetch_object();
+        return $resultado -> count > 0;
     }
 }
 ?>
