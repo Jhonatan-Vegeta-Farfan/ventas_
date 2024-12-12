@@ -1,6 +1,6 @@
 <body>
     <div class="container my-4">
-        <h2 class="text-center mb-4 text-uppercase fw-bold">Panel Administrativo</h2>
+        <h2 class="text-center mb-4 text-uppercase fw-bold">Bienvenido Administrador</h2>
         <div class="row g-4">
             <!-- Productos -->
             <div class="col-md-6 col-lg-3">

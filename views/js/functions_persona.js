@@ -124,9 +124,9 @@ async function actualizarPersona() {
         });
         json = await respuesta.json();
         if(json.status){
-            swal("Registro", json.mensaje, "success");
+            swal("En Hora Buena", json.mensaje, "success");
         }else{
-            swal("Registro", json.mensaje, "error");
+            swal("En Hora Buena", json.mensaje, "error");
         }
         console.log(json);
     } catch (e) {

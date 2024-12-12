@@ -30,7 +30,6 @@ if (document.querySelector('#tbl_producto')) {
     listar_productos();
 }
 
-
 async function registrar_producto() {
     let codigo = document.getElementById('codigo').values;
     let nombre = document.querySelector('#nombre').value;
@@ -152,9 +151,9 @@ async function actualizar_producto() {
         });
         json = await respuesta.json();
         if (json.status) {
-            swal("Actualizado", json.mensaje, "success");
+            swal("En Hora Buena", json.mensaje, "success");
         } else {
-            swal("Actualizado", json.mensaje, "error");
+            swal("En Hora Buena", json.mensaje, "error");
         }
 
         console.log(json);

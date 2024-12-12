@@ -97,9 +97,9 @@ async function registrar_categoria(){
             });
             json = await respuesta.json();
             if(json.status){
-                swal("Registro", json.mensaje, "success");
+                swal("En Hora Buena", json.mensaje, "success");
             }else{
-                swal("Registro", json.mensaje, "error");
+                swal("En Hora Buena", json.mensaje, "error");
             }
             console.log(json);
         } catch (e) {
@@ -107,20 +107,6 @@ async function registrar_categoria(){
         }
      }
 
-   /*   async function eliminar_categoria(id) {
-        swal ({
-            title: "¿Realmente desea eliminar la categoria?",
-            text: "",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true
-        }).then((willDelete)=>{
-            if (willDelete) {
-                fnt_eliminar(id);
-    
-            }
-        })
-    } */
     
         async function eliminar_categoria(id) {
             swal({
