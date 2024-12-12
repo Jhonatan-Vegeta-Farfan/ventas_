@@ -6,7 +6,7 @@ $tipo = $_REQUEST['tipo'];
 
 //instancio la clase modeloProducto
 $objProducto = new ProductoModel();
-$objCategoria = new CategoriaModel();
+$objCategoria = new categoriaModel();
 $objPersona = new PersonaModel(); 
 
 if ($tipo == "listar") {
@@ -25,10 +25,9 @@ if ($tipo == "listar") {
 
             $id_producto =  $arrProducto[$i]->id;
             $nombre =  $arrProducto[$i]->nombre;
-            $opciones =  '
-            <a href="'.BASE_URL.'editar-producto/'.$id_producto.'"><i class="fas fa-edit btn btn-info btn-sm">EDITAR PRODUCTO</i></a>
-            <button onclick="eliminar_producto('.$id_producto.');"class="btn btn-danger btn-sm">ELIMINAR PRODUCTO<i class="fas fa-trash-alt"></i></button>
-       ';
+            $opciones = '
+                 <a href="'.BASE_URL.'editar-producto/'.$id_producto.'"><i class="fas fa-edit btn btn-info btn-sm">EDITAR PRODUCTO</i></a>
+                 <button onclick="eliminar_producto('.$id_producto.');"class="btn btn-danger btn-sm">ELIMINAR PRODUCTO<i class="fas fa-trash-alt"></i></button>';
             $arrProducto[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
@@ -80,17 +79,17 @@ if ($tipo == "registrar") {
     }
 }
 
-if($tipo == "ver") {
+if ($tipo == "ver") {
     //print_r($_POST);
     $id_producto = $_POST['id_producto'];
     $arr_Respuesta = $objProducto->verProducto($id_producto);
-   // print_r($arr_Respuesta);
-   if (empty($arr_Respuesta)) {
-       $response = array('status' => false, 'mensaje' => "Error ps no hay informacion");
-   }else{
-    $response = array('status' => true, 'mensaje'=>"datos encontrados", 'contenido' => $arr_Respuesta);
-   }
-   echo json_encode($response);
+    //print_r($arr_Respuesta);
+    if (empty($arr_Respuesta)) {
+        $response = array('status' => false, 'mensaje' => "Error, no hay informacion");
+    } else {
+        $response = array('status' => true, 'mensaje' => "datos encontrados", 'contenido' => $arr_Respuesta);
+    }
+    echo json_encode($response);
 }
 
 if($tipo == "actualizar") {
@@ -129,8 +128,6 @@ if($tipo == "actualizar") {
     }
 }
 }
-
-
 
 if ($tipo == "eliminar") {
     //print_r($_POST);

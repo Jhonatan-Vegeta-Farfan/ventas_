@@ -33,16 +33,20 @@
         <tbody id="tbl_persona" class="text-center">
             <!--<tr>
                <th>Nro</th>
-                <th>49500819</th>
-                <th>jhonatan</th>
-                <th>987456321</th>
-                <th>vegeta@gmail.com</th>
-                <th>huanta</th>
-                <th>333</th>
-                <th>Jr. central</th>
-                <th>Proovedor</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
             </tr> -->
         </tbody>
     </table>
+</div>
+<div class="container my-4">
+    <button class="btn btn-secondary" onclick="window.history.back();">
+        <i class="bi bi-arrow-left-circle me-1"></i> Volver Atrás </button>
 </div>
 <script src="<?php echo BASE_URL?>views/js/functions_persona.js"></script>

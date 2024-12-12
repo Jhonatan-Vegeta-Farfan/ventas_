@@ -1,28 +1,15 @@
-document.getElementById('loginForm').addEventListener('click', function() {
-    const password = document.getElementById('password');
-    const icon = this.querySelector('i');
-    if (password.type === 'password') {
-        password.type = 'text';
-        icon.classList.remove('fa-eye');
-        icon.classList.add('fa-eye-slash');
-    } else {
-        password.type = 'password';
-        icon.classList.remove('fa-eye-slash');
-        icon.classList.add('fa-eye');
-    }
-});
-
 async function iniciar_sesion() {
-    let usuario = document.getElementById('#usuario').value;
-    let password = document.getElementById('#password').value;
-    
-    if (usuario == "" || password == "") {
-        Swal.fire('Por favor, complete todos los campos.');
+    let usuario = document.querySelector('#usuario');
+    let password = document.querySelector('#password');
+    if (usuario=="" || password =="") {
+        alert('campos vacios');
         return;
     }
     try {
-        const datos = new FormData(document.getElementById('frm_iniciar_sesion'));
-        let respuesta = await fetch(base_url + '/controller/Login.php?tipo=iniciar_sesion', {
+        //capturamos datos del formulario html
+        const datos = new FormData(frm_iniciar_sesion);
+        //enviar datos hacia el controlador
+        let respuesta = await fetch(base_url+'controller/Login.php?tipo=iniciar_sesion', { //await es una promesa que si o si espera una respuesta
             method: 'POST',
             mode: 'cors',
             cache: 'no-cache',
@@ -30,14 +17,42 @@ async function iniciar_sesion() {
         });
         json = await respuesta.json();
         if (json.status) {
-            location.replace(base_url + "inicio");
-        } else {
-            //Swal.fire('Éxito', 'Has iniciado sesión correctamente','success');
-            Swal.fire('Error', json.mensaje, 'error');
+            //swal("Iniciar Sesion", json.mensaje, "success");
+            location.replace(base_url+"inicio");
+        }else{
+            swal("Iniciar Sesion", json.mensaje, "error");
         }
+    
         console.log(json);
-    } catch (error) {
-        console.error('Oops, ocurrió un error:', error);
-        Swal.fire('Error', 'Ocurrió un error al iniciar sesión', 'error');
+    } catch (e) {
+        console.log("Oops ocurrio un error"+e);
     }
+}
+
+//INICIAR SESION
+if (document.querySelector('#frm_iniciar_sesion')) {
+    //evita que se envie el formulario
+    let frm_iniciar_sesion = document.querySelector('#frm_iniciar_sesion');
+    frm_iniciar_sesion.onsubmit = function (e) {
+        e.preventDefault();
+        iniciar_sesion();
+    }
+}
+//CERRAR SESION
+async function cerrar_sesion() {
+    try {
+        let respuesta = await fetch(base_url+'controller/Login.php?tipo=cerrar_sesion',{
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+        });
+        json = await respuesta.json();
+        if (json.status) {
+            location.replace(base_url+'login');
+        }
+    } catch (error) {
+        console.log('Ocurrio un error '+error);
+        
+    }
+    
 }

@@ -107,13 +107,7 @@ session_start(); // Inicia la sesión
           <a class="nav-link" href="<?php echo BASE_URL ?>nosotros">NOSOTROS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo BASE_URL ?>cantidad">CANTIDAD</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="<?php echo BASE_URL ?>contactanos">CONTACTENOS</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo BASE_URL ?>perfil">PERFIL</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?php echo BASE_URL ?>ubicacion">UBICACIÓN</a>
@@ -148,6 +142,11 @@ session_start(); // Inicia la sesión
             <i class="bi bi-box-arrow-right"></i> Cerrar sesión
           </button>
         </li>
+        <li>
+  <a class="btn btn-danger dropdown-item d-flex align-items-center" href="<?php echo BASE_URL ?>panel" style="background-color: red; color: #fff; transition: background-color 0.3s ease;">
+    <i class="bi bi-columns-gap me-2" style="color: #fff;"></i> Ver Panel de administrador
+  </a>
+</li>
       </ul>
     </div>
   </nav>

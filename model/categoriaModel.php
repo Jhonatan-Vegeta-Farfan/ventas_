@@ -42,14 +42,11 @@ class categoriaModel
         $sql = $sql->fetch_object();
         return $sql;
     }
-
-
-     public function eliminarCategoria($id){
+    public function eliminar_categoria($id){
         $sql = $this->conexion->query("CALL eliminarCategoria('{$id}')");
         $sql = $sql->fetch_object();
         return $sql;
-     }
-   
+    }
 }
 
 ?>

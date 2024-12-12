@@ -96,13 +96,18 @@ async function registrar_categoria(){
                 body: datos
             });
             json = await respuesta.json();
+            if(json.status){
+                swal("Registro", json.mensaje, "success");
+            }else{
+                swal("Registro", json.mensaje, "error");
+            }
             console.log(json);
         } catch (e) {
-    
+            console.log("Oops, ocurrio un error categoria"+e);
         }
-    }
+     }
 
-    async function eliminar_categoria(id) {
+     async function eliminar_categoria(id) {
         swal ({
             title: "¿Realmente desea eliminar la categoria?",
             text: "",
@@ -117,10 +122,10 @@ async function registrar_categoria(){
         })
     }
     
-
     async function fnt_eliminar(id) {
         const formData = new FormData();
-        formData.append('id_categoria', id);
+        formData.append('id_categoria',
+            id);
             try {
                 let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=eliminar',{
                      method: 'POST',
@@ -134,9 +139,9 @@ async function registrar_categoria(){
                     swal("Eliminar", "eliminado correctamente", "success");
                     document.querySelector('#fila'+id).remove();
                 }else{
-                    swal('Eliminar', 'Error al eliminar la categoria', 'warning');
+                    swal('Eliminar', 'Error al eliminar categoria', 'warning');
                 }
             } catch (e) {
-                console.log("Oops, ocurrió un error al eliminar la categoría:" + e);
+                console.log("ocurrio un error" + e);
             }
     }

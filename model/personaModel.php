@@ -10,22 +10,16 @@ class PersonaModel{
     }
 
     public function registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $password){
+
         $sql = $this->conexion->query("CALL insertarPersona('{$nro_identidad}', '{$razon_social}', '{$telefono}', '{$correo}', '{$departamento}', '{$provincia}', '{$distrito}', '{$cod_postal}', '{$direccion}', '{$rol}', '{$password}')");
-    
-        // Verifica si la consulta fue exitosa
-        if ($sql === false) {
-            // Manejo de error, puedes usar mysqli_error para obtener el mensaje de error
-            die("Error en la consulta: " . $this->conexion->error);
-        }
-    
         $sql = $sql->fetch_object();
         return $sql;
     }
-
-    public function BuscarPersonaDNI($nro_identidad){
-        $sql = $this->conexion->query("SELECT * FROM persona WHERE nro_identidad = '{$nro_identidad}'");
+    public function buscarPersonaDNI($nro_identidad){
+        $sql = $this->conexion->query("SELECT * FROM persona WHERE nro_identidad='{$nro_identidad}'");
         $sql = $sql->fetch_object();
         return $sql;
+
     }
 
     public function obtenerProveedor(){
@@ -66,32 +60,24 @@ class PersonaModel{
         }
         return $arrRespuesta;
     }
-    public function obtenerPersonaPorId($id){
-        $id = $this->conexion->real_escape_string($id);
-        $sql = $this->conexion->query("SELECT * FROM persona WHERE id = '{$id}'");
-        $sql = $sql->fetch_object();
-        return $sql;
-    }
-    
+
     public function verPersona($id){
         $sql = $this->conexion->query("SELECT * FROM persona WHERE id='{$id}'");
         $sql = $sql->fetch_object();
         return $sql;
      }
-
-     public function actualizarPersona($id, $nro_identidad, $razon_social, $telefono, $correo, $direccion, $departamento, $provincia, $distrito, $cod_postal){
-        $sql = $this->conexion->query("UPDATE persona SET nro_identidad='{$nro_identidad}', razon_social='{$razon_social}', telefono='{$telefono}', correo='{$correo}', direccion='{$direccion}', departamento='{$departamento}', provincia='{$provincia}', distrito='{$distrito}', cod_postal='{$cod_postal}' WHERE id='{$id}'");
-        return 1;
-     }
-
-     public function eliminarPersona($id){
-        $sql = $this->conexion->query("DELETE FROM persona WHERE id='{$id}'");
-        return 1;
-     }
-
-
-
-
+     public function actualizarPersona($id, $nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia,
+     $distrito, $cod_postal, $direccion, $rol){
+        $sql = $this->conexion->query("CALL actualizarPersona('{$id}','{$nro_identidad}','{$razon_social}','{$telefono}','{$correo}','{$departamento}','{$provincia}'
+        ,'{$distrito}','{$cod_postal}','{$direccion}','{$rol}')");
+        $sql = $sql->fetch_object();
+        return $sql;
+    }
+    public function eliminar_persona($id){
+        $sql = $this->conexion->query("CALL eliminarPersona('{$id}')");
+        $sql = $sql->fetch_object();
+        return $sql;
+    }
 }
 
 ?>

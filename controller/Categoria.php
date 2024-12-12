@@ -70,45 +70,31 @@ if ($tipo == "actualizar") {
     $nombre = $_POST['nombre'];
     $detalle = $_POST['detalle'];
 
-    // Validar que los campos no estén vacíos
     if ($id_categoria == "" || $nombre == "" || $detalle == "") {
         $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacios'); //respuesta
+
     } else {
-        // Llamar al método para actualizar la categoría
         $arrCategoria = $objCategoria->actualizarCategoria($id_categoria, $nombre, $detalle);
-        
-        // Verificar si la actualización fue exitosa
         if ($arrCategoria->p_id > 0) {
             $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualizado Correctamente');
+
         } else {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al actualizar categoria');
         }
     }
-    // Devolver la respuesta en formato JSON
     echo json_encode($arr_Respuesta);
 }
 
 if ($tipo == "eliminar") {
-    if ($_POST) {
-        $id_categoria = $_POST['id_categoria'];
-
-        // Validar que el ID de la categoría no esté vacío
-        if ($id_categoria == "") {
-            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, ID de categoría vacío');
-        } else {
-            // Llamar al método para eliminar la categoría
-            $resultado = $objCategoria->eliminarCategoria($id_categoria);
-
-            // Verificar si la eliminación fue exitosa
-            if ($resultado) {
-                $arr_Respuesta = array('status' => true, 'mensaje' => 'Eliminación exitosa');
-            } else {
-                $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al eliminar la categoría');
-            }
-        }
-        // Devolver la respuesta en formato JSON
-        echo json_encode($arr_Respuesta);
+    //print_r($_POST);
+    $id_categoria = $_POST['id_categoria'];
+    $arr_Respuesta = $objCategoria->eliminar_categoria($id_categoria);
+    //print_r($arr_Respuesta);
+    if (empty($arr_Respuesta)) {
+        $response = array('status' => false);
+    } else {
+        $response = array('status' => true);
     }
+    echo json_encode($response);
 }
-
 ?>

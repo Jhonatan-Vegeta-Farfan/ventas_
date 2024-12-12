@@ -118,6 +118,7 @@ async function ver_compra(id) {
         });
         json = await respuesta.json();
         if (json.status) {
+            document.querySelector('#id_compra').value = json.contenido.id;
             document.querySelector('#id_producto').value = json.contenido.id_producto;
             document.querySelector('#cantidad').value = json.contenido.cantidad;
             document.querySelector('#precio').value = json.contenido.precio;
@@ -127,68 +128,66 @@ async function ver_compra(id) {
         }
         console.log(json);
     } catch (error) {
-        console.log("oops ocurrio un error al editar compra"+error)
+        console.log("oops ocurrio un error al editar compra"+error);
     }
 }
 
-async function actualizar_producto() {
-    let id_compra = document.querySelector('#id_compra').value; // Asegúrate de tener un campo oculto o similar para el ID
-    let producto = document.querySelector('#id_producto').value;
-    let cantidad = document.querySelector('#cantidad').value;
-    let precio = document.querySelector('#precio').value;
-    let trabajador = document.querySelector('#trabajador').value;
-
-    if (producto == "" || cantidad == "" || precio == "" || trabajador == "") {
-        alert("Error!!, Campos vacíos");
-        return;
-    }
-
-    const formData = new FormData();
-    formData.append('id_compra', id_compra);
-    formData.append('id_producto', producto);
-    formData.append('cantidad', cantidad);
-    formData.append('precio', precio);
-    formData.append('id_trabajador', trabajador);
-
+async function actualizarCompra() {
+    const datos = new FormData(formACtualizarCompras);
     try {
         let respuesta = await fetch(base_url + 'controller/Compra.php?tipo=actualizar', {
             method: 'POST',
             mode: 'cors',
             cache: 'no-cache',
-            body: formData
+            body: datos
         });
         json = await respuesta.json();
-        if (json.status) {
-            swal("Actualización", json.mensaje, "success");
-            listar_compras(); // Actualiza la lista después de actualizar
-        } else {
-            swal("Actualización", json.mensaje, "error");
+        if(json.status){
+            swal("Registro", json.mensaje, "success");
+        }else{
+            swal("Registro", json.mensaje, "error");
         }
         console.log(json);
-    } catch (error) {
-        console.log("Oops, ocurrió un error al actualizar compra " + error);
+    } catch (e) {
+        console.log("Oops, ocurrio un error compras"+e);
     }
 }
 
-async function eliminar_producto(id) {
-    const formData = new FormData();
-    formData.append('id_compra', id);
-    try {
-        let respuesta = await fetch(base_url + 'controller/Compra.php?tipo=eliminar', {
-            method: 'POST',
-            mode: 'cors',
-            cache: 'no-cache',
-            body: formData
-        });
-        json = await respuesta.json();
-        if (json.status) {
-            swal("Eliminación", json.mensaje, "success");
-            document.querySelector('#fila' + id).remove(); // Elimina la fila de la tabla
-        } else {
-            swal("Eliminación", json.mensaje, "error");
+async function eliminar_compra(id) {
+    swal ({
+        title: "¿Realmente desea eliminar la compra?",
+        text: "",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+    }).then((willDelete)=>{
+        if (willDelete) {
+            fnt_eliminar(id);
+
         }
-        console.log(json);
-    } catch (error) {
-        console.log("Oops, ocurrió un error al eliminar compra " + error);
-    }
+    })
+}
+
+async function fnt_eliminar(id) {
+    const formData = new FormData();
+    formData.append('id_compra',
+        id);
+        try {
+            let respuesta = await fetch(base_url + 'controller/Compra.php?tipo=eliminar',{
+                 method: 'POST',
+                 mode: 'cors',
+                 cache: 'no-cache',
+                 body: formData
+        
+            });
+            json = await respuesta.json();
+            if (json.status) {
+                swal("Eliminar", "eliminado correctamente", "success");
+                document.querySelector('#fila'+id).remove();
+            }else{
+                swal('Eliminar', 'Error al eliminar compra', 'warning');
+            }
+        } catch (e) {
+            console.log("ocurrio un error" + e);
+        }
 }

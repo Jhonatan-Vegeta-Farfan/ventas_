@@ -1,13 +1,21 @@
+<div class="container my-4">
+    <button class="btn btn-secondary" onclick="window.history.back();">
+        <i class="bi bi-arrow-left-circle me-1"></i> Volver Atrás
+    </button>
+</div>
+
 <div class="container mt-5"> 
 <h1 class="text-center mb-4">Editar Usuario</h1>
-<form action="" class="from-control" id="frmRegistrar">
+<form action="" class="from-control" id="formActualizarPer">
+<input type="hidden" name="id_persona" id="id_persona">
 <div class="mb-3">
+
         <label for="">Numero de Identidad: </label>
-        <input type="text" id="nro_identidad" name="nroIdentidad" class="form-control" required>
+        <input type="text" id="nro_identidad" name="nro_identidad" class="form-control" required>
     </div>
     <div class="mb-3">
         <label for="">Razon social: </label>
-        <input type="text" id="razon_social" name="razonSocial" class="form-control" required>
+        <input type="text" id="razon_social" name="razon_social" class="form-control" required>
     </div>
     <div class="mb-3">
         <label for="">Telefono: </label>
@@ -43,19 +51,17 @@
         <option value="" disabled selected>Seleccione un rol</option>
         <option value="proveedor">Proveedor</option>
         <option value="trabajador">Trabajador</option>
+        <option value="trabajador">Adimistrador</option>
     </select>
 </div>
-   
-<button type="button" class="mb-3 btn btn-outline-info" onclick="actualizar_persona();"><i class="bi bi-check-circle"></i>Actualizar</button>
+<button type="button" class="mb-3 btn btn-outline-info" onclick="actualizarPersona();"><i class="fas fa-check"></i> Actualizar</button>
 </form>
 </div>
 
 <script src="<?php echo BASE_URL?>views/js/functions_persona.js"></script>
-<script>listar_personas()</script>
-<script>registrarPersona()</script>
 <script>
-
+    //http://localhost/venta_/editar-producto/1
     //captura lo que viene en el link     se captura la posicion de ese valor
-    const id_per=<?php $pagina=explode("/", $_GET['views']); echo $pagina['1']; ?>;
-    ver_persona(id_per);
+    const id_p=<?php $pagina=explode("/", $_GET['views']); echo $pagina['1']; ?>;
+    ver_persona(id_p);
 </script>

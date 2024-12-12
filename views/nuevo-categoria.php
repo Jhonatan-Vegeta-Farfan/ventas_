@@ -1,3 +1,9 @@
+<div class="container my-4">
+    <button class="btn btn-secondary" onclick="window.history.back();">
+        <i class="bi bi-arrow-left-circle me-1"></i> Volver Atrás
+    </button>
+</div>
+
 <div class="container mt-5">
 <h1 class="text-center mb-4 ">Registrar categorias</h1>
 

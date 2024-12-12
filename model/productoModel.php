@@ -19,22 +19,15 @@ class ProductoModel{
         return $arrRespuesta;
     }
 
-
     public function obtener_producto_id($id){
         $respuesta = $this->conexion->query("SELECT * FROM producto WHERE id='{$id}'");
         $objeto = $respuesta->fetch_object();
         return $objeto;
     }
     
-    public function registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $imagen, $proveedor, $tipo_archivo){
+    public function registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $imagen, $proveedor, $tipoArchivo){
 
-        $sql = $this->conexion->query("CALL insertarProducto('{$codigo}', '{$nombre}', '{$detalle}', '{$precio}', '{$stock}', '{$categoria}', '{$imagen}', '{$proveedor}', '{$tipo_archivo}')");
-        // Verifica si la consulta fue exitosa
-        if ($sql === false) {
-            // Manejo de error, puedes usar mysqli_error para obtener el mensaje de error
-            die("Error en la consulta: " . $this->conexion->error);
-        }
-    
+        $sql = $this->conexion->query("CALL insertarProducto('{$codigo}', '{$nombre}', '{$detalle}', '{$precio}', '{$stock}', '{$categoria}', '{$imagen}', '{$proveedor}', '{$tipoArchivo}')");
         $sql = $sql->fetch_object();
         return $sql;
     }
@@ -48,7 +41,6 @@ class ProductoModel{
         $sql = $sql->fetch_object();
         return $sql;
      }
-    
      public function actualizarProducto($id, $nombre, $detalle, $precio, $categoria, $proveedor){
         $sql = $this->conexion->query("CALL actualizarProducto('{$id}','{$nombre}','{$detalle}','{$precio}','{$categoria}','{$proveedor}')");
         $sql = $sql->fetch_object();
@@ -59,9 +51,5 @@ class ProductoModel{
         $sql = $sql->fetch_object();
         return $sql;
     }
-    
-
-
-
 }
 ?>

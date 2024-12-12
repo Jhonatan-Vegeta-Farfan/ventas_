@@ -1,3 +1,9 @@
+<div class="container my-4">
+    <button class="btn btn-secondary" onclick="window.history.back();">
+        <i class="bi bi-arrow-left-circle me-1"></i> Volver Atrás
+    </button>
+</div>
+
 <div class="container mt-5">
 <h1 class="text-center mb-4">Editar Productos</h1>
 <form action="" class="from-control" id="frmActualizar">
@@ -44,7 +50,7 @@
 <script>listar_categorias();</script>
 <script>listarProveedor();</script>
 <script>
-
+    //http://localhost/venta_/editar-producto/1
     //captura lo que viene en el link     se captura la posicion de ese valor
     const id_p=<?php $pagina=explode("/", $_GET['views']); echo $pagina['1']; ?>;
     ver_producto(id_p);
