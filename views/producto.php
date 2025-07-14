@@ -745,45 +745,7 @@ session_start();
         </section>
     </div>
 
-    <!-- FOOTER ALIEN -->
-    <footer class="alien-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>CONTACTO INTERGALÁCTICO</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Área 51, Nevada, Tierra</p>
-                    <p><i class="fas fa-phone"></i> +1 555-ALIEN-51</p>
-                    <p><i class="fas fa-envelope"></i> contacto@area51store.com</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>NAVEGACIÓN</h3>
-                    <a href="<?php echo BASE_URL ?>producto"><i class="fas fa-chevron-right"></i> Tienda</a>
-                    <a href="<?php echo BASE_URL ?>novedades"><i class="fas fa-chevron-right"></i> Novedades</a>
-                    <a href="<?php echo BASE_URL ?>nosotros"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a>
-                    <a href="<?php echo BASE_URL ?>contactanos"><i class="fas fa-chevron-right"></i> Contacto</a>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>LEGAL</h3>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Términos y Condiciones</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Política de Privacidad</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Política de Cookies</a>
-                    <a href="<?php echo BASE_URL ?>libroreclamaciones"><i class="fas fa-chevron-right"></i> Libro de Reclamaciones</a>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2023 ÁREA 51 STORE - Todos los derechos reservados en este y otros universos</p>
-                <div class="social-icons mt-3">
-                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-white"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
