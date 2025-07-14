@@ -105,7 +105,7 @@
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="card w-50">
             <div class="card-header text-center">
-                <img src="https://imgmedia.larepublica.pe/640x371/larepublica/migration/images/LJE4TYPS6VA6JOOTO4MRKWHDAM.webp" alt="Goku" class="img-fluid" style="max-height: 200px;">
+                <img src="https://img.pikbest.com/origin/09/25/32/52rpIkbEsTuQ5.png!sw800" alt="Goku" class="img-fluid" style="max-height: 200px;">
             </div>
             <div class="card-body">
                 <form id="loginForm" method="POST" action="<?php echo BASE_URL ?>inicio">
