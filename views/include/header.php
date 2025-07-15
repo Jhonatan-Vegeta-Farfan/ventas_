@@ -1,20 +1,10 @@
-<?php
-session_start();
-?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ÁREA 51 - ACCESO RESTRINGIDO</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+<style>
         :root {
             --alien-green: #00ff9d;
             --alien-purple: #9d00ff;
             --ufo-blue: #00e1ff;
             --dark-space: #0a001a;
+            --energy-pink: #ff00aa;
         }
         
         @font-face {
@@ -171,9 +161,9 @@ session_start();
             right: 20px;
             top: 15px;
             font-size: 0.7rem;
-            color: #ff0055;
+            color: var(--energy-pink);
             transform: rotate(15deg);
-            text-shadow: 0 0 5px #ff0055;
+            text-shadow: 0 0 5px var(--energy-pink);
             font-weight: bold;
             letter-spacing: 1px;
         }
@@ -182,6 +172,238 @@ session_start();
             padding-top: 120px;
             position: relative;
             z-index: 1;
+        }
+
+        /* SECCIÓN DE PRODUCTOS */
+        .alien-products-section {
+            padding: 50px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            color: var(--alien-green);
+            text-shadow: 0 0 10px var(--alien-green);
+            letter-spacing: 3px;
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::before,
+        .section-title h2::after {
+            content: '✧';
+            color: var(--ufo-blue);
+            margin: 0 15px;
+        }
+
+        .alien-product {
+            background: rgba(20, 10, 40, 0.7);
+            border: 2px solid var(--alien-green);
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+        }
+
+        .alien-product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px var(--alien-green);
+            border-color: var(--ufo-blue);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--alien-purple);
+            color: #000;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+            text-transform: uppercase;
+        }
+
+        .product-image-container {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .product-image {
+            transition: all 0.5s;
+            display: block;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .alien-product:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .alien-energy {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--alien-green), var(--ufo-blue), var(--alien-purple));
+            opacity: 0.7;
+            transition: all 0.5s;
+        }
+
+        .alien-product:hover .alien-energy {
+            height: 10px;
+            opacity: 1;
+        }
+
+        .product-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            color: var(--ufo-blue);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-description {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .product-specs {
+            background: rgba(0, 30, 40, 0.5);
+            border-left: 3px solid var(--alien-green);
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .product-specs p {
+            margin-bottom: 5px;
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+
+        .product-specs i {
+            color: var(--alien-green);
+            margin-right: 5px;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .currency {
+            background: var(--alien-green);
+            color: #000;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+        .price {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 5px var(--alien-green);
+        }
+
+        .btn-add-to-cart {
+            background: linear-gradient(45deg, var(--alien-green), var(--ufo-blue));
+            color: #000;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
+
+        .btn-add-to-cart:hover {
+            background: linear-gradient(45deg, var(--ufo-blue), var(--alien-purple));
+            color: #fff;
+            box-shadow: 0 0 15px var(--alien-green);
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER ALIEN */
+        .alien-footer {
+            background: rgba(10, 0, 26, 0.95);
+            border-top: 3px solid var(--alien-green);
+            padding: 30px 0;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+            padding: 0 15px;
+        }
+
+        .footer-section h3 {
+            color: var(--ufo-blue);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--alien-green);
+            padding-bottom: 10px;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #aaa;
+            margin-bottom: 10px;
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--alien-green);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 255, 157, 0.2);
+            margin-top: 20px;
         }
 
         /* EFECTO PARALLAX */
@@ -199,13 +421,40 @@ session_start();
         }
 
         @media (max-width: 992px) {
-            .navbar-brand-alien img {
+            .logo-alien {
                 width: 140px;
             }
+            
+            .product-image {
+                height: 200px;
+            }
+            
             .nav-link-alien {
                 padding: 8px 15px;
                 margin: 5px 0;
                 font-size: 0.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .alien-product {
+                padding: 15px;
+            }
+            
+            .product-title {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .footer-section {
+                min-width: 100%;
             }
         }
     </style>
@@ -223,7 +472,7 @@ session_start();
     <nav class="navbar navbar-expand-lg navbar-dark navbar-area51 fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand navbar-brand-alien" href="<?php echo BASE_URL ?>producto">
-                <img src="https://img.pikbest.com/origin/09/25/32/52rpIkbEsTuQ5.png!sw800" alt="ÁREA 51" class="logo-alien">
+                <img src="https://cdn-icons-png.flaticon.com/512/3618/3618730.png" alt="ÁREA 51" class="logo-alien">
                 <span class="security-badge">NIVEL 5<br>CLASIFICADO</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAlien">
@@ -262,30 +511,3 @@ session_start();
             </div>
         </div>
     </nav>
-
-    <div class="content">
-        <!-- CONTENIDO PRINCIPAL -->
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const base_url = '<?php echo BASE_URL; ?>';
-        
-        // Efecto de movimiento para los UFOs
-        document.querySelectorAll('.ufo-fleet').forEach((ufo, index) => {
-            ufo.style.left = `${Math.random() * 100}%`;
-            ufo.style.animationDelay = `${index * 5}s`;
-            ufo.style.animationDuration = `${20 + Math.random() * 20}s`;
-        });
-
-        // Efecto activo para los enlaces
-        const navLinks = document.querySelectorAll('.nav-link-alien');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-    </script>
-</body>
-</html>
