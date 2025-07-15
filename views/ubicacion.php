@@ -1,65 +1,179 @@
 <style>
-    .header-image {
-        background-color: black;
-        padding: 20px 0;
+    :root {
+        --alien-green: #00ff9d;
+        --alien-purple: #9d00ff;
+        --ufo-blue: #00e1ff;
+        --dark-space: #0a001a;
+        --energy-pink: #ff00aa;
+    }
+    
+    body {
+        background-color: var(--dark-space);
+        color: var(--alien-green);
+        font-family: 'Orbitron', sans-serif;
+        background-image: 
+            radial-gradient(circle at 70% 30%, rgba(157, 0, 255, 0.15) 0%, transparent 25%),
+            radial-gradient(circle at 30% 70%, rgba(0, 255, 157, 0.15) 0%, transparent 25%);
     }
 
-    .header-image img {
-        max-width: 200px;
+    .location-container {
+        padding: 40px 0;
     }
 
-    .navbar {
-        background-color: #000000;
+    .location-title {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 30px;
+        text-shadow: 0 0 10px var(--alien-green);
+        letter-spacing: 3px;
+        position: relative;
     }
 
-    .navbar-brand img {
-        width: 150px;
+    .location-title::before,
+    .location-title::after {
+        content: '✧';
+        color: var(--ufo-blue);
+        margin: 0 15px;
     }
 
-    .navbar-nav .nav-link,
-    .navbar-nav .nav-item {
-        color: #fff;
+    .map-container {
+        position: relative;
+        border: 3px solid var(--alien-green);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 0 30px rgba(0, 255, 157, 0.3);
+        margin-bottom: 30px;
+        background: rgba(20, 10, 40, 0.7);
+        padding: 10px;
     }
 
-    .product img {
+    .map-responsive {
+        position: relative;
+        overflow: hidden;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        border-radius: 10px;
+    }
+
+    .map-responsive iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: auto;
+        height: 100%;
+        border: none;
+        filter: grayscale(50%) hue-rotate(120deg) contrast(110%) brightness(90%);
     }
 
-    .navbar-nav .nav-link {
-        color: #fff !important;
-        background-color: #ff0000 !important;
-        padding: 8px 16px;
-        border-radius: 4px;
-        transition: all 0.3s ease;
+    .location-info {
+        background: rgba(20, 10, 40, 0.7);
+        border: 2px solid var(--alien-green);
+        border-radius: 15px;
+        padding: 25px;
+        margin-top: 30px;
+        box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+    }
+
+    .info-item {
+        margin-bottom: 15px;
+        color: #ccc;
+        font-size: 1.1rem;
+    }
+
+    .info-item strong {
+        color: var(--ufo-blue);
+    }
+
+    .btn-back {
+        display: inline-block;
+        background: linear-gradient(45deg, var(--alien-green), var(--ufo-blue));
+        color: #000;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 8px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s;
+        box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+        text-decoration: none;
+        margin-top: 20px;
+    }
+
+    .btn-back:hover {
+        background: linear-gradient(45deg, var(--ufo-blue), var(--alien-purple));
+        color: #fff;
+        box-shadow: 0 0 25px var(--alien-green);
+        transform: translateY(-3px);
+    }
+
+    /* Efecto scanner */
+    .alien-scanner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, var(--alien-green), transparent);
+        box-shadow: 0 0 10px var(--alien-green);
+        animation: scan 4s linear infinite;
+        z-index: 1000;
+    }
+
+    @keyframes scan {
+        0% { top: 0; opacity: 0.7; }
+        50% { opacity: 1; }
+        100% { top: 100vh; opacity: 0.7; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .location-title {
+            font-size: 2rem;
+        }
+        
+        .location-title::before,
+        .location-title::after {
+            margin: 0 8px;
+        }
+        
+        .info-item {
+            font-size: 1rem;
+        }
     }
 </style>
 
-<div class="header-image">
-</div>
-<div class="container my-5">
-    <div class="row">
-        <div class="col-12">
-            <h1 class="text-center">Encuentranos en Huanta, Ayacucho</h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
+<!-- Efecto scanner -->
+<div class="alien-scanner"></div>
+
+<div class="location-container">
+    <div class="container">
+        <h1 class="location-title">BASE SECRETA EN HUANTA, AYACUCHO</h1>
+        
+        <div class="map-container">
             <div class="map-responsive">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3865.4537194787183!2d-74.2441244!3d-12.9762572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x910f3843f4d37915%3A0xd78a04a05151532b!2sCalle%20Grau%20614%2C%20Huanta%2C%20Ayacucho!5e0!3m2!1sen!2spe!4v1624125600000!5m2!1sen!2spe" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3865.4537194787183!2d-74.2441244!3d-12.9762572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x910f3843f4d37915%3A0xd78a04a05151532b!2sCalle%20Grau%20614%2C%20Huanta%2C%20Ayacucho!5e0!3m2!1sen!2spe!4v1624125600000!5m2!1sen!2spe" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="text-center my-4">
-                <p><strong>Dirección:</strong> Calle Grau 614, Huanta, Ayacucho 05001, Perú</p>
-                <p><strong>Horarios de Atención:</strong> Lunes a Sábado: 10:00 am - 8:00 pm, Domingos: 11:00 am - 5:00 pm</p>
-                <p><strong>Contacto:</strong> Teléfono: 123-456-7890, Email: info@gentecandperuano.com</p>
-                <a href="<?php echo BASE_URL ?>producto" class="btn btn-primary">Volver al inicio</a>
+        
+        <div class="location-info text-center">
+            <div class="info-item">
+                <strong>COORDENADAS TERRESTRES:</strong> Calle Grau 614, Huanta, Ayacucho 05001, Perú
             </div>
+            <div class="info-item">
+                <strong>HORARIOS DE CONTACTO:</strong> Lunes a Sábado: 10:00 am - 8:00 pm | Domingos: 11:00 am - 5:00 pm
+            </div>
+            <div class="info-item">
+                <strong>CANALES DE COMUNICACIÓN:</strong> Transmisor: 123-456-7890 | Señal interestelar: info@gentecandperuano.com
+            </div>
+            
+            <a href="<?php echo BASE_URL ?>producto" class="btn-back">
+                <i class="fas fa-arrow-left"></i> VOLVER AL PORTAL PRINCIPAL
+            </a>
         </div>
     </div>
 </div>
 
+<!-- Recursos necesarios -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
