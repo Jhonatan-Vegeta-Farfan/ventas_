@@ -435,7 +435,7 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            background-image: url('https://img.pikbest.com/origin/09/25/32/52rpIkbEsTuQ5.png!sw800');
+            background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=1000');
             background-size: cover;
             background-position: center;
             opacity: 0.1;
@@ -520,8 +520,8 @@
     <!-- NAVBAR ALIEN -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-area51">
         <div class="container-fluid">
-            <a class="navbar-brand navbar-brand-alien" href="<?php echo BASE_URL ?>producto">
-                <img src="https://cdn-icons-png.flaticon.com/512/3618/3618730.png" alt="ÁREA 51" class="logo-alien">
+            <a class="navbar-brand navbar-brand-alien" href="<?php echo BASE_URL ?>">
+                <img src="https://img.pikbest.com/origin/09/25/32/52rpIkbEsTuQ5.png!sw800" alt="ÁREA 51" class="logo-alien">
                 <span class="security-badge">NIVEL 5<br>CLASIFICADO</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAlien">
@@ -543,7 +543,7 @@
                     <li class="nav-item me-2">
                         <button class="btn btn-alien">
                             <i class="fas fa-user-secret"></i> 
-                            <?php echo isset($_SESSION['sesion_ventas_nombres']) ? strtoupper($_SESSION['sesion_ventas_nombres']) : 'INVITADO'; ?>
+                            <?php echo !empty($_SESSION['sesion_ventas_nombres']) ? strtoupper($_SESSION['sesion_ventas_nombres']) : 'INVITADO'; ?>
                         </button>
                     </li>
                     <li class="nav-item me-2">
@@ -561,13 +561,25 @@
         </div>
     </nav>
 
-
-    
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         function cerrar_sesion() {
-            // Tu código para cerrar sesión
+            // Opción 1: Redirección directa
+            window.location.href = "<?php echo BASE_URL ?>logout";
+            
+            // Opción 2: Usando fetch para cerrar sesión (descomentar si prefieres)
+            /*
+            fetch("<?php echo BASE_URL ?>logout", { 
+                method: 'POST',
+                credentials: 'same-origin'
+            })
+            .then(response => {
+                if(response.ok) {
+                    window.location.reload();
+                }
+            })
+            .catch(error => console.error('Error:', error));
+            */
         }
     </script>
 </body>
