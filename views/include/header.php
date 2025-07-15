@@ -1,4 +1,12 @@
-<style>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área 51 - Tienda Alienígena</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
         :root {
             --alien-green: #00ff9d;
             --alien-purple: #9d00ff;
@@ -22,6 +30,7 @@
             font-family: 'Alien Encounter', 'Orbitron', sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
+            padding-top: 80px;
         }
 
         /* NAVBAR ALIENÍGENA */
@@ -31,6 +40,10 @@
             box-shadow: 0 0 25px rgba(0, 255, 157, 0.4);
             backdrop-filter: blur(10px);
             padding: 10px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
         }
 
         .navbar-brand-alien {
@@ -145,6 +158,11 @@
             100% { top: 100vh; opacity: 0.7; }
         }
 
+        @keyframes fly {
+            0% { left: -10%; }
+            100% { left: 110%; }
+        }
+
         .ufo-fleet {
             position: fixed;
             width: 120px;
@@ -154,6 +172,7 @@
             filter: drop-shadow(0 0 15px var(--ufo-blue));
             z-index: -1;
             opacity: 0.7;
+            pointer-events: none;
         }
 
         .security-badge {
@@ -168,10 +187,11 @@
             letter-spacing: 1px;
         }
 
-        .content {
-            padding-top: 120px;
+        .main-content {
+            padding: 20px 0;
             position: relative;
             z-index: 1;
+            min-height: calc(100vh - 200px);
         }
 
         /* SECCIÓN DE PRODUCTOS */
@@ -364,6 +384,7 @@
             padding: 30px 0;
             margin-top: 50px;
             position: relative;
+            z-index: 2;
         }
 
         .footer-content {
@@ -420,6 +441,7 @@
             opacity: 0.1;
         }
 
+        /* RESPONSIVE ADJUSTMENTS */
         @media (max-width: 992px) {
             .logo-alien {
                 width: 140px;
@@ -441,6 +463,10 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
             .alien-product {
                 padding: 15px;
             }
@@ -456,6 +482,29 @@
             .footer-section {
                 min-width: 100%;
             }
+            
+            .navbar-collapse {
+                background: rgba(10, 0, 26, 0.98);
+                padding: 15px;
+                border: 1px solid var(--alien-green);
+                margin-top: 10px;
+                border-radius: 8px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            .logo-alien {
+                width: 100px;
+            }
+            
+            .btn-alien {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -469,7 +518,7 @@
     <div class="parallax-bg"></div>
 
     <!-- NAVBAR ALIEN -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-area51 fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-area51">
         <div class="container-fluid">
             <a class="navbar-brand navbar-brand-alien" href="<?php echo BASE_URL ?>producto">
                 <img src="https://cdn-icons-png.flaticon.com/512/3618/3618730.png" alt="ÁREA 51" class="logo-alien">
@@ -511,3 +560,48 @@
             </div>
         </div>
     </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Tu contenido principal aquí -->
+        </div>
+    </div>
+
+    <!-- FOOTER ALIEN -->
+    <footer class="alien-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CONTACTO INTERGALÁCTICO</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Área 51, Nevada, Tierra</p>
+                    <p><i class="fas fa-phone"></i> +1 555-ALIEN</p>
+                    <p><i class="fas fa-envelope"></i> contacto@area51.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>NAVEGACIÓN</h3>
+                    <a href="<?php echo BASE_URL ?>producto"><i class="fas fa-chevron-right"></i> Tienda</a>
+                    <a href="<?php echo BASE_URL ?>novedades"><i class="fas fa-chevron-right"></i> Novedades</a>
+                    <a href="<?php echo BASE_URL ?>nosotros"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a>
+                </div>
+                <div class="footer-section">
+                    <h3>LEGAL</h3>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Términos de Servicio</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Política de Privacidad</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Acuerdo de Confidencialidad</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ÁREA 51 - Todos los derechos reservados en 12 dimensiones</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function cerrar_sesion() {
+            // Tu código para cerrar sesión
+        }
+    </script>
+</body>
+</html>
