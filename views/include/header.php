@@ -561,12 +561,6 @@
         </div>
     </nav>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <div class="main-content">
-        <div class="container">
-            <!-- Tu contenido principal aquí -->
-        </div>
-    </div>
 
     
 
