@@ -19,9 +19,6 @@
                 
                 <div class="footer-section">
                     <h3>LEGAL</h3>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Términos y Condiciones</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Política de Privacidad</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Política de Cookies</a>
                     <a href="<?php echo BASE_URL ?>libroreclamaciones"><i class="fas fa-chevron-right"></i> Libro de Reclamaciones</a>
                 </div>
             </div>
