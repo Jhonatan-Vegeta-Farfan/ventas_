@@ -10,76 +10,27 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --alien-green: #00ff9d;
-            --alien-purple: #9d00ff;
-            --ufo-blue: #00e1ff;
-            --dark-space: #0a001a;
-            --energy-pink: #ff00aa;
-        }
-        
-        @font-face {
-            font-family: 'Alien Encounter';
-            src: url('https://www.dafontfree.io/data/30/a/12484/Alien-Encounters-Regular.ttf') format('truetype');
-        }
-        
-        body {
-            background-color: var(--dark-space);
+        /* ESTILOS EXCLUSIVOS PARA LA SECCIÓN DE PRODUCTOS */
+        .alien-products-section {
+            padding: 50px 15px;
+            position: relative;
+            background-color: #0a001a;
             background-image: 
                 radial-gradient(circle at 70% 30%, rgba(157, 0, 255, 0.15) 0%, transparent 25%),
                 radial-gradient(circle at 30% 70%, rgba(0, 255, 157, 0.15) 0%, transparent 25%),
                 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0.5" fill="%2300ff9d" opacity="0.8"/></svg>');
-            color: var(--alien-green);
-            font-family: 'Alien Encounter', 'Orbitron', sans-serif;
-            overflow-x: hidden;
-            min-height: 100vh;
+            color: #00ff9d;
+            font-family: 'Orbitron', sans-serif;
         }
 
-        /* EFECTOS ESPECIALES */
-        .alien-scanner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--alien-green), transparent);
-            box-shadow: 0 0 10px var(--alien-green);
-            animation: scan 4s linear infinite;
-            z-index: 1000;
-        }
-
-        @keyframes scan {
-            0% { top: 0; opacity: 0.7; }
-            50% { opacity: 1; }
-            100% { top: 100vh; opacity: 0.7; }
-        }
-
-        .ufo-fleet {
-            position: fixed;
-            width: 120px;
-            height: 60px;
-            background: radial-gradient(ellipse at center, var(--ufo-blue) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: drop-shadow(0 0 15px var(--ufo-blue));
-            z-index: -1;
-            opacity: 0.7;
-        }
-
-        /* SECCIÓN DE PRODUCTOS */
-        .alien-products-section {
-            padding: 50px 15px;
-            position: relative;
-        }
-
-        .section-title {
+        .alien-products-section .section-title {
             text-align: center;
             margin-bottom: 50px;
-            position: relative;
         }
 
-        .section-title h2 {
-            color: var(--alien-green);
-            text-shadow: 0 0 10px var(--alien-green);
+        .alien-products-section .section-title h2 {
+            color: #00ff9d;
+            text-shadow: 0 0 10px #00ff9d;
             letter-spacing: 3px;
             font-size: 2.5rem;
             position: relative;
@@ -87,16 +38,16 @@ session_start();
             margin-top: 30px;
         }
 
-        .section-title h2::before,
-        .section-title h2::after {
+        .alien-products-section .section-title h2::before,
+        .alien-products-section .section-title h2::after {
             content: '✧';
-            color: var(--ufo-blue);
+            color: #00e1ff;
             margin: 0 15px;
         }
 
-        .alien-product {
+        .alien-products-section .alien-product {
             background: rgba(20, 10, 40, 0.7);
-            border: 2px solid var(--alien-green);
+            border: 2px solid #00ff9d;
             border-radius: 15px;
             padding: 20px;
             position: relative;
@@ -109,17 +60,17 @@ session_start();
             margin-bottom: 30px;
         }
 
-        .alien-product:hover {
+        .alien-products-section .alien-product:hover {
             transform: translateY(-10px);
-            box-shadow: 0 0 30px var(--alien-green);
-            border-color: var(--ufo-blue);
+            box-shadow: 0 0 30px #00ff9d;
+            border-color: #00e1ff;
         }
 
-        .product-badge {
+        .alien-products-section .product-badge {
             position: absolute;
             top: 10px;
             right: 10px;
-            background: var(--alien-purple);
+            background: #9d00ff;
             color: #000;
             padding: 3px 10px;
             border-radius: 20px;
@@ -129,14 +80,14 @@ session_start();
             text-transform: uppercase;
         }
 
-        .product-image-container {
+        .alien-products-section .product-image-container {
             position: relative;
             border-radius: 10px;
             overflow: hidden;
             margin-bottom: 15px;
         }
 
-        .product-image {
+        .alien-products-section .product-image {
             transition: all 0.5s;
             display: block;
             width: 100%;
@@ -144,74 +95,74 @@ session_start();
             object-fit: cover;
         }
 
-        .alien-product:hover .product-image {
+        .alien-products-section .alien-product:hover .product-image {
             transform: scale(1.05);
         }
 
-        .alien-energy {
+        .alien-products-section .alien-energy {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--alien-green), var(--ufo-blue), var(--alien-purple));
+            background: linear-gradient(90deg, #00ff9d, #00e1ff, #9d00ff);
             opacity: 0.7;
             transition: all 0.5s;
         }
 
-        .alien-product:hover .alien-energy {
+        .alien-products-section .alien-product:hover .alien-energy {
             height: 10px;
             opacity: 1;
         }
 
-        .product-info {
+        .alien-products-section .product-info {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
 
-        .product-title {
-            color: var(--ufo-blue);
+        .alien-products-section .product-title {
+            color: #00e1ff;
             font-size: 1.2rem;
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .product-description {
+        .alien-products-section .product-description {
             color: #aaa;
             font-size: 0.9rem;
             margin-bottom: 15px;
             flex-grow: 1;
         }
 
-        .product-specs {
+        .alien-products-section .product-specs {
             background: rgba(0, 30, 40, 0.5);
-            border-left: 3px solid var(--alien-green);
+            border-left: 3px solid #00ff9d;
             padding: 10px;
             margin-bottom: 15px;
             border-radius: 0 5px 5px 0;
         }
 
-        .product-specs p {
+        .alien-products-section .product-specs p {
             margin-bottom: 5px;
             font-size: 0.8rem;
             color: #ccc;
         }
 
-        .product-specs i {
-            color: var(--alien-green);
+        .alien-products-section .product-specs i {
+            color: #00ff9d;
             margin-right: 5px;
         }
 
-        .product-price {
+        .alien-products-section .product-price {
             display: flex;
             align-items: center;
             margin-bottom: 15px;
         }
 
-        .currency {
-            background: var(--alien-green);
+        .alien-products-section .currency {
+            background: #00ff9d;
             color: #000;
             padding: 3px 8px;
             border-radius: 5px;
@@ -220,15 +171,15 @@ session_start();
             font-size: 0.9rem;
         }
 
-        .price {
+        .alien-products-section .price {
             color: #fff;
             font-size: 1.5rem;
             font-weight: bold;
-            text-shadow: 0 0 5px var(--alien-green);
+            text-shadow: 0 0 5px #00ff9d;
         }
 
-        .btn-add-to-cart {
-            background: linear-gradient(45deg, var(--alien-green), var(--ufo-blue));
+        .alien-products-section .btn-add-to-cart {
+            background: linear-gradient(45deg, #00ff9d, #00e1ff);
             color: #000;
             border: none;
             padding: 10px;
@@ -242,42 +193,77 @@ session_start();
             width: 100%;
         }
 
-        .btn-add-to-cart:hover {
-            background: linear-gradient(45deg, var(--ufo-blue), var(--alien-purple));
+        .alien-products-section .btn-add-to-cart:hover {
+            background: linear-gradient(45deg, #00e1ff, #9d00ff);
             color: #fff;
-            box-shadow: 0 0 15px var(--alien-green);
+            box-shadow: 0 0 15px #00ff9d;
             transform: translateY(-2px);
         }
 
         @media (max-width: 768px) {
-            .section-title h2 {
+            .alien-products-section .section-title h2 {
                 font-size: 2rem;
             }
             
-            .product-image {
+            .alien-products-section .product-image {
                 height: 200px;
             }
             
-            .alien-product {
+            .alien-products-section .alien-product {
                 padding: 15px;
             }
             
-            .product-title {
+            .alien-products-section .product-title {
                 font-size: 1rem;
             }
+        }
+
+        /* EFECTOS ESPECIALES (solo afectan esta sección) */
+        .alien-products-scanner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00ff9d, transparent);
+            box-shadow: 0 0 10px #00ff9d;
+            animation: scan 4s linear infinite;
+            z-index: 10;
+        }
+
+        .alien-products-ufo {
+            position: absolute;
+            width: 120px;
+            height: 60px;
+            background: radial-gradient(ellipse at center, #00e1ff 0%, transparent 70%);
+            border-radius: 50%;
+            filter: drop-shadow(0 0 15px #00e1ff);
+            z-index: -1;
+            opacity: 0.7;
+            animation: fly 25s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: 0; opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { top: 100vh; opacity: 0.7; }
+        }
+
+        @keyframes fly {
+            0% { transform: translate(-100px, 50vh); }
+            100% { transform: translate(calc(100vw + 100px), -50vh); }
         }
     </style>
 </head>
 
 <body>
-    <!-- EFECTOS ESPECIALES -->
-    <div class="alien-scanner"></div>
-    <div class="ufo-fleet" style="top: 15%; animation: fly 25s linear infinite;"></div>
-    <div class="ufo-fleet" style="top: 65%; animation: fly 30s linear infinite 5s;"></div>
-    <div class="ufo-fleet" style="top: 40%; animation: fly 35s linear infinite 10s; width: 80px; height: 40px;"></div>
-
-    <!-- CONTENIDO PRINCIPAL -->
+    <!-- SECCIÓN DE PRODUCTOS (no afecta al header) -->
     <div class="alien-products-section">
+        <!-- Efectos especiales (scoped) -->
+        <div class="alien-products-scanner"></div>
+        <div class="alien-products-ufo" style="top: 15%;"></div>
+        <div class="alien-products-ufo" style="top: 65%; animation-delay: 5s;"></div>
+        
         <div class="container">
             <div class="section-title">
                 <h2><i class="fas fa-ufo-beam me-2"></i>ARTEFACTOS EXTRATERRESTRES<i class="fas fa-ufo-beam ms-2"></i></h2>
@@ -513,23 +499,12 @@ session_start();
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Animación aleatoria para UFOs
-        document.querySelectorAll('.ufo-fleet').forEach((ufo, index) => {
+        // Animación aleatoria para UFOs (solo en esta sección)
+        document.querySelectorAll('.alien-products-ufo').forEach((ufo, index) => {
             ufo.style.left = `${Math.random() * 100}%`;
             ufo.style.animationDelay = `${index * 5}s`;
             ufo.style.animationDuration = `${20 + Math.random() * 10}s`;
-            ufo.style.animationName = 'fly';
         });
-
-        // Definir la animación fly dinámicamente
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes fly {
-                0% { transform: translate(-100px, ${Math.random() * 100}vh); }
-                100% { transform: translate(calc(100vw + 100px), ${Math.random() * 100}vh); }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
