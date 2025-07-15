@@ -5,7 +5,7 @@ session_start();
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>COLECCIÓN ALIENÍGENA - ÁREA 51</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,6 +21,7 @@ session_start();
         @font-face {
             font-family: 'Alien Encounter';
             src: url('https://www.dafontfree.io/data/30/a/12484/Alien-Encounters-Regular.ttf') format('truetype');
+            font-display: swap;
         }
         
         body {
@@ -33,6 +34,8 @@ session_start();
             font-family: 'Alien Encounter', 'Orbitron', sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
         /* EFECTOS ESPECIALES */
@@ -65,52 +68,76 @@ session_start();
             opacity: 0.7;
         }
 
-        /* SECCIÓN DE PRODUCTOS */
+        /* CONTENEDORES PRINCIPALES */
         .alien-products-section {
-            padding: 50px 15px;
-            position: relative;
+            padding: 30px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
 
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 0 -15px;
+        }
+
+        .col-lg-3, .col-md-6 {
+            padding: 0 15px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        /* SECCIÓN DE PRODUCTOS */
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             position: relative;
+            width: 100%;
         }
 
         .section-title h2 {
             color: var(--alien-green);
             text-shadow: 0 0 10px var(--alien-green);
             letter-spacing: 3px;
-            font-size: 2.5rem;
+            font-size: 2rem;
             position: relative;
             display: inline-block;
-            margin-top: 30px;
+            margin: 30px 0;
+            white-space: normal;
         }
 
         .section-title h2::before,
         .section-title h2::after {
             content: '✧';
             color: var(--ufo-blue);
-            margin: 0 15px;
+            margin: 0 10px;
         }
 
         .alien-product {
             background: rgba(20, 10, 40, 0.7);
             border: 2px solid var(--alien-green);
             border-radius: 15px;
-            padding: 20px;
+            padding: 15px;
             position: relative;
             overflow: hidden;
-            transition: all 0.5s;
+            transition: all 0.3s ease;
             box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
             height: 100%;
             display: flex;
             flex-direction: column;
-            margin-bottom: 30px;
         }
 
         .alien-product:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             box-shadow: 0 0 30px var(--alien-green);
             border-color: var(--ufo-blue);
         }
@@ -121,9 +148,9 @@ session_start();
             right: 10px;
             background: var(--alien-purple);
             color: #000;
-            padding: 3px 10px;
+            padding: 3px 8px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             font-weight: bold;
             z-index: 2;
             text-transform: uppercase;
@@ -134,18 +161,19 @@ session_start();
             border-radius: 10px;
             overflow: hidden;
             margin-bottom: 15px;
+            background: rgba(0,0,0,0.3);
         }
 
         .product-image {
-            transition: all 0.5s;
+            transition: all 0.3s ease;
             display: block;
             width: 100%;
-            height: 250px;
-            object-fit: cover;
+            height: 200px;
+            object-fit: contain;
         }
 
         .alien-product:hover .product-image {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .alien-energy {
@@ -153,14 +181,14 @@ session_start();
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 5px;
+            height: 3px;
             background: linear-gradient(90deg, var(--alien-green), var(--ufo-blue), var(--alien-purple));
             opacity: 0.7;
-            transition: all 0.5s;
+            transition: all 0.3s ease;
         }
 
         .alien-product:hover .alien-energy {
-            height: 10px;
+            height: 5px;
             opacity: 1;
         }
 
@@ -172,36 +200,40 @@ session_start();
 
         .product-title {
             color: var(--ufo-blue);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            line-height: 1.3;
         }
 
         .product-description {
             color: #aaa;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-bottom: 15px;
             flex-grow: 1;
+            line-height: 1.4;
         }
 
         .product-specs {
             background: rgba(0, 30, 40, 0.5);
             border-left: 3px solid var(--alien-green);
-            padding: 10px;
+            padding: 8px;
             margin-bottom: 15px;
             border-radius: 0 5px 5px 0;
+            font-size: 0.8rem;
         }
 
         .product-specs p {
             margin-bottom: 5px;
-            font-size: 0.8rem;
             color: #ccc;
+            line-height: 1.3;
         }
 
         .product-specs i {
             color: var(--alien-green);
             margin-right: 5px;
+            font-size: 0.8rem;
         }
 
         .product-price {
@@ -217,12 +249,12 @@ session_start();
             border-radius: 5px;
             font-weight: bold;
             margin-right: 10px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         .price {
             color: #fff;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
             text-shadow: 0 0 5px var(--alien-green);
         }
@@ -231,7 +263,7 @@ session_start();
             background: linear-gradient(45deg, var(--alien-green), var(--ufo-blue));
             color: #000;
             border: none;
-            padding: 10px;
+            padding: 8px;
             border-radius: 8px;
             font-weight: bold;
             text-transform: uppercase;
@@ -240,29 +272,74 @@ session_start();
             text-align: center;
             display: block;
             width: 100%;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .btn-add-to-cart:hover {
             background: linear-gradient(45deg, var(--ufo-blue), var(--alien-purple));
             color: #fff;
-            box-shadow: 0 0 15px var(--alien-green);
+            box-shadow: 0 0 10px var(--alien-green);
             transform: translateY(-2px);
         }
 
-        @media (max-width: 768px) {
-            .section-title h2 {
-                font-size: 2rem;
+        /* MEDIA QUERIES */
+        @media (min-width: 576px) {
+            .btn-add-to-cart {
+                padding: 10px;
+                font-size: 0.9rem;
             }
             
             .product-image {
-                height: 200px;
+                height: 220px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .section-title h2 {
+                font-size: 2.3rem;
             }
             
             .alien-product {
-                padding: 15px;
+                padding: 20px;
+            }
+            
+            .product-image {
+                height: 250px;
             }
             
             .product-title {
+                font-size: 1.2rem;
+            }
+            
+            .product-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .row {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 575px) {
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title h2::before,
+            .section-title h2::after {
+                margin: 0 5px;
+            }
+            
+            .product-title, .price {
                 font-size: 1rem;
             }
         }
@@ -272,9 +349,9 @@ session_start();
 <body>
     <!-- EFECTOS ESPECIALES -->
     <div class="alien-scanner"></div>
-    <div class="ufo-fleet" style="top: 15%; animation: fly 25s linear infinite;"></div>
-    <div class="ufo-fleet" style="top: 65%; animation: fly 30s linear infinite 5s;"></div>
-    <div class="ufo-fleet" style="top: 40%; animation: fly 35s linear infinite 10s; width: 80px; height: 40px;"></div>
+    <div class="ufo-fleet"></div>
+    <div class="ufo-fleet"></div>
+    <div class="ufo-fleet" style="width: 80px; height: 40px;"></div>
 
     <!-- CONTENIDO PRINCIPAL -->
     <div class="alien-products-section">
@@ -513,23 +590,38 @@ session_start();
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Animación aleatoria para UFOs
-        document.querySelectorAll('.ufo-fleet').forEach((ufo, index) => {
-            ufo.style.left = `${Math.random() * 100}%`;
-            ufo.style.animationDelay = `${index * 5}s`;
-            ufo.style.animationDuration = `${20 + Math.random() * 10}s`;
-            ufo.style.animationName = 'fly';
-        });
-
-        // Definir la animación fly dinámicamente
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes fly {
-                0% { transform: translate(-100px, ${Math.random() * 100}vh); }
-                100% { transform: translate(calc(100vw + 100px), ${Math.random() * 100}vh); }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animación optimizada para UFOs
+            const ufos = document.querySelectorAll('.ufo-fleet');
+            ufos.forEach(ufo => {
+                const startY = Math.random() * 80 + 10; // 10% a 90%
+                const duration = Math.random() * 15 + 15; // 15s a 30s
+                const delay = Math.random() * 10; // 0s a 10s
+                
+                ufo.style.cssText = `
+                    top: ${startY}%;
+                    animation: ufo-fly ${duration}s linear infinite ${delay}s;
+                `;
+            });
+            
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes ufo-fly {
+                    0% { transform: translateX(-150px); opacity: 0; }
+                    10% { opacity: 0.7; }
+                    90% { opacity: 0.7; }
+                    100% { transform: translateX(calc(100vw + 150px)); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Optimización para móviles
+            if (window.innerWidth < 768) {
+                document.querySelectorAll('.product-image').forEach(img => {
+                    img.style.height = '180px';
+                });
             }
-        `;
-        document.head.appendChild(style);
+        });
     </script>
 </body>
 </html>
