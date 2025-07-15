@@ -568,34 +568,7 @@
         </div>
     </div>
 
-    <!-- FOOTER ALIEN -->
-    <footer class="alien-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>CONTACTO INTERGALÁCTICO</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Área 51, Nevada, Tierra</p>
-                    <p><i class="fas fa-phone"></i> +1 555-ALIEN</p>
-                    <p><i class="fas fa-envelope"></i> contacto@area51.com</p>
-                </div>
-                <div class="footer-section">
-                    <h3>NAVEGACIÓN</h3>
-                    <a href="<?php echo BASE_URL ?>producto"><i class="fas fa-chevron-right"></i> Tienda</a>
-                    <a href="<?php echo BASE_URL ?>novedades"><i class="fas fa-chevron-right"></i> Novedades</a>
-                    <a href="<?php echo BASE_URL ?>nosotros"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a>
-                </div>
-                <div class="footer-section">
-                    <h3>LEGAL</h3>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Términos de Servicio</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Política de Privacidad</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Acuerdo de Confidencialidad</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 ÁREA 51 - Todos los derechos reservados en 12 dimensiones</p>
-            </div>
-        </div>
-    </footer>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
