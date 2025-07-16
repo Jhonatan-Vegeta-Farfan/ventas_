@@ -564,12 +564,7 @@
                 </ul>
 
                 <ul class="navbar-nav">
-                    <li class="nav-item me-2">
-                        <button class="btn btn-alien">
-                            <i class="fas fa-user-secret"></i> 
-                            <?php echo !empty($_SESSION['sesion_ventas_nombres']) ? strtoupper($_SESSION['sesion_ventas_nombres']) : 'INVITADO'; ?>
-                        </button>
-                    </li>
+
                     <li class="nav-item">
                         <a class="btn btn-alien" href="<?php echo BASE_URL ?>login" style="background: rgba(157, 0, 255, 0.3); border-color: var(--alien-purple);">
                             <i class="fas fa-lock"></i> SALIR
