@@ -209,12 +209,12 @@
     <div class="dropdown">
         <button class="dropbtn"><i class="fas fa-ufo-beam"></i> MENÚ SECRETO <i class="fas fa-ufo-beam"></i></button>
         <div class="dropdown-content">
-            <a href="<?php echo BASE_URL ?>Categorías"><i class="fas fa-tags"></i> Categorías</a>
+            <a href="<?php echo BASE_URL ?>Categoría"><i class="fas fa-tags"></i> Categorías</a>
             <a href="<?php echo BASE_URL ?>compra"><i class="fas fa-shopping-cart"></i> Compras</a>
             <a href="<?php echo BASE_URL ?>persona"><i class="fas fa-user-secret"></i> Persona</a>
-            <a href="<?php echo BASE_URL ?>Producto"><i class="fas fa-flask"></i> Producto</a>
-            <a href="<?php echo BASE_URL ?>Proveedor"><i class="fas fa-satellite-dish"></i> Proveedor</a>
-            <a href="<?php echo BASE_URL ?>Trabajador"><i class="fas fa-user-astronaut"></i> Trabajador</a>
+            <a href="<?php echo BASE_URL ?>Product"><i class="fas fa-flask"></i> Producto</a>
+            <a href="<?php echo BASE_URL ?>Proveedo"><i class="fas fa-satellite-dish"></i> Proveedor</a>
+            <a href="<?php echo BASE_URL ?>Trabajado"><i class="fas fa-user-astronaut"></i> Trabajador</a>
         </div>
     </div>
 
