@@ -25,20 +25,21 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
-        /* Espacio superior para bajar el contenido */
+        /* Espacio superior más grande para bajar el contenido */
         .top-space {
-            height: 150px; /* Ajusta esta altura según necesites */
+            height: 300px; /* Aumenté a 300px para bajar más el contenido */
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 30px;
+            box-sizing: border-box;
         }
 
         .location-container {
             padding: 40px 20px;
             max-width: 1200px;
             margin: 0 auto;
-            flex: 1;
         }
 
         .location-title {
@@ -148,6 +149,10 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .top-space {
+                height: 200px; /* Ajuste para móviles */
+            }
+            
             .location-title {
                 font-size: 2rem;
             }
@@ -167,7 +172,7 @@
     <!-- Efecto scanner -->
     <div class="alien-scanner"></div>
 
-    <!-- Espacio superior para bajar el contenido -->
+    <!-- Espacio superior ampliado para bajar más el contenido -->
     <div class="top-space"></div>
 
     <!-- Location content -->
