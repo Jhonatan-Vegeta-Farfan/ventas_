@@ -58,6 +58,17 @@
             animation: float 6s ease-in-out infinite;
         }
 
+        .area51-title {
+            font-family: 'Alien Encounter', sans-serif;
+            color: var(--alien-green);
+            text-shadow: 0 0 10px var(--alien-green);
+            font-size: 1.8rem;
+            margin-left: 10px;
+            letter-spacing: 3px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
@@ -447,6 +458,10 @@
                 width: 140px;
             }
             
+            .area51-title {
+                font-size: 1.5rem;
+            }
+            
             .product-image {
                 height: 200px;
             }
@@ -469,6 +484,10 @@
             
             .alien-product {
                 padding: 15px;
+            }
+            
+            .area51-title {
+                font-size: 1.2rem;
             }
             
             .product-title {
@@ -501,6 +520,10 @@
                 width: 100px;
             }
             
+            .area51-title {
+                display: none;
+            }
+            
             .btn-alien {
                 padding: 6px 12px;
                 font-size: 0.8rem;
@@ -520,10 +543,11 @@
     <!-- NAVBAR ALIEN -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-area51">
         <div class="container-fluid">
-        <a class="navbar-brand navbar-brand-alien" href="<?php echo BASE_URL; ?>producto">
-    <img src="https://img.pikbest.com/origin/09/25/32/52rpIkbEsTuQ5.png!sw800" alt="ÁREA 51" class="logo-alien">
-    <span class="security-badge">NIVEL 5<br>CLASIFICADO</span>
-</a>
+            <a class="navbar-brand navbar-brand-alien" href="<?php echo BASE_URL; ?>producto">
+                <img src="https://img.pikbest.com/origin/09/25/32/52rpIkbEsTuQ5.png!sw800" alt="ÁREA 51" class="logo-alien">
+                <span class="area51-title">AREA 51</span>
+                <span class="security-badge">NIVEL 5<br>CLASIFICADO</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAlien">
                 <span class="navbar-toggler-icon"></span>
             </button>
