@@ -1,152 +1,177 @@
-<style>
-    :root {
-        --alien-green: #00ff9d;
-        --alien-purple: #9d00ff;
-        --ufo-blue: #00e1ff;
-        --dark-space: #0a001a;
-        --energy-pink: #ff00aa;
-    }
-    
-    body {
-        background-color: var(--dark-space);
-        color: var(--alien-green);
-        font-family: 'Orbitron', sans-serif;
-        background-image: 
-            radial-gradient(circle at 70% 30%, rgba(157, 0, 255, 0.15) 0%, transparent 25%),
-            radial-gradient(circle at 30% 70%, rgba(0, 255, 157, 0.15) 0%, transparent 25%);
-    }
-
-    .location-container {
-        padding: 40px 0;
-    }
-
-    .location-title {
-        font-size: 2.5rem;
-        text-align: center;
-        margin-bottom: 30px;
-        text-shadow: 0 0 10px var(--alien-green);
-        letter-spacing: 3px;
-        position: relative;
-    }
-
-    .location-title::before,
-    .location-title::after {
-        content: '✧';
-        color: var(--ufo-blue);
-        margin: 0 15px;
-    }
-
-    .map-container {
-        position: relative;
-        border: 3px solid var(--alien-green);
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 0 30px rgba(0, 255, 157, 0.3);
-        margin-bottom: 30px;
-        background: rgba(20, 10, 40, 0.7);
-        padding: 10px;
-    }
-
-    .map-responsive {
-        position: relative;
-        overflow: hidden;
-        padding-top: 56.25%; /* 16:9 Aspect Ratio */
-        border-radius: 10px;
-    }
-
-    .map-responsive iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-        filter: grayscale(50%) hue-rotate(120deg) contrast(110%) brightness(90%);
-    }
-
-    .location-info {
-        background: rgba(20, 10, 40, 0.7);
-        border: 2px solid var(--alien-green);
-        border-radius: 15px;
-        padding: 25px;
-        margin-top: 30px;
-        box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
-    }
-
-    .info-item {
-        margin-bottom: 15px;
-        color: #ccc;
-        font-size: 1.1rem;
-    }
-
-    .info-item strong {
-        color: var(--ufo-blue);
-    }
-
-    .btn-back {
-        display: inline-block;
-        background: linear-gradient(45deg, var(--alien-green), var(--ufo-blue));
-        color: #000;
-        border: none;
-        padding: 12px 30px;
-        border-radius: 8px;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: all 0.3s;
-        box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
-        text-decoration: none;
-        margin-top: 20px;
-    }
-
-    .btn-back:hover {
-        background: linear-gradient(45deg, var(--ufo-blue), var(--alien-purple));
-        color: #fff;
-        box-shadow: 0 0 25px var(--alien-green);
-        transform: translateY(-3px);
-    }
-
-    /* Efecto scanner */
-    .alien-scanner {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: linear-gradient(90deg, transparent, var(--alien-green), transparent);
-        box-shadow: 0 0 10px var(--alien-green);
-        animation: scan 4s linear infinite;
-        z-index: 1000;
-    }
-
-    @keyframes scan {
-        0% { top: 0; opacity: 0.7; }
-        50% { opacity: 1; }
-        100% { top: 100vh; opacity: 0.7; }
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        .location-title {
-            font-size: 2rem;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Secreta - Huanta, Ayacucho</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --alien-green: #00ff9d;
+            --alien-purple: #9d00ff;
+            --ufo-blue: #00e1ff;
+            --dark-space: #0a001a;
+            --energy-pink: #ff00aa;
         }
         
+        body {
+            background-color: var(--dark-space);
+            color: var(--alien-green);
+            font-family: 'Orbitron', sans-serif;
+            background-image: 
+                radial-gradient(circle at 70% 30%, rgba(157, 0, 255, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 30% 70%, rgba(0, 255, 157, 0.15) 0%, transparent 25%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Espacio superior para bajar el contenido */
+        .top-space {
+            height: 150px; /* Ajusta esta altura según necesites */
+        }
+
+        .location-container {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+        }
+
+        .location-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px var(--alien-green);
+            letter-spacing: 3px;
+            position: relative;
+        }
+
         .location-title::before,
         .location-title::after {
-            margin: 0 8px;
+            content: '✧';
+            color: var(--ufo-blue);
+            margin: 0 15px;
         }
-        
+
+        .map-container {
+            position: relative;
+            border: 3px solid var(--alien-green);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 255, 157, 0.3);
+            margin-bottom: 30px;
+            background: rgba(20, 10, 40, 0.7);
+            padding: 10px;
+        }
+
+        .map-responsive {
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            border-radius: 10px;
+        }
+
+        .map-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(50%) hue-rotate(120deg) contrast(110%) brightness(90%);
+        }
+
+        .location-info {
+            background: rgba(20, 10, 40, 0.7);
+            border: 2px solid var(--alien-green);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+        }
+
         .info-item {
-            font-size: 1rem;
+            margin-bottom: 15px;
+            color: #ccc;
+            font-size: 1.1rem;
         }
-    }
-</style>
 
-<!-- Efecto scanner -->
-<div class="alien-scanner"></div>
+        .info-item strong {
+            color: var(--ufo-blue);
+        }
 
-<div class="location-container">
-    <div class="container">
+        .btn-back {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--alien-green), var(--ufo-blue));
+            color: #000;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .btn-back:hover {
+            background: linear-gradient(45deg, var(--ufo-blue), var(--alien-purple));
+            color: #fff;
+            box-shadow: 0 0 25px var(--alien-green);
+            transform: translateY(-3px);
+        }
+
+        /* Efecto scanner */
+        .alien-scanner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--alien-green), transparent);
+            box-shadow: 0 0 10px var(--alien-green);
+            animation: scan 4s linear infinite;
+            z-index: 1000;
+        }
+
+        @keyframes scan {
+            0% { top: 0; opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { top: 100vh; opacity: 0.7; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .location-title {
+                font-size: 2rem;
+            }
+            
+            .location-title::before,
+            .location-title::after {
+                margin: 0 8px;
+            }
+            
+            .info-item {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Efecto scanner -->
+    <div class="alien-scanner"></div>
+
+    <!-- Espacio superior para bajar el contenido -->
+    <div class="top-space"></div>
+
+    <!-- Location content -->
+    <div class="location-container">
         <h1 class="location-title">BASE SECRETA EN HUANTA, AYACUCHO</h1>
         
         <div class="map-container">
@@ -166,14 +191,12 @@
                 <strong>CANALES DE COMUNICACIÓN:</strong> Transmisor: 123-456-7890 | Señal interestelar: info@gentecandperuano.com
             </div>
             
-            <a href="<?php echo BASE_URL ?>producto" class="btn-back">
+            <a href="#" class="btn-back">
                 <i class="fas fa-arrow-left"></i> VOLVER AL PORTAL PRINCIPAL
             </a>
         </div>
     </div>
-</div>
 
-<!-- Recursos necesarios -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
