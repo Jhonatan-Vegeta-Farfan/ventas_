@@ -520,7 +520,7 @@
     <!-- NAVBAR ALIEN -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-area51">
         <div class="container-fluid">
-            <a class="navbar-brand navbar-brand-alien" href="<?php echo BASE_URL ?>">
+            <a class="navbar-brand navbar-brand-alien" href="<href="<?php echo BASE_URL ?>producto ?>">
                 <img src="https://img.pikbest.com/origin/09/25/32/52rpIkbEsTuQ5.png!sw800" alt="ÁREA 51" class="logo-alien">
                 <span class="security-badge">NIVEL 5<br>CLASIFICADO</span>
             </a>
