@@ -1,6 +1,7 @@
-<!-- Efecto scanner -->
+<!-- Efecto scanner alienígena -->
 <div class="alien-scanner"></div>
 
+<!-- Contenedor principal de envíos intergalácticos -->
 <div class="shipping-container">
     <h1 class="shipping-title">RUTAS DE ENVÍO INTERGALÁCTICAS</h1>
     
@@ -63,6 +64,7 @@
     </div>
 </div>
 
+<!-- Estilos CSS para la sección -->
 <style>
     :root {
         --alien-green: #00ff9d;
@@ -74,7 +76,7 @@
     
     .shipping-container {
         max-width: 1200px;
-        margin: 0 auto;
+        margin: 2rem auto;
         padding: 20px;
     }
 
@@ -255,6 +257,6 @@
     }
 </style>
 
-<!-- Recursos necesarios -->
+<!-- Incluye estas librerías si no las tienes ya en tu head -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
