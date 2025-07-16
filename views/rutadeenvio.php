@@ -1,202 +1,3 @@
-<style>
-    :root {
-        --alien-green: #00ff9d;
-        --alien-purple: #9d00ff;
-        --ufo-blue: #00e1ff;
-        --dark-space: #0a001a;
-        --energy-pink: #ff00aa;
-    }
-    
-    body {
-        background-color: var(--dark-space);
-        color: var(--alien-green);
-        font-family: 'Orbitron', sans-serif;
-        background-image: 
-            radial-gradient(circle at 70% 30%, rgba(157, 0, 255, 0.15) 0%, transparent 25%),
-            radial-gradient(circle at 30% 70%, rgba(0, 255, 157, 0.15) 0%, transparent 25%);
-        padding-top: 20px;
-    }
-
-    .shipping-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    .shipping-title {
-        font-size: 2.5rem;
-        text-align: center;
-        margin-bottom: 40px;
-        text-shadow: 0 0 15px var(--alien-green);
-        letter-spacing: 3px;
-        position: relative;
-    }
-
-    .shipping-title::before,
-    .shipping-title::after {
-        content: '✧';
-        color: var(--ufo-blue);
-        margin: 0 15px;
-    }
-
-    .route-map-container {
-        border: 3px solid var(--alien-green);
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 0 30px rgba(0, 255, 157, 0.4);
-        margin-bottom: 30px;
-        background: rgba(20, 10, 40, 0.7);
-        padding: 10px;
-        position: relative;
-    }
-
-    .route-map-container::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0.5" fill="%2300ff9d" opacity="0.1"/></svg>');
-        opacity: 0.3;
-        z-index: 0;
-    }
-
-    .map-responsive {
-        position: relative;
-        overflow: hidden;
-        padding-top: 56.25%; /* 16:9 Aspect Ratio */
-        border-radius: 10px;
-        z-index: 1;
-    }
-
-    .map-responsive iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-        filter: hue-rotate(120deg) contrast(110%) brightness(90%);
-    }
-
-    .shipping-info {
-        background: rgba(20, 10, 40, 0.7);
-        border: 2px solid var(--alien-green);
-        border-radius: 15px;
-        padding: 25px;
-        margin-top: 30px;
-        box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
-    }
-
-    .info-section {
-        margin-bottom: 25px;
-    }
-
-    .info-title {
-        color: var(--ufo-blue);
-        font-size: 1.3rem;
-        margin-bottom: 15px;
-        border-bottom: 1px solid var(--alien-purple);
-        padding-bottom: 8px;
-    }
-
-    .info-content {
-        color: #ccc;
-        line-height: 1.6;
-    }
-
-    .route-point {
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-    }
-
-    .point-marker {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        margin-right: 15px;
-        flex-shrink: 0;
-    }
-
-    .point-marker.start {
-        background: var(--alien-green);
-        box-shadow: 0 0 10px var(--alien-green);
-    }
-
-    .point-marker.end {
-        background: var(--energy-pink);
-        box-shadow: 0 0 10px var(--energy-pink);
-    }
-
-    .point-marker.mid {
-        background: var(--ufo-blue);
-        box-shadow: 0 0 10px var(--ufo-blue);
-    }
-
-    .point-text {
-        flex-grow: 1;
-    }
-
-    .btn-back {
-        display: inline-block;
-        background: linear-gradient(45deg, var(--alien-green), var(--ufo-blue));
-        color: #000;
-        border: none;
-        padding: 12px 30px;
-        border-radius: 8px;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: all 0.3s;
-        box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
-        text-decoration: none;
-        margin-top: 20px;
-    }
-
-    .btn-back:hover {
-        background: linear-gradient(45deg, var(--ufo-blue), var(--alien-purple));
-        color: #fff;
-        box-shadow: 0 0 25px var(--alien-green);
-        transform: translateY(-3px);
-    }
-
-    /* Efecto scanner */
-    .alien-scanner {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: linear-gradient(90deg, transparent, var(--alien-green), transparent);
-        box-shadow: 0 0 10px var(--alien-green);
-        animation: scan 4s linear infinite;
-        z-index: 1000;
-    }
-
-    @keyframes scan {
-        0% { top: 0; opacity: 0.7; }
-        50% { opacity: 1; }
-        100% { top: 100vh; opacity: 0.7; }
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        .shipping-title {
-            font-size: 2rem;
-        }
-        
-        .shipping-info {
-            padding: 20px;
-        }
-        
-        .info-title {
-            font-size: 1.1rem;
-        }
-    }
-</style>
-
 <!-- Efecto scanner -->
 <div class="alien-scanner"></div>
 
@@ -262,7 +63,198 @@
     </div>
 </div>
 
+<style>
+    :root {
+        --alien-green: #00ff9d;
+        --alien-purple: #9d00ff;
+        --ufo-blue: #00e1ff;
+        --dark-space: #0a001a;
+        --energy-pink: #ff00aa;
+    }
+    
+    .shipping-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .shipping-title {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 40px;
+        text-shadow: 0 0 15px var(--alien-green);
+        letter-spacing: 3px;
+        position: relative;
+        color: var(--alien-green);
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    .shipping-title::before,
+    .shipping-title::after {
+        content: '✧';
+        color: var(--ufo-blue);
+        margin: 0 15px;
+    }
+
+    .route-map-container {
+        border: 3px solid var(--alien-green);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 0 30px rgba(0, 255, 157, 0.4);
+        margin-bottom: 30px;
+        background: rgba(20, 10, 40, 0.7);
+        padding: 10px;
+        position: relative;
+    }
+
+    .route-map-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0.5" fill="%2300ff9d" opacity="0.1"/></svg>');
+        opacity: 0.3;
+        z-index: 0;
+    }
+
+    .map-responsive {
+        position: relative;
+        overflow: hidden;
+        padding-top: 56.25%;
+        border-radius: 10px;
+        z-index: 1;
+    }
+
+    .map-responsive iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        filter: hue-rotate(120deg) contrast(110%) brightness(90%);
+    }
+
+    .shipping-info {
+        background: rgba(20, 10, 40, 0.7);
+        border: 2px solid var(--alien-green);
+        border-radius: 15px;
+        padding: 25px;
+        margin-top: 30px;
+        box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+    }
+
+    .info-section {
+        margin-bottom: 25px;
+    }
+
+    .info-title {
+        color: var(--ufo-blue);
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        border-bottom: 1px solid var(--alien-purple);
+        padding-bottom: 8px;
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    .info-content {
+        color: #ccc;
+        line-height: 1.6;
+        font-family: Arial, sans-serif;
+    }
+
+    .route-point {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .point-marker {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        margin-right: 15px;
+        flex-shrink: 0;
+    }
+
+    .point-marker.start {
+        background: var(--alien-green);
+        box-shadow: 0 0 10px var(--alien-green);
+    }
+
+    .point-marker.end {
+        background: var(--energy-pink);
+        box-shadow: 0 0 10px var(--energy-pink);
+    }
+
+    .point-marker.mid {
+        background: var(--ufo-blue);
+        box-shadow: 0 0 10px var(--ufo-blue);
+    }
+
+    .point-text {
+        flex-grow: 1;
+    }
+
+    .btn-back {
+        display: inline-block;
+        background: linear-gradient(45deg, var(--alien-green), var(--ufo-blue));
+        color: #000;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 8px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s;
+        box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+        text-decoration: none;
+        margin-top: 20px;
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    .btn-back:hover {
+        background: linear-gradient(45deg, var(--ufo-blue), var(--alien-purple));
+        color: #fff;
+        box-shadow: 0 0 25px var(--alien-green);
+        transform: translateY(-3px);
+    }
+
+    .alien-scanner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, var(--alien-green), transparent);
+        box-shadow: 0 0 10px var(--alien-green);
+        animation: scan 4s linear infinite;
+        z-index: 1000;
+    }
+
+    @keyframes scan {
+        0% { top: 0; opacity: 0.7; }
+        50% { opacity: 1; }
+        100% { top: 100vh; opacity: 0.7; }
+    }
+
+    @media (max-width: 768px) {
+        .shipping-title {
+            font-size: 2rem;
+        }
+        
+        .shipping-info {
+            padding: 20px;
+        }
+        
+        .info-title {
+            font-size: 1.1rem;
+        }
+    }
+</style>
+
 <!-- Recursos necesarios -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

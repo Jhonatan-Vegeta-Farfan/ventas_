@@ -16,19 +16,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         --dark-space: #0a001a;
     }
     
-    /* Contenedor principal posicionado debajo del header */
+    /* Contenedor principal con espacio para el header */
     .complaint-section {
-        padding-top: 80px; /* Espacio para el header */
-        min-height: 100vh;
+        padding-top: 100px; /* Más espacio para el header */
+        min-height: calc(100vh - 100px); /* Ajuste de altura */
         background: 
             radial-gradient(circle at 70% 30%, rgba(157, 0, 255, 0.15) 0%, transparent 25%),
             radial-gradient(circle at 30% 70%, rgba(0, 255, 157, 0.15) 0%, transparent 25%);
         display: flex;
         flex-direction: column;
+        box-sizing: border-box;
     }
 
     .complaint-container {
-        width: 100%;
+        width: 90%; /* Más responsive */
         max-width: 800px;
         margin: 2rem auto;
         padding: 2rem;
@@ -38,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         box-shadow: 0 0 2rem rgba(0, 255, 157, 0.35);
         position: relative;
         flex-grow: 1;
+        box-sizing: border-box;
     }
 
     .complaint-container::before {
@@ -73,7 +75,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         margin: 0 1rem;
     }
 
-    /* Resto del CSS permanece igual que en la versión anterior */
     .complaint-form .form-group {
         margin-bottom: 1.5rem;
     }
@@ -96,6 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         color: var(--alien-green);
         font-family: inherit;
         transition: all 0.3s ease;
+        box-sizing: border-box;
     }
 
     .complaint-form textarea {
@@ -176,12 +178,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     @media (max-width: 768px) {
         .complaint-section {
-            padding-top: 70px; /* Ajuste para mobile */
+            padding-top: 80px; /* Ajuste para mobile */
+            min-height: calc(100vh - 80px);
         }
         
         .complaint-container {
             padding: 1.5rem;
             margin: 1rem auto;
+            width: 95%;
         }
         
         .complaint-title {

@@ -1,16 +1,16 @@
-<div class="container my-4">
+<div class="container my-4" style="padding-top: 100px; min-height: calc(100vh - 100px);">
     <!-- Efectos especiales integrados -->
     <div class="alien-scanner"></div>
     <div class="ufo-fleet" style="top: 15%; animation: fly 25s linear infinite;"></div>
     
-    <h2 class="text-center mb-4 text-uppercase fw-bold" style="color: var(--ufo-blue); text-shadow: 0 0 10px var(--alien-green);">
-        PANEL DE CONTROL <span style="color: var(--alien-green);">NIVEL 5</span>
-    </h2>
+    <div class="complaint-header">
+        <h1 class="complaint-title">PANEL DE CONTROL <span style="color: var(--alien-green);">NIVEL 5</span></h1>
+    </div>
     
     <div class="row g-4">
         <!-- Productos -->
         <div class="col-md-6 col-lg-3">
-            <div class="card h-100 border-0 hover-scale" style="background: rgba(20, 10, 40, 0.7); border: 2px solid var(--alien-green) !important;">
+            <div class="card h-100 border-0 hover-scale" style="background: rgba(20, 10, 40, 0.85); border: 2px solid var(--alien-green) !important;">
                 <div class="card-body text-center">
                     <div class="mb-3" style="color: var(--alien-green);">
                         <i class="fas fa-cubes display-1"></i>
@@ -33,7 +33,7 @@
         
         <!-- Usuarios -->
         <div class="col-md-6 col-lg-3">
-            <div class="card h-100 border-0 hover-scale" style="background: rgba(20, 10, 40, 0.7); border: 2px solid var(--alien-purple) !important;">
+            <div class="card h-100 border-0 hover-scale" style="background: rgba(20, 10, 40, 0.85); border: 2px solid var(--alien-purple) !important;">
                 <div class="card-body text-center">
                     <div class="mb-3" style="color: var(--alien-purple);">
                         <i class="fas fa-user-astronaut display-1"></i>
@@ -56,7 +56,7 @@
         
         <!-- Categorías -->
         <div class="col-md-6 col-lg-3">
-            <div class="card h-100 border-0 hover-scale" style="background: rgba(20, 10, 40, 0.7); border: 2px solid var(--energy-pink) !important;">
+            <div class="card h-100 border-0 hover-scale" style="background: rgba(20, 10, 40, 0.85); border: 2px solid var(--energy-pink) !important;">
                 <div class="card-body text-center">
                     <div class="mb-3" style="color: var(--energy-pink);">
                         <i class="fas fa-atom display-1"></i>
@@ -79,7 +79,7 @@
         
         <!-- Compras -->
         <div class="col-md-6 col-lg-3">
-            <div class="card h-100 border-0 hover-scale" style="background: rgba(20, 10, 40, 0.7); border: 2px solid var(--ufo-blue) !important;">
+            <div class="card h-100 border-0 hover-scale" style="background: rgba(20, 10, 40, 0.85); border: 2px solid var(--ufo-blue) !important;">
                 <div class="card-body text-center">
                     <div class="mb-3" style="color: var(--ufo-blue);">
                         <i class="fas fa-rocket display-1"></i>
@@ -103,19 +103,22 @@
 </div>
 
 <style>
-    /* Efectos hover */
+    /* Efectos hover consistentes con el tema */
     .hover-scale {
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
+        border-radius: 1rem !important;
+        box-shadow: 0 0 1rem rgba(0, 255, 157, 0.1);
     }
     
     .hover-scale:hover {
         transform: translateY(-5px) scale(1.02);
         box-shadow: 0 10px 20px rgba(0, 255, 157, 0.3);
+        background: rgba(20, 10, 40, 0.95) !important;
     }
     
-    /* Barra de energía inferior */
+    /* Barra de energía inferior mejorada */
     .alien-energy {
         position: absolute;
         bottom: 0;
@@ -124,17 +127,21 @@
         height: 3px;
         opacity: 0.7;
         transition: all 0.3s ease;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
     }
     
     .hover-scale:hover .alien-energy {
         height: 6px;
         opacity: 1;
+        box-shadow: 0 0 15px currentColor;
     }
     
-    /* Animación UFO */
+    /* Animación UFO mejorada */
     @keyframes fly {
-        0% { left: -10%; }
-        100% { left: 110%; }
+        0% { left: -10%; transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+        100% { left: 110%; transform: translateY(0); }
     }
     
     .ufo-fleet {
@@ -145,10 +152,10 @@
         border-radius: 50%;
         filter: drop-shadow(0 0 15px var(--ufo-blue));
         z-index: -1;
-        opacity: 0.7;
+        opacity: 0.5;
     }
     
-    /* Scanner alien */
+    /* Scanner alien consistente */
     .alien-scanner {
         position: fixed;
         top: 0;
@@ -166,18 +173,45 @@
         50% { opacity: 1; }
         100% { top: 100vh; opacity: 0.7; }
     }
+    
+    /* Adaptación responsive */
+    @media (max-width: 768px) {
+        .container {
+            padding-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+        
+        .complaint-title {
+            font-size: 1.8rem;
+        }
+        
+        .row.g-4 {
+            margin-left: -0.5rem;
+            margin-right: -0.5rem;
+        }
+        
+        .col-md-6, .col-lg-3 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+    }
 </style>
 
 <script>
-    // Efecto hover mejorado
+    // Efecto hover mejorado con sonido opcional
     document.querySelectorAll('.hover-scale').forEach(card => {
         card.addEventListener('mouseenter', function() {
             const color = this.style.borderColor;
             this.style.boxShadow = `0 10px 20px ${color.replace(')', ', 0.4)')}`;
+            
+            // Opcional: efecto de sonido
+            // const hoverSound = new Audio('hover-sound.mp3');
+            // hoverSound.volume = 0.3;
+            // hoverSound.play();
         });
         
         card.addEventListener('mouseleave', function() {
-            this.style.boxShadow = 'none';
+            this.style.boxShadow = '0 0 1rem rgba(0, 255, 157, 0.1)';
         });
     });
 </script>
