@@ -12,12 +12,12 @@
                     <div class="product-badge">NUEVO</div>
                     <div class="product-image-container">
                         <a href="<?php echo BASE_URL ?>detalleproducto">
-                            <img src="https://elricostore.com/wp-content/uploads/2021/04/conjunto_polo_short_dragonball_3-min.jpg" alt="Artefacto Alien 1" class="product-image">
+                            <img src="https://www.faverie.es/wp-content/uploads/2022/06/atuendo-ejecutivo-informal-para-mujer-faverie.jpg" alt="Artefacto Alien 1" class="product-image">
                             <div class="alien-energy"></div>
                         </a>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">TRAJE DIMENSIONAL</h3>
+                        <h3 class="product-title">TRAJE</h3>
                         <p class="product-description">Tecnología de tejido interdimensional para máxima comodidad</p>
                         <div class="product-specs">
                             <p><i class="fas fa-expand-arrows-alt"></i> Tallas: S, M, L, XL, XXL</p>
@@ -40,13 +40,13 @@
                     <div class="product-badge">POPULAR</div>
                     <div class="product-image-container">
                         <a href="<?php echo BASE_URL ?>detalleproducto">
-                            <img src="https://abejareinaperu.com/wp-content/uploads/2021/05/casaca-dragon-ball-z.jpeg" alt="Artefacto Alien 2" class="product-image">
+                            <img src="https://i.pinimg.com/originals/e5/3f/8a/e53f8a9ebc0a0e2cf7c4547537fc8f3d.jpg" alt="Artefacto Alien 2" class="product-image">
                             <div class="alien-energy"></div>
                         </a>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">ARMADURA SAYAYIN</h3>
-                        <p class="product-description">Resistente a explosiones de energía galáctica</p>
+                        <h3 class="product-title">TRAJES PARA PAREJAS</h3>
+                        <p class="product-description">Resistente A FRIOS EXTREMOS</p>
                         <div class="product-specs">
                             <p><i class="fas fa-expand-arrows-alt"></i> Tallas: S, M, L, XL, XXL</p>
                             <p><i class="fas fa-atom"></i> Material: Aleación de Namek</p>
@@ -68,12 +68,12 @@
                     <div class="product-badge">LIMITADO</div>
                     <div class="product-image-container">
                         <a href="<?php echo BASE_URL ?>detalleproducto">
-                            <img src="https://goku-shop.es/cdn/shop/products/product-image-595661469.jpg?v=1574611707&width=533" alt="Artefacto Alien 3" class="product-image">
+                            <img src="https://i.pinimg.com/1200x/a1/9a/ef/a19aef07f8533a01855be20a693170ad.jpg" alt="Artefacto Alien 3" class="product-image">
                             <div class="alien-energy"></div>
                         </a>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">UNIFORME KAIOSHIN</h3>
+                        <h3 class="product-title">UNIFORME </h3>
                         <p class="product-description">Vestimenta de los dioses de los 12 universos</p>
                         <div class="product-specs">
                             <p><i class="fas fa-expand-arrows-alt"></i> Tallas: S, M, L, XL, XXL</p>
@@ -96,12 +96,12 @@
                     <div class="product-badge">COLECCIÓN</div>
                     <div class="product-image-container">
                         <a href="<?php echo BASE_URL ?>detalleproducto">
-                            <img src="https://abejareinaperu.com/wp-content/uploads/2021/05/polera-dragon-ballz.jpeg" alt="Artefacto Alien 4" class="product-image">
+                            <img src="https://m.media-amazon.com/images/I/5175m5qJy3L._SY1000_.jpg" alt="Artefacto Alien 4" class="product-image">
                             <div class="alien-energy"></div>
                         </a>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">TÚNICA MÍSTICA</h3>
+                        <h3 class="product-title">TÚNICA </h3>
                         <p class="product-description">Protección ancestral para guerreros Z</p>
                         <div class="product-specs">
                             <p><i class="fas fa-expand-arrows-alt"></i> Tallas: S, M, L, XL, XXL</p>
@@ -124,12 +124,12 @@
                     <div class="product-badge">EXCLUSIVO</div>
                     <div class="product-image-container">
                         <a href="<?php echo BASE_URL ?>detalleproducto">
-                            <img src="https://sumerlabs.com/sumer-app-90b8f.appspot.com/product_photos%2F2abb5503083a7cde0429adc245247230%2F181a9ea0-f596-11ec-811e-214fcc8a3ba5?alt=media&token=80808e95-5c87-41ac-a73a-4dd9091b0ba5" alt="Artefacto Alien 5" class="product-image">
+                            <img src="https://m.media-amazon.com/images/I/51RJuNOrTlL._SY350_.jpg" alt="Artefacto Alien 5" class="product-image">
                             <div class="alien-energy"></div>
                         </a>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">TRAJE DE BATALLA</h3>
+                        <h3 class="product-title">TRAJE </h3>
                         <p class="product-description">Diseñado para combates interestelares</p>
                         <div class="product-specs">
                             <p><i class="fas fa-expand-arrows-alt"></i> Tallas: S, M, L, XL, XXL</p>
@@ -152,7 +152,7 @@
                     <div class="product-badge">OFERTA</div>
                     <div class="product-image-container">
                         <a href="<?php echo BASE_URL ?>detalleproducto">
-                            <img src="https://richstore.com.pe/wp-content/uploads/2022/06/Dragon-Boll-6.jpg" alt="Artefacto Alien 6" class="product-image">
+                            <img src="https://ph-cdn3.ecosweb.com.br/imagens01/foto/moda-infantil-e-juvenil/meninas-blusas/tunica-juvenil-branca-com-estampa_76492_600_1.jpg" alt="Artefacto Alien 6" class="product-image">
                             <div class="alien-energy"></div>
                         </a>
                     </div>
@@ -180,12 +180,12 @@
                     <div class="product-badge">RARO</div>
                     <div class="product-image-container">
                         <a href="<?php echo BASE_URL ?>detalleproducto">
-                            <img src="https://http2.mlstatic.com/D_NQ_NP_996506-MPE71311277804_082023-O.webp" alt="Artefacto Alien 7" class="product-image">
+                            <img src="https://m.media-amazon.com/images/I/71VvnhsegXL._AC_SL1500_.jpg" alt="Artefacto Alien 7" class="product-image">
                             <div class="alien-energy"></div>
                         </a>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">VESTIMENTA GALÁCTICA</h3>
+                        <h3 class="product-title">VESTIMENTA </h3>
                         <p class="product-description">Estilo cósmico para viajeros estelares</p>
                         <div class="product-specs">
                             <p><i class="fas fa-expand-arrows-alt"></i> Tallas: S, M, L, XL, XXL</p>
@@ -208,16 +208,16 @@
                     <div class="product-badge">NUEVO</div>
                     <div class="product-image-container">
                         <a href="<?php echo BASE_URL ?>detalleproducto">
-                            <img src="https://richstore.com.pe/wp-content/uploads/2023/02/Dragon-boll-5.jpg" alt="Artefacto Alien 8" class="product-image">
+                            <img src="https://www.abanderado.es/wp-content/uploads/2024/01/prendas-basicas-para-abrigar-1.jpg" alt="Artefacto Alien 8" class="product-image">
                             <div class="alien-energy"></div>
                         </a>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">ESFERAS DEL DRAGÓN</h3>
-                        <p class="product-description">Reúne las 7 y haz tu deseo realidad</p>
+                        <h3 class="product-title">BUZO</h3>
+                        <p class="product-description">REUNE TODO EL CALOR QUE NECESITAS</p>
                         <div class="product-specs">
                             <p><i class="fas fa-expand-arrows-alt"></i> Tallas: S, M, L, XL, XXL</p>
-                            <p><i class="fas fa-atom"></i> Material: Cristal de Namek</p>
+                            <p><i class="fas fa-atom"></i> Material: ALGODON</p>
                         </div>
                         <div class="product-price">
                             <span class="currency">CREDITS</span>
@@ -236,7 +236,7 @@
                     <div class="product-badge">TOP</div>
                     <div class="product-image-container">
                         <a href="<?php echo BASE_URL ?>detalleproducto">
-                            <img src="https://m.media-amazon.com/images/I/61wT7i3nQEL._AC_UF1000,1000_QL80_.jpg" alt="Guantes de Poder" class="product-image">
+                            <img src="https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/d1395b2e1f9d429a6e8dcc76cab4d5f8.jpg?imageMogr2/auto-orient%7CimageView2/2/w/800/q/70/format/webp" alt="Guantes de Poder" class="product-image">
                             <div class="alien-energy"></div>
                         </a>
                     </div>
@@ -264,7 +264,7 @@
                     <div class="product-badge">NUEVO</div>
                     <div class="product-image-container">
                         <a href="<?php echo BASE_URL ?>detalleproducto">
-                            <img src="https://i5.walmartimages.com.mx/mg/gm/3pp/asr/9e2c6c3e-1a8e-4d1d-9c1e-6f3a7e7d9b5a.1c7c1f1d8f2f7b1a4c1a8b9e3d3e3f3f.jpeg" alt="Botas de Vuelo" class="product-image">
+                            <img src="https://okdiario.com/coolthelifestyle/img/2021/11/12/145630097_4225275564168282_4903640424816713876_n-e1636738513940.jpg" alt="Botas de Vuelo" class="product-image">
                             <div class="alien-energy"></div>
                         </a>
                     </div>
@@ -292,7 +292,7 @@
                     <div class="product-badge">LIMITADO</div>
                     <div class="product-image-container">
                         <a href="<?php echo BASE_URL ?>detalleproducto">
-                            <img src="https://m.media-amazon.com/images/I/71v3gDiUH+L._AC_UF1000,1000_QL80_.jpg" alt="Banda para Cabeza" class="product-image">
+                            <img src="https://www.okchicas.com/wp-content/uploads/2017/10/ropa-invierno-22.jpg" alt="Banda para Cabeza" class="product-image">
                             <div class="alien-energy"></div>
                         </a>
                     </div>
@@ -320,12 +320,12 @@
                     <div class="product-badge">COLECCIÓN</div>
                     <div class="product-image-container">
                         <a href="<?php echo BASE_URL ?>detalleproducto">
-                            <img src="https://m.media-amazon.com/images/I/71Zx5m3+1BL._AC_UF1000,1000_QL80_.jpg" alt="Chaqueta de Goku" class="product-image">
+                            <img src="https://i.pinimg.com/1200x/f0/f9/74/f0f9743817478a5d9c0c53005a04d648.jpg" alt="Chaqueta de Goku" class="product-image">
                             <div class="alien-energy"></div>
                         </a>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">CHAQUETA DE GOKU</h3>
+                        <h3 class="product-title">CHAQUETA</h3>
                         <p class="product-description">Replica exacta de la usada en el Torneo del Poder</p>
                         <div class="product-specs">
                             <p><i class="fas fa-expand-arrows-alt"></i> Tallas: S, M, L, XL</p>
