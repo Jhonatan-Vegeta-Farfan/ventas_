@@ -3,11 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área 51 - Comunidad Intergaláctica</title>
+    <title>Área 51 - Registro Intergaláctico</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Reset para eliminar header y footer */
+        header, footer, .navbar, .footer {
+            display: none !important;
+            height: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border: none !important;
+        }
+        
+        body {
+            padding-top: 0 !important;
+            margin: 0 !important;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background-color: #0a001a;
+        }
+
         /* Variables de tema alienígena */
         :root {
             --alien-green: #00ff9d;
@@ -35,7 +52,6 @@
             font-family: 'Alien Encounter', 'Orbitron', sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
-            padding-top: 20px;
         }
 
         /* Efecto scanner */
@@ -81,6 +97,10 @@
             position: relative;
             z-index: 1;
             padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Tarjeta alienígena */
@@ -92,6 +112,8 @@
             overflow: hidden;
             position: relative;
             transition: all 0.5s;
+            width: 100%;
+            max-width: 1000px;
         }
 
         .alien-card:hover {
@@ -355,6 +377,14 @@
             border-radius: 50%;
             opacity: 0.6;
             z-index: -1;
+            animation: float 15s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
         }
 
         /* Responsive */
@@ -384,10 +414,6 @@
         }
 
         @media (max-width: 768px) {
-            body {
-                padding-top: 15px;
-            }
-            
             .alien-card-header h3 {
                 font-size: 1.3rem;
             }
@@ -445,7 +471,7 @@
     <div class="ufo-fleet" style="top: 40%; animation: fly 35s linear infinite 10s; opacity: 0.5;"></div>
 
     <div class="alien-container">
-        <div class="container my-5">
+        <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="alien-card">
@@ -565,7 +591,7 @@
         // Crear partículas flotantes
         function createParticles() {
             const container = document.querySelector('.alien-container');
-            const particleCount = 20;
+            const particleCount = 30;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
@@ -580,8 +606,10 @@
                 particle.style.left = `${Math.random() * 100}%`;
                 particle.style.top = `${Math.random() * 100}%`;
                 
-                // Animación
-                particle.style.animation = `float ${Math.random() * 10 + 10}s linear infinite`;
+                // Opacidad y delay aleatorio
+                particle.style.opacity = Math.random() * 0.6;
+                particle.style.animationDelay = `${Math.random() * 15}s`;
+                particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
                 
                 container.appendChild(particle);
             }
