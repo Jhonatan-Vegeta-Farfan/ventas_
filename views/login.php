@@ -222,7 +222,7 @@
         <div class="card w-50 position-relative">
             <span class="security-stamp">TOP SECRET<br>ÁREA 51</span>
             <div class="card-header text-center border-bottom border-success">
-                <img src="https://cdn-icons-png.flaticon.com/512/2913/2913103.png" alt="Alien" class="img-fluid" style="max-height: 120px; filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.7))">
+                <img src="https://img.pikbest.com/origin/09/25/32/52rpIkbEsTuQ5.png!sw800" alt="Alien" class="img-fluid" style="max-height: 120px; filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.7))">
                 <h2 class="mt-3" style="text-shadow: 0 0 10px rgba(0, 255, 0, 0.7); letter-spacing: 3px;">
                     <i class="fas fa-user-secret"></i> ACCESO RESTRINGIDO
                 </h2>
