@@ -259,7 +259,7 @@
                 </div>
             </div>
             <div class="card-footer text-center text-muted" style="border-top: 1px solid #00ff00;">
-                <small>Este sistema está protegido por la Ley de Seguridad Nacional</small>
+                <small>AREA 51</small>
             </div>
         </div>
     </div>
