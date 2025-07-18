@@ -4,8 +4,8 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>CONTACTO INTERGALÁCTICO</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Área 51, Nevada, Tierra</p>
-                    <p><i class="fas fa-phone"></i> +1 555-ALIEN-51</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Mariscal Castilla Nº 116</p>
+                    <p><i class="fas fa-phone"></i> +51 948 356 672</p>
                     <p><i class="fas fa-envelope"></i> contacto@area51store.com</p>
                 </div>
                 
