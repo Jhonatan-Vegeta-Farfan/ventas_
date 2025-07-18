@@ -249,7 +249,7 @@
                         <a href="<?php echo BASE_URL ?>olvidastetucontraseña" class="btn btn-secondary">
                             <i class="fas fa-question-circle"></i> CÓDIGO PERDIDO
                         </a>
-                        <a href="<?php echo BASE_URL ?>registrarse" class="btn btn-success">
+                        <a href="<?php echo BASE_URL ?>suscribirte" class="btn btn-success">
                             <i class="fas fa-user-plus"></i> NUEVO AGENTE
                         </a>
                     </div>
