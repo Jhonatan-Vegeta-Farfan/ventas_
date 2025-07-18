@@ -553,7 +553,7 @@
                                 </div>
                                 <div class="col-md-6 d-flex justify-content-center align-items-center">
                                     <div class="alien-img-container">
-                                        <img src="https://m.media-amazon.com/images/M/MV5BMGU2NjZhMmUtNTYzYS00OTMyLTkzZDAtMTkzNDIwNWFkM2I0XkEyXkFqcGdeQXVyMTY3NTgwODk5._V1_FMjpg_UX1000_.jpg" 
+                                        <img src="https://img.pikbest.com/origin/09/25/32/52rpIkbEsTuQ5.png!sw800" 
                                              class="alien-img" 
                                              alt="Alienígena">
                                     </div>
