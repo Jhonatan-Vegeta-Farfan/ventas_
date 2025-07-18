@@ -205,7 +205,7 @@
     <div class="access-denied">
         <i class="fas fa-exclamation-triangle"></i> ACCESO RESTRINGIDO - NIVEL 5 CLEARANCE REQUERIDO
     </div>
-
+<!--
     <div class="dropdown">
         <button class="dropbtn"><i class="fas fa-ufo-beam"></i> MENÚ SECRETO <i class="fas fa-ufo-beam"></i></button>
         <div class="dropdown-content">
@@ -217,7 +217,7 @@
             <a href="<?php echo BASE_URL ?>Trabajado"><i class="fas fa-user-astronaut"></i> Trabajador</a>
         </div>
     </div>
-
+    -->
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="card w-50 position-relative">
             <span class="security-stamp">TOP SECRET<br>ÁREA 51</span>
