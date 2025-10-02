@@ -328,7 +328,7 @@
                         <path d="M25,50 L155,50" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="2,2"/>
                     </svg>
                     <span class="stilos-title">STILOS</span>
-                    <span class="location-badge">Huanta<br>Ayacucho</span>
+                    
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarStilos">
