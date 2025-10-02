@@ -45,10 +45,12 @@
             display: flex;
             align-items: center;
             text-decoration: none;
+            flex-shrink: 0;
         }
 
         .logo-stilos {
             width: 180px;
+            height: 60px;
             filter: drop-shadow(0 2px 4px rgba(139, 69, 19, 0.3));
             transition: all 0.3s ease;
         }
@@ -62,6 +64,7 @@
             display: inline-block;
             vertical-align: middle;
             font-weight: 700;
+            white-space: nowrap;
         }
 
         .location-badge {
@@ -94,6 +97,7 @@
             overflow: hidden;
             padding: 8px 15px;
             font-weight: 500;
+            white-space: nowrap;
         }
 
         .nav-link-stilos:hover {
@@ -130,6 +134,7 @@
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            white-space: nowrap;
         }
 
         .btn-stilos:hover {
@@ -192,19 +197,43 @@
         }
 
         /* RESPONSIVE ADJUSTMENTS */
-        @media (max-width: 992px) {
+        @media (max-width: 1200px) {
             .logo-stilos {
-                width: 140px;
+                width: 160px;
+                height: 55px;
             }
             
             .stilos-title {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
+            }
+            
+            .nav-link-stilos {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .logo-stilos {
+                width: 140px;
+                height: 50px;
+            }
+            
+            .stilos-title {
+                font-size: 1.4rem;
+                margin-left: 8px;
             }
             
             .nav-link-stilos {
                 padding: 8px 12px;
                 margin: 3px 0;
                 font-size: 0.8rem;
+            }
+            
+            .navbar-nav .btn-stilos {
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
             }
         }
 
@@ -213,8 +242,14 @@
                 padding-top: 90px;
             }
             
+            .logo-stilos {
+                width: 120px;
+                height: 45px;
+            }
+            
             .stilos-title {
                 font-size: 1.2rem;
+                margin-left: 5px;
             }
             
             .navbar-collapse {
@@ -229,6 +264,16 @@
             .location-badge {
                 display: none;
             }
+            
+            .navbar-nav .btn-stilos {
+                margin-top: 5px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-link-stilos {
+                text-align: center;
+            }
         }
 
         @media (max-width: 576px) {
@@ -237,16 +282,40 @@
             }
             
             .logo-stilos {
-                width: 120px;
+                width: 100px;
+                height: 40px;
             }
             
             .stilos-title {
                 font-size: 1rem;
+                margin-left: 5px;
+                letter-spacing: 1px;
             }
             
             .btn-stilos {
                 padding: 6px 12px;
                 font-size: 0.8rem;
+            }
+            
+            .navbar-stilos {
+                padding: 8px 0;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .logo-stilos {
+                width: 80px;
+                height: 35px;
+            }
+            
+            .stilos-title {
+                font-size: 0.9rem;
+                margin-left: 3px;
+            }
+            
+            .navbar-toggler {
+                padding: 4px 8px;
+                font-size: 0.9rem;
             }
         }
 
@@ -260,6 +329,17 @@
             font-size: 1.2rem;
             margin: 0 5px;
             color: var(--primary-brown);
+        }
+        
+        /* Ajustes para el menú de navegación en pantallas pequeñas */
+        .navbar-nav {
+            align-items: center;
+        }
+        
+        @media (max-width: 992px) {
+            .navbar-nav {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -277,7 +357,7 @@
             <a class="navbar-brand navbar-brand-stilos" href="<?php echo BASE_URL; ?>producto">
                 <div class="logo-container">
                     <!-- Logo SVG personalizado para STILOS -->
-                    <svg class="logo-stilos" width="180" height="60" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="logo-stilos" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="brownGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" stop-color="#8B4513" />
@@ -328,12 +408,14 @@
                         <path d="M25,50 L155,50" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="2,2"/>
                     </svg>
                     <span class="stilos-title">STILOS</span>
-                    
                 </div>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarStilos">
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarStilos" aria-controls="navbarStilos" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarStilos">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link nav-link-stilos" href="<?php echo BASE_URL ?>producto"><i class="fas fa-tshirt"></i> TIENDA</a></li>
@@ -346,13 +428,13 @@
                     <li class="nav-item"><a class="nav-link nav-link-stilos" href="<?php echo BASE_URL ?>comentarios"><i class="fas fa-comments"></i> COMENTARIOS</a></li>
                 </ul>
 
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="btn btn-stilos btn-stilos-secondary" href="<?php echo BASE_URL ?>login">
+                        <a class="btn btn-stilos btn-stilos-secondary me-2" href="<?php echo BASE_URL ?>login">
                             <i class="fas fa-user"></i> INICIAR SESIÓN
                         </a>
                     </li>
-                    <li class="nav-item ms-2">
+                    <li class="nav-item">
                         <a class="btn btn-stilos" href="<?php echo BASE_URL ?>panel">
                             <i class="fas fa-cog"></i> PANEL
                         </a>
