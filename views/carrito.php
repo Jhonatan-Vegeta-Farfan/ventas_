@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito Intergaláctico - Tienda Alien</title>
+    <title>Carrito de Compras - STILOS Huanta</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
       :root {
-        --alien-green: #00ff9d;
-        --alien-purple: #9d00ff;
-        --ufo-blue: #00e1ff;
-        --dark-space: #0a001a;
-        --energy-pink: #ff00aa;
-        --alien-red: #ff0033;
+        --main-brown: #8b4513;
+        --light-brown: #cd853f;
+        --cream: #f9f5f0;
+        --dark-text: #5a3921;
+        --accent-gold: #d4af37;
       }
 
       body {
-        background-color: var(--dark-space);
+        background-color: var(--cream);
         background-image: 
-          radial-gradient(circle at 70% 30%, rgba(157, 0, 255, 0.15) 0%, transparent 25%),
-          radial-gradient(circle at 30% 70%, rgba(0, 255, 157, 0.15) 0%, transparent 25%),
-          url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0.5" fill="%2300ff9d" opacity="0.8"/></svg>');
-        color: var(--alien-green);
-        font-family: 'Orbitron', sans-serif;
+          radial-gradient(circle at 70% 30%, rgba(139, 69, 19, 0.1) 0%, transparent 25%),
+          radial-gradient(circle at 30% 70%, rgba(205, 133, 63, 0.1) 0%, transparent 25%),
+          url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,50 Q50,30 80,50 T20,50" fill="none" stroke="%23cd853f" stroke-width="0.5" opacity="0.1"/></svg>');
+        color: var(--dark-text);
+        font-family: 'Raleway', sans-serif;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -38,96 +37,109 @@
 
       /* Estilos del carrito */
       .table {
-        background-color: rgba(20, 10, 40, 0.7);
-        color: var(--alien-green);
-        border-color: var(--alien-green);
+        background-color: rgba(255, 253, 250, 0.9);
+        color: var(--dark-text);
+        border-color: var(--light-brown);
       }
 
       .table th {
-        border-color: var(--alien-green);
-        color: var(--ufo-blue);
+        border-color: var(--light-brown);
+        color: var(--main-brown);
+        font-family: 'Playfair Display', serif;
       }
 
       .table td {
-        border-color: var(--alien-green);
+        border-color: var(--light-brown);
       }
 
       .card-body {
-        background-color: rgba(20, 10, 40, 0.7);
-        border: 1px solid var(--alien-green);
+        background-color: rgba(255, 253, 250, 0.95);
+        border: 1px solid var(--light-brown);
         border-radius: 8px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card-body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(to right, var(--main-brown), var(--light-brown), var(--main-brown));
       }
 
       .card-title {
-        color: var(--ufo-blue);
+        color: var(--main-brown);
+        font-family: 'Playfair Display', serif;
       }
 
       .card-text {
-        color: var(--alien-green);
+        color: var(--dark-text);
       }
 
       .btn-primary {
-        background-color: var(--alien-purple);
-        color: #000;
-        border-color: var(--alien-purple);
-        font-weight: bold;
-        letter-spacing: 1px;
+        background-color: var(--main-brown);
+        color: var(--cream);
+        border-color: var(--main-brown);
+        font-weight: 500;
         transition: all 0.3s;
-        text-transform: uppercase;
+        font-family: 'Raleway', sans-serif;
       }
 
       .btn-primary:hover {
-        background-color: var(--ufo-blue);
-        border-color: var(--ufo-blue);
-        box-shadow: 0 0 15px var(--ufo-blue);
+        background-color: var(--light-brown);
+        border-color: var(--light-brown);
+        box-shadow: 0 5px 10px rgba(139, 69, 19, 0.3);
         transform: translateY(-2px);
       }
 
       .btn-secondary {
-        background-color: var(--dark-space);
-        border-color: var(--alien-green);
-        color: var(--alien-green);
-        font-weight: bold;
-        letter-spacing: 1px;
+        background-color: var(--cream);
+        border-color: var(--light-brown);
+        color: var(--main-brown);
+        font-weight: 500;
         transition: all 0.3s;
-        text-transform: uppercase;
+        font-family: 'Raleway', sans-serif;
       }
 
       .btn-secondary:hover {
-        background-color: var(--alien-green);
-        color: #000;
-        box-shadow: 0 0 15px var(--alien-green);
+        background-color: var(--light-brown);
+        color: var(--cream);
+        box-shadow: 0 5px 10px rgba(139, 69, 19, 0.2);
         transform: translateY(-2px);
       }
 
       .btn-danger {
-        background-color: var(--alien-red);
-        border-color: var(--alien-red);
-        color: #000;
-        font-weight: bold;
+        background-color: #a52a2a;
+        border-color: #a52a2a;
+        color: var(--cream);
+        font-weight: 500;
       }
 
       .btn-danger:hover {
-        background-color: #ff3366;
-        border-color: #ff3366;
+        background-color: #8b0000;
+        border-color: #8b0000;
       }
 
       .form-control, .input-group-text {
-        background-color: rgba(20, 10, 40, 0.7);
-        border: 1px solid var(--alien-green);
-        color: var(--alien-green);
+        background-color: rgba(255, 253, 250, 0.9);
+        border: 1px solid var(--light-brown);
+        color: var(--dark-text);
+        font-family: 'Raleway', sans-serif;
       }
 
       .form-control:focus {
-        background-color: rgba(20, 10, 40, 0.9);
-        border-color: var(--ufo-blue);
-        box-shadow: 0 0 10px var(--ufo-blue);
-        color: var(--alien-green);
+        background-color: rgba(255, 253, 250, 1);
+        border-color: var(--main-brown);
+        box-shadow: 0 0 5px rgba(139, 69, 19, 0.3);
+        color: var(--dark-text);
       }
 
       #bank-info {
-        background-color: rgba(20, 10, 40, 0.7);
-        border: 1px solid var(--alien-green);
+        background-color: rgba(255, 253, 250, 0.9);
+        border: 1px solid var(--light-brown);
         border-radius: 8px;
         padding: 15px;
         margin-bottom: 15px;
@@ -135,59 +147,63 @@
 
       .img-thumbnail {
         background-color: transparent;
-        border: 1px solid var(--alien-green);
+        border: 1px solid var(--light-brown);
         transition: all 0.3s;
       }
 
       .img-thumbnail:hover {
-        border-color: var(--ufo-blue);
-        box-shadow: 0 0 15px var(--ufo-blue);
+        border-color: var(--main-brown);
+        box-shadow: 0 0 10px rgba(139, 69, 19, 0.3);
         transform: translateY(-3px);
       }
 
       /* Efectos especiales */
-      .alien-scanner {
+      .thread-line {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        height: 3px;
-        background: linear-gradient(90deg, transparent, var(--alien-green), transparent);
-        box-shadow: 0 0 10px var(--alien-green);
-        animation: scan 4s linear infinite;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--light-brown), transparent);
+        animation: weave 6s linear infinite;
         z-index: 1000;
       }
 
-      @keyframes scan {
+      @keyframes weave {
         0% { top: 0; opacity: 0.7; }
         50% { opacity: 1; }
         100% { top: 100vh; opacity: 0.7; }
       }
 
-      .ufo-fleet {
+      .fabric-pattern {
         position: fixed;
         width: 120px;
         height: 60px;
-        background: radial-gradient(ellipse at center, var(--ufo-blue) 0%, transparent 70%);
-        border-radius: 50%;
-        filter: drop-shadow(0 0 15px var(--ufo-blue));
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M0,0 L20,20 M20,0 L0,20" stroke="%23cd853f" stroke-width="0.5" opacity="0.1"/></svg>');
         z-index: -1;
-        opacity: 0.7;
+        opacity: 0.5;
         pointer-events: none;
-        animation: fly 25s linear infinite;
+        animation: float 25s linear infinite;
       }
 
-      @keyframes fly {
+      @keyframes float {
         0% { left: -10%; }
         100% { left: 110%; }
       }
 
       h1 {
-        color: var(--ufo-blue);
-        text-shadow: 0 0 10px var(--ufo-blue);
+        color: var(--main-brown);
         margin-bottom: 30px;
         font-weight: bold;
-        text-transform: uppercase;
+        font-family: 'Playfair Display', serif;
+        text-align: center;
+      }
+
+      .store-logo {
+        max-width: 200px;
+        margin: 0 auto 20px;
+        display: block;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
       }
     </style>
 </head>
@@ -195,13 +211,18 @@
     <?php include 'header.php'; ?>
 
     <!-- Efectos especiales -->
-    <div class="alien-scanner"></div>
-    <div class="ufo-fleet" style="top: 15%; animation-duration: 25s;"></div>
-    <div class="ufo-fleet" style="top: 65%; animation-duration: 30s; animation-delay: 5s;"></div>
+    <div class="thread-line"></div>
+    <div class="fabric-pattern" style="top: 15%; animation-duration: 25s;"></div>
+    <div class="fabric-pattern" style="top: 65%; animation-duration: 30s; animation-delay: 5s;"></div>
 
     <div class="main-content">
         <div class="container my-5">
-            <h1>CARRO INTERGALÁCTICO</h1>
+            <!-- Logo STILOS -->
+            <div class="text-center mb-4">
+                <img src="https://i.imgur.com/6K3wv7E.png" alt="STILOS Huanta" class="store-logo">
+            </div>
+            
+            <h1>CARRO DE COMPRAS</h1>
             <div class="row">
                 <div class="col-md-8">
                     <table class="table">
@@ -249,7 +270,7 @@
                             </div>
 
                             <a href="<?php echo BASE_URL ?>pagofactura" class="btn btn-primary w-100">PROCEDER AL PAGO</a>
-                            <a href="<?php echo BASE_URL ?>producto" class="btn btn-secondary w-100 mt-2">VOLVER A LA GALERÍA</a>
+                            <a href="<?php echo BASE_URL ?>producto" class="btn btn-secondary w-100 mt-2">VOLVER A LA TIENDA</a>
                         </div>
                     </div>
                 </div>
@@ -263,22 +284,22 @@
     <script>
         const cartItems = [
             {
-                name: 'Polo Intergaláctico',
+                name: 'Polo Bordado Tradicional',
+                price: 85.00,
+                quantity: 1,
+                image: 'https://i.imgur.com/5Xr8W2j.jpg'
+            },
+            {
+                name: 'Camisa Andina',
                 price: 120.00,
-                quantity: 1,
-                image: 'https://richstore.com.pe/wp-content/uploads/2022/06/Dragon-Boll-6.jpg'
-            },
-            {
-                name: 'Camiseta Nebulosa',
-                price: 150.00,
                 quantity: 2,
-                image: 'https://tiendanebula.net/cdn/shop/products/947d03e9b59dc9beaf0bacaf27b020c1_grande.jpg?v=1614530255'
+                image: 'https://i.imgur.com/8Y9vK7t.jpg'
             },
             {
-                name: 'Pantalón Estelar',
-                price: 180.00,
+                name: 'Chaleco Huantino',
+                price: 95.00,
                 quantity: 1,
-                image: 'https://sugoiclothes.com/wp-content/uploads/2022/03/Summer-New-Style-Men-s-Sports-Suit-Brand-Anime-Printing-Casual-Fashion-Cotton-Short-Sleeves-sweatshirt.jpg_480x480q90.jpg_.webp'
+                image: 'https://i.imgur.com/3MpL9rT.jpg'
             }
         ];
 
@@ -294,7 +315,7 @@
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${item.name}</td>
-                    <td><img src="${item.image}" alt="${item.name}" class="img-fluid" style="max-width: 100px; border: 1px solid var(--alien-green); border-radius: 5px;"></td>
+                    <td><img src="${item.image}" alt="${item.name}" class="img-fluid" style="max-width: 100px; border: 1px solid var(--light-brown); border-radius: 5px;"></td>
                     <td>S/${item.price.toFixed(2)}</td>
                     <td>
                         <div class="input-group" style="max-width: 120px;">

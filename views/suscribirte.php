@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área 51 - Registro Intergaláctico</title>
+    <title>STILOS - Registro de Cliente</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* Reset para eliminar header y footer */
@@ -22,47 +22,44 @@
             margin: 0 !important;
             overflow-x: hidden;
             min-height: 100vh;
-            background-color: #0a001a;
+            background-color: #f9f5f0;
         }
 
-        /* Variables de tema alienígena */
+        /* Variables de tema textil */
         :root {
-            --alien-green: #00ff9d;
-            --alien-purple: #9d00ff;
-            --ufo-blue: #00e1ff;
-            --dark-space: #0a001a;
-            --energy-pink: #ff00aa;
-            --alien-gold: #ffd700;
+            --primary-brown: #8b4513;
+            --secondary-brown: #a0522d;
+            --accent-gold: #cd853f;
+            --light-beige: #f9f5f0;
+            --dark-brown: #5a3921;
+            --highlight: #d2691e;
         }
         
-        /* Fuente alienígena */
-        @font-face {
-            font-family: 'Alien Encounter';
-            src: url('https://www.dafontfree.io/data/30/a/12484/Alien-Encounters-Regular.ttf') format('truetype');
-        }
+        /* Fuentes elegantes */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500&display=swap');
         
         /* Estilos base */
         body {
-            background-color: var(--dark-space);
+            background-color: var(--light-beige);
             background-image: 
-                radial-gradient(circle at 70% 30%, rgba(157, 0, 255, 0.15) 0%, transparent 25%),
-                radial-gradient(circle at 30% 70%, rgba(0, 255, 157, 0.15) 0%, transparent 25%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0.5" fill="%2300ff9d" opacity="0.1"/></svg>');
-            color: var(--alien-green);
-            font-family: 'Alien Encounter', 'Orbitron', sans-serif;
+                radial-gradient(circle at 70% 30%, rgba(205, 133, 63, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 30% 70%, rgba(139, 69, 19, 0.1) 0%, transparent 25%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,50 Q50,30 80,50 T20,50" fill="none" stroke="%23cd853f" stroke-width="0.3" opacity="0.1"/></svg>');
+            color: var(--dark-brown);
+            font-family: 'Raleway', sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
         }
 
-        /* Efecto scanner */
-        .alien-scanner {
+        /* Efecto de hilo */
+        .thread-scanner {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--alien-green), transparent);
-            box-shadow: 0 0 10px var(--alien-green);
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            box-shadow: 0 0 5px var(--accent-gold);
             animation: scan 4s linear infinite;
             z-index: 1000;
         }
@@ -73,27 +70,25 @@
             100% { top: 100vh; opacity: 0.7; }
         }
 
-        /* Efectos de UFO */
-        .ufo-fleet {
+        /* Efectos de patrones de tela */
+        .fabric-pattern {
             position: fixed;
             width: 120px;
-            height: 60px;
-            background: radial-gradient(ellipse at center, var(--ufo-blue) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: drop-shadow(0 0 15px var(--ufo-blue));
+            height: 120px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M0,0 L20,20 M20,0 L0,20" stroke="%23cd853f" stroke-width="0.5" opacity="0.2"/></svg>');
             z-index: -1;
-            opacity: 0.7;
+            opacity: 0.5;
             pointer-events: none;
-            animation: fly 25s linear infinite;
+            animation: float 25s linear infinite;
         }
 
-        @keyframes fly {
+        @keyframes float {
             0% { left: -10%; }
             100% { left: 110%; }
         }
 
         /* Contenedor principal */
-        .alien-container {
+        .stilos-container {
             position: relative;
             z-index: 1;
             padding: 20px;
@@ -103,12 +98,12 @@
             justify-content: center;
         }
 
-        /* Tarjeta alienígena */
-        .alien-card {
-            background: rgba(20, 10, 40, 0.7);
-            border: 3px solid var(--alien-green);
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(0, 255, 157, 0.4);
+        /* Tarjeta STILOS */
+        .stilos-card {
+            background: rgba(255, 253, 250, 0.95);
+            border: 2px solid var(--accent-gold);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(139, 69, 19, 0.2);
             overflow: hidden;
             position: relative;
             transition: all 0.5s;
@@ -116,121 +111,120 @@
             max-width: 1000px;
         }
 
-        .alien-card:hover {
-            box-shadow: 0 0 50px var(--alien-purple);
+        .stilos-card:hover {
+            box-shadow: 0 8px 30px rgba(139, 69, 19, 0.3);
             transform: translateY(-5px);
         }
 
-        .alien-card::before {
+        .stilos-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0.5" fill="%2300ff9d" opacity="0.1"/></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0.5" fill="%23cd853f" opacity="0.05"/></svg>');
             opacity: 0.3;
             z-index: 0;
         }
 
         /* Encabezado de tarjeta */
-        .alien-card-header {
-            border-bottom: 2px solid var(--alien-purple);
+        .stilos-card-header {
+            border-bottom: 2px solid var(--accent-gold);
             padding: 20px;
             text-align: center;
             position: relative;
             z-index: 1;
-            background: rgba(10, 0, 26, 0.5);
+            background: rgba(249, 245, 240, 0.8);
         }
 
-        .alien-card-header h3 {
-            color: var(--ufo-blue);
-            text-shadow: 0 0 10px var(--alien-green);
+        .stilos-card-header h3 {
+            color: var(--primary-brown);
             font-size: 1.8rem;
             margin: 0;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             font-weight: bold;
+            font-family: 'Playfair Display', serif;
         }
 
-        .alien-card-header p {
-            color: var(--alien-green);
+        .stilos-card-header p {
+            color: var(--dark-brown);
             margin-top: 10px;
             font-size: 1.1rem;
-            text-shadow: 0 0 5px var(--alien-green);
         }
 
         /* Cuerpo de tarjeta */
-        .alien-card-body {
+        .stilos-card-body {
             padding: 25px;
             position: relative;
             z-index: 1;
         }
 
-        /* Formulario alienígena */
-        .alien-form-label {
-            color: var(--ufo-blue);
+        /* Formulario STILOS */
+        .stilos-form-label {
+            color: var(--primary-brown);
             margin-bottom: 8px;
             display: block;
             font-size: 1rem;
-            text-shadow: 0 0 5px var(--ufo-blue);
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            font-weight: 500;
         }
 
-        .alien-form-control {
-            background-color: rgba(10, 0, 26, 0.8);
-            border: 2px solid var(--alien-green);
+        .stilos-form-control {
+            background-color: rgba(255, 253, 250, 0.9);
+            border: 2px solid var(--accent-gold);
             border-radius: 8px;
-            color: var(--alien-green);
+            color: var(--dark-brown);
             padding: 12px 15px;
             width: 100%;
             margin-bottom: 20px;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Raleway', sans-serif;
             transition: all 0.3s;
-            box-shadow: 0 0 10px rgba(0, 255, 157, 0.1);
+            box-shadow: 0 0 5px rgba(205, 133, 63, 0.1);
         }
 
-        .alien-form-control:focus {
-            border-color: var(--energy-pink);
-            box-shadow: 0 0 15px var(--energy-pink);
+        .stilos-form-control:focus {
+            border-color: var(--primary-brown);
+            box-shadow: 0 0 10px rgba(139, 69, 19, 0.2);
             outline: none;
-            background-color: rgba(20, 0, 40, 0.9);
+            background-color: rgba(255, 253, 250, 1);
         }
 
-        .alien-form-select {
-            background-color: rgba(10, 0, 26, 0.8);
-            border: 2px solid var(--alien-green);
+        .stilos-form-select {
+            background-color: rgba(255, 253, 250, 0.9);
+            border: 2px solid var(--accent-gold);
             border-radius: 8px;
-            color: var(--alien-green);
+            color: var(--dark-brown);
             padding: 12px 15px;
             width: 100%;
             margin-bottom: 20px;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Raleway', sans-serif;
             appearance: none;
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%2300ff9d' d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%238b4513' d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3e%3c/svg%3e");
             background-repeat: no-repeat;
             background-position: right 0.75rem center;
             background-size: 16px 12px;
         }
 
-        .alien-form-select:focus {
-            border-color: var(--energy-pink);
-            box-shadow: 0 0 15px var(--energy-pink);
+        .stilos-form-select:focus {
+            border-color: var(--primary-brown);
+            box-shadow: 0 0 10px rgba(139, 69, 19, 0.2);
         }
 
         /* Checkbox personalizado */
-        .alien-form-check {
+        .stilos-form-check {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
             position: relative;
         }
 
-        .alien-form-check-input {
+        .stilos-form-check-input {
             margin-right: 10px;
             appearance: none;
             width: 22px;
             height: 22px;
-            border: 2px solid var(--alien-green);
+            border: 2px solid var(--accent-gold);
             border-radius: 4px;
             background-color: transparent;
             position: relative;
@@ -238,15 +232,15 @@
             transition: all 0.3s;
         }
 
-        .alien-form-check-input:checked {
-            background-color: var(--alien-green);
-            box-shadow: 0 0 10px var(--alien-green);
+        .stilos-form-check-input:checked {
+            background-color: var(--accent-gold);
+            box-shadow: 0 0 5px var(--accent-gold);
         }
 
-        .alien-form-check-input:checked::after {
+        .stilos-form-check-input:checked::after {
             content: '✓';
             position: absolute;
-            color: var(--dark-space);
+            color: var(--light-beige);
             font-size: 14px;
             font-weight: bold;
             top: 50%;
@@ -254,22 +248,22 @@
             transform: translate(-50%, -50%);
         }
 
-        .alien-form-check-label {
-            color: #ccc;
+        .stilos-form-check-label {
+            color: var(--dark-brown);
             font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.3s;
         }
 
-        .alien-form-check:hover .alien-form-check-label {
-            color: var(--alien-green);
+        .stilos-form-check:hover .stilos-form-check-label {
+            color: var(--primary-brown);
         }
 
-        /* Botones alienígenas */
-        .alien-btn {
+        /* Botones STILOS */
+        .stilos-btn {
             display: inline-block;
-            background: linear-gradient(45deg, var(--alien-green), var(--ufo-blue));
-            color: #000;
+            background: linear-gradient(45deg, var(--primary-brown), var(--accent-gold));
+            color: var(--light-beige);
             border: none;
             padding: 12px 30px;
             border-radius: 8px;
@@ -277,24 +271,24 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s;
-            box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+            box-shadow: 0 0 10px rgba(139, 69, 19, 0.2);
             text-decoration: none;
             cursor: pointer;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Raleway', sans-serif;
             margin: 5px;
             position: relative;
             overflow: hidden;
-            border: 1px solid var(--alien-green);
+            border: 1px solid var(--primary-brown);
         }
 
-        .alien-btn:hover {
-            background: linear-gradient(45deg, var(--ufo-blue), var(--alien-purple));
+        .stilos-btn:hover {
+            background: linear-gradient(45deg, var(--accent-gold), var(--primary-brown));
             color: #fff;
-            box-shadow: 0 0 25px var(--alien-green);
+            box-shadow: 0 0 15px rgba(139, 69, 19, 0.4);
             transform: translateY(-3px);
         }
 
-        .alien-btn::before {
+        .stilos-btn::before {
             content: '';
             position: absolute;
             top: 0;
@@ -305,24 +299,24 @@
             transition: 0.5s;
         }
 
-        .alien-btn:hover::before {
+        .stilos-btn:hover::before {
             left: 100%;
         }
 
-        .alien-btn-secondary {
-            background: linear-gradient(45deg, var(--alien-purple), var(--energy-pink));
-            border: 1px solid var(--alien-purple);
+        .stilos-btn-secondary {
+            background: linear-gradient(45deg, var(--accent-gold), var(--highlight));
+            border: 1px solid var(--accent-gold);
         }
 
-        .alien-btn-secondary:hover {
-            background: linear-gradient(45deg, var(--energy-pink), var(--alien-purple));
+        .stilos-btn-secondary:hover {
+            background: linear-gradient(45deg, var(--highlight), var(--accent-gold));
         }
 
-        /* Imagen alienígena */
-        .alien-img {
+        /* Imagen STILOS */
+        .stilos-img {
             border-radius: 10px;
-            border: 3px solid var(--alien-green);
-            box-shadow: 0 0 20px var(--alien-purple);
+            border: 2px solid var(--accent-gold);
+            box-shadow: 0 0 15px rgba(139, 69, 19, 0.2);
             max-width: 100%;
             height: auto;
             transition: all 0.5s;
@@ -330,103 +324,103 @@
             z-index: 1;
         }
 
-        .alien-img:hover {
+        .stilos-img:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 30px var(--energy-pink);
+            box-shadow: 0 0 20px rgba(139, 69, 19, 0.3);
         }
 
-        .alien-img-container {
+        .stilos-img-container {
             position: relative;
             overflow: hidden;
             border-radius: 10px;
         }
 
-        .alien-img-container::before {
+        .stilos-img-container::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, transparent 40%, var(--alien-purple) 150%);
+            background: radial-gradient(circle, transparent 40%, var(--accent-gold) 150%);
             z-index: 2;
-            opacity: 0.3;
+            opacity: 0.1;
         }
 
-        /* Efecto de energía */
-        .alien-energy {
+        /* Efecto de borde decorativo */
+        .stilos-border {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--alien-green), var(--ufo-blue), var(--alien-purple));
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-brown), var(--accent-gold), var(--primary-brown));
             opacity: 0.7;
             transition: all 0.5s;
         }
 
-        .alien-card:hover .alien-energy {
-            height: 8px;
+        .stilos-card:hover .stilos-border {
+            height: 6px;
             opacity: 1;
         }
 
-        /* Efecto de partículas */
-        .alien-particle {
+        /* Efecto de hilos flotantes */
+        .thread-particle {
             position: absolute;
-            background-color: var(--alien-green);
+            background-color: var(--accent-gold);
             border-radius: 50%;
-            opacity: 0.6;
+            opacity: 0.3;
             z-index: -1;
             animation: float 15s linear infinite;
         }
 
         @keyframes float {
             0% { transform: translateY(0) translateX(0); opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
             100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
         }
 
         /* Responsive */
         @media (max-width: 1200px) {
-            .alien-card-header h3 {
+            .stilos-card-header h3 {
                 font-size: 1.6rem;
             }
             
-            .alien-card-body {
+            .stilos-card-body {
                 padding: 20px;
             }
         }
 
         @media (max-width: 992px) {
-            .alien-card-header h3 {
+            .stilos-card-header h3 {
                 font-size: 1.4rem;
             }
             
-            .alien-form-control, .alien-form-select {
+            .stilos-form-control, .stilos-form-select {
                 padding: 10px 12px;
             }
             
-            .alien-btn {
+            .stilos-btn {
                 padding: 10px 20px;
                 font-size: 0.9rem;
             }
         }
 
         @media (max-width: 768px) {
-            .alien-card-header h3 {
+            .stilos-card-header h3 {
                 font-size: 1.3rem;
             }
             
-            .alien-card-header p {
+            .stilos-card-header p {
                 font-size: 1rem;
             }
             
-            .alien-card-body {
+            .stilos-card-body {
                 padding: 15px;
             }
             
-            .alien-form-label {
+            .stilos-form-label {
                 font-size: 0.9rem;
             }
             
@@ -436,25 +430,25 @@
         }
 
         @media (max-width: 576px) {
-            .alien-card-header h3 {
+            .stilos-card-header h3 {
                 font-size: 1.2rem;
             }
             
-            .alien-card-header p {
+            .stilos-card-header p {
                 font-size: 0.9rem;
             }
             
-            .alien-form-control, .alien-form-select {
+            .stilos-form-control, .stilos-form-select {
                 padding: 8px 10px;
                 font-size: 0.9rem;
             }
             
-            .alien-btn {
+            .stilos-btn {
                 padding: 8px 15px;
                 font-size: 0.8rem;
             }
             
-            .alien-form-check-label {
+            .stilos-form-check-label {
                 font-size: 0.8rem;
             }
         }
@@ -462,100 +456,99 @@
 </head>
 
 <body>
-    <!-- Efecto scanner -->
-    <div class="alien-scanner"></div>
+    <!-- Efecto de hilo -->
+    <div class="thread-scanner"></div>
     
-    <!-- UFOs volando -->
-    <div class="ufo-fleet" style="top: 15%; animation: fly 25s linear infinite;"></div>
-    <div class="ufo-fleet" style="top: 65%; animation: fly 30s linear infinite 5s; width: 80px; height: 40px;"></div>
-    <div class="ufo-fleet" style="top: 40%; animation: fly 35s linear infinite 10s; opacity: 0.5;"></div>
+    <!-- Patrones de tela flotantes -->
+    <div class="fabric-pattern" style="top: 15%; animation: float 25s linear infinite;"></div>
+    <div class="fabric-pattern" style="top: 65%; animation: float 30s linear infinite 5s; width: 80px; height: 80px;"></div>
+    <div class="fabric-pattern" style="top: 40%; animation: float 35s linear infinite 10s; opacity: 0.3;"></div>
 
-    <div class="alien-container">
+    <div class="stilos-container">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    <div class="alien-card">
-                        <div class="alien-card-header">
-                            <h3><i class="fas fa-user-astronaut"></i> ¡ÚNETE A NUESTRA COMUNIDAD INTERGALÁCTICA!</h3>
+                    <div class="stilos-card">
+                        <div class="stilos-card-header">
+                            <h3><i class="fas fa-tshirt"></i> ¡ÚNETE A LA FAMILIA STILOS!</h3>
                             <p>Recibe un 50% de descuento en tu primera compra</p>
-                            <div class="alien-energy"></div>
+                            <div class="stilos-border"></div>
                         </div>
-                        <div class="alien-card-body">
+                        <div class="stilos-card-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <form id="alien-subscription-form">
+                                    <form id="stilos-subscription-form">
                                         <div class="mb-3">
-                                            <label for="alien-nombre" class="alien-form-label">
-                                                <i class="fas fa-id-card"></i> Nombre Terrestre
+                                            <label for="stilos-nombre" class="stilos-form-label">
+                                                <i class="fas fa-user"></i> Nombre
                                             </label>
-                                            <input type="text" class="alien-form-control" id="alien-nombre" placeholder="Ej: Zorgon-9" required>
+                                            <input type="text" class="stilos-form-control" id="stilos-nombre" placeholder="Ej: María" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="alien-apellido" class="alien-form-label">
-                                                <i class="fas fa-stars"></i> Apellido Galáctico
+                                            <label for="stilos-apellido" class="stilos-form-label">
+                                                <i class="fas fa-user-tag"></i> Apellido
                                             </label>
-                                            <input type="text" class="alien-form-control" id="alien-apellido" placeholder="Ej: De Andrómeda" required>
+                                            <input type="text" class="stilos-form-control" id="stilos-apellido" placeholder="Ej: González" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="alien-email" class="alien-form-label">
-                                                <i class="fas fa-satellite-dish"></i> Frecuencia de Comunicación (Email)
+                                            <label for="stilos-email" class="stilos-form-label">
+                                                <i class="fas fa-envelope"></i> Correo Electrónico
                                             </label>
-                                            <input type="email" class="alien-form-control" id="alien-email" placeholder="ejemplo@galaxia.com" required>
+                                            <input type="email" class="stilos-form-control" id="stilos-email" placeholder="ejemplo@correo.com" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="alien-contrasena" class="alien-form-label">
-                                                <i class="fas fa-key"></i> Código Secreto
+                                            <label for="stilos-contrasena" class="stilos-form-label">
+                                                <i class="fas fa-lock"></i> Contraseña
                                             </label>
-                                            <input type="password" class="alien-form-control" id="alien-contrasena" placeholder="••••••••" required>
+                                            <input type="password" class="stilos-form-control" id="stilos-contrasena" placeholder="••••••••" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="alien-celular" class="alien-form-label">
-                                                <i class="fas fa-mobile-alt"></i> Dispositivo de Contacto
+                                            <label for="stilos-celular" class="stilos-form-label">
+                                                <i class="fas fa-mobile-alt"></i> Celular
                                             </label>
-                                            <input type="tel" class="alien-form-control" id="alien-celular" placeholder="+51 999 999 999" required>
+                                            <input type="tel" class="stilos-form-control" id="stilos-celular" placeholder="+51 999 999 999" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="alien-fecha-nacimiento" class="alien-form-label">
-                                                <i class="fas fa-calendar-alt"></i> Fecha de Aterrizaje en la Tierra
+                                            <label for="stilos-fecha-nacimiento" class="stilos-form-label">
+                                                <i class="fas fa-calendar-alt"></i> Fecha de Nacimiento
                                             </label>
-                                            <input type="date" class="alien-form-control" id="alien-fecha-nacimiento" required>
+                                            <input type="date" class="stilos-form-control" id="stilos-fecha-nacimiento" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="alien-genero" class="alien-form-label">
-                                                <i class="fas fa-dna"></i> Tipo de Especie
+                                            <label for="stilos-genero" class="stilos-form-label">
+                                                <i class="fas fa-venus-mars"></i> Género
                                             </label>
-                                            <select class="alien-form-select" id="alien-genero" required>
-                                                <option value="">Selecciona tu especie</option>
-                                                <option value="gris">Gris</option>
-                                                <option value="reptiliano">Reptiliano</option>
-                                                <option value="nordico">Nórdico</option>
-                                                <option value="hibrido">Híbrido</option>
+                                            <select class="stilos-form-select" id="stilos-genero" required>
+                                                <option value="">Selecciona tu género</option>
+                                                <option value="femenino">Femenino</option>
+                                                <option value="masculino">Masculino</option>
                                                 <option value="otro">Otro</option>
+                                                <option value="prefiero-no-decir">Prefiero no decir</option>
                                             </select>
                                         </div>
-                                        <div class="alien-form-check">
-                                            <input class="alien-form-check-input" type="checkbox" value="" id="alien-politicas" required>
-                                            <label class="alien-form-check-label" for="alien-politicas">
-                                                Acepto los términos del Tratado Intergaláctico de Privacidad.
+                                        <div class="stilos-form-check">
+                                            <input class="stilos-form-check-input" type="checkbox" value="" id="stilos-politicas" required>
+                                            <label class="stilos-form-check-label" for="stilos-politicas">
+                                                Acepto los términos y condiciones de STILOS.
                                             </label>
                                         </div>
                                         <div class="text-center mt-4">
-                                            <button type="submit" class="alien-btn">
-                                                <i class="fas fa-rocket"></i> ACTIVAR DESCUENTO
+                                            <button type="submit" class="stilos-btn">
+                                                <i class="fas fa-tag"></i> ACTIVAR DESCUENTO
                                             </button>
                                         </div>
                                     </form>
                                     <div class="text-center mt-3">
-                                        <a href="<?php echo BASE_URL ?>producto" class="alien-btn alien-btn-secondary">
+                                        <a href="<?php echo BASE_URL ?>producto" class="stilos-btn stilos-btn-secondary">
                                             <i class="fas fa-eye"></i> Continuar como visitante
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-md-6 d-flex justify-content-center align-items-center">
-                                    <div class="alien-img-container">
-                                        <img src="https://img.pikbest.com/origin/09/25/32/52rpIkbEsTuQ5.png!sw800" 
-                                             class="alien-img" 
-                                             alt="Alienígena">
+                                    <div class="stilos-img-container">
+                                        <img src="https://cdn.pixabay.com/photo/2016/11/23/06/57/isolated-t-shirt-1852114_1280.png" 
+                                             class="stilos-img" 
+                                             alt="Ropa STILOS">
                                     </div>
                                 </div>
                             </div>
@@ -569,12 +562,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Script para redireccionar al usuario al presionar el botón
-        document.getElementById('alien-subscription-form').addEventListener('submit', function(event) {
+        document.getElementById('stilos-subscription-form').addEventListener('submit', function(event) {
             event.preventDefault();
             
             // Efecto visual de confirmación
-            const card = document.querySelector('.alien-card');
-            card.style.boxShadow = '0 0 50px var(--energy-pink)';
+            const card = document.querySelector('.stilos-card');
+            card.style.boxShadow = '0 0 30px rgba(139, 69, 19, 0.4)';
             card.style.transform = 'scale(1.02)';
             
             // Simulación de envío de datos
@@ -583,40 +576,40 @@
             }, 2000);
             
             setTimeout(() => {
-                card.style.boxShadow = '0 0 30px rgba(0, 255, 157, 0.4)';
+                card.style.boxShadow = '0 5px 20px rgba(139, 69, 19, 0.2)';
                 card.style.transform = 'scale(1)';
             }, 2000);
         });
 
-        // Crear partículas flotantes
-        function createParticles() {
-            const container = document.querySelector('.alien-container');
-            const particleCount = 30;
+        // Crear hilos flotantes
+        function createThreads() {
+            const container = document.querySelector('.stilos-container');
+            const threadCount = 20;
             
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('alien-particle');
+            for (let i = 0; i < threadCount; i++) {
+                const thread = document.createElement('div');
+                thread.classList.add('thread-particle');
                 
                 // Tamaño aleatorio entre 1px y 3px
                 const size = Math.random() * 2 + 1;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
+                thread.style.width = `${size}px`;
+                thread.style.height = `${size}px`;
                 
                 // Posición aleatoria
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
+                thread.style.left = `${Math.random() * 100}%`;
+                thread.style.top = `${Math.random() * 100}%`;
                 
                 // Opacidad y delay aleatorio
-                particle.style.opacity = Math.random() * 0.6;
-                particle.style.animationDelay = `${Math.random() * 15}s`;
-                particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                thread.style.opacity = Math.random() * 0.3;
+                thread.style.animationDelay = `${Math.random() * 15}s`;
+                thread.style.animationDuration = `${Math.random() * 10 + 10}s`;
                 
-                container.appendChild(particle);
+                container.appendChild(thread);
             }
         }
         
         // Llamar a la función cuando el DOM esté cargado
-        document.addEventListener('DOMContentLoaded', createParticles);
+        document.addEventListener('DOMContentLoaded', createThreads);
     </script>
 </body>
 </html>

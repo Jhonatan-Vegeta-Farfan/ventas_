@@ -223,6 +223,52 @@
             0% { transform: translate(-200px, 50vh) rotate(0deg); }
             100% { transform: translate(calc(100vw + 200px), calc(-50vh)) rotate(360deg); }
         }
+        
+        /* Logo personalizado para STILOS */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .logo-stilos {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: var(--primary-brown);
+            text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.2);
+            position: relative;
+            display: inline-block;
+            padding: 0 15px;
+        }
+        
+        .logo-stilos::before,
+        .logo-stilos::after {
+            content: "✽";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary-brown);
+            font-size: 1.5rem;
+        }
+        
+        .logo-stilos::before {
+            left: -5px;
+        }
+        
+        .logo-stilos::after {
+            right: -5px;
+        }
+        
+        .logo-subtitle {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.9rem;
+            color: var(--secondary-brown);
+            text-align: center;
+            margin-top: -5px;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -237,6 +283,14 @@
 
     <!-- CONTENIDO PRINCIPAL -->
     <div class="content">
+        <!-- Logo STILOS -->
+        <div class="logo-container">
+            <div class="text-center">
+                <div class="logo-stilos">STILOS</div>
+                <div class="logo-subtitle">Arte textil ayacuchano</div>
+            </div>
+        </div>
+        
         <!-- SECCIÓN DE PRODUCTOS -->
         <section class="products-section py-5">
             <div class="container">

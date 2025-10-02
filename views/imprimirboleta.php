@@ -1,202 +1,279 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- HEADER ALIEN -->
-    <?php include('header_alien.php'); ?>
+    <!-- HEADER STILOS -->
+    <?php include('header_stilos.php'); ?>
     
-    <title>Comprobante Intergaláctico</title>
+    <title>Comprobante de Compra - STILOS</title>
     <style>
         :root {
-            --alien-primary: #27d8a1;
-            --alien-secondary: #1a237e;
-            --alien-accent: #ffeb3b;
-            --alien-dark: #0d1b2a;
-            --alien-bg: #121a24;
+            --stilos-primary: #8b4513;
+            --stilos-secondary: #cd853f;
+            --stilos-accent: #a0522d;
+            --stilos-dark: #5a3921;
+            --stilos-bg: #f9f5f0;
         }
         
         body {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Raleway', sans-serif;
             margin: 0;
-            padding: 100px 0 150px; /* Espacio para header/footer alien */
-            background-color: var(--alien-bg);
-            color: #e0e0e0;
-            background-image: radial-gradient(circle at 10% 20%, rgba(39, 216, 161, 0.1) 0%, transparent 20%);
+            padding: 100px 0 150px; /* Espacio para header/footer */
+            background-color: var(--stilos-bg);
+            color: var(--stilos-dark);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(139, 69, 19, 0.1) 0%, transparent 20%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><path d="M30,5 Q45,20 30,35 Q15,20 30,5" fill="none" stroke="%23cd853f" stroke-width="0.3" opacity="0.1"/></svg>');
         }
 
         .main-content {
             max-width: 900px;
             margin: 40px auto;
-            background: rgba(13, 27, 42, 0.8);
+            background: rgba(255, 253, 250, 0.95);
             padding: 40px;
-            border: 2px solid var(--alien-primary);
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(39, 216, 161, 0.3);
+            border: 2px solid var(--stilos-primary);
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(139, 69, 19, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #8b4513, #cd853f, #8b4513);
         }
 
         h1 {
             text-align: center;
-            color: var(--alien-accent);
+            color: var(--stilos-primary);
             margin-bottom: 40px;
             font-size: 32px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 0 0 15px var(--alien-primary);
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.2);
+        }
+
+        .store-info {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px dashed var(--stilos-secondary);
+        }
+
+        .store-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--stilos-primary);
+            margin-bottom: 5px;
+        }
+
+        .store-location {
+            font-style: italic;
+            color: var(--stilos-secondary);
+            margin-bottom: 10px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 40px;
-            border: 1px solid var(--alien-primary);
+            border: 1px solid var(--stilos-secondary);
+            font-family: 'Raleway', sans-serif;
         }
 
         th {
-            background-color: var(--alien-secondary);
-            color: var(--alien-accent);
+            background-color: var(--stilos-primary);
+            color: #f9f5f0;
             padding: 18px;
             text-align: left;
-            font-size: 18px;
+            font-size: 16px;
             letter-spacing: 1px;
-            border-bottom: 3px solid var(--alien-primary);
+            border-bottom: 3px solid var(--stilos-accent);
+            font-weight: 500;
         }
 
         td {
             padding: 15px;
-            border-bottom: 1px solid rgba(39, 216, 161, 0.3);
-            font-size: 16px;
+            border-bottom: 1px solid rgba(205, 133, 63, 0.3);
+            font-size: 15px;
         }
 
         tfoot td {
             font-weight: bold;
-            background-color: rgba(26, 35, 126, 0.3);
-            border-top: 3px solid var(--alien-primary);
-            color: var(--alien-accent);
-            font-size: 18px;
+            background-color: rgba(205, 133, 63, 0.1);
+            border-top: 3px solid var(--stilos-primary);
+            color: var(--stilos-primary);
+            font-size: 17px;
         }
 
         .btn-print {
             display: block;
-            width: 250px;
+            width: 280px;
             margin: 40px auto;
             padding: 15px 30px;
-            background-color: var(--alien-primary);
-            color: var(--alien-dark);
+            background-color: var(--stilos-primary);
+            color: #f9f5f0;
             border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
             cursor: pointer;
             text-align: center;
             text-decoration: none;
             transition: all 0.3s;
             letter-spacing: 1px;
-            box-shadow: 0 0 20px rgba(39, 216, 161, 0.5);
+            font-family: 'Raleway', sans-serif;
+            box-shadow: 0 3px 10px rgba(139, 69, 19, 0.3);
         }
 
         .btn-print:hover {
-            background-color: var(--alien-accent);
+            background-color: var(--stilos-accent);
             transform: translateY(-3px);
-            box-shadow: 0 0 30px rgba(255, 235, 59, 0.7);
-            color: var(--alien-dark);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.4);
+            color: #fff;
         }
 
         #message {
             text-align: center;
             margin: 30px 0;
             font-weight: bold;
-            color: var(--alien-primary);
+            color: var(--stilos-primary);
             display: none;
-            font-size: 20px;
-            text-shadow: 0 0 10px rgba(39, 216, 161, 0.7);
+            font-size: 18px;
+            padding: 15px;
+            background-color: rgba(205, 133, 63, 0.1);
+            border-radius: 5px;
+            border-left: 4px solid var(--stilos-primary);
         }
 
         .product-name {
             max-width: 300px;
-            color: var(--alien-accent);
+            color: var(--stilos-primary);
+            font-weight: 500;
         }
 
         .currency {
-            color: var(--alien-primary);
+            color: var(--stilos-accent);
             font-weight: bold;
         }
+
+        .embroidery-corner {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--stilos-secondary);
+            border-radius: 50%;
+        }
+
+        .embroidery-corner.tl {
+            top: 10px;
+            left: 10px;
+        }
+
+        .embroidery-corner.tr {
+            top: 10px;
+            right: 10px;
+        }
+
+        .embroidery-corner.bl {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .embroidery-corner.br {
+            bottom: 10px;
+            right: 10px;
+        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- CONTENIDO PRINCIPAL -->
     <div class="main-content">
-        <h1>COMPROBANTE INTERGALÁCTICO</h1>
+        <!-- Bordados decorativos -->
+        <div class="embroidery-corner tl"></div>
+        <div class="embroidery-corner tr"></div>
+        <div class="embroidery-corner bl"></div>
+        <div class="embroidery-corner br"></div>
+        
+        <div class="store-info">
+            <div class="store-name">STILOS</div>
+            <div class="store-location">Huanta, Ayacucho</div>
+            <div>Especialistas en ropa y bordados</div>
+        </div>
+        
+        <h1>COMPROBANTE DE COMPRA</h1>
         
         <table>
             <thead>
                 <tr>
-                    <th>ARTEFACTO</th>
+                    <th>PRODUCTO</th>
                     <th>CANTIDAD</th>
-                    <th>VALOR UNITARIO</th>
+                    <th>PRECIO UNITARIO</th>
                     <th>SUB-TOTAL</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="product-name">Túnica de energía Zeta</td>
+                    <td class="product-name">Polo bordado tradicional</td>
                     <td>3</td>
-                    <td class="currency">CR 50.00</td>
-                    <td class="currency">CR 150.00</td>
+                    <td class="currency">S/ 50.00</td>
+                    <td class="currency">S/ 150.00</td>
                 </tr>
                 <tr>
-                    <td class="product-name">Armadura de plasma Quantum</td>
+                    <td class="product-name">Chalina de lana premium</td>
                     <td>4</td>
-                    <td class="currency">CR 100.00</td>
-                    <td class="currency">CR 400.00</td>
+                    <td class="currency">S/ 100.00</td>
+                    <td class="currency">S/ 400.00</td>
                 </tr>
                 <tr>
-                    <td class="product-name">Generador de escudo personalizado</td>
+                    <td class="product-name">Poncho artesanal ayacuchano</td>
                     <td>3</td>
-                    <td class="currency">CR 50.00</td>
-                    <td class="currency">CR 150.00</td>
+                    <td class="currency">S/ 50.00</td>
+                    <td class="currency">S/ 150.00</td>
                 </tr>
                 <tr>
-                    <td class="product-name">Visor holográfico de realidad X</td>
+                    <td class="product-name">Falda con bordados típicos</td>
                     <td>4</td>
-                    <td class="currency">CR 100.00</td>
-                    <td class="currency">CR 400.00</td>
+                    <td class="currency">S/ 100.00</td>
+                    <td class="currency">S/ 400.00</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="3">TOTAL EN CRÉDITOS GALÁCTICOS:</td>
-                    <td class="currency">CR 1,100.00</td>
+                    <td colspan="3">TOTAL EN SOLES:</td>
+                    <td class="currency">S/ 1,100.00</td>
                 </tr>
             </tfoot>
         </table>
 
         <a href="<?php echo BASE_URL ?>pagofactura" class="btn-print">
-            <i class="bi bi-stars"></i> TRANSMITIR COMPROBANTE
+            <i class="fas fa-receipt"></i> IMPRIMIR COMPROBANTE
         </a>
         
-        <div id="message">¡Transmisión exitosa a la Federación Galáctica!</div>
+        <div id="message">¡Comprobante generado exitosamente!</div>
     </div>
 
-    <!-- FOOTER ALIEN -->
-    <?php include('footer_alien.php'); ?>
+    <!-- FOOTER STILOS -->
+    <?php include('footer_stilos.php'); ?>
 
     <script>
         function printReceipt() {
-            // Efecto de sonido alienígena (opcional)
-            const audio = new Audio('<?php echo BASE_URL ?>sounds/alien_transmission.mp3');
-            audio.play();
-
             // Mostrar mensaje de confirmación
             const message = document.getElementById("message");
             message.style.display = "block";
             
             // Efecto visual
-            document.querySelector('.main-content').style.boxShadow = "0 0 50px rgba(39, 216, 161, 0.8)";
+            document.querySelector('.main-content').style.boxShadow = "0 0 30px rgba(139, 69, 19, 0.4)";
             
             // Ocultar después de 4 segundos
             setTimeout(() => {
                 message.style.display = "none";
-                document.querySelector('.main-content').style.boxShadow = "0 0 30px rgba(39, 216, 161, 0.3)";
+                document.querySelector('.main-content').style.boxShadow = "0 5px 25px rgba(139, 69, 19, 0.2)";
             }, 4000);
         }
 

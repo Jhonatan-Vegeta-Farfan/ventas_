@@ -3,64 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compras Intergalácticas - Tienda Alien</title>
+    <title>Compras - STILOS Huanta</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         /* Estilos específicos para la página de compras */
         .compras-section {
-            background-color: rgba(10, 0, 26, 0.8);
-            border-radius: 15px;
-            border: 1px solid #00ff9d;
-            box-shadow: 0 0 25px rgba(0, 255, 157, 0.2);
+            background-color: rgba(255, 253, 250, 0.95);
+            border-radius: 10px;
+            border: 1px solid #cd853f;
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.2);
             padding: 25px;
             margin-top: 30px;
             margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .compras-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #8b4513, #cd853f, #8b4513);
         }
 
         .compras-title {
-            color: #00e1ff;
-            text-shadow: 0 0 10px #00e1ff;
+            color: #8b4513;
             margin-bottom: 25px;
             font-weight: bold;
-            text-transform: uppercase;
             text-align: center;
             padding-bottom: 15px;
-            border-bottom: 1px solid #00ff9d;
+            border-bottom: 1px solid #cd853f;
+            font-family: 'Playfair Display', serif;
         }
 
         /* Estilos de tabla adaptados al tema */
         .table-compras {
-            background-color: rgba(20, 10, 40, 0.7);
-            color: #00ff9d;
-            border-color: #00ff9d;
-            font-weight: bold;
+            background-color: rgba(255, 253, 250, 0.9);
+            color: #5a3921;
+            border-color: #cd853f;
+            font-weight: 500;
             margin-bottom: 0;
+            font-family: 'Raleway', sans-serif;
         }
 
         .table-compras thead th {
-            border-color: #00ff9d;
-            color: #00e1ff;
+            border-color: #cd853f;
+            color: #8b4513;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 0.9rem;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(205, 133, 63, 0.1);
+            font-family: 'Playfair Display', serif;
         }
 
         .table-compras td {
-            border-color: #00ff9d;
+            border-color: #cd853f;
             vertical-align: middle;
             font-size: 0.85rem;
         }
 
         .table-compras tbody tr:nth-of-type(odd) {
-            background-color: rgba(0, 255, 157, 0.1);
+            background-color: rgba(205, 133, 63, 0.05);
         }
 
         .table-compras tbody tr:hover {
-            background-color: rgba(157, 0, 255, 0.2);
-            box-shadow: 0 0 15px rgba(157, 0, 255, 0.3);
+            background-color: rgba(139, 69, 19, 0.1);
+            box-shadow: 0 0 10px rgba(139, 69, 19, 0.1);
         }
 
         /* Botones personalizados */
@@ -73,32 +86,33 @@
             font-weight: bold;
             letter-spacing: 1px;
             text-transform: uppercase;
+            font-family: 'Raleway', sans-serif;
         }
 
         .btn-back {
-            background-color: #ff0033;
-            color: white;
-            box-shadow: 0 4px 15px rgba(255, 0, 51, 0.4);
+            background-color: #8b4513;
+            color: #f9f5f0;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
         }
 
         .btn-back:hover {
-            background-color: #ff3366;
+            background-color: #a0522d;
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 51, 102, 0.5);
-            color: white;
+            box-shadow: 0 6px 20px rgba(160, 82, 45, 0.4);
+            color: #f9f5f0;
         }
 
         .btn-new {
-            background-color: #9d00ff;
-            color: white;
-            box-shadow: 0 4px 15px rgba(157, 0, 255, 0.4);
+            background-color: #cd853f;
+            color: #f9f5f0;
+            box-shadow: 0 4px 15px rgba(205, 133, 63, 0.3);
         }
 
         .btn-new:hover {
-            background-color: #00e1ff;
+            background-color: #d2691e;
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 225, 255, 0.5);
-            color: #000;
+            box-shadow: 0 6px 20px rgba(210, 105, 30, 0.4);
+            color: #f9f5f0;
         }
 
         /* Botones de acción */
@@ -111,23 +125,62 @@
         }
 
         .btn-edit {
-            background-color: #00e1ff;
-            color: #000;
+            background-color: #cd853f;
+            color: #f9f5f0;
         }
 
         .btn-edit:hover {
-            background-color: #00b7d4;
-            box-shadow: 0 0 10px #00e1ff;
+            background-color: #a0522d;
+            box-shadow: 0 0 8px rgba(205, 133, 63, 0.5);
         }
 
         .btn-delete {
-            background-color: #ff0033;
-            color: #000;
+            background-color: #8b4513;
+            color: #f9f5f0;
         }
 
         .btn-delete:hover {
-            background-color: #ff3366;
-            box-shadow: 0 0 10px #ff0033;
+            background-color: #a52a2a;
+            box-shadow: 0 0 8px rgba(139, 69, 19, 0.5);
+        }
+
+        /* Logo y elementos decorativos */
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-stilos {
+            max-height: 80px;
+            filter: drop-shadow(0 2px 4px rgba(139, 69, 19, 0.3));
+        }
+
+        .embroidery-corner {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #cd853f;
+            border-radius: 50%;
+        }
+
+        .embroidery-corner-tl {
+            top: 10px;
+            left: 10px;
+        }
+
+        .embroidery-corner-tr {
+            top: 10px;
+            right: 10px;
+        }
+
+        .embroidery-corner-bl {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .embroidery-corner-br {
+            bottom: 10px;
+            right: 10px;
         }
 
         /* Responsive */
@@ -160,7 +213,17 @@
 
     <main class="container py-4">
         <section class="compras-section">
-            <h1 class="compras-title">Registro de Compras Intergalácticas</h1>
+            <!-- Elementos decorativos de bordado -->
+            <div class="embroidery-corner embroidery-corner-tl"></div>
+            <div class="embroidery-corner embroidery-corner-tr"></div>
+            <div class="embroidery-corner embroidery-corner-bl"></div>
+            <div class="embroidery-corner embroidery-corner-br"></div>
+            
+            <div class="logo-container">
+                <img src="https://i.ibb.co/0Q8L8wT/stilos-logo.png" alt="STILOS - Huanta, Ayacucho" class="logo-stilos">
+            </div>
+            
+            <h1 class="compras-title">Registro de Compras - STILOS</h1>
             
             <div class="d-flex justify-content-between mb-4 flex-wrap">
                 <button class="btn-compras btn-back me-2 mb-2" onclick="window.history.back();">
@@ -180,7 +243,7 @@
                             <th>PRODUCTO</th>
                             <th class="text-center">CANTIDAD</th>
                             <th class="text-center">PRECIO</th>
-                            <th>TRABAJADOR</th>
+                            <th>PROVEEDOR</th>
                             <th class="text-center">ACCIONES</th>
                         </tr>
                     </thead>
@@ -188,10 +251,10 @@
                         <!-- Ejemplo de filas (se generarán dinámicamente) -->
                         <tr>
                             <td>1</td>
-                            <td class="text-start">Propulsor Cuántico X-45</td>
-                            <td>3</td>
+                            <td class="text-start">Tela de Algodón Premium</td>
+                            <td>50</td>
                             <td>1,250.00</td>
-                            <td class="text-start">Zorgon-5</td>
+                            <td class="text-start">Textiles Andinos</td>
                             <td>
                                 <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
                                 <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
@@ -199,10 +262,21 @@
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td class="text-start">Cristales de Energía</td>
-                            <td>12</td>
+                            <td class="text-start">Hilos de Bordar</td>
+                            <td>120</td>
                             <td>750.50</td>
-                            <td class="text-start">Xylophonia</td>
+                            <td class="text-start">Artisan Threads</td>
+                            <td>
+                                <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="text-start">Botones Decorativos</td>
+                            <td>200</td>
+                            <td>320.75</td>
+                            <td class="text-start">Accesorios Creativos</td>
                             <td>
                                 <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
                                 <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
@@ -222,7 +296,7 @@
         // Ejemplo de carga dinámica de datos
         document.addEventListener('DOMContentLoaded', function() {
             // Esta función se ejecutará cuando el DOM esté completamente cargado
-            console.log('Página de compras cargada');
+            console.log('Página de compras STILOS cargada');
             
             // Aquí iría tu código para cargar los datos de compras
             // fetchCompras();
@@ -243,7 +317,7 @@
                                 <td class="text-start">${item.producto}</td>
                                 <td>${item.cantidad}</td>
                                 <td>${item.precio.toFixed(2)}</td>
-                                <td class="text-start">${item.trabajador}</td>
+                                <td class="text-start">${item.proveedor}</td>
                                 <td>
                                     <button class="btn-action btn-edit" onclick="editCompra(${item.id})">
                                         <i class="fas fa-edit"></i>
@@ -275,7 +349,7 @@
 
         function deleteCompra(id) {
             // Confirmar antes de eliminar
-            if(confirm('¿Está seguro de eliminar este registro de compra intergaláctica?')) {
+            if(confirm('¿Está seguro de eliminar este registro de compra?')) {
                 console.log('Eliminar compra:', id);
                 /*
                 fetch(`<?php echo BASE_URL ?>compras/eliminar/${id}`, {

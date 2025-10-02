@@ -3,37 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Testimonios de clientes intergalácticos sobre Área 51 Clothing">
-    <title>Testimonios Intergalácticos | Área 51 Clothing</title>
+    <meta name="description" content="Testimonios de clientes satisfechos de STILOS Huanta">
+    <title>Testimonios de Clientes | STILOS Huanta</title>
     <!-- Preconexión para recursos externos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <!-- Precarga de fuentes y estilos -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500&display=swap" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
     <!-- Carga de estilos -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --alien-green: #00ff9d;
-            --alien-purple: #9d00ff;
-            --ufo-blue: #00e1ff;
-            --dark-space: #0a001a;
-            --energy-pink: #ff00aa;
+            --main-brown: #8b4513;
+            --light-brown: #cd853f;
+            --accent-gold: #d4af37;
+            --cream-bg: #f9f5f0;
+            --dark-text: #5a3921;
         }
         
         body {
-            font-family: 'Orbitron', sans-serif;
-            background-color: var(--dark-space);
-            color: #fff;
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--cream-bg);
+            color: var(--dark-text);
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
 
         /* Contenedor principal ajustado para header/footer */
-        .alien-comments-section {
+        .stilos-comments-section {
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
@@ -41,7 +41,7 @@
             z-index: 1;
         }
 
-        .alien-comments-section::before {
+        .stilos-comments-section::before {
             content: '';
             position: absolute;
             top: 0;
@@ -49,91 +49,94 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 70% 30%, rgba(157, 0, 255, 0.1) 0%, transparent 25%),
-                radial-gradient(circle at 30% 70%, rgba(0, 255, 157, 0.1) 0%, transparent 25%);
+                radial-gradient(circle at 70% 30%, rgba(205, 133, 63, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 30% 70%, rgba(139, 69, 19, 0.1) 0%, transparent 25%);
             z-index: -1;
             opacity: 0.5;
         }
 
-        .alien-section-title {
-            color: var(--alien-green);
+        .stilos-section-title {
+            color: var(--main-brown);
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 40px;
-            text-shadow: 0 0 10px var(--alien-green);
             position: relative;
+            font-family: 'Playfair Display', serif;
         }
 
-        .alien-section-title::before,
-        .alien-section-title::after {
-            content: '✧';
-            color: var(--ufo-blue);
+        .stilos-section-title::before,
+        .stilos-section-title::after {
+            content: '❖';
+            color: var(--light-brown);
             margin: 0 15px;
+            font-size: 1.8rem;
         }
 
-        .alien-comment {
-            background: rgba(20, 10, 40, 0.8);
-            border: 2px solid var(--alien-green);
+        .stilos-comment {
+            background: rgba(255, 253, 250, 0.9);
+            border: 2px solid var(--light-brown);
             border-radius: 12px;
             padding: 25px;
             margin-bottom: 30px;
-            box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.1);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .alien-comment:hover {
+        .stilos-comment:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 30px var(--alien-green);
-            border-color: var(--ufo-blue);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.2);
+            border-color: var(--main-brown);
         }
 
-        .alien-comment::before {
+        .stilos-comment::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 5px;
             height: 100%;
-            background: linear-gradient(to bottom, var(--alien-green), var(--ufo-blue));
+            background: linear-gradient(to bottom, var(--main-brown), var(--light-brown));
         }
 
-        .alien-rating {
-            color: var(--ufo-blue);
+        .stilos-rating {
+            color: var(--accent-gold);
             margin-bottom: 15px;
             font-size: 1.5rem;
             letter-spacing: 3px;
         }
 
-        .alien-comment-text {
-            color: #ccc;
+        .stilos-comment-text {
+            color: var(--dark-text);
             line-height: 1.6;
             margin-bottom: 15px;
             font-size: 1.1rem;
         }
 
-        .alien-comment-author {
-            color: var(--alien-green);
+        .stilos-comment-author {
+            color: var(--main-brown);
             font-style: italic;
             text-align: right;
             font-size: 0.9rem;
+            font-weight: 500;
         }
 
-        .alien-additional-info {
-            color: #aaa;
+        .stilos-additional-info {
+            color: var(--dark-text);
             margin: 40px 0;
             padding: 20px;
-            border-left: 3px solid var(--alien-purple);
-            background: rgba(10, 0, 26, 0.5);
+            border-left: 3px solid var(--light-brown);
+            background: rgba(255, 253, 250, 0.7);
             font-size: 1rem;
             line-height: 1.6;
+            border-radius: 0 8px 8px 0;
         }
 
-        .alien-back-btn {
+        .stilos-back-btn {
             display: inline-block;
-            background: linear-gradient(45deg, var(--alien-green), var(--ufo-blue));
-            color: #000;
+            background: linear-gradient(45deg, var(--main-brown), var(--light-brown));
+            color: #fff;
             border: none;
             padding: 12px 30px;
             border-radius: 8px;
@@ -147,31 +150,31 @@
             width: 100%;
             max-width: 300px;
             cursor: pointer;
+            font-family: 'Raleway', sans-serif;
         }
 
-        .alien-back-btn:hover, .alien-back-btn:focus {
-            background: linear-gradient(45deg, var(--ufo-blue), var(--alien-purple));
+        .stilos-back-btn:hover, .stilos-back-btn:focus {
+            background: linear-gradient(45deg, var(--light-brown), var(--accent-gold));
             color: #fff;
-            box-shadow: 0 0 25px var(--alien-green);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
             transform: translateY(-3px);
             outline: none;
         }
 
-        /* Efecto scanner */
-        .alien-scanner {
+        /* Efecto de hilo cosiendo */
+        .stilos-sewing-thread {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--alien-green), transparent);
-            box-shadow: 0 0 10px var(--alien-green);
-            animation: scan 4s linear infinite;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--main-brown), transparent);
+            animation: sew 4s linear infinite;
             z-index: 1000;
             pointer-events: none;
         }
 
-        @keyframes scan {
+        @keyframes sew {
             0% { top: 0; opacity: 0.7; }
             50% { opacity: 1; }
             100% { top: 100vh; opacity: 0.7; }
@@ -179,98 +182,119 @@
 
         /* Mejoras de accesibilidad para motion */
         @media (prefers-reduced-motion: reduce) {
-            .alien-scanner {
+            .stilos-sewing-thread {
                 animation: none;
                 opacity: 0.5;
             }
             
-            .alien-comment:hover {
+            .stilos-comment:hover {
                 transform: none;
             }
             
-            .alien-back-btn:hover, .alien-back-btn:focus {
+            .stilos-back-btn:hover, .stilos-back-btn:focus {
                 transform: none;
             }
         }
 
         /* Focus styles para accesibilidad */
-        .alien-back-btn:focus {
-            outline: 2px solid var(--energy-pink);
+        .stilos-back-btn:focus {
+            outline: 2px solid var(--accent-gold);
             outline-offset: 2px;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .alien-comments-section {
+            .stilos-comments-section {
                 padding: 30px 15px;
             }
             
-            .alien-section-title {
+            .stilos-section-title {
                 font-size: 2rem;
             }
             
-            .alien-comment {
+            .stilos-comment {
                 padding: 20px;
             }
         }
 
-        /* Mejora de contraste para accesibilidad */
-        .alien-comment-text {
-            color: #e0e0e0;
+        /* Estilos para elementos de bordado */
+        .embroidery-icon {
+            color: var(--main-brown);
+            margin: 0 5px;
         }
 
-        .alien-additional-info {
-            color: #bbb;
+        .store-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .store-logo h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--main-brown);
+            font-size: 2.8rem;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.2);
+        }
+
+        .store-location {
+            color: var(--light-brown);
+            font-style: italic;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
-    <!-- Efecto scanner -->
-    <div class="alien-scanner" aria-hidden="true"></div>
+    <!-- Efecto de hilo cosiendo -->
+    <div class="stilos-sewing-thread" aria-hidden="true"></div>
 
-    <main class="alien-comments-section">
-        <h1 class="alien-section-title">TESTIMONIOS INTERGALÁCTICOS</h1>
+    <main class="stilos-comments-section">
+        <div class="store-logo">
+            <h1><i class="fas fa-tshirt embroidery-icon"></i> STILOS <i class="fas fa-tshirt embroidery-icon"></i></h1>
+            <p class="store-location">Huanta, Ayacucho</p>
+        </div>
 
-        <article class="alien-comment" aria-labelledby="comment1-title">
-            <h2 id="comment1-title" class="visually-hidden">Testimonio de Zyx-427</h2>
-            <div class="alien-rating" aria-label="Calificación: 5 estrellas">
+        <h1 class="stilos-section-title">TESTIMONIOS DE CLIENTES</h1>
+
+        <article class="stilos-comment" aria-labelledby="comment1-title">
+            <h2 id="comment1-title" class="visually-hidden">Testimonio de María González</h2>
+            <div class="stilos-rating" aria-label="Calificación: 5 estrellas">
                 ★ ★ ★ ★ ★
             </div>
-            <blockquote class="alien-comment-text">
-                "¡Como visitante frecuente de la Tierra, debo decir que Área 51 Clothing tiene los mejores diseños de moda galáctica! Sus prendas con tecnología de camuflaje interestelar son increíbles. La calidad es superior a la de cualquier otra tienda en 12 sistemas solares."
+            <blockquote class="stilos-comment-text">
+                "¡Como cliente frecuente de STILOS, debo decir que tienen los mejores diseños de ropa en Huanta! Sus prendas con bordados artesanales son increíbles. La calidad es superior a la de cualquier otra tienda en Ayacucho. Siempre encuentro lo que busco y la atención es excelente."
             </blockquote>
-            <p class="alien-comment-author">- Zyx-427 de Andrómeda</p>
+            <p class="stilos-comment-author">- María González, cliente desde 2019</p>
         </article>
 
-        <article class="alien-comment" aria-labelledby="comment2-title">
-            <h2 id="comment2-title" class="visually-hidden">Testimonio de Glorp</h2>
-            <div class="alien-rating" aria-label="Calificación: 4 estrellas">
+        <article class="stilos-comment" aria-labelledby="comment2-title">
+            <h2 id="comment2-title" class="visually-hidden">Testimonio de Carlos Mendoza</h2>
+            <div class="stilos-rating" aria-label="Calificación: 4 estrellas">
                 ★ ★ ★ ★ ☆
             </div>
-            <blockquote class="alien-comment-text">
-                "Mis siete tentáculos adoran estas prendas, aunque algunas tallas para especies multi-limbadas podrían mejorar. El servicio de teletransporte cuántico para entregas es más rápido que la velocidad de la luz. ¡Casi!"
+            <blockquote class="stilos-comment-text">
+                "La ropa de STILOS es muy cómoda y resistente, perfecta para el clima de Huanta. Los precios son justos y la variedad de tallas es buena. Me encantan los diseños únicos que no encuentro en otras tiendas. ¡Sigan así!"
             </blockquote>
-            <p class="alien-comment-author">- Glorp de Sirio B</p>
+            <p class="stilos-comment-author">- Carlos Mendoza, agricultor</p>
         </article>
 
-        <article class="alien-comment" aria-labelledby="comment3-title">
-            <h2 id="comment3-title" class="visually-hidden">Testimonio de X-9</h2>
-            <div class="alien-rating" aria-label="Calificación: 3 estrellas">
-                ★ ★ ★ ☆ ☆
+        <article class="stilos-comment" aria-labelledby="comment3-title">
+            <h2 id="comment3-title" class="visually-hidden">Testimonio de Laura Quispe</h2>
+            <div class="stilos-rating" aria-label="Calificación: 5 estrellas">
+                ★ ★ ★ ★ ★
             </div>
-            <blockquote class="alien-comment-text">
-                "Buenos diseños anti-radiación cósmica, pero necesitan más opciones para cuerpos no humanoides. El material es resistente incluso en atmósferas de metano. El proceso de devolución interestelar fue... complicado."
+            <blockquote class="stilos-comment-text">
+                "Compré un conjunto para la fiesta de mi hija y quedé encantada con la calidad de los bordados. El servicio al cliente fue excepcional, me ayudaron a encontrar exactamente lo que necesitaba. Definitivamente mi tienda de ropa favorita en Huanta."
             </blockquote>
-            <p class="alien-comment-author">- X-9 del Cinturón de Orion</p>
+            <p class="stilos-comment-author">- Laura Quispe, madre y ama de casa</p>
         </article>
 
-        <aside class="alien-additional-info" aria-label="Información adicional">
-            Los clientes de 47 sistemas estelares coinciden: Área 51 Clothing ofrece la mejor moda extraterrestre de la Vía Láctea. Nuestras prendas con tecnología de adaptación morfológica satisfacen el 93.7% de las formas de vida conocidas. Las mejoras en nuestro servicio de transporte interdimensional están programadas para el próximo ciclo lunar.
+        <aside class="stilos-additional-info" aria-label="Información adicional">
+            Los clientes de STILOS coinciden: ofrecemos la mejor moda con estilo huantino en Ayacucho. Nuestras prendas con bordados artesanales y materiales de calidad satisfacen a toda la familia. Continuamente incorporamos nuevos diseños manteniendo nuestras tradiciones locales.
         </aside>
 
         <div style="text-align: center;">
-            <a href="<?php echo BASE_URL ?>producto" class="alien-back-btn" aria-label="Volver al portal de productos">
-                <i class="fas fa-arrow-left" aria-hidden="true"></i> VOLVER AL PORTAL
+            <a href="<?php echo BASE_URL ?>producto" class="stilos-back-btn" aria-label="Volver a la tienda">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i> VOLVER A LA TIENDA
             </a>
         </div>
     </main>
@@ -295,7 +319,7 @@
 
         // Polyfill para :focus-visible
         if (!CSS.supports('selector(:focus-visible)')) {
-            document.querySelectorAll('.alien-back-btn').forEach(button => {
+            document.querySelectorAll('.stilos-back-btn').forEach(button => {
                 button.addEventListener('focus', function() {
                     this.classList.add('focus-visible');
                 });

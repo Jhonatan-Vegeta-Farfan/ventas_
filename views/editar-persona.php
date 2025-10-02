@@ -2,75 +2,75 @@
 <div style="height: 100px;"></div>
 
 <div class="container">
-    <button class="btn btn-alien-back" onclick="window.history.back();">
-        <i class="fas fa-arrow-left me-2"></i> Retroceder
+    <button class="btn btn-stilos-back" onclick="window.history.back();">
+        <i class="fas fa-arrow-left me-2"></i> Volver
     </button>
 </div>
 
 <div class="container mt-4" style="margin-bottom: 80px;">
-    <h1 class="text-center mb-4 title-alien">Editar Ciudadano Intergaláctico</h1>
+    <h1 class="text-center mb-4 title-stilos">Editar Cliente STILOS</h1>
 
-    <div class="alien-form-container">
-        <form action="" class="form-alien" id="formActualizarPer">
+    <div class="stilos-form-container">
+        <form action="" class="form-stilos" id="formActualizarPer">
             <input type="hidden" name="id_persona" id="id_persona">
             
             <div class="mb-4">
-                <label for="nro_identidad" class="alien-label">Código de Identificación:</label>
-                <input type="text" id="nro_identidad" name="nro_identidad" class="alien-input" disabled>
+                <label for="nro_identidad" class="stilos-label">DNI:</label>
+                <input type="text" id="nro_identidad" name="nro_identidad" class="stilos-input" disabled>
             </div>
             
             <div class="mb-4">
-                <label for="razon_social" class="alien-label">Nombre Intergaláctico:</label>
-                <input type="text" id="razon_social" name="razon_social" class="alien-input" required>
+                <label for="razon_social" class="stilos-label">Nombre Completo:</label>
+                <input type="text" id="razon_social" name="razon_social" class="stilos-input" required>
             </div>
             
             <div class="mb-4">
-                <label for="telefono" class="alien-label">Comunicador:</label>
-                <input type="text" id="telefono" name="telefono" class="alien-input" required>
+                <label for="telefono" class="stilos-label">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono" class="stilos-input" required>
             </div>
             
             <div class="mb-4">
-                <label for="correo" class="alien-label">Señal de Contacto:</label>
-                <input type="text" id="correo" name="correo" class="alien-input" required>
+                <label for="correo" class="stilos-label">Correo Electrónico:</label>
+                <input type="text" id="correo" name="correo" class="stilos-input" required>
             </div>
             
             <div class="mb-4">
-                <label for="departamento" class="alien-label">Sector Galáctico:</label>
-                <input type="text" id="departamento" name="departamento" class="alien-input" required>
+                <label for="departamento" class="stilos-label">Departamento:</label>
+                <input type="text" id="departamento" name="departamento" class="stilos-input" required>
             </div>
             
             <div class="mb-4">
-                <label for="provincia" class="alien-label">Sistema Estelar:</label>
-                <input type="text" id="provincia" name="provincia" class="alien-input" required>
+                <label for="provincia" class="stilos-label">Provincia:</label>
+                <input type="text" id="provincia" name="provincia" class="stilos-input" required>
             </div>
             
             <div class="mb-4">
-                <label for="distrito" class="alien-label">Planeta:</label>
-                <input type="text" id="distrito" name="distrito" class="alien-input" required>
+                <label for="distrito" class="stilos-label">Distrito:</label>
+                <input type="text" id="distrito" name="distrito" class="stilos-input" required>
             </div>
             
             <div class="mb-4">
-                <label for="cod_postal" class="alien-label">Código Universal:</label>
-                <input type="number" id="cod_postal" name="cod_postal" class="alien-input" required>
+                <label for="cod_postal" class="stilos-label">Código Postal:</label>
+                <input type="number" id="cod_postal" name="cod_postal" class="stilos-input" required>
             </div>
             
             <div class="mb-4">
-                <label for="direccion" class="alien-label">Coordenadas Espaciales:</label>
-                <input type="text" id="direccion" name="direccion" class="alien-input" required>
+                <label for="direccion" class="stilos-label">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" class="stilos-input" required>
             </div>
             
             <div class="mb-4">
-                <label for="rol" class="alien-label">Rango:</label>
-                <select id="rol" name="rol" class="alien-input" required>
-                    <option value="" disabled selected>Seleccione un rango</option>
-                    <option value="proveedor">Proveedor de Recursos</option>
-                    <option value="trabajador">Tripulante</option>
-                    <option value="trabajador">Comandante</option>
+                <label for="rol" class="stilos-label">Tipo de Cliente:</label>
+                <select id="rol" name="rol" class="stilos-input" required>
+                    <option value="" disabled selected>Seleccione un tipo</option>
+                    <option value="proveedor">Proveedor</option>
+                    <option value="trabajador">Cliente Minorista</option>
+                    <option value="trabajador">Cliente Mayorista</option>
                 </select>
             </div>
             
-            <button type="button" class="btn-alien" onclick="actualizarPersona();">
-                <i class="fas fa-sync-alt me-2"></i> Actualizar Datos
+            <button type="button" class="btn-stilos" onclick="actualizarPersona();">
+                <i class="fas fa-sync-alt me-2"></i> Actualizar Información
             </button>
         </form>
     </div>
@@ -80,94 +80,126 @@
 <div style="height: 80px;"></div>
 
 <style>
-    /* Estilos alienígenas consistentes */
-    .btn-alien-back {
-        background-color: #00ff9d;
-        color: #0a0a1a;
+    /* Estilos STILOS consistentes */
+    .btn-stilos-back {
+        background-color: #8b4513;
+        color: #f9f5f0;
         border: none;
         padding: 12px 25px;
         border-radius: 6px;
         font-weight: bold;
         transition: all 0.3s;
-        box-shadow: 0 2px 5px rgba(0, 255, 157, 0.3);
+        box-shadow: 0 2px 5px rgba(139, 69, 19, 0.3);
         margin: 20px 0;
+        font-family: 'Raleway', sans-serif;
     }
     
-    .btn-alien-back:hover {
-        background-color: #00cc7d;
+    .btn-stilos-back:hover {
+        background-color: #a0522d;
         transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 255, 157, 0.4);
+        box-shadow: 0 4px 8px rgba(139, 69, 19, 0.4);
     }
     
-    .title-alien {
-        color: #00ff9d;
-        text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+    .title-stilos {
+        color: #8b4513;
+        text-shadow: 0 2px 4px rgba(139, 69, 19, 0.2);
         font-weight: bold;
         letter-spacing: 1px;
         margin-bottom: 2rem !important;
+        font-family: 'Playfair Display', serif;
     }
     
-    .alien-form-container {
-        background-color: #12122a;
+    .stilos-form-container {
+        background-color: #f9f5f0;
         border-radius: 12px;
         padding: 2.5rem;
-        border: 1px solid #00ff9d;
-        box-shadow: 0 0 25px rgba(0, 255, 157, 0.25);
+        border: 1px solid #cd853f;
+        box-shadow: 0 5px 15px rgba(139, 69, 19, 0.15);
         max-width: 800px;
         margin: 0 auto;
+        position: relative;
+        overflow: hidden;
     }
     
-    .alien-label {
-        color: #00ff9d;
-        font-weight: bold;
+    .stilos-form-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(to right, #8b4513, #cd853f, #8b4513);
+    }
+    
+    .stilos-label {
+        color: #5a3921;
+        font-weight: 600;
         margin-bottom: 0.8rem;
         display: block;
         font-size: 1.1rem;
+        font-family: 'Raleway', sans-serif;
     }
     
-    .alien-input {
-        background-color: #1a1a3a;
-        border: 1px solid #2a2a5a;
-        color: white;
+    .stilos-input {
+        background-color: rgba(255, 253, 250, 0.9);
+        border: 1px solid #cd853f;
+        color: #5a3921;
         padding: 12px 18px;
         border-radius: 6px;
         width: 100%;
         transition: all 0.3s;
         margin-bottom: 1.5rem;
+        font-family: 'Raleway', sans-serif;
     }
     
-    .alien-input:focus {
-        border-color: #00ff9d;
-        box-shadow: 0 0 0 0.25rem rgba(0, 255, 157, 0.25);
+    .stilos-input:focus {
+        border-color: #8b4513;
+        box-shadow: 0 0 0 0.25rem rgba(139, 69, 19, 0.15);
         outline: none;
+        background-color: #fff;
     }
     
-    .btn-alien {
-        background-color: #00ff9d;
-        color: #0a0a1a;
+    .btn-stilos {
+        background-color: #8b4513;
+        color: #f9f5f0;
         border: none;
         padding: 12px 30px;
         border-radius: 6px;
         font-weight: bold;
         transition: all 0.3s;
-        box-shadow: 0 2px 5px rgba(0, 255, 157, 0.3);
+        box-shadow: 0 2px 5px rgba(139, 69, 19, 0.3);
         font-size: 1.1rem;
         margin-top: 10px;
         width: 100%;
+        font-family: 'Raleway', sans-serif;
     }
     
-    .btn-alien:hover {
-        background-color: #00cc7d;
+    .btn-stilos:hover {
+        background-color: #a0522d;
         transform: translateY(-2px);
-        box-shadow: 0 4px 10px rgba(0, 255, 157, 0.4);
+        box-shadow: 0 4px 10px rgba(139, 69, 19, 0.4);
     }
     
-    select.alien-input {
+    select.stilos-input {
         appearance: none;
-        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300ff9d'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235a3921'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
         background-repeat: no-repeat;
         background-position: right 15px center;
         background-size: 20px;
+        background-color: #fff;
+    }
+    
+    /* Bordado decorativo */
+    .stilos-form-container::after {
+        content: "";
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #cd853f;
+        border-radius: 50%;
+        opacity: 0.6;
     }
 </style>
 

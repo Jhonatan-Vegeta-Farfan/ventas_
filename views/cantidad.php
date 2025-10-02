@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polo Intergaláctico - Tienda Alien</title>
+    <title>Polo Tradicional - STILOS Huanta</title>
     <!-- Tus enlaces existentes a Bootstrap, Font Awesome, etc. -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- Estilos existentes del header/footer -->
     <link rel="stylesheet" href="<?php echo BASE_URL ?>assets/css/header.css">
     <link rel="stylesheet" href="<?php echo BASE_URL ?>assets/css/footer.css">
     <style>
       :root {
-        --alien-green: #00ff9d;
-        --alien-purple: #9d00ff;
-        --ufo-blue: #00e1ff;
-        --dark-space: #0a001a;
-        --energy-pink: #ff00aa;
+        --primary-brown: #8b4513;
+        --accent-orange: #cd853f;
+        --light-beige: #f9f5f0;
+        --dark-brown: #5a3921;
+        --textile-gold: #d4af37;
       }
 
       body {
-        background-color: var(--dark-space);
+        background-color: var(--light-beige);
         background-image: 
-          radial-gradient(circle at 70% 30%, rgba(157, 0, 255, 0.15) 0%, transparent 25%),
-          radial-gradient(circle at 30% 70%, rgba(0, 255, 157, 0.15) 0%, transparent 25%),
-          url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0.5" fill="%2300ff9d" opacity="0.8"/></svg>');
-        color: var(--alien-green);
-        font-family: 'Orbitron', sans-serif;
+          radial-gradient(circle at 70% 30%, rgba(205, 133, 63, 0.1) 0%, transparent 25%),
+          radial-gradient(circle at 30% 70%, rgba(139, 69, 19, 0.1) 0%, transparent 25%),
+          url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,50 Q50,30 80,50 T20,50" fill="none" stroke="%23cd853f" stroke-width="0.3" opacity="0.2"/></svg>');
+        color: var(--dark-brown);
+        font-family: 'Raleway', sans-serif;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -40,44 +40,42 @@
       }
 
       .btn-primary {
-        background-color: var(--alien-purple);
-        color: #000;
-        border-color: var(--alien-purple);
-        font-weight: bold;
-        letter-spacing: 1px;
+        background-color: var(--primary-brown);
+        color: var(--light-beige);
+        border-color: var(--primary-brown);
+        font-weight: 500;
+        letter-spacing: 0.5px;
         transition: all 0.3s;
-        text-transform: uppercase;
       }
 
       .btn-primary:hover {
-        background-color: var(--ufo-blue);
-        border-color: var(--ufo-blue);
-        box-shadow: 0 0 15px var(--ufo-blue);
+        background-color: var(--accent-orange);
+        border-color: var(--accent-orange);
+        box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
         transform: translateY(-2px);
       }
 
       .btn-outline-secondary {
-        color: var(--alien-green);
-        border-color: var(--alien-green);
-        font-weight: bold;
-        letter-spacing: 1px;
+        color: var(--primary-brown);
+        border-color: var(--primary-brown);
+        font-weight: 500;
+        letter-spacing: 0.5px;
         transition: all 0.3s;
-        text-transform: uppercase;
       }
 
       .btn-outline-secondary:hover {
-        background-color: var(--alien-green);
-        color: #000;
-        box-shadow: 0 0 15px var(--alien-green);
+        background-color: var(--primary-brown);
+        color: var(--light-beige);
+        box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
         transform: translateY(-2px);
       }
 
       .product img {
         width: 100%;
         height: auto;
-        border: 2px solid var(--alien-green);
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+        border: 2px solid var(--accent-orange);
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(139, 69, 19, 0.2);
         transition: transform 0.3s;
       }
 
@@ -86,113 +84,125 @@
       }
 
       h1 {
-        color: var(--ufo-blue);
-        text-shadow: 0 0 10px var(--ufo-blue);
+        color: var(--primary-brown);
         margin-bottom: 20px;
-        font-weight: bold;
-        text-transform: uppercase;
+        font-weight: 600;
+        font-family: 'Playfair Display', serif;
       }
 
       .h4 {
-        color: var(--alien-green);
+        color: var(--dark-brown);
         margin-bottom: 15px;
+        font-family: 'Playfair Display', serif;
       }
 
       .form-group label {
-        color: var(--ufo-blue);
+        color: var(--primary-brown);
         margin-bottom: 8px;
         display: block;
+        font-weight: 500;
       }
 
       .form-control {
-        background-color: rgba(20, 10, 40, 0.7);
-        border: 1px solid var(--alien-green);
-        color: var(--alien-green);
-        border-radius: 8px;
+        background-color: rgba(255, 253, 250, 0.9);
+        border: 1px solid var(--accent-orange);
+        color: var(--dark-brown);
+        border-radius: 5px;
       }
 
       .form-control:focus {
-        background-color: rgba(20, 10, 40, 0.9);
-        border-color: var(--ufo-blue);
-        box-shadow: 0 0 10px var(--ufo-blue);
-        color: var(--alien-green);
+        background-color: rgba(255, 253, 250, 1);
+        border-color: var(--primary-brown);
+        box-shadow: 0 0 5px rgba(139, 69, 19, 0.3);
+        color: var(--dark-brown);
       }
 
       .input-group {
-        box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
-        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(205, 133, 63, 0.2);
+        border-radius: 5px;
         overflow: hidden;
       }
 
       .input-group button {
-        background-color: rgba(0, 40, 30, 0.7);
-        border: 1px solid var(--alien-green);
-        color: var(--alien-green);
-        font-weight: bold;
+        background-color: rgba(255, 253, 250, 0.9);
+        border: 1px solid var(--accent-orange);
+        color: var(--primary-brown);
+        font-weight: 500;
       }
 
       .input-group button:hover {
-        background-color: var(--alien-green);
-        color: #000;
+        background-color: var(--accent-orange);
+        color: var(--light-beige);
       }
 
-      /* Efectos especiales */
-      .alien-scanner {
+      /* Efectos especiales adaptados */
+      .thread-line {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        height: 3px;
-        background: linear-gradient(90deg, transparent, var(--alien-green), transparent);
-        box-shadow: 0 0 10px var(--alien-green);
-        animation: scan 4s linear infinite;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--accent-orange), transparent);
+        animation: weave 6s linear infinite;
         z-index: 1000;
       }
 
-      @keyframes scan {
+      @keyframes weave {
         0% { top: 0; opacity: 0.7; }
         50% { opacity: 1; }
         100% { top: 100vh; opacity: 0.7; }
       }
 
-      .ufo-fleet {
+      .fabric-pattern {
         position: fixed;
         width: 120px;
-        height: 60px;
-        background: radial-gradient(ellipse at center, var(--ufo-blue) 0%, transparent 70%);
-        border-radius: 50%;
-        filter: drop-shadow(0 0 15px var(--ufo-blue));
+        height: 120px;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M0,0 L20,20 M20,0 L0,20" stroke="%23cd853f" stroke-width="0.3" opacity="0.2"/></svg>');
         z-index: -1;
-        opacity: 0.7;
+        opacity: 0.5;
         pointer-events: none;
-        animation: fly 25s linear infinite;
+        animation: float 25s linear infinite;
       }
 
-      @keyframes fly {
+      @keyframes float {
         0% { left: -10%; }
         100% { left: 110%; }
+      }
+      
+      .store-name {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        color: var(--primary-brown);
+        text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.2);
+      }
+      
+      .location {
+        font-style: italic;
+        color: var(--accent-orange);
+        font-size: 0.9rem;
       }
     </style>
 </head>
 <body>
     <?php include 'header.php'; ?>
 
-    <!-- Efectos especiales -->
-    <div class="alien-scanner"></div>
-    <div class="ufo-fleet" style="top: 15%; animation-duration: 25s;"></div>
-    <div class="ufo-fleet" style="top: 65%; animation-duration: 30s; animation-delay: 5s;"></div>
+    <!-- Efectos especiales adaptados -->
+    <div class="thread-line"></div>
+    <div class="fabric-pattern" style="top: 15%; animation-duration: 25s;"></div>
+    <div class="fabric-pattern" style="top: 65%; animation-duration: 30s; animation-delay: 5s;"></div>
 
     <div class="main-content">
         <div class="container my-5">
           <div class="row">
             <div class="col-md-6">
               <div class="product">
-                <img src="https://richstore.com.pe/wp-content/uploads/2022/06/Dragon-Boll-6.jpg" alt="Polo Alienígena" class="img-fluid">
+                <img src="https://ejemplo.com/images/polo-tradicional-stilos.jpg" alt="Polo Tradicional STILOS" class="img-fluid">
               </div>
             </div>
             <div class="col-md-6">
-              <h1>POLO INTERGALÁCTICO</h1>
-              <p class="h4">Precio: S/120.00</p>
+              <h1 class="store-name">POLO TRADICIONAL STILOS</h1>
+              <p class="location">Huanta, Ayacucho</p>
+              <p class="h4">Precio: S/85.00</p>
               <div class="form-group">
                 <label for="quantity">Cantidad:</label>
                 <div class="input-group">
@@ -201,28 +211,28 @@
                   <button class="btn btn-outline-secondary" type="button" id="button-plus">+</button>
                 </div>
               </div>
-              <p class="h4">Total: S/120.00</p>
+              <p class="h4">Total: S/85.00</p>
               <div class="form-group">
-                <label for="discount-code">Código de descuento interestelar:</label>
+                <label for="discount-code">Código de descuento:</label>
                 <div class="input-group">
-                  <input type="text" class="form-control" id="discount-code" placeholder="Ingresa código alien">
+                  <input type="text" class="form-control" id="discount-code" placeholder="Ingresa código promocional">
                   <button class="btn btn-primary" type="button">Aplicar</button>
                 </div>
               </div>
               <div class="form-group">
                 <label for="subtotal">Subtotal:</label>
-                <p class="h4" id="subtotal">S/120.00</p>
+                <p class="h4" id="subtotal">S/85.00</p>
               </div>
               <div class="form-group">
                 <label for="total">Total:</label>
-                <p class="h4" id="total">S/120.00</p>
+                <p class="h4" id="total">S/85.00</p>
               </div>
               <div class="d-grid gap-2 mt-4">
                 <a href="<?php echo BASE_URL ?>carrito" class="btn btn-primary" type="button">
-                  <i class="fas fa-shopping-cart"></i> AÑADIR A LA NAVE
+                  <i class="fas fa-shopping-bag"></i> AÑADIR AL CARRITO
                 </a>
                 <a href="<?php echo BASE_URL ?>producto" class="btn btn-outline-secondary" type="button">
-                  <i class="fas fa-arrow-left"></i> VOLVER A LA GALERÍA
+                  <i class="fas fa-arrow-left"></i> VOLVER A LA TIENDA
                 </a>
               </div>
             </div>
@@ -254,7 +264,7 @@
       function updateTotal() {
         const quantityInput = document.getElementById('quantity');
         const quantity = parseInt(quantityInput.value);
-        const total = 120.00 * quantity;
+        const total = 85.00 * quantity;
         document.getElementById('subtotal').textContent = `S/${total.toFixed(2)}`;
         document.getElementById('total').textContent = `S/${total.toFixed(2)}`;
       }
