@@ -3,199 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área 51 - Tienda Alienígena</title>
+    <title>STILOS - Tienda de Ropa y Bordados</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --alien-green: #00ff9d;
-            --alien-purple: #9d00ff;
-            --ufo-blue: #00e1ff;
-            --dark-space: #0a001a;
-            --energy-pink: #ff00aa;
+            --primary-brown: #8B4513;
+            --secondary-gold: #D4AF37;
+            --accent-beige: #F5F5DC;
+            --dark-brown: #5D4037;
+            --light-beige: #FFF8E1;
         }
         
-        @font-face {
-            font-family: 'Alien Encounter';
-            src: url('https://www.dafontfree.io/data/30/a/12484/Alien-Encounters-Regular.ttf') format('truetype');
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500&display=swap');
         
         body {
-            background-color: var(--dark-space);
-            background-image: 
-                radial-gradient(circle at 70% 30%, rgba(157, 0, 255, 0.15) 0%, transparent 25%),
-                radial-gradient(circle at 30% 70%, rgba(0, 255, 157, 0.15) 0%, transparent 25%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0.5" fill="%2300ff9d" opacity="0.8"/></svg>');
-            color: var(--alien-green);
-            font-family: 'Alien Encounter', 'Orbitron', sans-serif;
+            background-color: var(--light-beige);
+            color: var(--dark-brown);
+            font-family: 'Raleway', sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
-            padding-top: 80px;
+            padding-top: 100px;
         }
 
-        /* NAVBAR ALIENÍGENA */
-        .navbar-area51 {
-            background: rgba(10, 0, 26, 0.95) !important;
-            border-bottom: 3px solid var(--alien-green);
-            box-shadow: 0 0 25px rgba(0, 255, 157, 0.4);
+        /* NAVBAR STILOS */
+        .navbar-stilos {
+            background: rgba(255, 253, 250, 0.98) !important;
+            border-bottom: 3px solid var(--primary-brown);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.2);
             backdrop-filter: blur(10px);
-            padding: 10px 0;
+            padding: 12px 0;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1030;
+            transition: all 0.3s ease;
         }
 
-        .navbar-brand-alien {
+        .navbar-brand-stilos {
             position: relative;
             display: flex;
             align-items: center;
+            text-decoration: none;
         }
 
-        .logo-alien {
+        .logo-stilos {
             width: 180px;
-            filter: drop-shadow(0 0 10px var(--alien-green));
-            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 2px 4px rgba(139, 69, 19, 0.3));
+            transition: all 0.3s ease;
         }
 
-        .area51-title {
-            font-family: 'Alien Encounter', sans-serif;
-            color: var(--alien-green);
-            text-shadow: 0 0 10px var(--alien-green);
+        .stilos-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-brown);
             font-size: 1.8rem;
             margin-left: 10px;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             display: inline-block;
             vertical-align: middle;
+            font-weight: 700;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .location-badge {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 0.7rem;
+            color: var(--primary-brown);
+            transform: rotate(0deg);
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-align: center;
+            border: 1px dashed var(--primary-brown);
+            padding: 3px 8px;
+            border-radius: 3px;
+            background: rgba(255, 253, 250, 0.9);
         }
 
-        .nav-link-alien {
-            color: var(--alien-green) !important;
-            background: rgba(0, 50, 40, 0.3) !important;
-            border: 1px solid var(--alien-green) !important;
-            margin: 0 8px;
-            border-radius: 8px;
+        .nav-link-stilos {
+            color: var(--dark-brown) !important;
+            background: rgba(212, 175, 55, 0.1) !important;
+            border: 1px solid transparent !important;
+            margin: 0 5px;
+            border-radius: 5px;
             font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.4s;
+            letter-spacing: 1px;
+            transition: all 0.3s;
             position: relative;
             overflow: hidden;
-            padding: 10px 20px;
+            padding: 8px 15px;
+            font-weight: 500;
         }
 
-        .nav-link-alien:hover {
-            background: rgba(0, 255, 157, 0.2) !important;
-            color: var(--ufo-blue) !important;
-            border-color: var(--ufo-blue) !important;
-            box-shadow: 0 0 15px rgba(0, 225, 255, 0.6);
-            transform: translateY(-3px);
+        .nav-link-stilos:hover {
+            background: rgba(139, 69, 19, 0.1) !important;
+            color: var(--primary-brown) !important;
+            border-color: var(--primary-brown) !important;
+            transform: translateY(-2px);
         }
 
-        .nav-link-alien::before {
+        .nav-link-stilos::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
             transition: 0.5s;
         }
 
-        .nav-link-alien:hover::before {
+        .nav-link-stilos:hover::before {
             left: 100%;
         }
 
-        /* BOTONES ALIEN */
-        .btn-alien {
-            background: rgba(0, 40, 30, 0.7);
-            color: var(--alien-green);
-            border: 1px solid var(--alien-green);
-            border-radius: 8px;
+        /* BOTONES STILOS */
+        .btn-stilos {
+            background: var(--primary-brown);
+            color: var(--light-beige);
+            border: 1px solid var(--primary-brown);
+            border-radius: 5px;
             padding: 8px 20px;
-            font-weight: bold;
+            font-weight: 500;
             letter-spacing: 1px;
-            transition: all 0.4s;
+            transition: all 0.3s;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
         }
 
-        .btn-alien:hover {
-            background: var(--alien-green);
-            color: #000;
-            box-shadow: 0 0 20px var(--alien-green);
-            transform: translateY(-3px);
+        .btn-stilos:hover {
+            background: var(--dark-brown);
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+            transform: translateY(-2px);
         }
 
-        .btn-alien::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.4), transparent);
-            transform: translateX(-100%);
-            transition: 0.5s;
+        .btn-stilos-secondary {
+            background: transparent;
+            color: var(--primary-brown);
+            border: 1px solid var(--primary-brown);
         }
 
-        .btn-alien:hover::after {
-            transform: translateX(100%);
+        .btn-stilos-secondary:hover {
+            background: var(--primary-brown);
+            color: var(--light-beige);
         }
 
         /* EFECTOS ESPECIALES */
-        .alien-scanner {
+        .thread-line {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--alien-green), transparent);
-            box-shadow: 0 0 10px var(--alien-green);
-            animation: scan 4s linear infinite;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-brown), transparent);
+            animation: weave 6s linear infinite;
             z-index: 1000;
         }
 
-        @keyframes scan {
+        @keyframes weave {
             0% { top: 0; opacity: 0.7; }
             50% { opacity: 1; }
             100% { top: 100vh; opacity: 0.7; }
         }
 
-        @keyframes fly {
-            0% { left: -10%; }
-            100% { left: 110%; }
-        }
-
-        .ufo-fleet {
+        .fabric-pattern {
             position: fixed;
             width: 120px;
-            height: 60px;
-            background: radial-gradient(ellipse at center, var(--ufo-blue) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: drop-shadow(0 0 15px var(--ufo-blue));
+            height: 120px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M0,0 L20,20 M20,0 L0,20" stroke="%238B4513" stroke-width="0.3" opacity="0.1"/></svg>');
+            animation: float 25s linear infinite;
             z-index: -1;
-            opacity: 0.7;
+            opacity: 0.3;
             pointer-events: none;
         }
 
-        .security-badge {
-            position: absolute;
-            right: 20px;
-            top: 15px;
-            font-size: 0.7rem;
-            color: var(--energy-pink);
-            transform: rotate(15deg);
-            text-shadow: 0 0 5px var(--energy-pink);
-            font-weight: bold;
-            letter-spacing: 1px;
+        @keyframes float {
+            0% { left: -10%; transform: rotate(0deg); }
+            100% { left: 110%; transform: rotate(360deg); }
         }
 
         .main-content {
@@ -205,403 +191,177 @@
             min-height: calc(100vh - 200px);
         }
 
-        /* SECCIÓN DE PRODUCTOS */
-        .alien-products-section {
-            padding: 50px 0;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .section-title h2 {
-            color: var(--alien-green);
-            text-shadow: 0 0 10px var(--alien-green);
-            letter-spacing: 3px;
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::before,
-        .section-title h2::after {
-            content: '✧';
-            color: var(--ufo-blue);
-            margin: 0 15px;
-        }
-
-        .alien-product {
-            background: rgba(20, 10, 40, 0.7);
-            border: 2px solid var(--alien-green);
-            border-radius: 15px;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s;
-            box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 30px;
-        }
-
-        .alien-product:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 30px var(--alien-green);
-            border-color: var(--ufo-blue);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--alien-purple);
-            color: #000;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            z-index: 2;
-            text-transform: uppercase;
-        }
-
-        .product-image-container {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 15px;
-        }
-
-        .product-image {
-            transition: all 0.5s;
-            display: block;
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .alien-product:hover .product-image {
-            transform: scale(1.05);
-        }
-
-        .alien-energy {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--alien-green), var(--ufo-blue), var(--alien-purple));
-            opacity: 0.7;
-            transition: all 0.5s;
-        }
-
-        .alien-product:hover .alien-energy {
-            height: 10px;
-            opacity: 1;
-        }
-
-        .product-info {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-title {
-            color: var(--ufo-blue);
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .product-description {
-            color: #aaa;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            flex-grow: 1;
-        }
-
-        .product-specs {
-            background: rgba(0, 30, 40, 0.5);
-            border-left: 3px solid var(--alien-green);
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 0 5px 5px 0;
-        }
-
-        .product-specs p {
-            margin-bottom: 5px;
-            font-size: 0.8rem;
-            color: #ccc;
-        }
-
-        .product-specs i {
-            color: var(--alien-green);
-            margin-right: 5px;
-        }
-
-        .product-price {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .currency {
-            background: var(--alien-green);
-            color: #000;
-            padding: 3px 8px;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-right: 10px;
-            font-size: 0.9rem;
-        }
-
-        .price {
-            color: #fff;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-shadow: 0 0 5px var(--alien-green);
-        }
-
-        .btn-add-to-cart {
-            background: linear-gradient(45deg, var(--alien-green), var(--ufo-blue));
-            color: #000;
-            border: none;
-            padding: 10px;
-            border-radius: 8px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            text-align: center;
-            display: block;
-            width: 100%;
-        }
-
-        .btn-add-to-cart:hover {
-            background: linear-gradient(45deg, var(--ufo-blue), var(--alien-purple));
-            color: #fff;
-            box-shadow: 0 0 15px var(--alien-green);
-            transform: translateY(-2px);
-        }
-
-        /* FOOTER ALIEN */
-        .alien-footer {
-            background: rgba(10, 0, 26, 0.95);
-            border-top: 3px solid var(--alien-green);
-            padding: 30px 0;
-            margin-top: 50px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 20px;
-            padding: 0 15px;
-        }
-
-        .footer-section h3 {
-            color: var(--ufo-blue);
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-            border-bottom: 1px solid var(--alien-green);
-            padding-bottom: 10px;
-        }
-
-        .footer-section p, .footer-section a {
-            color: #aaa;
-            margin-bottom: 10px;
-            display: block;
-            transition: all 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: var(--alien-green);
-            transform: translateX(5px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(0, 255, 157, 0.2);
-            margin-top: 20px;
-        }
-
-        /* EFECTO PARALLAX */
-        .parallax-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=1000');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.1;
-        }
-
         /* RESPONSIVE ADJUSTMENTS */
         @media (max-width: 992px) {
-            .logo-alien {
+            .logo-stilos {
                 width: 140px;
             }
             
-            .area51-title {
+            .stilos-title {
                 font-size: 1.5rem;
             }
             
-            .product-image {
-                height: 200px;
-            }
-            
-            .nav-link-alien {
-                padding: 8px 15px;
-                margin: 5px 0;
+            .nav-link-stilos {
+                padding: 8px 12px;
+                margin: 3px 0;
                 font-size: 0.8rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
             }
         }
 
         @media (max-width: 768px) {
             body {
-                padding-top: 70px;
+                padding-top: 90px;
             }
             
-            .alien-product {
-                padding: 15px;
-            }
-            
-            .area51-title {
+            .stilos-title {
                 font-size: 1.2rem;
             }
             
-            .product-title {
-                font-size: 1rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.5rem;
-            }
-            
-            .footer-section {
-                min-width: 100%;
-            }
-            
             .navbar-collapse {
-                background: rgba(10, 0, 26, 0.98);
+                background: rgba(255, 253, 250, 0.98);
                 padding: 15px;
-                border: 1px solid var(--alien-green);
+                border: 1px solid var(--primary-brown);
                 margin-top: 10px;
-                border-radius: 8px;
+                border-radius: 5px;
+                box-shadow: 0 5px 15px rgba(139, 69, 19, 0.2);
+            }
+            
+            .location-badge {
+                display: none;
             }
         }
 
         @media (max-width: 576px) {
             body {
-                padding-top: 60px;
+                padding-top: 80px;
             }
             
-            .logo-alien {
-                width: 100px;
+            .logo-stilos {
+                width: 120px;
             }
             
-            .area51-title {
-                display: none;
+            .stilos-title {
+                font-size: 1rem;
             }
             
-            .btn-alien {
+            .btn-stilos {
                 padding: 6px 12px;
                 font-size: 0.8rem;
             }
+        }
+
+        /* Estilos para el logo SVG personalizado */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .embroidery-icon {
+            font-size: 1.2rem;
+            margin: 0 5px;
+            color: var(--primary-brown);
         }
     </style>
 </head>
 
 <body>
     <!-- EFECTOS ESPECIALES -->
-    <div class="alien-scanner"></div>
-    <div class="ufo-fleet" style="top: 15%; animation: fly 25s linear infinite;"></div>
-    <div class="ufo-fleet" style="top: 65%; animation: fly 30s linear infinite 5s;"></div>
-    <div class="ufo-fleet" style="top: 40%; animation: fly 35s linear infinite 10s; width: 80px; height: 40px;"></div>
-    <div class="parallax-bg"></div>
+    <div class="thread-line"></div>
+    <div class="fabric-pattern" style="top: 15%;"></div>
+    <div class="fabric-pattern" style="top: 65%; animation-delay: 5s; animation-duration: 30s;"></div>
+    <div class="fabric-pattern" style="top: 40%; animation-delay: 10s; animation-duration: 35s; width: 80px; height: 80px;"></div>
 
-    <!-- NAVBAR ALIEN -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-area51">
+    <!-- NAVBAR STILOS -->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-stilos">
         <div class="container-fluid">
-            <a class="navbar-brand navbar-brand-alien" href="<?php echo BASE_URL; ?>producto">
-                <img src="https://img.pikbest.com/origin/09/25/32/52rpIkbEsTuQ5.png!sw800" alt="ÁREA 51" class="logo-alien">
-                <span class="area51-title">AREA 51</span>
-                <span class="security-badge">NIVEL 5<br>CLASIFICADO</span>
+            <a class="navbar-brand navbar-brand-stilos" href="<?php echo BASE_URL; ?>producto">
+                <div class="logo-container">
+                    <!-- Logo SVG personalizado para STILOS -->
+                    <svg class="logo-stilos" width="180" height="60" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="brownGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#8B4513" />
+                                <stop offset="100%" stop-color="#5D4037" />
+                            </linearGradient>
+                            <pattern id="fabricPattern" patternUnits="userSpaceOnUse" width="10" height="10">
+                                <path d="M0,5 L10,5 M5,0 L5,10" stroke="#D4AF37" stroke-width="0.5" opacity="0.3"/>
+                            </pattern>
+                        </defs>
+                        
+                        <!-- Fondo con patrón de tela -->
+                        <rect width="180" height="60" fill="url(#fabricPattern)" opacity="0.1" rx="5"/>
+                        
+                        <!-- Marco decorativo -->
+                        <rect x="2" y="2" width="176" height="56" fill="none" stroke="url(#brownGradient)" stroke-width="1.5" rx="5"/>
+                        
+                        <!-- Letra S estilizada -->
+                        <path d="M30,15 C30,10 35,8 40,10 C45,12 45,18 40,20 C35,22 30,25 30,30 C30,35 35,38 40,40 C45,42 50,40 50,35" 
+                              fill="none" stroke="url(#brownGradient)" stroke-width="3" stroke-linecap="round"/>
+                        
+                        <!-- Letra T -->
+                        <path d="M65,15 L65,35 M60,15 L70,15" 
+                              fill="none" stroke="url(#brownGradient)" stroke-width="3" stroke-linecap="round"/>
+                        
+                        <!-- Letra I -->
+                        <path d="M80,15 L80,35" 
+                              fill="none" stroke="url(#brownGradient)" stroke-width="3" stroke-linecap="round"/>
+                        
+                        <!-- Letra L -->
+                        <path d="M95,15 L95,35 L105,35" 
+                              fill="none" stroke="url(#brownGradient)" stroke-width="3" stroke-linecap="round"/>
+                        
+                        <!-- Letra O -->
+                        <ellipse cx="125" cy="25" rx="8" ry="10" 
+                                 fill="none" stroke="url(#brownGradient)" stroke-width="3"/>
+                        
+                        <!-- Letra S -->
+                        <path d="M140,15 C140,10 145,8 150,10 C155,12 155,18 150,20 C145,22 140,25 140,30 C140,35 145,38 150,40 C155,42 160,40 160,35" 
+                              fill="none" stroke="url(#brownGradient)" stroke-width="3" stroke-linecap="round"/>
+                        
+                        <!-- Elementos de bordado decorativos -->
+                        <circle cx="20" cy="15" r="2" fill="#D4AF37" opacity="0.7"/>
+                        <circle cx="20" cy="45" r="2" fill="#D4AF37" opacity="0.7"/>
+                        <circle cx="160" cy="15" r="2" fill="#D4AF37" opacity="0.7"/>
+                        <circle cx="160" cy="45" r="2" fill="#D4AF37" opacity="0.7"/>
+                        
+                        <!-- Línea decorativa inferior -->
+                        <path d="M25,50 L155,50" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="2,2"/>
+                    </svg>
+                    <span class="stilos-title">STILOS</span>
+                    <span class="location-badge">Huanta<br>Ayacucho</span>
+                </div>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAlien">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarStilos">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarAlien">
+            <div class="collapse navbar-collapse" id="navbarStilos">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link nav-link-alien" href="<?php echo BASE_URL ?>producto"><i class="fas fa-shopping-cart"></i> TIENDA</a></li>
-                    <li class="nav-item"><a class="nav-link nav-link-alien" href="<?php echo BASE_URL ?>novedades"><i class="fas fa-newspaper"></i> NOVEDADES</a></li>
-                    <li class="nav-item"><a class="nav-link nav-link-alien" href="<?php echo BASE_URL ?>nosotros"><i class="fas fa-user-astronaut"></i> NOSOTROS</a></li>
-                    <li class="nav-item"><a class="nav-link nav-link-alien" href="<?php echo BASE_URL ?>contactanos"><i class="fas fa-phone-volume"></i> CONTACTO</a></li>
-                    <li class="nav-item"><a class="nav-link nav-link-alien" href="<?php echo BASE_URL ?>ubicacion"><i class="fas fa-map-marked-alt"></i> UBICACIÓN</a></li>
-                    <li class="nav-item"><a class="nav-link nav-link-alien" href="<?php echo BASE_URL ?>rutadeenvio"><i class="fas fa-route"></i> ENVÍOS</a></li>
-                    <li class="nav-item"><a class="nav-link nav-link-alien" href="<?php echo BASE_URL ?>libroreclamaciones"><i class="fas fa-book"></i> RECLAMOS</a></li>
-                    <li class="nav-item"><a class="nav-link nav-link-alien" href="<?php echo BASE_URL ?>comentarios"><i class="fas fa-comments"></i> COMENTARIOS</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-stilos" href="<?php echo BASE_URL ?>producto"><i class="fas fa-tshirt"></i> TIENDA</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-stilos" href="<?php echo BASE_URL ?>novedades"><i class="fas fa-newspaper"></i> NOVEDADES</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-stilos" href="<?php echo BASE_URL ?>nosotros"><i class="fas fa-users"></i> NOSOTROS</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-stilos" href="<?php echo BASE_URL ?>contactanos"><i class="fas fa-phone"></i> CONTACTO</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-stilos" href="<?php echo BASE_URL ?>ubicacion"><i class="fas fa-map-marker-alt"></i> UBICACIÓN</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-stilos" href="<?php echo BASE_URL ?>rutadeenvio"><i class="fas fa-truck"></i> ENVÍOS</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-stilos" href="<?php echo BASE_URL ?>libroreclamaciones"><i class="fas fa-book"></i> RECLAMOS</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-stilos" href="<?php echo BASE_URL ?>comentarios"><i class="fas fa-comments"></i> COMENTARIOS</a></li>
                 </ul>
 
                 <ul class="navbar-nav">
-
                     <li class="nav-item">
-                        <a class="btn btn-alien" href="<?php echo BASE_URL ?>login" style="background: rgba(157, 0, 255, 0.3); border-color: var(--alien-purple);">
-                            <i class="fas fa-lock"></i> SALIR
+                        <a class="btn btn-stilos btn-stilos-secondary" href="<?php echo BASE_URL ?>login">
+                            <i class="fas fa-user"></i> INICIAR SESIÓN
                         </a>
                     </li>
-                   
-<li class="nav-item">
-    <a class="btn btn-alien" href="<?php echo BASE_URL ?>panel" style="background: rgba(157, 0, 255, 0.3); border-color: var(--alien-purple);">
-        <i class="fas fa-lock"></i> PANEL
-    </a>
-</li>
-
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-stilos" href="<?php echo BASE_URL ?>panel">
+                            <i class="fas fa-cog"></i> PANEL
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function cerrar_sesion() {
-            // Opción 1: Redirección directa
-            window.location.href = "<?php echo BASE_URL ?>logout";
-            
-            // Opción 2: Usando fetch para cerrar sesión (descomentar si prefieres)
-            /*
-            fetch("<?php echo BASE_URL ?>logout", { 
-                method: 'POST',
-                credentials: 'same-origin'
-            })
-            .then(response => {
-                if(response.ok) {
-                    window.location.reload();
-                }
-            })
-            .catch(error => console.error('Error:', error));
-            */
-        }
-    </script>
 </body>
 </html>
